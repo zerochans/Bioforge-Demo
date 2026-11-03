@@ -1,7 +1,8 @@
 # BioForge Studio 3.2.2
 
 GitHub 仓库：<https://github.com/zerochans/Bioforge-Demo>  
-iOS CI：[![Build iOS unsigned IPA](https://github.com/zerochans/Bioforge-Demo/actions/workflows/build-ios-unsigned.yml/badge.svg)](https://github.com/zerochans/Bioforge-Demo/actions/workflows/build-ios-unsigned.yml)
+iOS CI：[![Build iOS unsigned IPA](https://github.com/zerochans/Bioforge-Demo/actions/workflows/build-ios-unsigned.yml/badge.svg)](https://github.com/zerochans/Bioforge-Demo/actions/workflows/build-ios-unsigned.yml)  
+CI run #1：成功，artifact `BioForgeStudio-3.2.2-unsigned-ipa`（631,892 bytes，[运行记录](https://github.com/zerochans/Bioforge-Demo/actions/runs/41571174925)）
 
 把一个产品目标，变成**一组可比较、可追溯、可计算**的食品配方或生物设计方案，并把配方/工艺实验数据接成**训练 → 不确定性 → 贝叶斯优化 → 实测回灌**的本地闭环。
 
@@ -21,7 +22,7 @@ BioForge Studio 3.2.2 在 3.2.1 的基础上，新增 21 个端到端案例/20 �
 - **3D 与图谱**：元素/链/二级结构/残基极性/序列彩虹/B-factor/深度 7 种着色；蛋白与核酸聚合物全序列分组、配体组分；图谱节点类型/边关系字典、每条边显示 `evidence_status`/`basis`/`citations`，无引用边显示 caveat。
 - **双语与主题**：核心界面中英切换；英文模式通过 `web/i18n-data.js` 翻译记忆、数字模板和术语替换覆盖设计/案例/计算/图谱/3D 动态内容，12 套主题各有独立纹理并同步卡片/导航/hero。
 - **构建**：APK 3.2.2（versionCode 8，357,999 bytes）v2/v3 签名通过；Service Worker `bioforge-v322-shell-13`；配方候选按组成去重，并生成 8 个唯一配方（含显式原料变体）。
-- **iOS 客户端**：`ios/` 提供 WKWebView 原生壳、Xcode 工程和 XcodeGen 配置，服务器配置/health 探测、Cookie、离线预览、文件导出与 Android 对齐；`.github/workflows/build-ios-unsigned.yml` 可在 macOS runner 生成未签名 `.ipa`，但当前尚未实际运行，仍没有可直接安装的签名 `.ipa`。
+- **iOS 客户端**：`ios/` 提供 WKWebView 原生壳、Xcode 工程和 XcodeGen 配置，服务器配置/health 探测、Cookie、离线预览、文件导出与 Android 对齐；`.github/workflows/build-ios-unsigned.yml` 已在 macOS runner 成功生成未签名 `.ipa` artifact；仍需 Sideloadly/AltStore 或正式证书重签后才能安装，当前没有可直接安装的签名 `.ipa`。
 - **配方真实性**：英文目标量（`≤8% sugar`、`≥6% dietary fibre`）与中文解析对齐；低糖/高纤目标按配方质量平衡补足；候选按组成去重，不足 8 个时生成可追溯的原料替代变体，不再用相同配方重复占位。
 
 ## v3.2.1 重点
@@ -62,7 +63,7 @@ BioForge Studio 3.2.2 在 3.2.1 的基础上，新增 21 个端到端案例/20 �
 | 交付物 | 路径 |
 |---|---|
 | Android APK 3.2.2 | `dist/BioForgeStudio-3.2.2.apk`（357,999 bytes；SHA-256 `d11806eb0bb74f0e9517eb9597add7d75fd4a33435e95f4b6f15ffcd2e3dcb7f`） |
-| iOS 工程 3.2.2 | `ios/BioForgeStudio.xcodeproj`（WKWebView 壳；Xcode 15+/iOS 15+；未编译/未签名） |
+| iOS 工程 3.2.2 | `ios/BioForgeStudio.xcodeproj`（WKWebView 壳；Xcode 15+/iOS 15+；CI 已生成未签名 artifact） |
 | Web / PWA 3.2.2 | `web/index.html` |
 | FastAPI 3.2.2（端口 8010） | `backend/app_v3.py` |
 | PostgreSQL 16 + pgvector | `docker-compose.yml` / `scripts/start_postgres.sh` / `backend/db.py` |
@@ -162,7 +163,7 @@ iOS 壳是 WKWebView 客户端，首次启动填写服务器地址并请求 `/ap
 
 1. 打开 <https://github.com/zerochans/Bioforge-Demo/actions/workflows/build-ios-unsigned.yml>。
 2. 点击 **Run workflow**。
-3. 下载 artifact `BioForgeStudio-3.2.2-unsigned-ipa`。
+3. 下载 artifact `BioForgeStudio-3.2.2-unsigned-ipa`（[CI run #1](https://github.com/zerochans/Bioforge-Demo/actions/runs/41571174925) 已成功，631,892 bytes）。
 4. 用 Sideloadly/AltStore + 自己的 Apple ID 重签安装；正式分发需要 Apple Developer 证书/描述文件。
 
 未签名 IPA 不能直接安装；workflow 不包含任何 Apple 私钥或证书。

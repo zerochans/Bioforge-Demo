@@ -259,8 +259,8 @@
 - Service Worker 升至 `bioforge-v322-shell-13`；APK 重建 `357,999 bytes`，SHA-256 `d11806eb0bb74f0e9517eb9597add7d75fd4a33435e95f4b6f15ffcd2e3dcb7f`，v2/v3 签名通过，内置 `App 服务器` 与 shell-13。
 - 回归：`64 passed, 1 warning`；`node --check web/app.js|lab.js|sw.js`、`node scripts/check_web.js` 通过。
 - iOS 静态校验：Info.plist、project.yml、scheme/workspace XML、Assets JSON、pbxproj 解析通过；Swift tree-sitter 语法检查无错误；AppIcon 1024×1024 RGB 无 alpha。
-- 新增 `.github/workflows/build-ios-unsigned.yml` 与 `ios/ci/build_unsigned_ipa.sh`：macOS runner 构建未签名 `.ipa`，下载后需 Sideloadly/AltStore/正式证书重签；尚未实际运行 CI，当前仍无可直接安装的签名 `.ipa`。
-- 未完成：未在 macOS/Xcode 编译、未签名、未生成 `.ipa`，未做模拟器/真机验收；ATS 放宽仅适用于可信局域网，公网必须 HTTPS。
+- 新增 `.github/workflows/build-ios-unsigned.yml` 与 `ios/ci/build_unsigned_ipa.sh`：macOS runner 构建未签名 `.ipa`；随后 run #1 成功生成 artifact，下载后仍需 Sideloadly/AltStore/正式证书重签。
+- 未完成：无签名 `.ipa`，未做模拟器/真机验收；Linux 未本地编译，CI 已生成未签名 artifact。ATS 放宽仅适用于可信局域网，公网必须 HTTPS。
 
 ## 2026-11-02 · GitHub Bioforge-Demo 与 iOS CI
 
@@ -270,5 +270,8 @@
 - 新增 `.github/workflows/build-ios-unsigned.yml`：macOS 15 runner 执行 Release device build，关闭代码签名，打包 `Payload/BioForgeStudio.app` 为未签名 `.ipa`，上传 artifact `BioForgeStudio-3.2.2-unsigned-ipa`。
 - 新增 `ios/ci/build_unsigned_ipa.sh`：macOS 本机/CI 共用构建与打包脚本；Linux 会明确退出并提示需要 macOS/Xcode。
 - 新增 `docs/GITHUB_CI.md`：记录仓库结构、安全排除、CI 触发、artifact 下载、Sideloadly/AltStore 自签安装和正式证书边界。
-- 校验：`actionlint 1.7.12` 通过；`bash -n ios/ci/build_unsigned_ipa.sh` 通过；workflow YAML 由 PyYAML 读取通过。Linux 无法执行 `xcodebuild`，因此实际 IPA 仍需 GitHub Actions 或 macOS 本机产出。
-- iOS 仍未签名、未做模拟器/真机验收；未签名 IPA 不能直接安装，必须用 Apple ID/开发者证书重签。
+- 校验：`actionlint 1.7.12` 通过；`bash -n ios/ci/build_unsigned_ipa.sh` 通过；workflow YAML 由 PyYAML 读取通过。
+- 推送：`main` 从 `4093e8c` 更新到 `d237f3a`；push 自动触发 GitHub Actions。
+- CI run #1：[41571174925](https://github.com/zerochans/Bioforge-Demo/actions/runs/41571174925)，2026-11-03T03:16:05Z 创建，03:17:45Z 完成，结论 `success`；job `125704150277` 的 7 个步骤全部成功。
+- artifact：`BioForgeStudio-3.2.2-unsigned-ipa`，artifact ID `13201382665`，631,892 bytes，2026-11-17T03:17:28Z 过期；下载需要 GitHub 登录。
+- 仍未签名、未做模拟器/真机验收；未签名 IPA 不能直接安装，必须用 Apple ID/开发者证书重签。

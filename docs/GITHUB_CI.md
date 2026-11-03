@@ -55,7 +55,7 @@ dist/BioForgeStudio-3.2.2-unsigned.ipa.sha256
 3. 等待 macOS job 完成。
 4. 下载 artifact `BioForgeStudio-3.2.2-unsigned-ipa`。
 
-push 到 `main` 且改动涉及 `ios/**`、`web/**`、`scripts/sync_ios_web.sh` 或 workflow 本身时，也会自动触发。
+push 到 `main` 且改动涉及 `ios/BioForgeStudio/**`、`ios/BioForgeStudio.xcodeproj/**`、`ios/www/**`、`ios/ci/**`、`ios/project.yml`、`web/**`、`scripts/sync_ios_web.sh` 或 workflow 本身时，也会自动触发；只改 `ios/README.md` 或文档不会触发。
 
 ## 安装到 iPhone
 
@@ -84,4 +84,6 @@ push 到 `main` 且改动涉及 `ios/**`、`web/**`、`scripts/sync_ios_web.sh` 
 - 构建脚本：`bash -n` 通过。
 - Linux 主机无法运行 `xcodebuild`；实际 macOS 编译必须在 GitHub Actions 或 macOS 本机执行。
 - 当前仓库中的 APK：357,999 bytes，SHA-256 `d11806eb0bb74f0e9517eb9597add7d75fd4a33435e95f4b6f15ffcd2e3dcb7f`，v2/v3 签名通过。
-- iOS 当前状态：工程、资源和 CI 已准备；尚未产出签名 `.ipa`，未做模拟器/真机验收。
+- CI run #1：[41571174925](https://github.com/zerochans/Bioforge-Demo/actions/runs/41571174925)，push 事件，head `d237f3a`，2026-11-03T03:16:35Z 至 03:17:45Z，结论 `success`。
+- artifact：`BioForgeStudio-3.2.2-unsigned-ipa`，631,892 bytes，创建于 2026-11-03T03:17:31Z，2026-11-17T03:17:28Z 过期；artifact 下载需要 GitHub 登录。
+- iOS 当前状态：工程、资源、CI 和未签名 artifact 已准备；尚未产出签名 `.ipa`，未做模拟器/真机验收。

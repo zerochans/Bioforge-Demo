@@ -7,7 +7,11 @@ on:
       - main
       - master
     paths:
-      - "ios/**"
+      - "ios/BioForgeStudio/**"
+      - "ios/BioForgeStudio.xcodeproj/**"
+      - "ios/www/**"
+      - "ios/ci/**"
+      - "ios/project.yml"
       - "web/**"
       - "scripts/sync_ios_web.sh"
       - ".github/workflows/build-ios-unsigned.yml"

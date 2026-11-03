@@ -63,9 +63,10 @@
 - 新增 `ios/BioForgeStudio.xcodeproj`、`ios/project.yml`、Info.plist、AppIcon/LaunchBackground 资源、`scripts/sync_ios_web.sh` 和 `ios/README.md`；Bundle ID `ai.bioforge.studio`，iOS 15+，Xcode 15+。
 - 原生服务器配置标题由“Android 服务器”改为中性的“App 服务器”，英文对应 “App server”；Web/APK/iOS 共用。
 - Service Worker 升至 `bioforge-v322-shell-13`；APK 重建为 `357,999 bytes`，SHA-256 `d11806eb0bb74f0e9517eb9597add7d75fd4a33435e95f4b6f15ffcd2e3dcb7f`，v2/v3 签名通过。
-- 回归：`64 passed, 1 warning`；`node --check`、`node scripts/check_web.js` 通过；iOS 侧完成 plist/YAML/XML/JSON/pbxproj 解析和 Swift tree-sitter 语法检查，但**未在 macOS/Xcode 编译、未签名、未生成 IPA**。
+- 回归：`64 passed, 1 warning`；`node --check`、`node scripts/check_web.js` 通过；Linux 侧完成 plist/YAML/XML/JSON/pbxproj 解析和 Swift tree-sitter 语法检查；后续 GitHub Actions macOS run #1 生成未签名 IPA artifact。
 - 新增 `.github/workflows/build-ios-unsigned.yml` 和 `ios/ci/build_unsigned_ipa.sh`：macOS runner 可构建未签名 IPA，需用 Sideloadly/AltStore 或正式证书重签后安装。
 - 发布 GitHub 仓库 <https://github.com/zerochans/Bioforge-Demo>；补充 `docs/GITHUB_CI.md`、仓库级 README、iOS CI 说明、最终 APK 与安全排除规则。
+- GitHub Actions run #1（41571174925）成功：macOS runner 生成未签名 artifact `BioForgeStudio-3.2.2-unsigned-ipa`，631,892 bytes；仍未签名、未真机验收。
 
 ## 3.2.1 — 2026-10-23
 

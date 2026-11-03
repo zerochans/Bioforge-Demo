@@ -12,7 +12,7 @@ GitHub：<https://github.com/zerochans/Bioforge-Demo>
 | Android APK | `dist/BioForgeStudio-3.2.2.apk` | 357,999 bytes，minSdk 24，targetSdk 34，versionCode 8，versionName 3.2.2，2026-11-02 重建（含 HADDOCK3 UI/可折叠界面） |
 | APK SHA-256 | `d11806eb0bb74f0e9517eb9597add7d75fd4a33435e95f4b6f15ffcd2e3dcb7f` | `sha256sum` 可复核；v2/v3 签名通过 |
 | Web/PWA | `web/index.html` + `web/app.js` + `web/lab.js` | 品牌 `STUDIO 3.2.2`，SW `bioforge-v322-shell-13` |
-| iOS 工程 | `ios/BioForgeStudio.xcodeproj` | WKWebView 壳，iOS 15+ / Xcode 15+；未编译、未签名、无 `.ipa` |
+| iOS 工程 | `ios/BioForgeStudio.xcodeproj` | WKWebView 壳，iOS 15+ / Xcode 15+；CI 已生成未签名 artifact，无签名 `.ipa` |
 | API 服务 | `backend/app_v3.py` | 监听 `0.0.0.0:8010` |
 | PostgreSQL | `bioforge-db` + `backend/db.py` | PostgreSQL 16.15 + pgvector 0.8.7，数据卷 `bioforge_pgdata` |
 | 资源目录 | `data/resources.json` + `backend/resources.py` | 7 组 45 条，含光谱/波谱证据，合法官方入口，排除 Sci-Hub |
@@ -24,7 +24,7 @@ GitHub：<https://github.com/zerochans/Bioforge-Demo>
 | 测试 | `tests/` | 64 passed, 1 warning（2026-11-02 回归） |
 | 部署 | `Dockerfile`、`docker-compose.yml`、`deploy/` | PostgreSQL healthcheck、Caddy HTTPS、Tunnel 骨架 |
 | 文档 | `README.md`、`docs/`、`RELEASES.md`、`CHANGELOG.md` | 含用户指南、部署、数据源、限制说明 |
-| GitHub CI | `.github/workflows/build-ios-unsigned.yml` | macOS runner 构建未签名 IPA；需重签后安装 |
+| GitHub CI | `.github/workflows/build-ios-unsigned.yml` | run #1 成功；artifact `BioForgeStudio-3.2.2-unsigned-ipa` 631,892 bytes；需重签后安装 |
 
 旧版 `dist/BioForgeStudio-3.2.1.apk`、3.2.0、3.1.0 和 3.0.0 保留用于回滚，不作为本次交付主包。
 
@@ -43,8 +43,8 @@ GitHub：<https://github.com/zerochans/Bioforge-Demo>
 - 功能：服务器地址输入 + `/api/health` 探测、Cookie 登录、离线静态预览、外部链接跳转、文件导出、`AndroidBridge` 兼容桥。
 - 同步：修改 `web/` 后执行 `./scripts/sync_ios_web.sh`；工程也可用 `cd ios && xcodegen generate` 从 `project.yml` 再生成。
 - 构建：需要 macOS 13+、Xcode 15+ 和 Apple Developer Team；`ios/README.md` 含模拟器编译、Archive 和 `.ipa` 导出命令。
-- CI 构建：`.github/workflows/build-ios-unsigned.yml` + `ios/ci/build_unsigned_ipa.sh`，在 macOS runner 上生成未签名 `.ipa`；需用 Sideloadly/AltStore 或正式证书重签后才能安装。当前尚未实际运行 CI。
-- 状态：**未在 Linux 编译或签名，未做模拟器/真机验收，当前没有可安装 `.ipa`**；不能表述为“已交付 iOS 安装包”。
+- CI 构建：`.github/workflows/build-ios-unsigned.yml` + `ios/ci/build_unsigned_ipa.sh`；GitHub Actions run #1 已成功生成未签名 artifact `BioForgeStudio-3.2.2-unsigned-ipa`（631,892 bytes），需用 Sideloadly/AltStore 或正式证书重签后才能安装。
+- 状态：**Linux 未编译/签名；GitHub Actions run #1 已成功生成未签名 artifact，仍未做模拟器/真机验收，当前没有可直接安装的签名 `.ipa`**；不能表述为“已交付 iOS 安装包”。
 - ATS：为任意用户输入的局域网 HTTP 服务器启用 `NSAllowsArbitraryLoads`/`NSAllowsLocalNetworking`；公网必须 HTTPS。
 
 ## 英文覆盖（2026-10-28）
@@ -103,7 +103,7 @@ PYTHON=/home/h3c/softwares/anaconda3/envs/molecule_tools/bin/python ./scripts/ru
 ## 已知限制
 
 - 无 adb/AVD，APK 3.2.2 真机首启、LAN WebView 登录、Service Worker 更新未做设备级验收。
-- iOS 工程未在 macOS/Xcode 编译、未签名、未生成 `.ipa`；未做真机 Cookie、文件选择器、ATS/本地网络权限回归。
+- iOS 未产出签名 `.ipa`，未做真机 Cookie、文件选择器、ATS/本地网络权限回归；当前只有未签名 CI artifact。
 - Docker 服务器镜像只包含 Web/后端/文档，不包含 `ios/` 客户端源码；iOS 工程从源码目录单独交付。
 - 多用户认证尚未迁移：`app_users` 表已建但登录仍走单用户 `auth.json`。
 - 第三方 API 注册未执行；NCBI key 未接入，FDC key 支持保持原状；KEGG 可能间歇失败，ZINC 为 link-only。

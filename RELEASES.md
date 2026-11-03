@@ -16,7 +16,7 @@
 - 图谱新增节点/边字典与 provenance：每条边显示 `evidence_status`/`basis`/`citations`，无引用非 workflow 边显示 caveat。
 - 12 套主题增加独立纹理与卡片/导航/hero 染色；核心界面支持中英切换，英文模式通过翻译记忆、数字模板和术语替换覆盖设计/计算/图谱/3D 动态内容。
 - 食品目标配料进入候选配方并受上限约束；显式荧光蛋白不再被食品色蛋白替代；计算支持 PDB 一句话解析与仅字段提交。案例/资源/助手/笔记/HADDOCK/参数/工具面板可折叠，任务卡按时间倒序并支持全部展开/收起；侧栏加入半透明科学里程碑图与星云背景。
-- iOS：新增 `ios/` WKWebView 原生壳、Xcode 工程和 XcodeGen 配置；支持服务器地址/health 探测、Cookie 登录、离线预览、文件导出和外部链接跳转。新增 `.github/workflows/build-ios-unsigned.yml` 和 `ios/ci/build_unsigned_ipa.sh`，可在 macOS runner 生成未签名 `.ipa`；仍没有可直接安装的签名 `.ipa`。GitHub 仓库：<https://github.com/zerochans/Bioforge-Demo>。
+- iOS：新增 `ios/` WKWebView 原生壳、Xcode 工程和 XcodeGen 配置；支持服务器地址/health 探测、Cookie 登录、离线预览、文件导出和外部链接跳转。新增 `.github/workflows/build-ios-unsigned.yml` 和 `ios/ci/build_unsigned_ipa.sh`；GitHub Actions run #1 已在 macOS runner 成功生成未签名 artifact `BioForgeStudio-3.2.2-unsigned-ipa`（631,892 bytes），仍需重签后安装。GitHub 仓库：<https://github.com/zerochans/Bioforge-Demo>。
 - 版本 3.2.2；Android versionCode 8；Service Worker `bioforge-v322-shell-13`。新增 `web/i18n-data.js` 翻译记忆，20 个食品案例、机制案例、图谱、3D、HADDOCK3 表单/任务卡、资源/设置和助手英文问答均完成可见文案英文化；新增 `.xtc` 轨迹接口和缓存。配方候选按组成去重，不足 8 个时生成可追溯的原料替代变体；英文 `≤8% sugar` / `≥6% dietary fibre` 等目标量与中文解析对齐。
 
 **交付物**
@@ -27,7 +27,7 @@
 
 | 其他交付物 | 路径/状态 |
 |---|---|
-| iOS 工程 | `ios/BioForgeStudio.xcodeproj`，WKWebView 壳，Xcode 15+/iOS 15+；未编译/未签名 |
+| iOS 工程 | `ios/BioForgeStudio.xcodeproj`，WKWebView 壳，Xcode 15+/iOS 15+；CI 已生成未签名 artifact |
 
 **验证记录**
 
@@ -41,7 +41,7 @@
 - HADDOCK3 浏览器：表单 30 输入、三种工作流、英文标签/占位符、a.u. 分数/模型簇表/步骤/产物/3D 正常；`best_model.pdb` 加载 2,516 atoms/2 chains；20 个食品案例英文复扫 CJK 0。
 - Headless Chrome CDP：登录、指南/笔记、语言切换、资源库/设置动态文案、移动端 8 个标签在 320–430 px 全部可见、390 px 无横向溢出、0 JS 异常；英文静态页仅保留语言按钮“中”和代码示例“内容”两处有意中文；最终 20 案例复扫可见 CJK 为 0。
 - APK：`357,999` bytes；versionCode 8 / versionName 3.2.2；`apksigner` v2/v3 通过；内置 `assets/www/sw.js` 为 `bioforge-v322-shell-13`，含 HADDOCK3 表单/任务卡、多组合计算、助手/笔记、`i18n-data.js`、图谱/3D/计算动态翻译、可折叠 UI、侧栏里程碑图和科学背景 SVG；原生服务器标题已改为“App 服务器”。
-- iOS：`ios/BioForgeStudio.xcodeproj` 已生成；Info.plist、project.yml、XML/JSON 和 pbxproj 解析通过，Swift 语法检查无错误；未编译、未签名、无 `.ipa`。
+- iOS：`ios/BioForgeStudio.xcodeproj` 已生成；Info.plist、project.yml、XML/JSON 和 pbxproj 解析通过，Swift 语法检查无错误；GitHub Actions run #1 生成未签名 artifact，未签名、无签名 `.ipa`。
 - 笔记接口：默认 Obsidian 目录 `/media/h3c/Win11Pro X64/data/literature/obsidian/00-BioForge`，10 篇 Markdown 可读。
 - 轨迹：`C20261023T091435Z-9e283468` 的 `pairs/01_1BEB_quercetin/gromacs_complex/md.xtc` 通过 `/api/v3/structure/trajectory/...` 返回 395,527 bytes PDB；仅接受作业内 `.xtc` 且要求 `md.tpr`，缓存 `viewer/*-v2.pdb`。
 - Docker 镜像 `v300-app:latest` 已重建（约 767 MB）；临时隔离容器 `18010` health 返回 `3.2.2`，HADDOCK3 按钮和 SW shell-13 可见，验证后已停止。宿主 8010 服务已重启到新代码（PID `3630499`）；compose 全栈未启动，公网未部署。
@@ -63,7 +63,7 @@
 - 复合物 MD 使用自动质子化/电荷与 ACPYPE GAFF2/AM1-BCC；配体电荷、互变异构和蛋白质子化仍需人工复核。
 - GROMACS 复合物 MD 在“全部”模式按 pair 运行，耗时随组合数增加；CP2K 仍按唯一配体独立运行。
 - 无 adb/AVD，APK 3.2.2 真机首启、LAN WebView 登录、SW 更新未做设备级验收。
-- iOS 工程未在 macOS/Xcode 编译，未签名、未生成 `.ipa`；ATS 为任意用户输入服务器放宽，公网必须 HTTPS。
+- iOS 未产出签名 `.ipa`，未做真机验收；当前只有未签名 CI artifact。ATS 为任意用户输入服务器放宽，公网必须 HTTPS。
 - `literature_chunks.embedding` 仍未回填；没有向量召回/HNSW。
 - Ollama 模型与 Obsidian 目录是本机环境依赖，换机需在设置/环境变量中重新配置。
 - 英文模式覆盖导航、按钮、表单占位符、资源库/设置、设计/计算/图谱/3D 动态 UI、20 个食品案例和机制案例；Obsidian 笔记保留原文并提示按需查看，助手历史在英文模式下只显示英文记录。

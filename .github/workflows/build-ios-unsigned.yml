@@ -1,0 +1,63 @@
+name: Build iOS unsigned IPA
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+      - master
+    paths:
+      - "ios/**"
+      - "web/**"
+      - "scripts/sync_ios_web.sh"
+      - ".github/workflows/build-ios-unsigned.yml"
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: macos-15
+    timeout-minutes: 30
+    env:
+      APP_NAME: BioForgeStudio
+      APP_VERSION: "3.2.2"
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Show toolchain
+        run: |
+          sw_vers
+          xcodebuild -version
+          xcode-select -p
+
+      - name: Sync web assets
+        run: |
+          chmod +x scripts/sync_ios_web.sh
+          scripts/sync_ios_web.sh
+
+      - name: Build unsigned IPA
+        run: |
+          chmod +x ios/ci/build_unsigned_ipa.sh
+          ios/ci/build_unsigned_ipa.sh
+
+      - name: Verify artifact
+        run: |
+          set -euo pipefail
+          IPA="dist/${APP_NAME}-${APP_VERSION}-unsigned.ipa"
+          test -f "$IPA"
+          test -f "$IPA.sha256"
+          unzip -l "$IPA" | sed -n '1,20p'
+          cat "$IPA.sha256"
+
+      - name: Upload IPA
+        uses: actions/upload-artifact@v4
+        with:
+          name: BioForgeStudio-3.2.2-unsigned-ipa
+          path: |
+            dist/BioForgeStudio-3.2.2-unsigned.ipa
+            dist/BioForgeStudio-3.2.2-unsigned.ipa.sha256
+          if-no-files-found: error
+          retention-days: 14

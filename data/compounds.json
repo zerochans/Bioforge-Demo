@@ -1,0 +1,548 @@
+{
+  "schema_version": "1.0",
+  "curated_date": "2026-10-20",
+  "disclaimer": "Curated demonstration compounds and formulation additives. Regulatory limits shown are indicative; always confirm the current local food-additive regulation and permitted use level.",
+  "items": [
+    {
+      "id": "riboflavin",
+      "name": "Riboflavin (vitamin B2)",
+      "cn_name": "核黄素（维生素B2）",
+      "smiles": "CC1=CC2=C(C=C1C)N(C3=NC(=O)NC(=O)C3=N2)C[C@@H]([C@@H]([C@@H](CO)O)O)O",
+      "formula": "C17H20N4O6",
+      "mw": 376.37,
+      "category": "vitamin / fluorescent colorant",
+      "food_safe": true,
+      "food_status": "GRAS / E101",
+      "fluorescence": true,
+      "ex_nm": [
+        270,
+        373,
+        445
+      ],
+      "em_nm": 525,
+      "uv_interference": 0.4,
+      "typical_mg_l": [
+        20,
+        100
+      ],
+      "max_mg_l": 200,
+      "ph_min": 3.0,
+      "ph_max": 8.0,
+      "notes": "Strongly fluorescent, photodegradable, heat-labile; protect from light and oxygen.",
+      "tags": [
+        "food_safe",
+        "fluorescent",
+        "vitamin",
+        "yellow"
+      ],
+      "references": [
+        "PubChem CID 493570",
+        "Food chemistry reviews"
+      ],
+      "descriptors": {
+        "mw": 376.37,
+        "logp": -1.72,
+        "tpsa": 161.56,
+        "hbd": 5,
+        "hba": 9,
+        "rotatable_bonds": 5,
+        "rings": 3,
+        "heavy_atoms": 27,
+        "qed": 0.328,
+        "formal_charge": 0
+      }
+    },
+    {
+      "id": "caffeine",
+      "name": "Caffeine",
+      "cn_name": "咖啡因",
+      "smiles": "CN1C=NC2=C1C(=O)N(C(=O)N2C)C",
+      "formula": "C8H10N4O2",
+      "mw": 194.19,
+      "category": "stimulant / bitterant",
+      "food_safe": true,
+      "food_status": "food ingredient (limits vary)",
+      "fluorescence": false,
+      "ex_nm": [
+        273
+      ],
+      "em_nm": null,
+      "uv_interference": 0.2,
+      "typical_mg_l": [
+        50,
+        200
+      ],
+      "max_mg_l": 320,
+      "ph_min": 3.0,
+      "ph_max": 8.0,
+      "notes": "UV-active; regulatory caffeine limits vary by product and country.",
+      "tags": [
+        "food_safe",
+        "stimulant",
+        "bitter"
+      ],
+      "references": [
+        "PubChem CID 2519"
+      ],
+      "descriptors": {
+        "mw": 194.19,
+        "logp": -1.03,
+        "tpsa": 61.82,
+        "hbd": 0,
+        "hba": 6,
+        "rotatable_bonds": 0,
+        "rings": 2,
+        "heavy_atoms": 14,
+        "qed": 0.538,
+        "formal_charge": 0
+      }
+    },
+    {
+      "id": "curcumin",
+      "name": "Curcumin",
+      "cn_name": "姜黄素",
+      "smiles": "COC1=C(C=CC(=C1)/C=C/C(=O)CC(=O)/C=C/C2=CC(=C(C=C2)O)OC)O",
+      "formula": "C21H20O6",
+      "mw": 368.38,
+      "category": "polyphenol / colorant",
+      "food_safe": true,
+      "food_status": "GRAS / E100 (turmeric)",
+      "fluorescence": true,
+      "ex_nm": [
+        425
+      ],
+      "em_nm": 530,
+      "uv_interference": 0.5,
+      "typical_mg_l": [
+        5,
+        50
+      ],
+      "max_mg_l": 100,
+      "ph_min": 3.0,
+      "ph_max": 7.5,
+      "notes": "Yellow at acid pH, red/orange at alkaline pH; low water solubility; weak fluorescence.",
+      "tags": [
+        "food_safe",
+        "fluorescent",
+        "polyphenol",
+        "yellow"
+      ],
+      "references": [
+        "PubChem CID 969516"
+      ],
+      "descriptors": {
+        "mw": 368.39,
+        "logp": 3.37,
+        "tpsa": 93.06,
+        "hbd": 2,
+        "hba": 6,
+        "rotatable_bonds": 8,
+        "rings": 2,
+        "heavy_atoms": 27,
+        "qed": 0.548,
+        "formal_charge": 0
+      }
+    },
+    {
+      "id": "ascorbic_acid",
+      "name": "Ascorbic acid (vitamin C)",
+      "cn_name": "抗坏血酸（维生素C）",
+      "smiles": "C(C(C1C(=C(C(=O)O1)O)O)O)O",
+      "formula": "C6H8O6",
+      "mw": 176.12,
+      "category": "antioxidant / vitamin",
+      "food_safe": true,
+      "food_status": "GRAS / E300",
+      "fluorescence": false,
+      "ex_nm": [
+        245
+      ],
+      "em_nm": null,
+      "uv_interference": 0.2,
+      "typical_mg_l": [
+        100,
+        500
+      ],
+      "max_mg_l": 1000,
+      "ph_min": 2.5,
+      "ph_max": 6.5,
+      "notes": "Oxygen scavenger; degrades at high temperature and in light.",
+      "tags": [
+        "food_safe",
+        "antioxidant",
+        "vitamin"
+      ],
+      "references": [
+        "PubChem CID 54670067"
+      ],
+      "descriptors": {
+        "mw": 176.12,
+        "logp": -1.41,
+        "tpsa": 107.22,
+        "hbd": 4,
+        "hba": 6,
+        "rotatable_bonds": 2,
+        "rings": 1,
+        "heavy_atoms": 12,
+        "qed": 0.385,
+        "formal_charge": 0
+      }
+    },
+    {
+      "id": "chlorophyllin",
+      "name": "Chlorophyllin (E141)",
+      "cn_name": "叶绿素铜钠盐",
+      "smiles": "[H+].[H+].[H+].CCC1=C(C2=CC3=NC(=CC4=NC(=C(C5=NC(=C(C5=C([O-])[O-])C)C=C1[N-]2)CC(=O)[O-])C(C4C)CCC(=O)[O-])C(=C3C=C)C)C.[Mg+2]",
+      "formula": "C34H34MgN4O6",
+      "mw": 619.0,
+      "category": "green colorant",
+      "food_safe": true,
+      "food_status": "E141 (limits apply)",
+      "fluorescence": true,
+      "ex_nm": [
+        405,
+        630
+      ],
+      "em_nm": 660,
+      "uv_interference": 0.45,
+      "typical_mg_l": [
+        10,
+        100
+      ],
+      "max_mg_l": 200,
+      "ph_min": 4.0,
+      "ph_max": 8.0,
+      "notes": "Green colourant with weak red fluorescence; not a protein.",
+      "tags": [
+        "food_safe",
+        "fluorescent",
+        "colorant",
+        "green"
+      ],
+      "references": [
+        "PubChem CID 123798"
+      ],
+      "descriptors": {
+        "mw": 618.97,
+        "logp": -0.82,
+        "tpsa": 177.56,
+        "hbd": 0,
+        "hba": 9,
+        "rotatable_bonds": 7,
+        "rings": 5,
+        "heavy_atoms": 45,
+        "qed": 0.283,
+        "formal_charge": 0
+      }
+    },
+    {
+      "id": "quercetin",
+      "name": "Quercetin",
+      "cn_name": "槲皮素",
+      "smiles": "C1=CC(=C(C=C1C2=C(C(=O)C3=C(C=C(C=C3O2)O)O)O)O)O",
+      "formula": "C15H10O7",
+      "mw": 302.24,
+      "category": "flavonoid",
+      "food_safe": true,
+      "food_status": "food constituent (supplement rules vary)",
+      "fluorescence": true,
+      "ex_nm": [
+        370
+      ],
+      "em_nm": 530,
+      "uv_interference": 0.35,
+      "typical_mg_l": [
+        5,
+        50
+      ],
+      "max_mg_l": 100,
+      "ph_min": 3.0,
+      "ph_max": 8.0,
+      "notes": "Weak fluorescence; antioxidant and metal chelator; low solubility.",
+      "tags": [
+        "food_safe",
+        "fluorescent",
+        "polyphenol"
+      ],
+      "references": [
+        "PubChem CID 5280343"
+      ],
+      "descriptors": {
+        "mw": 302.24,
+        "logp": 1.99,
+        "tpsa": 131.36,
+        "hbd": 5,
+        "hba": 7,
+        "rotatable_bonds": 1,
+        "rings": 3,
+        "heavy_atoms": 22,
+        "qed": 0.434,
+        "formal_charge": 0
+      }
+    },
+    {
+      "id": "beta_carotene",
+      "name": "Beta-carotene",
+      "cn_name": "β-胡萝卜素",
+      "smiles": "CC1=C(C(CCC1)(C)C)/C=C/C(=C/C=C/C(=C/C=C/C=C(/C=C/C=C(/C=C/C2=C(C(CCC2)(C)C)C)\\C)\\C)\\C)\\C",
+      "formula": "C40H56",
+      "mw": 536.87,
+      "category": "carotenoid / colorant",
+      "food_safe": true,
+      "food_status": "GRAS / E160a",
+      "fluorescence": false,
+      "ex_nm": [
+        450
+      ],
+      "em_nm": null,
+      "uv_interference": 0.45,
+      "typical_mg_l": [
+        1,
+        20
+      ],
+      "max_mg_l": 50,
+      "ph_min": 3.0,
+      "ph_max": 8.0,
+      "notes": "Oil-soluble orange colourant; oxidation-sensitive.",
+      "tags": [
+        "food_safe",
+        "colorant",
+        "orange",
+        "antioxidant"
+      ],
+      "references": [
+        "PubChem CID 5281227"
+      ],
+      "descriptors": {
+        "mw": 536.89,
+        "logp": 12.61,
+        "tpsa": 0.0,
+        "hbd": 0,
+        "hba": 0,
+        "rotatable_bonds": 10,
+        "rings": 2,
+        "heavy_atoms": 40,
+        "qed": 0.244,
+        "formal_charge": 0
+      }
+    },
+    {
+      "id": "anthocyanin",
+      "name": "Cyanidin-3-glucoside",
+      "cn_name": "矢车菊素-3-葡萄糖苷",
+      "smiles": "C1=CC(=C(C=C1C2=[O+]C3=CC(=CC(=C3C=C2O)O)OC4C(C(C(C(O4)CO)O)O)O)O)O",
+      "formula": "C21H21ClO11",
+      "mw": 484.84,
+      "category": "anthocyanin / colorant",
+      "food_safe": true,
+      "food_status": "food constituent / colour (varies)",
+      "fluorescence": false,
+      "ex_nm": [
+        520
+      ],
+      "em_nm": 590,
+      "uv_interference": 0.4,
+      "typical_mg_l": [
+        20,
+        200
+      ],
+      "max_mg_l": 500,
+      "ph_min": 2.5,
+      "ph_max": 5.5,
+      "notes": "Red at acid pH, blue/purple at higher pH; heat and ascorbic acid sensitive.",
+      "tags": [
+        "food_safe",
+        "colorant",
+        "red",
+        "ph_sensitive"
+      ],
+      "references": [
+        "PubChem CID 12303203"
+      ],
+      "descriptors": {
+        "mw": 449.39,
+        "logp": 0.38,
+        "tpsa": 191.6,
+        "hbd": 8,
+        "hba": 10,
+        "rotatable_bonds": 4,
+        "rings": 4,
+        "heavy_atoms": 32,
+        "qed": 0.203,
+        "formal_charge": 1
+      }
+    },
+    {
+      "id": "rebaudioside_a",
+      "name": "Rebaudioside A (stevia)",
+      "cn_name": "莱鲍迪苷A（甜菊糖）",
+      "smiles": "C[C@@]12CCC[C@@]([C@H]1CC[C@@]3([C@@H]2CC[C@H]4[C@]3(CC[C@@H](C4)OC(=O)[C@@]5(C[C@@H]([C@H]([C@@H](O5)CO)O)O[C@H]6[C@@H]([C@H]([C@@H]([C@H](O6)CO)O)O)O)O)C)C)(C)C(=O)O[C@H]7[C@@H]([C@H]([C@@H]([C@H](O7)CO)O)O)O",
+      "formula": "C44H70O23",
+      "mw": 967.0,
+      "category": "high-intensity sweetener",
+      "food_safe": true,
+      "food_status": "GRAS / E960",
+      "fluorescence": false,
+      "ex_nm": [],
+      "em_nm": null,
+      "uv_interference": 0.01,
+      "typical_mg_l": [
+        50,
+        300
+      ],
+      "max_mg_l": 500,
+      "ph_min": 3.0,
+      "ph_max": 8.0,
+      "notes": "Sweetener; use level depends on sweetness equivalence.",
+      "tags": [
+        "food_safe",
+        "sweetener"
+      ],
+      "references": [
+        "PubChem CID 6918840"
+      ],
+      "descriptors": {
+        "mw": 876.99,
+        "logp": -1.91,
+        "tpsa": 312.05,
+        "hbd": 11,
+        "hba": 19,
+        "rotatable_bonds": 9,
+        "rings": 7,
+        "heavy_atoms": 61,
+        "qed": 0.113,
+        "formal_charge": 0
+      }
+    },
+    {
+      "id": "sodium_benzoate",
+      "name": "Sodium benzoate",
+      "cn_name": "苯甲酸钠",
+      "smiles": "C1=CC=C(C=C1)C(=O)[O-].[Na+]",
+      "formula": "C7H5NaO2",
+      "mw": 144.1,
+      "category": "preservative",
+      "food_safe": true,
+      "food_status": "E211 (limits apply)",
+      "fluorescence": false,
+      "ex_nm": [
+        225
+      ],
+      "em_nm": null,
+      "uv_interference": 0.12,
+      "typical_mg_l": [
+        100,
+        500
+      ],
+      "max_mg_l": 1000,
+      "ph_min": 2.5,
+      "ph_max": 4.5,
+      "notes": "Effective in acidic drinks; use within local legal limits.",
+      "tags": [
+        "food_safe",
+        "preservative"
+      ],
+      "references": [
+        "PubChem CID 517055"
+      ],
+      "descriptors": {
+        "mw": 144.1,
+        "logp": -2.95,
+        "tpsa": 40.13,
+        "hbd": 0,
+        "hba": 2,
+        "rotatable_bonds": 1,
+        "rings": 1,
+        "heavy_atoms": 10,
+        "qed": 0.395,
+        "formal_charge": 0
+      }
+    },
+    {
+      "id": "potassium_sorbate",
+      "name": "Potassium sorbate",
+      "cn_name": "山梨酸钾",
+      "smiles": "CC=CC=CC(=O)[O-].[K+]",
+      "formula": "C6H7KO2",
+      "mw": 150.22,
+      "category": "preservative",
+      "food_safe": true,
+      "food_status": "E202 (limits apply)",
+      "fluorescence": false,
+      "ex_nm": [
+        255
+      ],
+      "em_nm": null,
+      "uv_interference": 0.1,
+      "typical_mg_l": [
+        100,
+        500
+      ],
+      "max_mg_l": 1000,
+      "ph_min": 2.5,
+      "ph_max": 6.0,
+      "notes": "Antifungal preservative; use within local legal limits.",
+      "tags": [
+        "food_safe",
+        "preservative"
+      ],
+      "references": [
+        "PubChem CID 23676745"
+      ],
+      "descriptors": {
+        "mw": 150.22,
+        "logp": -3.13,
+        "tpsa": 40.13,
+        "hbd": 0,
+        "hba": 2,
+        "rotatable_bonds": 2,
+        "rings": 0,
+        "heavy_atoms": 9,
+        "qed": 0.237,
+        "formal_charge": 0
+      }
+    },
+    {
+      "id": "citric_acid",
+      "name": "Citric acid",
+      "cn_name": "柠檬酸",
+      "smiles": "C(C(=O)O)(C(CC(=O)O)(C(=O)O)O)O",
+      "formula": "C6H8O7",
+      "mw": 192.12,
+      "category": "acidulant / buffer",
+      "food_safe": true,
+      "food_status": "GRAS / E330",
+      "fluorescence": false,
+      "ex_nm": [],
+      "em_nm": null,
+      "uv_interference": 0.01,
+      "typical_mg_l": [
+        500,
+        3000
+      ],
+      "max_mg_l": 5000,
+      "ph_min": 2.0,
+      "ph_max": 8.0,
+      "notes": "Acidulant and chelator; sensory sourness.",
+      "tags": [
+        "food_safe",
+        "acidulant"
+      ],
+      "references": [
+        "PubChem CID 311"
+      ],
+      "descriptors": {
+        "mw": 208.12,
+        "logp": -2.28,
+        "tpsa": 152.36,
+        "hbd": 5,
+        "hba": 5,
+        "rotatable_bonds": 5,
+        "rings": 0,
+        "heavy_atoms": 14,
+        "qed": 0.338,
+        "formal_charge": 0
+      }
+    }
+  ]
+}

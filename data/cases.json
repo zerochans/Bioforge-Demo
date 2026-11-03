@@ -1,0 +1,323 @@
+{
+  "schema_version": "2.1",
+  "items": [
+    {
+      "id": "case_bread_high_protein",
+      "title": "高蛋白软面包",
+      "query": "设计一款高蛋白软面包，蛋白质 ≥ 12%，无麸质，保质期 7 天，成本适中",
+      "system": "bakery_bread",
+      "focus": [
+        "protein",
+        "gluten_free",
+        "cost"
+      ],
+      "expected": "无麸质高蛋白面包组合，含结构胶体和蛋白复配",
+      "title_en": "High-protein soft bread",
+      "query_en": "Design a high-protein soft bread with ≥12% protein, gluten-free, 7-day shelf life and moderate cost",
+      "expected_en": "Gluten-free high-protein bread with structure hydrocolloids and protein blends"
+    },
+    {
+      "id": "case_yogurt_low_sugar",
+      "title": "低糖高蛋白酸奶",
+      "query": "低糖高蛋白搅拌型酸奶，糖 ≤ 3%，蛋白质 ≥ 8%，清洁标签，冷藏 28 天",
+      "system": "dairy_yogurt",
+      "focus": [
+        "low_sugar",
+        "high_protein",
+        "clean_label"
+      ],
+      "expected": "乳蛋白/菊粉/果胶稳定体系",
+      "title_en": "Low-sugar high-protein yogurt",
+      "query_en": "Low-sugar, high-protein stirred yogurt with ≤3% sugar, ≥8% protein, clean label and 28-day refrigerated shelf life",
+      "expected_en": "Milk protein/inulin/pectin stabilisation system"
+    },
+    {
+      "id": "case_plant_meat",
+      "title": "植物基肉饼",
+      "query": "植物基牛肉风味肉饼，蛋白质 ≥ 15%，无大豆，冷冻 6 个月，煎制多汁",
+      "system": "plant_meat",
+      "focus": [
+        "plant_based",
+        "soy_free",
+        "juicy"
+      ],
+      "expected": "豌豆蛋白+甲基纤维素+油脂体系",
+      "title_en": "Plant-based burger patty",
+      "query_en": "Plant-based beef-flavour patty with ≥15% protein, soy-free, 6-month frozen storage and juicy pan-fried texture",
+      "expected_en": "Pea protein + methylcellulose + fat system"
+    },
+    {
+      "id": "case_gummy_natural",
+      "title": "天然色素软糖",
+      "query": "天然色素软糖，草莓风味，无合成色素，pH 3.4，保质期 12 个月",
+      "system": "confectionery_gummy",
+      "focus": [
+        "natural_color",
+        "clean_label",
+        "shelf_life"
+      ],
+      "expected": "花青素/萝卜红替代，需避光与抗氧化",
+      "title_en": "Naturally coloured gummy",
+      "query_en": "Strawberry-flavoured gummy with natural colours, no synthetic dyes, pH 3.4 and 12-month shelf life",
+      "expected_en": "Anthocyanin/radish colour replacement; light protection and antioxidants required"
+    },
+    {
+      "id": "case_sauce_low_sodium",
+      "title": "低钠番茄酱",
+      "query": "低钠番茄酱，钠降低 30%，Brix 28，pH 3.7，货架期 12 个月",
+      "system": "sauce_acid",
+      "focus": [
+        "low_sodium",
+        "shelf_life",
+        "texture"
+      ],
+      "expected": "KCl 部分替代、增稠和防腐 hurdle",
+      "title_en": "Low-sodium tomato ketchup",
+      "query_en": "Low-sodium tomato ketchup with 30% less sodium, Brix 28, pH 3.7 and 12-month shelf life",
+      "expected_en": "Partial KCl replacement, thickening and preservative hurdles"
+    },
+    {
+      "id": "case_ice_cream_plant",
+      "title": "植物基冰淇淋",
+      "query": "燕麦基冰淇淋，无乳，脂肪 10%，抗融，冷冻 12 个月，清洁标签",
+      "system": "frozen_dessert",
+      "focus": [
+        "plant_based",
+        "dairy_free",
+        "clean_label"
+      ],
+      "expected": "燕麦/植物油/天然稳定剂体系",
+      "title_en": "Plant-based ice cream",
+      "query_en": "Oat-based dairy-free ice cream with 10% fat, heat-shock resistance, 12-month frozen storage and clean label",
+      "expected_en": "Oat/vegetable oil/natural stabiliser system"
+    },
+    {
+      "id": "case_phycocyanin",
+      "title": "酸性藻蓝蛋白饮料",
+      "query": "藻蓝蛋白蓝色饮料，pH 4.2，72°C 15 秒巴氏，保留率 ≥ 80%",
+      "system": "beverage_generic",
+      "focus": [
+        "color_stability",
+        "protein",
+        "thermal"
+      ],
+      "expected": "保护剂+温和工艺；酸性下仍可能不达标",
+      "title_en": "Acidic phycocyanin beverage",
+      "query_en": "Blue phycocyanin beverage at pH 4.2, 72°C for 15 s pasteurisation and retention ≥80%",
+      "expected_en": "Protectants + gentle processing; may still fail under acidic conditions"
+    },
+    {
+      "id": "case_polyphenol_dock",
+      "title": "乳清蛋白-槲皮素机制",
+      "query": "分析乳清蛋白与槲皮素的结合机制，运行对接、短 MD 和 QM",
+      "system": null,
+      "focus": [
+        "mechanism",
+        "docking",
+        "md",
+        "qm"
+      ],
+      "expected": "Vina 对接 + OpenMM + GROMACS + CP2K 结果",
+      "title_en": "Whey protein–quercetin mechanism",
+      "query_en": "Analyse whey protein–quercetin binding with docking, short MD and QM",
+      "expected_en": "Vina docking + OpenMM + GROMACS + CP2K results"
+    },
+    {
+      "id": "case_protein_bar_high_protein",
+      "title": "高蛋白谷物棒",
+      "query": "高蛋白谷物棒，蛋白质 ≥ 18%，糖 ≤ 25%，耐 30°C 储运，质构不粘牙",
+      "system": "cereal_bar",
+      "focus": [
+        "high_protein",
+        "texture",
+        "shelf_life"
+      ],
+      "expected": "蛋白/纤维/结合剂体系，需控制美拉德与硬化",
+      "title_en": "High-protein cereal bar",
+      "query_en": "High-protein cereal bar with ≥18% protein, ≤25% sugar, 30°C transport tolerance and non-sticky texture",
+      "expected_en": "Protein/fibre/binder system; control Maillard browning and hardening"
+    },
+    {
+      "id": "case_extruded_high_fiber",
+      "title": "高纤挤压膨化零食",
+      "query": "高纤挤压膨化玉米零食，膳食纤维 ≥ 8%，钠 ≤ 500 mg/100g，酥脆，水分活度 ≤ 0.35",
+      "system": "snack_extruded",
+      "focus": [
+        "high_fiber",
+        "low_sodium",
+        "extrusion"
+      ],
+      "expected": "淀粉/纤维/水分与挤压参数耦合，需验证膨胀和褐变",
+      "title_en": "High-fibre extruded snack",
+      "query_en": "High-fibre extruded corn snack with ≥8% dietary fibre, ≤500 mg/100 g sodium, crisp texture and aw ≤0.35",
+      "expected_en": "Starch/fibre/moisture coupled to extrusion; verify expansion and browning"
+    },
+    {
+      "id": "case_kimchi_low_salt",
+      "title": "低盐发酵泡菜",
+      "query": "低盐泡菜，盐 ≤ 2.5%，pH 4.2，冷藏 60 天，控制亚硝酸盐和软化",
+      "system": "fermented_vegetable",
+      "focus": [
+        "low_sodium",
+        "fermentation",
+        "safety"
+      ],
+      "expected": "盐/酸/菌群 hurdle，需验证亚硝酸盐和质地",
+      "title_en": "Low-salt fermented kimchi",
+      "query_en": "Low-salt kimchi with ≤2.5% salt, pH 4.2, 60-day refrigerated storage, controlling nitrite and softening",
+      "expected_en": "Salt/acid/microbial hurdles; verify nitrite and texture"
+    },
+    {
+      "id": "case_edible_film",
+      "title": "可食性保鲜膜",
+      "query": "可食性海藻酸钠膜，添加植物多酚，厚度 80 μm，用于新鲜切果保鲜",
+      "system": "edible_film",
+      "focus": [
+        "edible_film",
+        "antioxidant",
+        "barrier"
+      ],
+      "expected": "成膜/交联/增塑体系，需测水汽阻隔和迁移",
+      "title_en": "Edible preservation film",
+      "query_en": "Edible sodium alginate film with plant polyphenols, 80 μm thickness, for fresh-cut fruit",
+      "expected_en": "Film-forming/crosslinking/plasticiser system; measure water-vapour barrier and migration"
+    },
+    {
+      "id": "case_probiotic_powder",
+      "title": "益生菌固体饮料",
+      "query": "益生菌固体饮料，活菌 ≥ 10^8 CFU/g，低糖，冲调后 pH 4.5，货架期 12 个月",
+      "system": "powder_drink",
+      "focus": [
+        "probiotic",
+        "low_sugar",
+        "shelf_life"
+      ],
+      "expected": "冻干/包埋/水分活度控制，需验证活菌和冲调稳定性",
+      "title_en": "Probiotic powder drink",
+      "query_en": "Probiotic powder drink with ≥10^8 CFU/g viable count, low sugar, pH 4.5 after reconstitution and 12-month shelf life",
+      "expected_en": "Freeze-drying/encapsulation/aw control; verify viability and reconstitution stability"
+    },
+    {
+      "id": "case_low_sugar_jelly",
+      "title": "低糖高纤果冻",
+      "query": "低糖高纤果冻，糖 ≤ 8%，膳食纤维 ≥ 6%，pH 3.8，常温 9 个月",
+      "system": "jelly",
+      "focus": [
+        "low_sugar",
+        "high_fiber",
+        "gelation"
+      ],
+      "expected": "胶体/甜味剂/酸体系，需验证析水和凝胶强度",
+      "title_en": "Low-sugar high-fibre jelly",
+      "query_en": "Low-sugar high-fibre jelly with ≤8% sugar, ≥6% dietary fibre, pH 3.8 and 9 months at ambient",
+      "expected_en": "Hydrocolloid/sweetener/acid system; verify syneresis and gel strength"
+    },
+    {
+      "id": "case_uht_milk",
+      "title": "超高温灭菌乳",
+      "query": "超高温灭菌乳，蛋白质 ≥ 3.2%，135°C 4 秒，常温 6 个月，控制褐变",
+      "system": "dairy_milk",
+      "focus": [
+        "uht",
+        "protein",
+        "maillard"
+      ],
+      "expected": "UHT 热处理，需验证褐变、蛋白稳定和灭菌安全",
+      "title_en": "Ultra-high-temperature milk",
+      "query_en": "UHT milk with ≥3.2% protein, 135°C for 4 s, 6 months at ambient, controlling browning",
+      "expected_en": "UHT heat treatment; verify browning, protein stability and sterilisation safety"
+    },
+    {
+      "id": "case_low_fat_mayo",
+      "title": "低脂蛋黄酱",
+      "query": "低脂蛋黄酱，脂肪 ≤ 30%，pH 3.8，乳化稳定，冷藏 90 天",
+      "system": "sauce_emulsion",
+      "focus": [
+        "low_fat",
+        "emulsion",
+        "stability"
+      ],
+      "expected": "脂肪替代/胶体/均质体系，需验证乳化和微生物",
+      "title_en": "Low-fat mayonnaise",
+      "query_en": "Low-fat mayonnaise with ≤30% fat, pH 3.8, emulsion stability and 90-day refrigerated storage",
+      "expected_en": "Fat replacer/hydrocolloid/homogenisation system; verify emulsion and microbiology"
+    },
+    {
+      "id": "case_reduced_sugar_chocolate",
+      "title": "减糖黑巧克力",
+      "query": "减糖黑巧克力，糖 ≤ 15%，可可固形物 ≥ 70%，控霜，货架期 12 个月",
+      "system": "confectionery_chocolate",
+      "focus": [
+        "low_sugar",
+        "crystal",
+        "shelf_life"
+      ],
+      "expected": "糖醇/纤维/可可脂体系，需验证调温、起霜和口感",
+      "title_en": "Reduced-sugar dark chocolate",
+      "query_en": "Reduced-sugar dark chocolate with ≤15% sugar, ≥70% cocoa solids, bloom control and 12-month shelf life",
+      "expected_en": "Polyol/fibre/cocoa butter system; verify tempering, bloom and mouthfeel"
+    },
+    {
+      "id": "case_clear_apple_juice",
+      "title": "澄清苹果汁",
+      "query": "澄清苹果汁，糖 ≤ 8%，pH 3.5，80°C 15 秒，货架期 9 个月，控制褐变",
+      "system": "juice",
+      "focus": [
+        "clear_juice",
+        "low_sugar",
+        "browning"
+      ],
+      "expected": "果胶酶澄清、抗氧化与温和热处理组合，需验证浊度、褐变和风味",
+      "title_en": "Clear apple juice",
+      "query_en": "Clear apple juice with ≤8% sugar, pH 3.5, 80°C for 15 s, 9-month shelf life, controlling browning",
+      "expected_en": "Pectinase clarification, antioxidants and gentle heat; verify turbidity, browning and flavour"
+    },
+    {
+      "id": "case_oat_milk_uht",
+      "title": "燕麦奶 UHT 饮料",
+      "query": "燕麦奶植物基饮料，无乳，蛋白 ≥ 3%，pH 7.0，UHT 121°C 4 秒，控制沉淀和口感",
+      "system": "plant_milk",
+      "focus": [
+        "plant_based",
+        "dairy_free",
+        "uht",
+        "colloidal_stability"
+      ],
+      "expected": "燕麦固形物/植物蛋白/稳定剂体系，需验证沉淀、黏度和灭菌安全",
+      "title_en": "Oat milk UHT beverage",
+      "query_en": "Oat-based dairy-free beverage with ≥3% protein, pH 7.0, UHT 121°C for 4 s, controlling sedimentation and mouthfeel",
+      "expected_en": "Oat solids/plant protein/stabiliser system; verify sedimentation, viscosity and sterilisation safety"
+    },
+    {
+      "id": "case_low_sugar_sponge_cake",
+      "title": "低糖海绵蛋糕",
+      "query": "低糖海绵蛋糕，糖降低 30%，保持蛋香和蓬松，水分活度 ≤ 0.85，货架期 14 天",
+      "system": "bakery_cake",
+      "focus": [
+        "low_sugar",
+        "cake",
+        "texture",
+        "shelf_life"
+      ],
+      "expected": "糖醇/纤维/乳化体系，需验证打发、体积、褐变和老化",
+      "title_en": "Low-sugar sponge cake",
+      "query_en": "Low-sugar sponge cake with 30% less sugar, retained egg flavour and volume, aw ≤0.85 and 14-day shelf life",
+      "expected_en": "Polyol/fibre/emulsifier system; verify aeration, volume, browning and staling"
+    },
+    {
+      "id": "case_low_salt_sausage",
+      "title": "低盐乳化香肠",
+      "query": "低盐乳化香肠，钠降低 35%，蛋白 ≥ 12%，冷藏 30 天，控制出水",
+      "system": "meat_sausage",
+      "focus": [
+        "low_sodium",
+        "emulsion",
+        "water_holding"
+      ],
+      "expected": "KCl/磷酸盐替代与乳化体系，需验证保水、质构和微生物安全",
+      "title_en": "Low-salt emulsified sausage",
+      "query_en": "Low-salt emulsified sausage with 35% less sodium, ≥12% protein, 30-day refrigerated storage and controlled purge",
+      "expected_en": "KCl/phosphate replacement and emulsion system; verify water holding, texture and microbiological safety"
+    }
+  ]
+}

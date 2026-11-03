@@ -1,0 +1,663 @@
+{
+  "schema_version": "1.0",
+  "curated_date": "2026-10-20",
+  "disclaimer": "Curated demonstration pack. Photophysical and stability values are approximate literature/FPbase-informed priors for in-silico ranking, not QC-grade measurements. Fluorescent proteins are research reagents and are not approved food ingredients. Any food/beverage use requires a jurisdiction-specific regulatory assessment.",
+  "items": [
+    {
+      "type": "fluorescent_protein",
+      "evidence_level": "literature_approx",
+      "sequence": "MSKGEELFTGVVPILVELDGDVNGHKFSVSGEGEGDATYGKLTLKFICTTGKLPVPWPTLVTTFSYGVQCFSRYPDHMKQHDFFKSAMPEGYVQERTIFFKDDGNYKTRAEVKFEGDTLVNRIELKGIDFKEDGNILGHKLEYNYNSHNVYIMADKQKNGIKVNFKIRHNIEDGSVQLADHYQQNTPIGDGPVLLPDNHYLSTQSALSKDPNEKRDHMVLLEFVTAAGITHGMDELYK",
+      "pdb_id": "1EMA",
+      "tags": [
+        "green",
+        "visible",
+        "uv_excitable"
+      ],
+      "references": [
+        "UniProt P42212",
+        "Tsien 1998 Annu Rev Biochem",
+        "FPbase curated values"
+      ],
+      "regulatory_note": "",
+      "tm_sd": 2.5,
+      "pka_sd": 0.25,
+      "acid_ph50_sd": 0.35,
+      "brightness_sd": 0.15,
+      "id": "avGFP",
+      "name": "avGFP (wild-type Aequorea victoria GFP)",
+      "cn_name": "野生型绿色荧光蛋白",
+      "aliases": [
+        "GFP",
+        "wtGFP"
+      ],
+      "uniprot": "P42212",
+      "source_organism": "Aequorea victoria",
+      "fluorophore": "HBI (p-hydroxybenzylideneimidazolinone)",
+      "ex_nm": 395,
+      "em_nm": 509,
+      "ext_coeff": 21000,
+      "quantum_yield": 0.77,
+      "brightness": 1.0,
+      "pka": 6.0,
+      "tm_c": 78.0,
+      "acid_ph50": 5.0,
+      "photostability": 0.55,
+      "o2_required": true,
+      "cofactor": null,
+      "oligomer": "dimer",
+      "maturation_min": 30,
+      "food_status": "research_only",
+      "expression_hosts": [
+        "E. coli",
+        "P. pastoris"
+      ],
+      "notes": "Wild-type GFP has a UV excitation peak and slow maturation at 37 C."
+    },
+    {
+      "type": "fluorescent_protein",
+      "evidence_level": "literature_approx",
+      "sequence": "MSKGEELFTGVVPILVELDGDVNGHKFSVSGEGEGDATYGKLTLKFICTTGKLPVPWPTLVTTLTYGVQCFSRYPDHMKQHDFFKSAMPEGYVQERTIFFKDDGNYKTRAEVKFEGDTLVNRIELKGIDFKEDGNILGHKLEYNYNSHNVYIMADKQKNGIKVNFKIRHNIEDGSVQLADHYQQNTPIGDGPVLLPDNHYLSTQSALSKDPNEKRDHMVLLEFVTAAGITHGMDELYK",
+      "pdb_id": "4EUL",
+      "tags": [
+        "green",
+        "visible",
+        "blue_excitable"
+      ],
+      "references": [
+        "UniProt P42212 variant",
+        "Tsien 1998",
+        "FPbase curated values"
+      ],
+      "regulatory_note": "",
+      "tm_sd": 2.5,
+      "pka_sd": 0.25,
+      "acid_ph50_sd": 0.35,
+      "brightness_sd": 0.15,
+      "id": "EGFP",
+      "name": "EGFP (F64L/S65T)",
+      "cn_name": "增强型绿色荧光蛋白",
+      "aliases": [
+        "enhanced GFP"
+      ],
+      "uniprot": "P42212 (variant)",
+      "source_organism": "Aequorea victoria (engineered)",
+      "fluorophore": "HBI",
+      "ex_nm": 488,
+      "em_nm": 507,
+      "ext_coeff": 56000,
+      "quantum_yield": 0.6,
+      "brightness": 1.25,
+      "pka": 6.0,
+      "tm_c": 80.0,
+      "acid_ph50": 5.2,
+      "photostability": 0.65,
+      "o2_required": true,
+      "cofactor": null,
+      "oligomer": "weak dimer",
+      "maturation_min": 25,
+      "food_status": "research_only",
+      "expression_hosts": [
+        "E. coli",
+        "P. pastoris",
+        "mammalian"
+      ],
+      "notes": "Blue-light excitable; weak dimer unless A206K is introduced."
+    },
+    {
+      "type": "fluorescent_protein",
+      "evidence_level": "literature_approx",
+      "sequence": null,
+      "pdb_id": null,
+      "tags": [
+        "green",
+        "visible",
+        "thermostable"
+      ],
+      "references": [
+        "Pedelacq 2006 Nat Biotechnol",
+        "FPbase curated values"
+      ],
+      "regulatory_note": "",
+      "tm_sd": 2.5,
+      "pka_sd": 0.25,
+      "acid_ph50_sd": 0.35,
+      "brightness_sd": 0.15,
+      "id": "sfGFP",
+      "name": "superfolder GFP",
+      "cn_name": "超折叠绿色荧光蛋白",
+      "aliases": [
+        "superfolder GFP",
+        "sfGFP"
+      ],
+      "uniprot": null,
+      "ex_nm": 485,
+      "em_nm": 510,
+      "ext_coeff": 83300,
+      "quantum_yield": 0.65,
+      "brightness": 1.2,
+      "pka": 5.5,
+      "tm_c": 90.0,
+      "acid_ph50": 4.8,
+      "photostability": 0.7,
+      "o2_required": true,
+      "cofactor": null,
+      "oligomer": "monomer",
+      "maturation_min": 15,
+      "food_status": "research_only",
+      "expression_hosts": [
+        "E. coli"
+      ],
+      "notes": "Engineered for folding robustness; a common starting point for thermostability work."
+    },
+    {
+      "type": "fluorescent_protein",
+      "evidence_level": "literature_approx",
+      "sequence": null,
+      "pdb_id": null,
+      "tags": [
+        "green",
+        "visible",
+        "bright",
+        "thermostable"
+      ],
+      "references": [
+        "Bajar 2016 Nat Methods",
+        "FPbase curated values"
+      ],
+      "regulatory_note": "",
+      "tm_sd": 2.5,
+      "pka_sd": 0.25,
+      "acid_ph50_sd": 0.35,
+      "brightness_sd": 0.15,
+      "id": "mNeonGreen",
+      "name": "mNeonGreen",
+      "cn_name": "单体绿色荧光蛋白 mNeonGreen",
+      "aliases": [
+        "NeonGreen"
+      ],
+      "uniprot": null,
+      "ex_nm": 506,
+      "em_nm": 517,
+      "ext_coeff": 116000,
+      "quantum_yield": 0.8,
+      "brightness": 1.5,
+      "pka": 5.5,
+      "tm_c": 95.0,
+      "acid_ph50": 4.5,
+      "photostability": 0.8,
+      "o2_required": true,
+      "cofactor": null,
+      "oligomer": "monomer",
+      "maturation_min": 10,
+      "food_status": "research_only",
+      "expression_hosts": [
+        "E. coli",
+        "mammalian"
+      ],
+      "notes": "Very bright monomeric green FP derived from Branchiostoma lanceolatum."
+    },
+    {
+      "type": "fluorescent_protein",
+      "evidence_level": "literature_approx",
+      "sequence": null,
+      "pdb_id": null,
+      "tags": [
+        "green",
+        "visible",
+        "acid_tolerant",
+        "bright"
+      ],
+      "references": [
+        "Lam 2012 Nat Methods",
+        "FPbase curated values"
+      ],
+      "regulatory_note": "",
+      "tm_sd": 2.5,
+      "pka_sd": 0.25,
+      "acid_ph50_sd": 0.35,
+      "brightness_sd": 0.15,
+      "id": "mClover3",
+      "name": "mClover3",
+      "cn_name": "三叶草绿色荧光蛋白",
+      "aliases": [
+        "Clover3"
+      ],
+      "uniprot": null,
+      "ex_nm": 506,
+      "em_nm": 518,
+      "ext_coeff": 109000,
+      "quantum_yield": 0.76,
+      "brightness": 1.4,
+      "pka": 5.0,
+      "tm_c": 88.0,
+      "acid_ph50": 4.8,
+      "photostability": 0.8,
+      "o2_required": true,
+      "cofactor": null,
+      "oligomer": "monomer",
+      "maturation_min": 15,
+      "food_status": "research_only",
+      "expression_hosts": [
+        "E. coli",
+        "mammalian"
+      ],
+      "notes": "Acid-tolerant green variant; useful when pH drifts toward 5."
+    },
+    {
+      "type": "fluorescent_protein",
+      "evidence_level": "literature_approx",
+      "sequence": null,
+      "pdb_id": null,
+      "tags": [
+        "yellow",
+        "visible"
+      ],
+      "references": [
+        "Griesbeck 2001 JBC",
+        "FPbase curated values"
+      ],
+      "regulatory_note": "",
+      "tm_sd": 2.5,
+      "pka_sd": 0.25,
+      "acid_ph50_sd": 0.35,
+      "brightness_sd": 0.15,
+      "id": "mCitrine",
+      "name": "mCitrine",
+      "cn_name": "柠檬黄荧光蛋白",
+      "aliases": [
+        "Citrine"
+      ],
+      "uniprot": null,
+      "ex_nm": 516,
+      "em_nm": 529,
+      "ext_coeff": 77000,
+      "quantum_yield": 0.76,
+      "brightness": 1.1,
+      "pka": 5.7,
+      "tm_c": 82.0,
+      "acid_ph50": 5.0,
+      "photostability": 0.7,
+      "o2_required": true,
+      "cofactor": null,
+      "oligomer": "monomer",
+      "maturation_min": 20,
+      "food_status": "research_only",
+      "expression_hosts": [
+        "E. coli",
+        "mammalian"
+      ],
+      "notes": "Yellow-green FP; chloride-sensitive variants exist."
+    },
+    {
+      "type": "fluorescent_protein",
+      "evidence_level": "literature_approx",
+      "sequence": null,
+      "pdb_id": null,
+      "tags": [
+        "cyan",
+        "visible",
+        "acid_tolerant"
+      ],
+      "references": [
+        "Goedhart 2012 Nat Commun",
+        "FPbase curated values"
+      ],
+      "regulatory_note": "",
+      "tm_sd": 2.5,
+      "pka_sd": 0.25,
+      "acid_ph50_sd": 0.35,
+      "brightness_sd": 0.15,
+      "id": "mTurquoise2",
+      "name": "mTurquoise2",
+      "cn_name": "青色荧光蛋白",
+      "aliases": [
+        "Turquoise2"
+      ],
+      "uniprot": null,
+      "ex_nm": 434,
+      "em_nm": 474,
+      "ext_coeff": 30000,
+      "quantum_yield": 0.93,
+      "brightness": 1.0,
+      "pka": 4.5,
+      "tm_c": 85.0,
+      "acid_ph50": 5.0,
+      "photostability": 0.75,
+      "o2_required": true,
+      "cofactor": null,
+      "oligomer": "monomer",
+      "maturation_min": 20,
+      "food_status": "research_only",
+      "expression_hosts": [
+        "E. coli",
+        "mammalian"
+      ],
+      "notes": "Cyan FP with high quantum yield; good FRET donor."
+    },
+    {
+      "type": "fluorescent_protein",
+      "evidence_level": "literature_approx",
+      "sequence": null,
+      "pdb_id": null,
+      "tags": [
+        "red",
+        "visible",
+        "acid_tolerant"
+      ],
+      "references": [
+        "Shaner 2004 Nat Biotechnol",
+        "FPbase curated values"
+      ],
+      "regulatory_note": "",
+      "tm_sd": 2.5,
+      "pka_sd": 0.25,
+      "acid_ph50_sd": 0.35,
+      "brightness_sd": 0.15,
+      "id": "mCherry",
+      "name": "mCherry",
+      "cn_name": "樱桃红荧光蛋白",
+      "aliases": [
+        "Cherry"
+      ],
+      "uniprot": null,
+      "ex_nm": 587,
+      "em_nm": 610,
+      "ext_coeff": 72000,
+      "quantum_yield": 0.22,
+      "brightness": 0.9,
+      "pka": 4.5,
+      "tm_c": 72.0,
+      "acid_ph50": 4.0,
+      "photostability": 0.8,
+      "o2_required": true,
+      "cofactor": null,
+      "oligomer": "monomer",
+      "maturation_min": 30,
+      "food_status": "research_only",
+      "expression_hosts": [
+        "E. coli",
+        "mammalian"
+      ],
+      "notes": "Red FP with excellent acid tolerance and photostability."
+    },
+    {
+      "type": "fluorescent_protein",
+      "evidence_level": "literature_approx",
+      "sequence": null,
+      "pdb_id": null,
+      "tags": [
+        "red",
+        "visible",
+        "bright",
+        "acid_tolerant"
+      ],
+      "references": [
+        "Bindels 2017 Cell Chem Biol",
+        "FPbase curated values"
+      ],
+      "regulatory_note": "",
+      "tm_sd": 2.5,
+      "pka_sd": 0.25,
+      "acid_ph50_sd": 0.35,
+      "brightness_sd": 0.15,
+      "id": "mScarlet",
+      "name": "mScarlet",
+      "cn_name": "猩红荧光蛋白",
+      "aliases": [
+        "Scarlet"
+      ],
+      "uniprot": null,
+      "ex_nm": 569,
+      "em_nm": 594,
+      "ext_coeff": 100000,
+      "quantum_yield": 0.7,
+      "brightness": 1.6,
+      "pka": 5.0,
+      "tm_c": 80.0,
+      "acid_ph50": 4.5,
+      "photostability": 0.75,
+      "o2_required": true,
+      "cofactor": null,
+      "oligomer": "monomer",
+      "maturation_min": 25,
+      "food_status": "research_only",
+      "expression_hosts": [
+        "E. coli",
+        "mammalian"
+      ],
+      "notes": "Bright monomeric red FP; useful for beverage-model visualization."
+    },
+    {
+      "type": "fluorescent_protein",
+      "evidence_level": "literature_approx",
+      "sequence": null,
+      "pdb_id": null,
+      "tags": [
+        "red",
+        "visible",
+        "acid_tolerant"
+      ],
+      "references": [
+        "Merzlyak 2007 Nat Methods",
+        "FPbase curated values"
+      ],
+      "regulatory_note": "",
+      "tm_sd": 2.5,
+      "pka_sd": 0.25,
+      "acid_ph50_sd": 0.35,
+      "brightness_sd": 0.15,
+      "id": "TagRFP",
+      "name": "TagRFP",
+      "cn_name": "TagRFP 红色荧光蛋白",
+      "aliases": [
+        "TagRFP"
+      ],
+      "uniprot": null,
+      "ex_nm": 555,
+      "em_nm": 584,
+      "ext_coeff": 100000,
+      "quantum_yield": 0.48,
+      "brightness": 1.0,
+      "pka": 4.5,
+      "tm_c": 65.0,
+      "acid_ph50": 4.3,
+      "photostability": 0.7,
+      "o2_required": true,
+      "cofactor": null,
+      "oligomer": "monomer",
+      "maturation_min": 25,
+      "food_status": "research_only",
+      "expression_hosts": [
+        "E. coli",
+        "mammalian"
+      ],
+      "notes": "Orange-red FP; relatively heat-sensitive."
+    },
+    {
+      "type": "fluorescent_protein",
+      "evidence_level": "literature_approx",
+      "sequence": null,
+      "pdb_id": null,
+      "tags": [
+        "green",
+        "visible",
+        "cofactor",
+        "oxygen_independent"
+      ],
+      "references": [
+        "Kumagai 2013 Cell",
+        "FPbase curated values"
+      ],
+      "regulatory_note": "",
+      "tm_sd": 2.5,
+      "pka_sd": 0.25,
+      "acid_ph50_sd": 0.35,
+      "brightness_sd": 0.15,
+      "id": "UnaG",
+      "name": "UnaG (bilirubin-binding FP)",
+      "cn_name": "UnaG 胆红素结合荧光蛋白",
+      "aliases": [
+        "UnaG"
+      ],
+      "uniprot": null,
+      "ex_nm": 498,
+      "em_nm": 527,
+      "ext_coeff": 77800,
+      "quantum_yield": 0.51,
+      "brightness": 1.2,
+      "pka": 6.9,
+      "tm_c": 75.0,
+      "acid_ph50": 5.0,
+      "photostability": 0.6,
+      "o2_required": false,
+      "cofactor": "bilirubin",
+      "oligomer": "monomer",
+      "maturation_min": 0,
+      "food_status": "research_only",
+      "expression_hosts": [
+        "E. coli"
+      ],
+      "notes": "Fluorescence requires bilirubin; O2-independent. Bilirubin is not a food colorant."
+    },
+    {
+      "type": "fluorescent_protein",
+      "evidence_level": "literature_approx",
+      "sequence": null,
+      "pdb_id": null,
+      "tags": [
+        "far_red",
+        "visible",
+        "cofactor",
+        "oxygen_independent"
+      ],
+      "references": [
+        "Rodriguez 2016 Nat Methods",
+        "FPbase curated values"
+      ],
+      "regulatory_note": "",
+      "tm_sd": 2.5,
+      "pka_sd": 0.25,
+      "acid_ph50_sd": 0.35,
+      "brightness_sd": 0.15,
+      "id": "smURFP",
+      "name": "smURFP (biliverdin-binding FP)",
+      "cn_name": "小单体远红荧光蛋白 smURFP",
+      "aliases": [
+        "smURFP"
+      ],
+      "uniprot": null,
+      "ex_nm": 642,
+      "em_nm": 670,
+      "ext_coeff": 180000,
+      "quantum_yield": 0.18,
+      "brightness": 0.8,
+      "pka": 5.0,
+      "tm_c": 70.0,
+      "acid_ph50": 5.5,
+      "photostability": 0.65,
+      "o2_required": false,
+      "cofactor": "biliverdin",
+      "oligomer": "dimer",
+      "maturation_min": 0,
+      "food_status": "research_only",
+      "expression_hosts": [
+        "E. coli"
+      ],
+      "notes": "Far-red FP; requires biliverdin. Deep-tissue imaging oriented."
+    },
+    {
+      "type": "fluorescent_protein",
+      "evidence_level": "literature_approx",
+      "sequence": null,
+      "pdb_id": null,
+      "tags": [
+        "far_red",
+        "visible",
+        "cofactor",
+        "turbid_matrix"
+      ],
+      "references": [
+        "Filonov 2011 Nat Biotechnol",
+        "FPbase curated values"
+      ],
+      "regulatory_note": "",
+      "tm_sd": 2.5,
+      "pka_sd": 0.25,
+      "acid_ph50_sd": 0.35,
+      "brightness_sd": 0.15,
+      "id": "iRFP670",
+      "name": "iRFP670",
+      "cn_name": "近红外荧光蛋白 iRFP670",
+      "aliases": [
+        "iRFP"
+      ],
+      "uniprot": null,
+      "ex_nm": 643,
+      "em_nm": 670,
+      "ext_coeff": 114000,
+      "quantum_yield": 0.11,
+      "brightness": 0.7,
+      "pka": 4.5,
+      "tm_c": 75.0,
+      "acid_ph50": 5.0,
+      "photostability": 0.7,
+      "o2_required": false,
+      "cofactor": "biliverdin",
+      "oligomer": "dimer",
+      "maturation_min": 0,
+      "food_status": "research_only",
+      "expression_hosts": [
+        "E. coli",
+        "mammalian"
+      ],
+      "notes": "Near-infrared FP; requires biliverdin; useful for turbid matrices."
+    },
+    {
+      "type": "food_colorant_protein",
+      "evidence_level": "literature_approx",
+      "sequence": null,
+      "pdb_id": null,
+      "tags": [
+        "blue",
+        "visible",
+        "food_safe",
+        "natural_colorant"
+      ],
+      "references": [
+        "Eriksen 2008 Appl Microbiol Biotechnol",
+        "Food colourant reviews"
+      ],
+      "regulatory_note": "Spirulina-derived phycocyanin is used as a food colourant in several jurisdictions; purity, allergen and local labelling rules still apply.",
+      "tm_sd": 2.5,
+      "pka_sd": 0.25,
+      "acid_ph50_sd": 0.35,
+      "brightness_sd": 0.15,
+      "id": "phycocyanin",
+      "name": "C-phycocyanin (Spirulina)",
+      "cn_name": "藻蓝蛋白（螺旋藻）",
+      "aliases": [
+        "C-PC",
+        "phycocyanin"
+      ],
+      "uniprot": null,
+      "ex_nm": 620,
+      "em_nm": 645,
+      "ext_coeff": 150000,
+      "quantum_yield": 0.5,
+      "brightness": 0.6,
+      "pka": 5.0,
+      "tm_c": 65.0,
+      "acid_ph50": 4.5,
+      "photostability": 0.4,
+      "o2_required": false,
+      "cofactor": "phycocyanobilin",
+      "oligomer": "trimer/hexamer",
+      "maturation_min": 0,
+      "food_status": "food_colorant_jurisdiction_dependent",
+      "expression_hosts": [
+        "Arthrospira platensis"
+      ],
+      "notes": "Blue food colourant with native fluorescence; heat/acid sensitive, so a good showcase for protectant design."
+    }
+  ]
+}

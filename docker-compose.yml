@@ -1,0 +1,66 @@
+services:
+  db:
+    image: pgvector/pgvector:pg16
+    restart: unless-stopped
+    env_file:
+      - path: .env
+        required: false
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-bioforge}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?set POSTGRES_PASSWORD in .env}
+      POSTGRES_DB: ${POSTGRES_DB:-bioforge}
+    volumes:
+      - bioforge_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+    expose:
+      - "5432"
+
+  app:
+    build:
+      context: .
+      args:
+        PIP_INDEX_URL: ${PIP_INDEX_URL:-https://pypi.tuna.tsinghua.edu.cn/simple}
+        APT_MIRROR: ${APT_MIRROR:-http://mirrors.tuna.tsinghua.edu.cn}
+    restart: unless-stopped
+    depends_on:
+      db:
+        condition: service_healthy
+    env_file:
+      - path: .env
+        required: false
+    environment:
+      BIOFORGE_HOST: 0.0.0.0
+      BIOFORGE_PORT: 8010
+      BIOFORGE_COOKIE_SECURE: ${BIOFORGE_COOKIE_SECURE:-1}
+      BIOFORGE_LITERATURE_DB: /data/literature/bioforge_literature.db
+      DATABASE_URL: ${DATABASE_URL:-postgresql://bioforge:${POSTGRES_PASSWORD}@db:5432/bioforge}
+    volumes:
+      - ./runtime:/app/runtime
+      - ./logs:/app/logs
+      - ${BIOFORGE_LITERATURE_HOST_DIR:-./data/literature}:/data/literature:ro
+    expose:
+      - "8010"
+
+  caddy:
+    image: caddy:2-alpine
+    restart: unless-stopped
+    depends_on:
+      - app
+    ports:
+      - "80:80"
+      - "443:443"
+    environment:
+      BIOFORGE_DOMAIN: ${BIOFORGE_DOMAIN:?set BIOFORGE_DOMAIN in .env}
+    volumes:
+      - ./deploy/Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+
+volumes:
+  bioforge_pgdata:
+  caddy_data:
+  caddy_config:

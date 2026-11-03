@@ -1,0 +1,1879 @@
+{
+  "schema_version": "2.0",
+  "curated_date": "2026-10-20",
+  "disclaimer": "Food-system templates and ingredient limits are curated demonstration priors for in-silico screening. They are not legal formulations, safety approvals, or measured shelf-life data. Verify every ingredient, maximum level, allergen, process and label against the current local regulation and run pilot-scale experiments.",
+  "items": [
+    {
+      "id": "beverage_generic",
+      "name": "Generic beverage",
+      "cn_name": "通用饮料",
+      "category": "beverage",
+      "description": "水基饮料，含糖/甜味剂、酸和风味；重点是 pH、热处理和色素稳定性。",
+      "ph_range": [
+        2.8,
+        4.5
+      ],
+      "ph_target": 3.8,
+      "process_temp_c": 85,
+      "process_time_min": 15,
+      "storage_temp_c": 25,
+      "shelf_days": 180,
+      "water_activity": [
+        0.94,
+        0.99
+      ],
+      "key_challenges": [
+        "色素光/热降解",
+        "酸水解",
+        "防腐剂分布",
+        "甜酸比",
+        "包装氧渗透"
+      ],
+      "texture": "clear or slightly hazy liquid",
+      "packaging": "避光 PET/玻璃；氮气顶空可选",
+      "base_recipe": [
+        [
+          "water",
+          93.5,
+          "continuous_phase"
+        ],
+        [
+          "sucrose",
+          6.0,
+          "sweetener"
+        ],
+        [
+          "citric_acid",
+          0.25,
+          "acidulant"
+        ],
+        [
+          "sodium_citrate",
+          0.15,
+          "buffer"
+        ],
+        [
+          "flavor",
+          0.1,
+          "flavor"
+        ]
+      ],
+      "required_roles": [
+        "sweetener",
+        "acidulant",
+        "buffer",
+        "colorant",
+        "preservative"
+      ],
+      "critical_controls": [
+        "pH",
+        "巴氏杀菌等效值",
+        "溶解氧",
+        "光照",
+        "防腐剂有效浓度"
+      ],
+      "qc": [
+        "pH",
+        "Brix",
+        "浊度",
+        "色差",
+        "微生物",
+        "加速货架期"
+      ],
+      "evidence": [
+        "Fennema's Food Chemistry",
+        "FDA Acidified Foods guidance"
+      ],
+      "water_basis": true,
+      "source_type": "curated_food_system_template",
+      "confidence": "medium",
+      "regulatory_note": "模板仅用于配方筛选与工艺讨论，不是法规配方；需按销售地法规和真实中试验证。"
+    },
+    {
+      "id": "juice",
+      "name": "Juice beverage",
+      "cn_name": "果汁饮料",
+      "category": "beverage",
+      "description": "含果汁/浓缩汁的酸性饮料；风味、色泽和浑浊稳定性是关键。",
+      "ph_range": [
+        2.8,
+        4.2
+      ],
+      "ph_target": 3.5,
+      "process_temp_c": 95,
+      "process_time_min": 30,
+      "storage_temp_c": 25,
+      "shelf_days": 270,
+      "water_activity": [
+        0.94,
+        0.99
+      ],
+      "key_challenges": [
+        "果汁褐变",
+        "维生素C损失",
+        "果胶浑浊",
+        "风味劣变",
+        "光氧化"
+      ],
+      "texture": "juice-like",
+      "packaging": "避光高阻隔 PET/玻璃；冷链可选",
+      "base_recipe": [
+        [
+          "water",
+          82.4,
+          "continuous_phase"
+        ],
+        [
+          "orange_juice_concentrate",
+          12.0,
+          "juice_solids"
+        ],
+        [
+          "sucrose",
+          5.0,
+          "sweetener"
+        ],
+        [
+          "citric_acid",
+          0.3,
+          "acidulant"
+        ],
+        [
+          "sodium_citrate",
+          0.15,
+          "buffer"
+        ],
+        [
+          "ascorbic_acid",
+          0.05,
+          "antioxidant"
+        ],
+        [
+          "flavor",
+          0.1,
+          "flavor"
+        ]
+      ],
+      "required_roles": [
+        "sweetener",
+        "acidulant",
+        "buffer",
+        "antioxidant",
+        "colorant"
+      ],
+      "critical_controls": [
+        "Brix",
+        "pH",
+        "维生素C",
+        "热处理",
+        "溶解氧",
+        "光照"
+      ],
+      "qc": [
+        "Brix",
+        "pH",
+        "色差",
+        "维生素C",
+        "微生物",
+        "风味"
+      ],
+      "evidence": [
+        "USDA FoodData Central",
+        "Fennema's Food Chemistry"
+      ],
+      "water_basis": true,
+      "source_type": "curated_food_system_template",
+      "confidence": "medium",
+      "regulatory_note": "模板仅用于配方筛选与工艺讨论，不是法规配方；需按销售地法规和真实中试验证。"
+    },
+    {
+      "id": "dairy_milk",
+      "name": "Neutral dairy drink",
+      "cn_name": "中性乳饮",
+      "category": "dairy",
+      "description": "中性 pH 乳饮料；蛋白热稳定、盐平衡和灭菌是关键。",
+      "ph_range": [
+        6.4,
+        6.9
+      ],
+      "ph_target": 6.7,
+      "process_temp_c": 135,
+      "process_time_min": 4,
+      "storage_temp_c": 25,
+      "shelf_days": 180,
+      "water_activity": [
+        0.96,
+        0.99
+      ],
+      "key_challenges": [
+        "蛋白热凝胶",
+        "盐析",
+        "美拉德褐变",
+        "脂肪上浮",
+        "无菌灌装"
+      ],
+      "texture": "smooth liquid",
+      "packaging": "无菌砖/高阻隔瓶；常温或冷链",
+      "base_recipe": [
+        [
+          "water",
+          82.77,
+          "continuous_phase"
+        ],
+        [
+          "milk_powder",
+          8.0,
+          "dairy_solids"
+        ],
+        [
+          "whey_protein",
+          3.0,
+          "protein"
+        ],
+        [
+          "sucrose",
+          4.0,
+          "sweetener"
+        ],
+        [
+          "sunflower_oil",
+          2.0,
+          "fat"
+        ],
+        [
+          "sodium_citrate",
+          0.2,
+          "buffer"
+        ],
+        [
+          "carrageenan",
+          0.03,
+          "stabilizer"
+        ]
+      ],
+      "required_roles": [
+        "protein",
+        "stabilizer",
+        "emulsifier",
+        "buffer",
+        "sweetener"
+      ],
+      "critical_controls": [
+        "pH",
+        "钙/磷酸盐平衡",
+        "均质压力",
+        "UHT 温度/时间",
+        "无菌灌装"
+      ],
+      "qc": [
+        "pH",
+        "蛋白含量",
+        "粒径",
+        "色差",
+        "微生物",
+        "货架期"
+      ],
+      "evidence": [
+        "Fennema's Food Chemistry",
+        "Dairy Processing Handbook"
+      ],
+      "water_basis": true,
+      "source_type": "curated_food_system_template",
+      "confidence": "medium",
+      "regulatory_note": "模板仅用于配方筛选与工艺讨论，不是法规配方；需按销售地法规和真实中试验证。"
+    },
+    {
+      "id": "dairy_yogurt",
+      "name": "Stirred yogurt",
+      "cn_name": "搅拌型酸奶",
+      "category": "dairy",
+      "description": "发酵乳体系；pH 4.4-4.6，蛋白凝胶、乳清析出和活菌稳定性是关键。",
+      "ph_range": [
+        4.2,
+        4.7
+      ],
+      "ph_target": 4.5,
+      "process_temp_c": 85,
+      "process_time_min": 15,
+      "storage_temp_c": 4,
+      "shelf_days": 28,
+      "water_activity": [
+        0.96,
+        0.99
+      ],
+      "key_challenges": [
+        "乳清析出",
+        "后酸化",
+        "蛋白-果胶相互作用",
+        "活菌数",
+        "果料/色素稳定性"
+      ],
+      "texture": "creamy gel",
+      "packaging": "冷藏杯/瓶；避光",
+      "base_recipe": [
+        [
+          "milk_powder",
+          10.0,
+          "dairy_solids"
+        ],
+        [
+          "water",
+          82.4,
+          "continuous_phase"
+        ],
+        [
+          "sucrose",
+          5.0,
+          "sweetener"
+        ],
+        [
+          "pectin_hm",
+          0.3,
+          "stabilizer"
+        ],
+        [
+          "lactic_acid",
+          0.8,
+          "acidulant"
+        ],
+        [
+          "whey_protein",
+          1.5,
+          "protein"
+        ]
+      ],
+      "required_roles": [
+        "protein",
+        "stabilizer",
+        "sweetener",
+        "colorant",
+        "flavor"
+      ],
+      "critical_controls": [
+        "发酵终点 pH",
+        "冷却速度",
+        "果胶分散",
+        "冷藏链",
+        "活菌计数"
+      ],
+      "qc": [
+        "pH",
+        "滴定酸度",
+        "乳清析出",
+        "活菌数",
+        "质构",
+        "微生物"
+      ],
+      "evidence": [
+        "Fennema's Food Chemistry",
+        "Dairy Processing Handbook"
+      ],
+      "water_basis": true,
+      "source_type": "curated_food_system_template",
+      "confidence": "medium",
+      "regulatory_note": "模板仅用于配方筛选与工艺讨论，不是法规配方；需按销售地法规和真实中试验证。"
+    },
+    {
+      "id": "plant_milk",
+      "name": "Plant-based milk",
+      "cn_name": "植物基奶",
+      "category": "plant_based",
+      "description": "植物蛋白/油脂/水乳化体系；重点是蛋白分散、豆腥味、钙沉淀和热稳定。",
+      "ph_range": [
+        6.5,
+        7.2
+      ],
+      "ph_target": 6.8,
+      "process_temp_c": 121,
+      "process_time_min": 15,
+      "storage_temp_c": 25,
+      "shelf_days": 180,
+      "water_activity": [
+        0.96,
+        0.99
+      ],
+      "key_challenges": [
+        "蛋白沉淀",
+        "豆腥/涩感",
+        "脂肪上浮",
+        "钙强化沉淀",
+        "UHT 凝胶"
+      ],
+      "texture": "smooth opaque liquid",
+      "packaging": "无菌砖/高阻隔瓶",
+      "base_recipe": [
+        [
+          "water",
+          88.45,
+          "continuous_phase"
+        ],
+        [
+          "soy_protein",
+          6.0,
+          "protein"
+        ],
+        [
+          "sunflower_oil",
+          3.0,
+          "fat"
+        ],
+        [
+          "sucrose",
+          2.0,
+          "sweetener"
+        ],
+        [
+          "lecithin",
+          0.2,
+          "emulsifier"
+        ],
+        [
+          "calcium_lactate",
+          0.3,
+          "calcium"
+        ],
+        [
+          "sodium_chloride",
+          0.05,
+          "salt"
+        ]
+      ],
+      "required_roles": [
+        "protein",
+        "fat",
+        "emulsifier",
+        "stabilizer",
+        "calcium"
+      ],
+      "critical_controls": [
+        "蛋白分散/均质",
+        "pH",
+        "钙添加顺序",
+        "UHT",
+        "无菌灌装"
+      ],
+      "qc": [
+        "pH",
+        "蛋白",
+        "粒径",
+        "沉淀",
+        "微生物",
+        "感官"
+      ],
+      "evidence": [
+        "McClements, Food Emulsions",
+        "USDA FoodData Central"
+      ],
+      "water_basis": true,
+      "source_type": "curated_food_system_template",
+      "confidence": "medium",
+      "regulatory_note": "模板仅用于配方筛选与工艺讨论，不是法规配方；需按销售地法规和真实中试验证。"
+    },
+    {
+      "id": "bakery_bread",
+      "name": "Soft bread",
+      "cn_name": "软面包",
+      "category": "bakery",
+      "description": "发酵面团；面筋网络、发酵、烘焙和抗老化决定体积与柔软度。",
+      "ph_range": [
+        5.0,
+        6.2
+      ],
+      "ph_target": 5.6,
+      "process_temp_c": 210,
+      "process_time_min": 20,
+      "storage_temp_c": 25,
+      "shelf_days": 7,
+      "water_activity": [
+        0.94,
+        0.97
+      ],
+      "key_challenges": [
+        "面筋强度",
+        "发酵稳定性",
+        "烘焙损失",
+        "老化回生",
+        "霉菌"
+      ],
+      "texture": "soft crumb",
+      "packaging": "防潮膜；可充氮",
+      "base_recipe": [
+        [
+          "wheat_flour",
+          55.0,
+          "structure"
+        ],
+        [
+          "water",
+          34.5,
+          "continuous_phase"
+        ],
+        [
+          "yeast",
+          1.2,
+          "leavening"
+        ],
+        [
+          "sodium_chloride",
+          1.8,
+          "salt"
+        ],
+        [
+          "sucrose",
+          2.5,
+          "sweetener"
+        ],
+        [
+          "canola_oil",
+          3.0,
+          "fat"
+        ],
+        [
+          "wheat_gluten",
+          2.0,
+          "structure"
+        ]
+      ],
+      "required_roles": [
+        "structure",
+        "leavening",
+        "fat",
+        "sweetener",
+        "preservative"
+      ],
+      "critical_controls": [
+        "面团温度",
+        "发酵时间/湿度",
+        "烘焙曲线",
+        "水分活度",
+        "包装"
+      ],
+      "qc": [
+        "比容",
+        "水分",
+        "质构",
+        "pH",
+        "霉菌",
+        "感官"
+      ],
+      "evidence": [
+        "AACC International methods",
+        "Fennema's Food Chemistry"
+      ],
+      "water_basis": true,
+      "source_type": "curated_food_system_template",
+      "confidence": "medium",
+      "regulatory_note": "模板仅用于配方筛选与工艺讨论，不是法规配方；需按销售地法规和真实中试验证。"
+    },
+    {
+      "id": "bakery_cake",
+      "name": "Cake",
+      "cn_name": "蛋糕",
+      "category": "bakery",
+      "description": "高糖高油烘焙体系；乳化、打发、膨松和褐变是关键。",
+      "ph_range": [
+        6.0,
+        7.5
+      ],
+      "ph_target": 6.8,
+      "process_temp_c": 180,
+      "process_time_min": 30,
+      "storage_temp_c": 25,
+      "shelf_days": 14,
+      "water_activity": [
+        0.82,
+        0.9
+      ],
+      "key_challenges": [
+        "乳化稳定",
+        "打发",
+        "美拉德褐变",
+        "油脂氧化",
+        "霉菌"
+      ],
+      "texture": "tender crumb",
+      "packaging": "防潮膜；避光",
+      "base_recipe": [
+        [
+          "wheat_flour",
+          38.0,
+          "structure"
+        ],
+        [
+          "sucrose",
+          22.0,
+          "sweetener"
+        ],
+        [
+          "egg_white",
+          12.0,
+          "foaming"
+        ],
+        [
+          "sunflower_oil",
+          12.0,
+          "fat"
+        ],
+        [
+          "water",
+          12.2,
+          "continuous_phase"
+        ],
+        [
+          "baking_soda",
+          0.8,
+          "leavening"
+        ],
+        [
+          "milk_powder",
+          3.0,
+          "dairy_solids"
+        ]
+      ],
+      "required_roles": [
+        "structure",
+        "sweetener",
+        "fat",
+        "emulsifier",
+        "leavening"
+      ],
+      "critical_controls": [
+        "面糊比重",
+        "烤箱温度",
+        "水分活度",
+        "油脂新鲜度",
+        "包装"
+      ],
+      "qc": [
+        "比容",
+        "水分",
+        "aw",
+        "质构",
+        "微生物",
+        "感官"
+      ],
+      "evidence": [
+        "AACC International methods",
+        "Fennema's Food Chemistry"
+      ],
+      "water_basis": true,
+      "source_type": "curated_food_system_template",
+      "confidence": "medium",
+      "regulatory_note": "模板仅用于配方筛选与工艺讨论，不是法规配方；需按销售地法规和真实中试验证。"
+    },
+    {
+      "id": "meat_sausage",
+      "name": "Emulsified sausage",
+      "cn_name": "乳化香肠",
+      "category": "meat",
+      "description": "肉蛋白-脂肪乳化体系；斩拌、盐溶蛋白、热凝胶和微生物控制是关键。",
+      "ph_range": [
+        5.6,
+        6.4
+      ],
+      "ph_target": 6.0,
+      "process_temp_c": 75,
+      "process_time_min": 30,
+      "storage_temp_c": 4,
+      "shelf_days": 45,
+      "water_activity": [
+        0.94,
+        0.97
+      ],
+      "key_challenges": [
+        "乳化稳定",
+        "脂肪析出",
+        "亚硝酸盐/发色",
+        "李斯特菌",
+        "氧化酸败"
+      ],
+      "texture": "firm elastic",
+      "packaging": "真空/气调；冷链",
+      "base_recipe": [
+        [
+          "pork_lean",
+          45.0,
+          "protein"
+        ],
+        [
+          "pork_fat",
+          20.0,
+          "fat"
+        ],
+        [
+          "water",
+          32.5,
+          "continuous_phase"
+        ],
+        [
+          "sodium_chloride",
+          1.8,
+          "salt"
+        ],
+        [
+          "sodium_citrate",
+          0.3,
+          "buffer"
+        ],
+        [
+          "onion_powder",
+          0.3,
+          "flavor"
+        ],
+        [
+          "garlic_powder",
+          0.1,
+          "flavor"
+        ]
+      ],
+      "required_roles": [
+        "protein",
+        "fat",
+        "salt",
+        "preservative",
+        "antioxidant"
+      ],
+      "critical_controls": [
+        "斩拌终温",
+        "盐溶蛋白",
+        "热加工中心温度",
+        "冷链",
+        "亚硝酸盐（如使用）"
+      ],
+      "qc": [
+        "中心温度",
+        "水分/蛋白/脂肪",
+        "aw",
+        "微生物",
+        "质构",
+        "色差"
+      ],
+      "evidence": [
+        "Fennema's Food Chemistry",
+        "USDA FSIS guidance"
+      ],
+      "water_basis": true,
+      "source_type": "curated_food_system_template",
+      "confidence": "medium",
+      "regulatory_note": "模板仅用于配方筛选与工艺讨论，不是法规配方；需按销售地法规和真实中试验证。"
+    },
+    {
+      "id": "plant_meat",
+      "name": "Plant-based meat patty",
+      "cn_name": "植物基肉饼",
+      "category": "plant_based",
+      "description": "植物蛋白-油脂-黏结剂体系；目标是接近肉类的咀嚼、汁感和褐变。",
+      "ph_range": [
+        5.8,
+        6.8
+      ],
+      "ph_target": 6.2,
+      "process_temp_c": 180,
+      "process_time_min": 8,
+      "storage_temp_c": -18,
+      "shelf_days": 180,
+      "water_activity": [
+        0.94,
+        0.98
+      ],
+      "key_challenges": [
+        "砂砾感",
+        "汁感",
+        "黏结",
+        "豆腥味",
+        "冷冻稳定性"
+      ],
+      "texture": "chewy fibrous",
+      "packaging": "冷冻真空/气调",
+      "base_recipe": [
+        [
+          "pea_protein",
+          18.0,
+          "protein"
+        ],
+        [
+          "water",
+          64.3,
+          "continuous_phase"
+        ],
+        [
+          "sunflower_oil",
+          10.0,
+          "fat"
+        ],
+        [
+          "methylcellulose",
+          1.2,
+          "binder"
+        ],
+        [
+          "soy_protein",
+          5.0,
+          "protein"
+        ],
+        [
+          "sodium_chloride",
+          1.0,
+          "salt"
+        ],
+        [
+          "beet_extract",
+          0.5,
+          "color"
+        ]
+      ],
+      "required_roles": [
+        "protein",
+        "fat",
+        "binder",
+        "flavor",
+        "colorant"
+      ],
+      "critical_controls": [
+        "蛋白水合",
+        "乳化温度",
+        "成型压力",
+        "冷冻速率",
+        "中心温度"
+      ],
+      "qc": [
+        "水分",
+        "蛋白",
+        "质构",
+        "持水性",
+        "色差",
+        "微生物"
+      ],
+      "evidence": [
+        "McClements, Food Emulsions",
+        "USDA FoodData Central"
+      ],
+      "water_basis": true,
+      "source_type": "curated_food_system_template",
+      "confidence": "medium",
+      "regulatory_note": "模板仅用于配方筛选与工艺讨论，不是法规配方；需按销售地法规和真实中试验证。"
+    },
+    {
+      "id": "sauce_emulsion",
+      "name": "Mayonnaise-style emulsion",
+      "cn_name": "蛋黄酱型乳化酱",
+      "category": "sauce",
+      "description": "高油水包油乳液；蛋黄/卵磷脂乳化、酸度和剪切稳定性是关键。",
+      "ph_range": [
+        3.2,
+        4.2
+      ],
+      "ph_target": 3.8,
+      "process_temp_c": 72,
+      "process_time_min": 0.25,
+      "storage_temp_c": 4,
+      "shelf_days": 120,
+      "water_activity": [
+        0.9,
+        0.95
+      ],
+      "key_challenges": [
+        "破乳",
+        "油析",
+        "酸败",
+        "微生物",
+        "冻融不稳定"
+      ],
+      "texture": "creamy semi-solid",
+      "packaging": "避光软管/玻璃；冷藏",
+      "base_recipe": [
+        [
+          "sunflower_oil",
+          65.0,
+          "fat"
+        ],
+        [
+          "water",
+          20.0,
+          "continuous_phase"
+        ],
+        [
+          "egg_yolk",
+          6.0,
+          "emulsifier"
+        ],
+        [
+          "vinegar",
+          5.0,
+          "acidulant"
+        ],
+        [
+          "sucrose",
+          2.0,
+          "sweetener"
+        ],
+        [
+          "sodium_chloride",
+          1.2,
+          "salt"
+        ],
+        [
+          "mustard",
+          0.8,
+          "flavor"
+        ]
+      ],
+      "required_roles": [
+        "fat",
+        "emulsifier",
+        "acidulant",
+        "stabilizer",
+        "preservative"
+      ],
+      "critical_controls": [
+        "乳化温度",
+        "加油速度",
+        "均质压力",
+        "pH",
+        "冷链"
+      ],
+      "qc": [
+        "pH",
+        "粒径",
+        "稳定性",
+        "微生物",
+        "质构",
+        "感官"
+      ],
+      "evidence": [
+        "McClements, Food Emulsions",
+        "Fennema's Food Chemistry"
+      ],
+      "water_basis": true,
+      "source_type": "curated_food_system_template",
+      "confidence": "medium",
+      "regulatory_note": "模板仅用于配方筛选与工艺讨论，不是法规配方；需按销售地法规和真实中试验证。"
+    },
+    {
+      "id": "sauce_acid",
+      "name": "Acid tomato sauce",
+      "cn_name": "酸性番茄酱",
+      "category": "sauce",
+      "description": "番茄固形物-糖-酸-胶体体系；Brix、pH、色泽和悬浮稳定性是关键。",
+      "ph_range": [
+        3.3,
+        4.0
+      ],
+      "ph_target": 3.7,
+      "process_temp_c": 95,
+      "process_time_min": 10,
+      "storage_temp_c": 25,
+      "shelf_days": 365,
+      "water_activity": [
+        0.88,
+        0.94
+      ],
+      "key_challenges": [
+        "褐变",
+        "分层",
+        "酸甜平衡",
+        "酵母/霉菌",
+        "管道剪切"
+      ],
+      "texture": "thick pourable",
+      "packaging": "玻璃/高阻隔软包装",
+      "base_recipe": [
+        [
+          "tomato_paste",
+          30.0,
+          "solids"
+        ],
+        [
+          "water",
+          50.25,
+          "continuous_phase"
+        ],
+        [
+          "sucrose",
+          12.0,
+          "sweetener"
+        ],
+        [
+          "vinegar",
+          5.0,
+          "acidulant"
+        ],
+        [
+          "sodium_chloride",
+          2.0,
+          "salt"
+        ],
+        [
+          "xanthan",
+          0.25,
+          "thickener"
+        ],
+        [
+          "onion_powder",
+          0.5,
+          "flavor"
+        ]
+      ],
+      "required_roles": [
+        "solids",
+        "sweetener",
+        "acidulant",
+        "thickener",
+        "preservative"
+      ],
+      "critical_controls": [
+        "Brix",
+        "pH",
+        "热灌装温度",
+        "密封",
+        "色差"
+      ],
+      "qc": [
+        "Brix",
+        "pH",
+        "色差",
+        "稠度",
+        "微生物",
+        "货架期"
+      ],
+      "evidence": [
+        "Fennema's Food Chemistry",
+        "FDA Acidified Foods guidance"
+      ],
+      "water_basis": true,
+      "source_type": "curated_food_system_template",
+      "confidence": "medium",
+      "regulatory_note": "模板仅用于配方筛选与工艺讨论，不是法规配方；需按销售地法规和真实中试验证。"
+    },
+    {
+      "id": "confectionery_gummy",
+      "name": "Gummy candy",
+      "cn_name": "软糖",
+      "category": "confectionery",
+      "description": "明胶/果胶凝胶糖果；糖浆、酸、色素和干燥工艺决定质构与稳定性。",
+      "ph_range": [
+        3.0,
+        3.8
+      ],
+      "ph_target": 3.4,
+      "process_temp_c": 95,
+      "process_time_min": 10,
+      "storage_temp_c": 25,
+      "shelf_days": 365,
+      "water_activity": [
+        0.6,
+        0.75
+      ],
+      "key_challenges": [
+        "凝胶强度",
+        "糖结晶",
+        "色素迁移",
+        "粘牙",
+        "干燥不均"
+      ],
+      "texture": "chewy elastic",
+      "packaging": "防潮膜；避光",
+      "base_recipe": [
+        [
+          "glucose_syrup",
+          35.0,
+          "sweetener"
+        ],
+        [
+          "sucrose",
+          28.0,
+          "sweetener"
+        ],
+        [
+          "water",
+          28.75,
+          "continuous_phase"
+        ],
+        [
+          "gelatin",
+          7.0,
+          "gelling"
+        ],
+        [
+          "citric_acid",
+          1.0,
+          "acidulant"
+        ],
+        [
+          "anthocyanin",
+          0.05,
+          "colorant"
+        ],
+        [
+          "flavor",
+          0.2,
+          "flavor"
+        ]
+      ],
+      "required_roles": [
+        "sweetener",
+        "gelling",
+        "acidulant",
+        "colorant",
+        "flavor"
+      ],
+      "critical_controls": [
+        "熬糖 Brix",
+        "pH",
+        "干燥条件",
+        "水分活度",
+        "色素稳定性"
+      ],
+      "qc": [
+        "Brix",
+        "pH",
+        "aw",
+        "质构",
+        "色差",
+        "微生物"
+      ],
+      "evidence": [
+        "Fennema's Food Chemistry",
+        "Glicksman, Gum Technology in the Food Industry"
+      ],
+      "water_basis": true,
+      "source_type": "curated_food_system_template",
+      "confidence": "medium",
+      "regulatory_note": "模板仅用于配方筛选与工艺讨论，不是法规配方；需按销售地法规和真实中试验证。"
+    },
+    {
+      "id": "confectionery_chocolate",
+      "name": "Chocolate",
+      "cn_name": "巧克力",
+      "category": "confectionery",
+      "description": "可可脂连续相；调温、结晶、黏度和水分控制决定光泽与脆性。",
+      "ph_range": [
+        5.5,
+        7.0
+      ],
+      "ph_target": 6.2,
+      "process_temp_c": 45,
+      "process_time_min": 30,
+      "storage_temp_c": 18,
+      "shelf_days": 365,
+      "water_activity": [
+        0.2,
+        0.45
+      ],
+      "key_challenges": [
+        "调温",
+        "脂肪霜",
+        "糖霜",
+        "黏度",
+        "热损伤"
+      ],
+      "texture": "snap",
+      "packaging": "避光防潮；温度控制",
+      "base_recipe": [
+        [
+          "cocoa_mass",
+          30.0,
+          "cocoa"
+        ],
+        [
+          "cocoa_butter",
+          22.5,
+          "fat"
+        ],
+        [
+          "sucrose",
+          38.0,
+          "sweetener"
+        ],
+        [
+          "milk_powder",
+          9.0,
+          "dairy_solids"
+        ],
+        [
+          "lecithin",
+          0.4,
+          "emulsifier"
+        ],
+        [
+          "vanilla",
+          0.1,
+          "flavor"
+        ]
+      ],
+      "required_roles": [
+        "fat",
+        "sweetener",
+        "cocoa",
+        "emulsifier",
+        "flavor"
+      ],
+      "critical_controls": [
+        "调温曲线",
+        "水分",
+        "黏度",
+        "储存温度",
+        "脂肪霜"
+      ],
+      "qc": [
+        "水分",
+        "黏度",
+        "调温",
+        "色差",
+        "感官",
+        "微生物"
+      ],
+      "evidence": [
+        "Beckett, Industrial Chocolate Manufacture",
+        "USDA FoodData Central"
+      ],
+      "water_basis": false,
+      "source_type": "curated_food_system_template",
+      "confidence": "medium",
+      "regulatory_note": "模板仅用于配方筛选与工艺讨论，不是法规配方；需按销售地法规和真实中试验证。"
+    },
+    {
+      "id": "snack_extruded",
+      "name": "Extruded snack",
+      "cn_name": "膨化零食",
+      "category": "snack",
+      "description": "淀粉挤压膨化体系；水分、温度、剪切和模具决定膨胀与脆度。",
+      "ph_range": [
+        5.0,
+        7.0
+      ],
+      "ph_target": 6.2,
+      "process_temp_c": 160,
+      "process_time_min": 2,
+      "storage_temp_c": 25,
+      "shelf_days": 180,
+      "water_activity": [
+        0.15,
+        0.35
+      ],
+      "key_challenges": [
+        "膨化不均",
+        "脆度损失",
+        "油脂氧化",
+        "调味附着",
+        "丙烯酰胺"
+      ],
+      "texture": "crisp",
+      "packaging": "高阻隔充氮膜",
+      "base_recipe": [
+        [
+          "corn_flour",
+          55.0,
+          "structure"
+        ],
+        [
+          "rice_flour",
+          20.0,
+          "structure"
+        ],
+        [
+          "water",
+          18.2,
+          "continuous_phase"
+        ],
+        [
+          "sunflower_oil",
+          4.0,
+          "fat"
+        ],
+        [
+          "sodium_chloride",
+          1.5,
+          "salt"
+        ],
+        [
+          "onion_powder",
+          1.0,
+          "flavor"
+        ],
+        [
+          "baking_soda",
+          0.3,
+          "leavening"
+        ]
+      ],
+      "required_roles": [
+        "structure",
+        "fat",
+        "salt",
+        "flavor",
+        "antioxidant"
+      ],
+      "critical_controls": [
+        "挤压水分",
+        "机筒温度",
+        "模具",
+        "干燥",
+        "包装氧"
+      ],
+      "qc": [
+        "水分",
+        "aw",
+        "膨胀度",
+        "质构",
+        "油脂氧化",
+        "丙烯酰胺（如适用）"
+      ],
+      "evidence": [
+        "Fennema's Food Chemistry",
+        "USDA FoodData Central"
+      ],
+      "water_basis": true,
+      "source_type": "curated_food_system_template",
+      "confidence": "medium",
+      "regulatory_note": "模板仅用于配方筛选与工艺讨论，不是法规配方；需按销售地法规和真实中试验证。"
+    },
+    {
+      "id": "cereal_bar",
+      "name": "Cereal bar",
+      "cn_name": "谷物棒",
+      "category": "snack",
+      "description": "谷物-糖浆-蛋白/纤维黏结体系；水分活度、黏结和货架期是关键。",
+      "ph_range": [
+        5.5,
+        7.0
+      ],
+      "ph_target": 6.2,
+      "process_temp_c": 120,
+      "process_time_min": 15,
+      "storage_temp_c": 25,
+      "shelf_days": 270,
+      "water_activity": [
+        0.55,
+        0.7
+      ],
+      "key_challenges": [
+        "黏结不足",
+        "硬化",
+        "油脂氧化",
+        "霉菌",
+        "糖结晶"
+      ],
+      "texture": "chewy",
+      "packaging": "防潮膜；避光",
+      "base_recipe": [
+        [
+          "oats",
+          35.0,
+          "structure"
+        ],
+        [
+          "glucose_syrup",
+          18.0,
+          "binder"
+        ],
+        [
+          "honey",
+          28.6,
+          "binder"
+        ],
+        [
+          "whey_protein",
+          8.0,
+          "protein"
+        ],
+        [
+          "sunflower_oil",
+          6.0,
+          "fat"
+        ],
+        [
+          "inulin",
+          4.0,
+          "fiber"
+        ],
+        [
+          "sodium_chloride",
+          0.4,
+          "salt"
+        ]
+      ],
+      "required_roles": [
+        "structure",
+        "binder",
+        "protein",
+        "fiber",
+        "antioxidant"
+      ],
+      "critical_controls": [
+        "糖浆 Brix",
+        "水分活度",
+        "冷却",
+        "切割",
+        "包装"
+      ],
+      "qc": [
+        "aw",
+        "水分",
+        "质构",
+        "蛋白",
+        "微生物",
+        "货架期"
+      ],
+      "evidence": [
+        "Fennema's Food Chemistry",
+        "USDA FoodData Central"
+      ],
+      "water_basis": false,
+      "source_type": "curated_food_system_template",
+      "confidence": "medium",
+      "regulatory_note": "模板仅用于配方筛选与工艺讨论，不是法规配方；需按销售地法规和真实中试验证。"
+    },
+    {
+      "id": "frozen_dessert",
+      "name": "Ice cream",
+      "cn_name": "冰淇淋",
+      "category": "frozen",
+      "description": "冷冻乳/植物基泡沫体系；脂肪球、冰晶、气泡和抗融性决定品质。",
+      "ph_range": [
+        6.2,
+        6.9
+      ],
+      "ph_target": 6.6,
+      "process_temp_c": 85,
+      "process_time_min": 20,
+      "storage_temp_c": -18,
+      "shelf_days": 365,
+      "water_activity": [
+        0.9,
+        0.96
+      ],
+      "key_challenges": [
+        "冰晶生长",
+        "脂肪失稳",
+        "抗融",
+        "冷链",
+        "泡沫稳定性"
+      ],
+      "texture": "creamy frozen foam",
+      "packaging": "防潮冷冻包装",
+      "base_recipe": [
+        [
+          "milk_powder",
+          10.0,
+          "dairy_solids"
+        ],
+        [
+          "water",
+          56.65,
+          "continuous_phase"
+        ],
+        [
+          "cream",
+          15.0,
+          "fat"
+        ],
+        [
+          "sucrose",
+          15.0,
+          "sweetener"
+        ],
+        [
+          "glucose_syrup",
+          3.0,
+          "sweetener"
+        ],
+        [
+          "carrageenan",
+          0.05,
+          "stabilizer"
+        ],
+        [
+          "mono_diglyceride",
+          0.3,
+          "emulsifier"
+        ]
+      ],
+      "required_roles": [
+        "fat",
+        "sweetener",
+        "stabilizer",
+        "emulsifier",
+        "protein"
+      ],
+      "critical_controls": [
+        "均质压力",
+        "老化时间",
+        "凝冻出口温度",
+        "硬化",
+        "冷链"
+      ],
+      "qc": [
+        "overrun",
+        "抗融",
+        "冰晶",
+        "质构",
+        "微生物",
+        "感官"
+      ],
+      "evidence": [
+        "Fennema's Food Chemistry",
+        "Dairy Processing Handbook"
+      ],
+      "water_basis": true,
+      "source_type": "curated_food_system_template",
+      "confidence": "medium",
+      "regulatory_note": "模板仅用于配方筛选与工艺讨论，不是法规配方；需按销售地法规和真实中试验证。"
+    },
+    {
+      "id": "fermented_vegetable",
+      "name": "Fermented vegetable",
+      "cn_name": "发酵蔬菜",
+      "category": "fermented",
+      "description": "盐渍乳酸发酵体系；盐度、厌氧、酸化和微生物安全是关键。",
+      "ph_range": [
+        3.2,
+        4.2
+      ],
+      "ph_target": 3.8,
+      "process_temp_c": 25,
+      "process_time_min": 10080,
+      "storage_temp_c": 4,
+      "shelf_days": 180,
+      "water_activity": [
+        0.94,
+        0.98
+      ],
+      "key_challenges": [
+        "盐度",
+        "厌氧",
+        "酸化速度",
+        "霉菌/酵母",
+        "质地软化"
+      ],
+      "texture": "crunchy",
+      "packaging": "厌氧/真空；冷藏",
+      "base_recipe": [
+        [
+          "cabbage",
+          75.0,
+          "substrate"
+        ],
+        [
+          "water",
+          21.7,
+          "continuous_phase"
+        ],
+        [
+          "sodium_chloride",
+          2.5,
+          "salt"
+        ],
+        [
+          "lactic_acid",
+          0.5,
+          "acidulant"
+        ],
+        [
+          "garlic_powder",
+          0.3,
+          "flavor"
+        ]
+      ],
+      "required_roles": [
+        "substrate",
+        "salt",
+        "acidulant",
+        "preservative"
+      ],
+      "critical_controls": [
+        "盐度",
+        "温度",
+        "厌氧",
+        "pH 下降曲线",
+        "亚硝酸盐"
+      ],
+      "qc": [
+        "pH",
+        "盐度",
+        "乳酸菌",
+        "亚硝酸盐",
+        "霉菌",
+        "质构"
+      ],
+      "evidence": [
+        "Fennema's Food Chemistry",
+        "USDA FoodData Central"
+      ],
+      "water_basis": true,
+      "source_type": "curated_food_system_template",
+      "confidence": "medium",
+      "regulatory_note": "模板仅用于配方筛选与工艺讨论，不是法规配方；需按销售地法规和真实中试验证。"
+    },
+    {
+      "id": "edible_film",
+      "name": "Edible film",
+      "cn_name": "可食膜",
+      "category": "packaging",
+      "description": "多糖/蛋白-增塑剂成膜体系；阻隔性、柔韧性和交联是关键。",
+      "ph_range": [
+        4.0,
+        7.0
+      ],
+      "ph_target": 5.5,
+      "process_temp_c": 60,
+      "process_time_min": 30,
+      "storage_temp_c": 25,
+      "shelf_days": 180,
+      "water_activity": [
+        0.4,
+        0.65
+      ],
+      "key_challenges": [
+        "脆裂",
+        "水敏",
+        "阻氧/阻湿",
+        "交联均匀",
+        "干燥开裂"
+      ],
+      "texture": "flexible film",
+      "packaging": "干燥环境；避光",
+      "base_recipe": [
+        [
+          "water",
+          84.7,
+          "continuous_phase"
+        ],
+        [
+          "gelatin",
+          8.0,
+          "film_former"
+        ],
+        [
+          "glycerol",
+          5.0,
+          "plasticizer"
+        ],
+        [
+          "pectin_lm",
+          2.0,
+          "film_former"
+        ],
+        [
+          "calcium_lactate",
+          0.3,
+          "crosslinker"
+        ]
+      ],
+      "required_roles": [
+        "film_former",
+        "plasticizer",
+        "crosslinker",
+        "antioxidant"
+      ],
+      "critical_controls": [
+        "成膜液黏度",
+        "干燥温度/湿度",
+        "交联时间",
+        "厚度"
+      ],
+      "qc": [
+        "厚度",
+        "拉伸强度",
+        "断裂伸长率",
+        "水蒸气透过率",
+        "溶解性"
+      ],
+      "evidence": [
+        "Fennema's Food Chemistry",
+        "Glicksman, Gum Technology in the Food Industry"
+      ],
+      "water_basis": true,
+      "source_type": "curated_food_system_template",
+      "confidence": "medium",
+      "regulatory_note": "模板仅用于配方筛选与工艺讨论，不是法规配方；需按销售地法规和真实中试验证。"
+    },
+    {
+      "id": "powder_drink",
+      "name": "Powdered drink mix",
+      "cn_name": "固体饮料",
+      "category": "powder",
+      "description": "干混/造粒体系；溶解性、结块、色素稳定性和剂量均匀度是关键。",
+      "ph_range": [
+        3.0,
+        4.5
+      ],
+      "ph_target": 3.8,
+      "process_temp_c": 40,
+      "process_time_min": 10,
+      "storage_temp_c": 25,
+      "shelf_days": 540,
+      "water_activity": [
+        0.2,
+        0.45
+      ],
+      "key_challenges": [
+        "结块",
+        "溶解性",
+        "色素分布",
+        "维生素降解",
+        "甜酸比"
+      ],
+      "texture": "powder",
+      "packaging": "防潮铝箔袋；避光",
+      "base_recipe": [
+        [
+          "sucrose",
+          55.0,
+          "sweetener"
+        ],
+        [
+          "maltodextrin",
+          36.9498,
+          "bulking"
+        ],
+        [
+          "citric_acid",
+          6.0,
+          "acidulant"
+        ],
+        [
+          "sodium_citrate",
+          1.0,
+          "buffer"
+        ],
+        [
+          "flavor",
+          1.0,
+          "flavor"
+        ],
+        [
+          "anthocyanin",
+          0.05,
+          "colorant"
+        ],
+        [
+          "vitamin_d",
+          0.0002,
+          "fortification"
+        ]
+      ],
+      "required_roles": [
+        "sweetener",
+        "acidulant",
+        "colorant",
+        "fortification",
+        "anticaking"
+      ],
+      "critical_controls": [
+        "混合均匀度",
+        "水分活度",
+        "溶解性",
+        "包装阻湿",
+        "标签剂量"
+      ],
+      "qc": [
+        "水分",
+        "aw",
+        "溶解度",
+        "含量均匀度",
+        "微生物",
+        "货架期"
+      ],
+      "evidence": [
+        "Fennema's Food Chemistry",
+        "USDA FoodData Central"
+      ],
+      "water_basis": false,
+      "source_type": "curated_food_system_template",
+      "confidence": "medium",
+      "regulatory_note": "模板仅用于配方筛选与工艺讨论，不是法规配方；需按销售地法规和真实中试验证。"
+    },
+    {
+      "id": "jelly",
+      "name": "Jelly dessert",
+      "cn_name": "果冻",
+      "category": "confectionery",
+      "description": "低酯果胶/卡拉胶凝胶甜点；钙/钾、糖和酸平衡决定凝胶与析水。",
+      "ph_range": [
+        3.2,
+        4.2
+      ],
+      "ph_target": 3.7,
+      "process_temp_c": 85,
+      "process_time_min": 10,
+      "storage_temp_c": 25,
+      "shelf_days": 180,
+      "water_activity": [
+        0.9,
+        0.96
+      ],
+      "key_challenges": [
+        "凝胶强度",
+        "析水",
+        "色素稳定",
+        "甜酸比",
+        "微生物"
+      ],
+      "texture": "soft gel",
+      "packaging": "避光杯/袋",
+      "base_recipe": [
+        [
+          "water",
+          84.17,
+          "continuous_phase"
+        ],
+        [
+          "sucrose",
+          14.0,
+          "sweetener"
+        ],
+        [
+          "pectin_lm",
+          1.0,
+          "gelling"
+        ],
+        [
+          "calcium_lactate",
+          0.3,
+          "crosslinker"
+        ],
+        [
+          "citric_acid",
+          0.5,
+          "acidulant"
+        ],
+        [
+          "anthocyanin",
+          0.03,
+          "colorant"
+        ]
+      ],
+      "required_roles": [
+        "gelling",
+        "sweetener",
+        "acidulant",
+        "colorant",
+        "preservative"
+      ],
+      "critical_controls": [
+        "钙添加",
+        "pH",
+        "灌装温度",
+        "冷却",
+        "密封"
+      ],
+      "qc": [
+        "pH",
+        "凝胶强度",
+        "析水",
+        "色差",
+        "微生物",
+        "货架期"
+      ],
+      "evidence": [
+        "Glicksman, Gum Technology in the Food Industry",
+        "Fennema's Food Chemistry"
+      ],
+      "water_basis": true,
+      "source_type": "curated_food_system_template",
+      "confidence": "medium",
+      "regulatory_note": "模板仅用于配方筛选与工艺讨论，不是法规配方；需按销售地法规和真实中试验证。"
+    }
+  ]
+}

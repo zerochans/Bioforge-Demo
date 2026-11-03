@@ -1,0 +1,229 @@
+{
+  "schema_version": "2.0",
+  "updated": "2026-10-22",
+  "policy": "Only public, documented endpoints are queried. Results are cached with retrieval time and source URL. No telemetry; no upload of user data to third parties. Rate limits and terms of use apply.",
+  "items": [
+    {
+      "id": "pubchem",
+      "name": "PubChem PUG REST / PUG View",
+      "url": "https://pubchem.ncbi.nlm.nih.gov/",
+      "license": "Public domain / NIH",
+      "auth": "none",
+      "fields": [
+        "compound identity",
+        "properties",
+        "synonyms",
+        "experimental spectra"
+      ],
+      "status": "live",
+      "notes": "Chemical identity and reference spectra; spectral records may be deposited by third parties."
+    },
+    {
+      "id": "chebi",
+      "name": "ChEBI",
+      "url": "https://www.ebi.ac.uk/chebi/",
+      "license": "CC BY 4.0",
+      "auth": "none",
+      "fields": [
+        "ontology",
+        "roles",
+        "synonyms",
+        "structures"
+      ],
+      "status": "live",
+      "notes": "Chemical Entities of Biological Interest."
+    },
+    {
+      "id": "uniprot",
+      "name": "UniProtKB REST",
+      "url": "https://rest.uniprot.org/",
+      "license": "CC BY 4.0",
+      "auth": "none",
+      "fields": [
+        "protein sequence",
+        "function",
+        "organism",
+        "accession"
+      ],
+      "status": "live",
+      "notes": "Reviewed entries preferred."
+    },
+    {
+      "id": "pdb",
+      "name": "RCSB PDB",
+      "url": "https://www.rcsb.org/",
+      "license": "CC0 1.0",
+      "auth": "none",
+      "fields": [
+        "experimental structures",
+        "ligands",
+        "resolution"
+      ],
+      "status": "live",
+      "notes": "Experimental structures for docking/MD preparation."
+    },
+    {
+      "id": "alphafold",
+      "name": "AlphaFold Protein Structure DB",
+      "url": "https://alphafold.ebi.ac.uk/",
+      "license": "CC BY 4.0",
+      "auth": "none",
+      "fields": [
+        "predicted structures",
+        "pLDDT"
+      ],
+      "status": "live",
+      "notes": "Predicted models; not experimental."
+    },
+    {
+      "id": "europepmc",
+      "name": "Europe PMC",
+      "url": "https://europepmc.org/",
+      "license": "mixed / see record",
+      "auth": "none",
+      "fields": [
+        "literature",
+        "DOI",
+        "PMID",
+        "abstract"
+      ],
+      "status": "live",
+      "notes": "Citations and abstracts; always inspect the original paper."
+    },
+    {
+      "id": "fdc",
+      "name": "USDA FoodData Central",
+      "url": "https://fdc.nal.usda.gov/",
+      "license": "CC0 1.0",
+      "auth": "DEMO_KEY or API key",
+      "fields": [
+        "food composition",
+        "nutrients",
+        "branded foods"
+      ],
+      "status": "live",
+      "notes": "US composition data; not a global regulatory database."
+    },
+    {
+      "id": "openfoodfacts",
+      "name": "Open Food Facts",
+      "url": "https://world.openfoodfacts.org/",
+      "license": "ODbL",
+      "auth": "none",
+      "fields": [
+        "packaged product ingredients",
+        "allergens",
+        "nutrition"
+      ],
+      "status": "live",
+      "notes": "Crowd-sourced; verify labels and completeness."
+    },
+    {
+      "id": "chembl",
+      "name": "ChEMBL",
+      "url": "https://www.ebi.ac.uk/chembl/",
+      "license": "CC BY-SA 3.0",
+      "auth": "none",
+      "fields": [
+        "bioactivity",
+        "targets",
+        "molecules"
+      ],
+      "status": "live",
+      "notes": "Drug-discovery bioactivity; not food-safety evidence."
+    },
+    {
+      "id": "string",
+      "name": "STRING",
+      "url": "https://string-db.org/",
+      "license": "CC BY 4.0",
+      "auth": "none",
+      "fields": [
+        "protein-protein interactions",
+        "confidence"
+      ],
+      "status": "live",
+      "notes": "Predicted/known interactions; not food-matrix evidence."
+    },
+    {
+      "id": "kegg",
+      "name": "KEGG",
+      "url": "https://www.kegg.jp/",
+      "license": "academic use; redistribution restricted",
+      "auth": "none",
+      "fields": [
+        "compound id",
+        "pathway",
+        "enzyme"
+      ],
+      "status": "live_on_demand",
+      "notes": "KEGG REST queried only when selected; verify current terms before redistributing."
+    },
+    {
+      "id": "pubmed",
+      "name": "PubMed (via Europe PMC)",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/",
+      "license": "see record",
+      "auth": "none",
+      "fields": [
+        "citations"
+      ],
+      "status": "via_europepmc",
+      "notes": "Europe PMC aggregates PubMed records."
+    },
+    {
+      "id": "massbank",
+      "name": "MassBank",
+      "url": "https://massbank.eu/",
+      "license": "CC BY 4.0 (records vary)",
+      "auth": "none",
+      "fields": [
+        "mass spectra"
+      ],
+      "status": "link_only",
+      "notes": "Record pages are linked; PubChem may mirror selected records."
+    },
+    {
+      "id": "local_curated",
+      "name": "BioForge curated demo pack",
+      "url": "data/*.json",
+      "license": "project-local",
+      "auth": "none",
+      "fields": [
+        "prior parameters",
+        "templates",
+        "interactions"
+      ],
+      "status": "local",
+      "notes": "Demonstration priors, not measured data."
+    },
+    {
+      "id": "genbank",
+      "name": "NCBI GenBank / Protein",
+      "url": "https://www.ncbi.nlm.nih.gov/genbank/",
+      "license": "US public domain (NCBI)",
+      "auth": "none",
+      "fields": [
+        "protein accession",
+        "organism",
+        "sequence length"
+      ],
+      "status": "live_on_demand",
+      "notes": "Protein records via NCBI E-utilities; accession is the stable identifier."
+    },
+    {
+      "id": "zinc",
+      "name": "ZINC",
+      "url": "https://zinc.docking.org/",
+      "license": "free for research; verify current terms",
+      "auth": "none",
+      "fields": [
+        "purchasable compounds",
+        "SMILES",
+        "InChIKey"
+      ],
+      "status": "link_only",
+      "notes": "ZINC 对自动化 JSON 请求启用验证码/跳转；BioForge 只提供跳转链接，不复制数据。"
+    }
+  ]
+}

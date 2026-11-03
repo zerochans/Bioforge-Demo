@@ -1,0 +1,3362 @@
+{
+  "schema_version": "2.0",
+  "curated_date": "2026-10-20",
+  "model_note": "Ingredient properties and max_pct are screening priors, not legal limits. Cost index is relative (1 low, 5 high). Interaction effects are directional and must be validated experimentally.",
+  "disclaimer": "Ingredient records merge public food-chemistry knowledge and demo priors. Regulatory status varies by country and use level; always confirm with the current regulation and supplier documentation.",
+  "items": [
+    {
+      "id": "water",
+      "name": "Water",
+      "cn_name": "水",
+      "category": "base",
+      "functions": [
+        "solvent",
+        "continuous_phase"
+      ],
+      "ph_min": 2.0,
+      "ph_max": 9.0,
+      "max_process_temp_c": 250.0,
+      "water_solubility": "high",
+      "typical_pct": [
+        20,
+        95
+      ],
+      "max_pct": 99,
+      "aw_effect": 0.0,
+      "texture_effect": "neutral",
+      "allergen": false,
+      "food_additive": false,
+      "e_number": null,
+      "clean_label": true,
+      "cost_index": 1,
+      "food_safe": true,
+      "regulatory": "demo_prior_verify_local_law",
+      "notes_cn": "配方基准；实际生产需符合饮用水/工艺用水标准。",
+      "evidence": [
+        "WHO Guidelines for Drinking-water Quality"
+      ],
+      "source_type": "curated_prior",
+      "confidence": "medium"
+    },
+    {
+      "id": "sucrose",
+      "name": "Sucrose",
+      "cn_name": "蔗糖",
+      "category": "sweetener",
+      "functions": [
+        "sweetener",
+        "bulking",
+        "water_activity",
+        "maillard_substrate"
+      ],
+      "ph_min": 2.0,
+      "ph_max": 9.0,
+      "max_process_temp_c": 250.0,
+      "water_solubility": "high",
+      "typical_pct": [
+        2,
+        25
+      ],
+      "max_pct": 60,
+      "aw_effect": 0.18,
+      "texture_effect": "crisp/hard",
+      "allergen": false,
+      "food_additive": false,
+      "e_number": null,
+      "clean_label": true,
+      "cost_index": 1,
+      "food_safe": true,
+      "regulatory": "demo_prior_verify_local_law",
+      "notes_cn": "提供甜味、体积和质构；高糖会降低水分活度并参与美拉德反应。",
+      "evidence": [
+        "USDA FoodData Central",
+        "Fennema's Food Chemistry"
+      ],
+      "source_type": "curated_prior",
+      "confidence": "medium"
+    },
+    {
+      "id": "glucose",
+      "name": "Glucose",
+      "cn_name": "葡萄糖",
+      "category": "sweetener",
+      "functions": [
+        "sweetener",
+        "reducing_sugar",
+        "maillard_substrate"
+      ],
+      "ph_min": 2.0,
+      "ph_max": 9.0,
+      "max_process_temp_c": 250.0,
+      "water_solubility": "high",
+      "typical_pct": [
+        1,
+        10
+      ],
+      "max_pct": 30,
+      "aw_effect": 0.12,
+      "texture_effect": "neutral",
+      "allergen": false,
+      "food_additive": false,
+      "e_number": null,
+      "clean_label": true,
+      "cost_index": 2,
+      "food_safe": true,
+      "regulatory": "demo_prior_verify_local_law",
+      "notes_cn": "还原糖，高温下促进美拉德褐变。",
+      "evidence": [
+        "Fennema's Food Chemistry, 5th ed.",
+        "USDA FoodData Central (composition reference)"
+      ],
+      "source_type": "curated_prior",
+      "confidence": "medium"
+    },
+    {
+      "id": "fructose",
+      "name": "Fructose",
+      "cn_name": "果糖",
+      "category": "sweetener",
+      "functions": [
+        "sweetener",
+        "humectant",
+        "reducing_sugar"
+      ],
+      "ph_min": 2.0,
+      "ph_max": 9.0,
+      "max_process_temp_c": 250.0,
+      "water_solubility": "high",
+      "typical_pct": [
+        1,
+        10
+      ],
+      "max_pct": 30,
+      "aw_effect": 0.14,
+      "texture_effect": "neutral",
+      "allergen": false,
+      "food_additive": false,
+      "e_number": null,
+      "clean_label": true,
+      "cost_index": 2,
+      "food_safe": true,
+      "regulatory": "demo_prior_verify_local_law",
+      "notes_cn": "甜度高、吸湿性强；高温易褐变。",
+      "evidence": [
+        "Fennema's Food Chemistry, 5th ed.",
+        "USDA FoodData Central (composition reference)"
+      ],
+      "source_type": "curated_prior",
+      "confidence": "medium"
+    },
+    {
+      "id": "glucose_syrup",
+      "name": "Glucose syrup",
+      "cn_name": "葡萄糖浆",
+      "category": "sweetener",
+      "functions": [
+        "sweetener",
+        "bulking",
+        "crystallization_inhibitor"
+      ],
+      "ph_min": 2.0,
+      "ph_max": 9.0,
+      "max_process_temp_c": 250.0,
+      "water_solubility": "high",
+      "typical_pct": [
+        2,
+        25
+      ],
+      "max_pct": 55,
+      "aw_effect": 0.12,
+      "texture_effect": "chewy",
+      "allergen": false,
+      "food_additive": false,
+      "e_number": null,
+      "clean_label": true,
+      "cost_index": 1,
+      "food_safe": true,
+      "regulatory": "demo_prior_verify_local_law",
+      "notes_cn": "抑制蔗糖结晶，改善软糖和谷物棒咀嚼性。",
+      "evidence": [
+        "Fennema's Food Chemistry, 5th ed.",
+        "USDA FoodData Central (composition reference)"
+      ],
+      "source_type": "curated_prior",
+      "confidence": "medium"
+    },
+    {
+      "id": "maltodextrin",
+      "name": "Maltodextrin",
+      "cn_name": "麦芽糊精",
+      "category": "bulking",
+      "functions": [
+        "bulking",
+        "carrier",
+        "mouthfeel"
+      ],
+      "ph_min": 2.0,
+      "ph_max": 9.0,
+      "max_process_temp_c": 250.0,
+      "water_solubility": "high",
+      "typical_pct": [
+        1,
+        15
+      ],
+      "max_pct": 40,
+      "aw_effect": 0.06,
+      "texture_effect": "neutral",
+      "allergen": false,
+      "food_additive": false,
+      "e_number": null,
+      "clean_label": true,
+      "cost_index": 1,
+      "food_safe": true,
+      "regulatory": "demo_prior_verify_local_law",
+      "notes_cn": "低甜度填充剂，适合固体饮料和喷雾干燥载体。",
+      "evidence": [
+        "Fennema's Food Chemistry, 5th ed.",
+        "USDA FoodData Central (composition reference)"
+      ],
+      "source_type": "curated_prior",
+      "confidence": "medium"
+    },
+    {
+      "id": "trehalose",
+      "name": "Trehalose",
+      "cn_name": "海藻糖",
+      "category": "stabilizer",
+      "functions": [
+        "thermoprotectant",
+        "vitrification",
+        "humectant"
+      ],
+      "ph_min": 2.0,
+      "ph_max": 9.0,
+      "max_process_temp_c": 250.0,
+      "water_solubility": "high",
+      "typical_pct": [
+        2,
+        12
+      ],
+      "max_pct": 30,
+      "aw_effect": 0.08,
+      "texture_effect": "neutral",
+      "allergen": false,
+      "food_additive": false,
+      "e_number": null,
+      "clean_label": true,
+      "cost_index": 4,
+      "food_safe": true,
+      "regulatory": "demo_prior_verify_local_law",
+      "notes_cn": "非还原二糖，可提高蛋白/色素的热稳定性；成本较高。",
+      "evidence": [
+        "Carpenter & Crowe 1989 Biochemistry",
+        "Mensink 2017 Int J Biol Macromol"
+      ],
+      "source_type": "curated_prior",
+      "confidence": "medium"
+    },
+    {
+      "id": "sorbitol",
+      "name": "Sorbitol",
+      "cn_name": "山梨糖醇",
+      "category": "humectant",
+      "functions": [
+        "humectant",
+        "sweetener",
+        "plasticizer"
+      ],
+      "ph_min": 2.0,
+      "ph_max": 9.0,
+      "max_process_temp_c": 250.0,
+      "water_solubility": "high",
+      "typical_pct": [
+        1,
+        8
+      ],
+      "max_pct": 20,
+      "aw_effect": 0.12,
+      "texture_effect": "neutral",
+      "allergen": false,
+      "food_additive": false,
+      "e_number": null,
+      "clean_label": true,
+      "cost_index": 2,
+      "food_safe": true,
+      "regulatory": "demo_prior_verify_local_law",
+      "notes_cn": "保湿和增塑；过量可能引起渗透性不适。",
+      "evidence": [
+        "Fennema's Food Chemistry, 5th ed.",
+        "USDA FoodData Central (composition reference)"
+      ],
+      "source_type": "curated_prior",
+      "confidence": "medium"
+    },
+    {
+      "id": "glycerol",
+      "name": "Glycerol",
+      "cn_name": "甘油",
+      "category": "humectant",
+      "functions": [
+        "humectant",
+        "plasticizer",
+        "freeze_protectant"
+      ],
+      "ph_min": 2.0,
+      "ph_max": 9.0,
+      "max_process_temp_c": 250.0,
+      "water_solubility": "high",
+      "typical_pct": [
+        0.5,
+        6
+      ],
+      "max_pct": 15,
+      "aw_effect": 0.1,
+      "texture_effect": "neutral",
+      "allergen": false,
+      "food_additive": false,
+      "e_number": null,
+      "clean_label": true,
+      "cost_index": 2,
+      "food_safe": true,
+      "regulatory": "demo_prior_verify_local_law",
+      "notes_cn": "可食膜增塑剂；高剂量影响口感和水分活度。",
+      "evidence": [
+        "Fennema's Food Chemistry, 5th ed.",
+        "USDA FoodData Central (composition reference)"
+      ],
+      "source_type": "curated_prior",
+      "confidence": "medium"
+    },
+    {
+      "id": "erythritol",
+      "name": "Erythritol",
+      "cn_name": "赤藓糖醇",
+      "category": "sweetener",
+      "functions": [
+        "sweetener",
+        "low_calorie",
+        "humectant"
+      ],
+      "ph_min": 2.0,
+      "ph_max": 9.0,
+      "max_process_temp_c": 250.0,
+      "water_solubility": "high",
+      "typical_pct": [
+        2,
+        10
+      ],
+      "max_pct": 20,
+      "aw_effect": 0.06,
+      "texture_effect": "neutral",
+      "allergen": false,
+      "food_additive": false,
+      "e_number": null,
+      "clean_label": true,
+      "cost_index": 3,
+      "food_safe": true,
+      "regulatory": "demo_prior_verify_local_law",
+      "notes_cn": "低热量甜味剂；高剂量可能有清凉感和渗透效应。",
+      "evidence": [
+        "EFSA re-evaluation; JECFA specifications"
+      ],
+      "source_type": "curated_prior",
+      "confidence": "medium"
+    },
+    {
+      "id": "reb_a",
+      "name": "Rebaudioside A",
+      "cn_name": "莱鲍迪苷A",
+      "category": "sweetener",
+      "functions": [
+        "high_intensity_sweetener"
+      ],
+      "ph_min": 2.0,
+      "ph_max": 9.0,
+      "max_process_temp_c": 250.0,
+      "water_solubility": "high",
+      "typical_pct": [
+        0.01,
+        0.08
+      ],
+      "max_pct": 0.2,
+      "aw_effect": 0.0,
+      "texture_effect": "neutral",
+      "allergen": false,
+      "food_additive": false,
+      "e_number": null,
+      "clean_label": true,
+      "cost_index": 4,
+      "food_safe": true,
+      "regulatory": "demo_prior_verify_local_law",
+      "notes_cn": "高倍甜味剂；需按当地法规和甜度目标复配。",
+      "evidence": [
+        "JECFA steviol glycosides specifications"
+      ],
+      "source_type": "curated_prior",
+      "confidence": "medium"
+    },
+    {
+      "id": "sucralose",
+      "name": "Sucralose",
+      "cn_name": "三氯蔗糖",
+      "category": "sweetener",
+      "functions": [
+        "high_intensity_sweetener"
+      ],
+      "ph_min": 2.0,
+      "ph_max": 9.0,
+      "max_process_temp_c": 250.0,
+      "water_solubility": "high",
+      "typical_pct": [
+        0.005,
+        0.05
+      ],
+      "max_pct": 0.15,
+      "aw_effect": 0.0,
+      "texture_effect": "neutral",
+      "allergen": false,
+      "food_additive": true,
+      "e_number": "E955",
+      "clean_label": false,
+      "cost_index": 4,
+      "food_safe": true,
+      "regulatory": "demo_prior_verify_local_law",
+      "notes_cn": "高倍甜味剂；法规允许量和标签要求因地区而异。",
+      "evidence": [
+        "JECFA sucralose specifications"
+      ],
+      "source_type": "curated_prior",
+      "confidence": "medium"
+    },
+    {
+      "id": "inulin",
+      "name": "Inulin",
+      "cn_name": "菊粉",
+      "category": "fiber",
+      "functions": [
+        "fiber",
+        "fat_replacer",
+        "prebiotic",
+        "bulking"
+      ],
+      "ph_min": 2.0,
+      "ph_max": 9.0,
+      "max_process_temp_c": 250.0,
+      "water_solubility": "high",
+      "typical_pct": [
+        1,
+        8
+      ],
+      "max_pct": 20,
+      "aw_effect": 0.0,
+      "texture_effect": "creamy",
+      "allergen": false,
+      "food_additive": false,
+      "e_number": null,
+      "clean_label": true,
+      "cost_index": 3,
+      "food_safe": true,
+      "regulatory": "demo_prior_verify_local_law",
+      "notes_cn": "可溶性膳食纤维；高剂量可能引起胀气，需做感官评估。",
+      "evidence": [
+        "USDA FoodData Central",
+        "EFSA dietary fibre guidance"
+      ],
+      "source_type": "curated_prior",
+      "confidence": "medium"
+    },
+    {
+      "id": "pectin_hm",
+      "name": "High-methoxyl pectin",
+      "cn_name": "高酯果胶",
+      "category": "hydrocolloid",
+      "functions": [
+        "gelling",
+        "stabilizer",
+        "acid_gel"
+      ],
+      "ph_min": 2.5,
+      "ph_max": 6.5,
+      "max_process_temp_c": 250.0,
+      "water_solubility": "high",
+      "typical_pct": [
+        0.1,
+        1.0
+      ],
+      "max_pct": 3,
+      "aw_effect": 0.0,
+      "texture_effect": "gel",
+      "allergen": false,
+      "food_additive": false,
+      "e_number": null,
+      "clean_label": true,
+      "cost_index": 4,
+      "food_safe": true,
+      "regulatory": "demo_prior_verify_local_law",
+      "notes_cn": "高糖低 pH 条件下形成凝胶；酸奶中用作蛋白稳定剂。",
+      "evidence": [
+        "Glicksman, Gum Technology in the Food Industry"
+      ],
+      "source_type": "curated_prior",
+      "confidence": "medium"
+    },
+    {
+      "id": "pectin_lm",
+      "name": "Low-methoxyl pectin",
+      "cn_name": "低酯果胶",
+      "category": "hydrocolloid",
+      "functions": [
+        "gelling",
+        "calcium_gel",
+        "stabilizer"
+      ],
+      "ph_min": 2.5,
+      "ph_max": 7.0,
+      "max_process_temp_c": 250.0,
+      "water_solubility": "high",
+      "typical_pct": [
+        0.1,
+        1.2
+      ],
+      "max_pct": 3,
+      "aw_effect": 0.0,
+      "texture_effect": "gel",
+      "allergen": false,
+      "food_additive": false,
+      "e_number": null,
+      "clean_label": true,
+      "cost_index": 4,
+      "food_safe": true,
+      "regulatory": "demo_prior_verify_local_law",
+      "notes_cn": "钙离子触发凝胶；适合低糖果冻和可食膜。",
+      "evidence": [
+        "Glicksman, Gum Technology in the Food Industry"
+      ],
+      "source_type": "curated_prior",
+      "confidence": "medium"
+    },
+    {
+      "id": "xanthan",
+      "name": "Xanthan gum",
+      "cn_name": "黄原胶",
+      "category": "hydrocolloid",
+      "functions": [
+        "thickener",
+        "stabilizer",
+        "shear_thinning"
+      ],
+      "ph_min": 2,
+      "ph_max": 12,
+      "max_process_temp_c": 250.0,
+      "water_solubility": "high",
+      "typical_pct": [
+        0.05,
+        0.5
+      ],
+      "max_pct": 1.5,
+      "aw_effect": 0.0,
+      "texture_effect": "viscous",
+      "allergen": false,
+      "food_additive": false,
+      "e_number": null,
+      "clean_label": true,
+      "cost_index": 3,
+      "food_safe": true,
+      "regulatory": "demo_prior_verify_local_law",
+      "notes_cn": "耐酸耐盐的剪切变稀增稠剂；过量会黏口。",
+      "evidence": [
+        "Glicksman, Gum Technology in the Food Industry"
+      ],
+      "source_type": "curated_prior",
+      "confidence": "medium"
+    },
+    {
+      "id": "guar",
+      "name": "Guar gum",
+      "cn_name": "瓜尔胶",
+      "category": "hydrocolloid",
+      "functions": [
+        "thickener",
+        "water_binding"
+      ],
+      "ph_min": 2.0,
+      "ph_max": 9.0,
+      "max_process_temp_c": 250.0,
+      "water_solubility": "high",
+      "typical_pct": [
+        0.05,
+        0.5
+      ],
+      "max_pct": 1.5,
+      "aw_effect": 0.0,
+      "texture_effect": "viscous",
+      "allergen": false,
+      "food_additive": false,
+      "e_number": null,
+      "clean_label": true,
+      "cost_index": 2,
+      "food_safe": true,
+      "regulatory": "demo_prior_verify_local_law",
+      "notes_cn": "冷水增稠；与黄原胶有协同增稠。",
+      "evidence": [
+        "Glicksman, Gum Technology in the Food Industry"
+      ],
+      "source_type": "curated_prior",
+      "confidence": "medium"
+    },
+    {
+      "id": "cmc",
+      "name": "Carboxymethyl cellulose",
+      "cn_name": "羧甲基纤维素钠",
+      "category": "hydrocolloid",
+      "functions": [
+        "thickener",
+        "stabilizer",
+        "ice_crystal_inhibitor"
+      ],
+      "ph_min": 2.0,
+      "ph_max": 9.0,
+      "max_process_temp_c": 250.0,
+      "water_solubility": "high",
+      "typical_pct": [
+        0.05,
+        0.5
+      ],
+      "max_pct": 1.5,
+      "aw_effect": 0.0,
+      "texture_effect": "smooth",
+      "allergen": false,
+      "food_additive": true,
+      "e_number": "E466",
+      "clean_label": false,
+      "cost_index": 2,
+      "food_safe": true,
+      "regulatory": "demo_prior_verify_local_law",
+      "notes_cn": "改善冰淇淋抗融和乳饮稳定性。",
+      "evidence": [
+        "JECFA CMC specifications"
+      ],
+      "source_type": "curated_prior",
+      "confidence": "medium"
+    },
+    {
+      "id": "carrageenan",
+      "name": "Carrageenan",
+      "cn_name": "卡拉胶",
+      "category": "hydrocolloid",
+      "functions": [
+        "gelling",
+        "stabilizer",
+        "suspending"
+      ],
+      "ph_min": 2.0,
+      "ph_max": 9.0,
+      "max_process_temp_c": 250.0,
+      "water_solubility": "high",
+      "typical_pct": [
+        0.03,
+        0.4
+      ],
+      "max_pct": 1.0,
+      "aw_effect": 0.0,
+      "texture_effect": "gel",
+      "allergen": false,
+      "food_additive": true,
+      "e_number": "E407",
+      "clean_label": false,
+      "cost_index": 3,
+      "food_safe": true,
+      "regulatory": "demo_prior_verify_local_law",
+      "notes_cn": "与钾离子协同形成凝胶；用于乳饮和冰淇淋。",
+      "evidence": [
+        "JECFA carrageenan specifications"
+      ],
+      "source_type": "curated_prior",
+      "confidence": "medium"
+    },
+    {
+      "id": "agar",
+      "name": "Agar",
+      "cn_name": "琼脂",
+      "category": "hydrocolloid",
+      "functions": [
+        "gelling",
+        "stabilizer"
+      ],
+      "ph_min": 2.0,
+      "ph_max": 9.0,
+      "max_process_temp_c": 250.0,
+      "water_solubility": "high",
+      "typical_pct": [
+        0.1,
+        1.0
+      ],
+      "max_pct": 2.0,
+      "aw_effect": 0.0,
+      "texture_effect": "firm gel",
+      "allergen": false,
+      "food_additive": false,
+      "e_number": null,
+      "clean_label": true,
+      "cost_index": 3,
+      "food_safe": true,
+      "regulatory": "demo_prior_verify_local_law",
+      "notes_cn": "高温溶解、冷却成胶；口感偏脆。",
+      "evidence": [
+        "Glicksman, Gum Technology in the Food Industry"
+      ],
+      "source_type": "curated_prior",
+      "confidence": "medium"
+    },
+    {
+      "id": "gelatin",
+      "name": "Gelatin",
+      "cn_name": "明胶",
+      "category": "hydrocolloid",
+      "functions": [
+        "gelling",
+        "foaming",
+        "mouthfeel"
+      ],
+      "ph_min": 2.0,
+      "ph_max": 9.0,
+      "max_process_temp_c": 250.0,
+      "water_solubility": "high",
+      "typical_pct": [
+        0.5,
+        8
+      ],
+      "max_pct": 12,
+      "aw_effect": 0.0,
+      "texture_effect": "elastic gel",
+      "allergen": false,
+      "food_additive": false,
+      "e_number": null,
+      "clean_label": true,
+      "cost_index": 3,
+      "food_safe": true,
+      "regulatory": "demo_prior_verify_local_law",
+      "notes_cn": "动物源；软糖和果冻的弹性凝胶。素食产品需替代。",
+      "evidence": [
+        "Glicksman, Gum Technology in the Food Industry"
+      ],
+      "source_type": "curated_prior",
+      "confidence": "medium"
+    },
+    {
+      "id": "modified_starch",
+      "name": "Modified starch",
+      "cn_name": "改性淀粉",
+      "category": "hydrocolloid",
+      "functions": [
+        "thickener",
+        "stabilizer",
+        "freeze_thaw_stability"
+      ],
+      "ph_min": 2.0,
+      "ph_max": 9.0,
+      "max_process_temp_c": 250.0,
+      "water_solubility": "high",
+      "typical_pct": [
+        0.5,
+        6
+      ],
+      "max_pct": 12,
+      "aw_effect": 0.0,
+      "texture_effect": "smooth",
+      "allergen": false,
+      "food_additive": true,
+      "e_number": null,
+      "clean_label": false,
+      "cost_index": 2,
+      "food_safe": true,
+      "regulatory": "demo_prior_verify_local_law",
+      "notes_cn": "耐热耐剪切；清洁标签产品可换用天然淀粉。",
+      "evidence": [
+        "Fennema's Food Chemistry"
+      ],
+      "source_type": "curated_prior",
+      "confidence": "medium"
+    },
+    {
+      "id": "waxy_starch",
+      "name": "Waxy maize starch",
+      "cn_name": "蜡质玉米淀粉",
+      "category": "hydrocolloid",
+      "functions": [
+        "thickener",
+        "gelling",
+        "freeze_thaw_stability"
+      ],
+      "ph_min": 2.0,
+      "ph_max": 9.0,
+      "max_process_temp_c": 250.0,
+      "water_solubility": "high",
+      "typical_pct": [
+        0.5,
+        6
+      ],
+      "max_pct": 12,
+      "aw_effect": 0.0,
+      "texture_effect": "smooth",
+      "allergen": false,
+      "food_additive": false,
+      "e_number": null,
+      "clean_label": true,
+      "cost_index": 2,
+      "food_safe": true,
+      "regulatory": "demo_prior_verify_local_law",
+      "notes_cn": "糊化后黏度高、回生较轻。",
+      "evidence": [
+        "Fennema's Food Chemistry"
+      ],
+      "source_type": "curated_prior",
+      "confidence": "medium"
+    },
+    {
+      "id": "methylcellulose",
+      "name": "Methylcellulose",
+      "cn_name": "甲基纤维素",
+      "category": "hydrocolloid",
+      "functions": [
+        "thermogel",
+        "binder",
+        "fat_replacer"
+      ],
+      "ph_min": 2.0,
+      "ph_max": 9.0,
+      "max_process_temp_c": 250.0,
+      "water_solubility": "high",
+      "typical_pct": [
+        0.5,
+        3
+      ],
+      "max_pct": 5,
+      "aw_effect": 0.0,
+      "texture_effect": "thermogel",
+      "allergen": false,
+      "food_additive": true,
+      "e_number": "E461",
+      "clean_label": false,
+      "cost_index": 3,
+      "food_safe": true,
+      "regulatory": "demo_prior_verify_local_law",
+      "notes_cn": "加热成胶，常用于植物基肉饼的黏结和汁感。",
+      "evidence": [
+        "JECFA methylcellulose specifications"
+      ],
+      "source_type": "curated_prior",
+      "confidence": "medium"
+    },
+    {
+      "id": "wheat_flour",
+      "name": "Wheat flour",
+      "cn_name": "小麦粉",
+      "category": "protein_carb",
+      "functions": [
+        "structure",
+        "gluten",
+        "bulking"
+      ],
+      "ph_min": 2.0,
+      "ph_max": 9.0,
+      "max_process_temp_c": 250.0,
+      "water_solubility": "high",
+      "typical_pct": [
+        30,
+        60
+      ],
+      "max_pct": 80,
+      "aw_effect": 0.0,
+      "texture_effect": "crumb",
+      "allergen": true,
+      "food_additive": false,
+      "e_number": null,
+      "clean_label": true,
+      "cost_index": 1,
+      "food_safe": true,
+      "regulatory": "demo_prior_verify_local_law",
+      "notes_cn": "含麸质；面筋网络决定面包体积和弹性。",
+      "evidence": [
+        "USDA FoodData Central",
+        "AACC International methods"
+      ],
+      "source_type": "curated_prior",
+      "confidence": "medium"
+    },
+    {
+      "id": "oat_flour",
+      "name": "Oat flour",
+      "cn_name": "燕麦粉",
+      "category": "protein_carb",
+      "functions": [
+        "structure",
+        "fiber",
+        "bulking"
+      ],
+      "ph_min": 2.0,
+      "ph_max": 9.0,
+      "max_process_temp_c": 250.0,
+      "water_solubility": "high",
+      "typical_pct": [
+        10,
+        50
+      ],
+      "max_pct": 70,
+      "aw_effect": 0.0,
+      "texture_effect": "soft",
+      "allergen": false,
+      "food_additive": false,
+      "e_number": null,
+      "clean_label": true,
+      "cost_index": 2,
+      "food_safe": true,
+      "regulatory": "demo_prior_verify_local_law",
+      "notes_cn": "含 β-葡聚糖；无麸质但需防交叉污染。",
+      "evidence": [
+        "USDA FoodData Central"
+      ],
+      "source_type": "curated_prior",
+      "confidence": "medium"
+    },
+    {
+      "id": "rice_flour",
+      "name": "Rice flour",
+      "cn_name": "米粉",
+      "category": "protein_carb",
+      "functions": [
+        "structure",
+        "bulking"
+      ],
+      "ph_min": 2.0,
+      "ph_max": 9.0,
+      "max_process_temp_c": 250.0,
+      "water_solubility": "high",
+      "typical_pct": [
+        10,
+        50
+      ],
+      "max_pct": 70,
+      "aw_effect": 0.0,
+      "texture_effect": "crisp",
+      "allergen": false,
+      "food_additive": false,
+      "e_number": null,
+      "clean_label": true,
+      "cost_index": 2,
+      "food_safe": true,
+      "regulatory": "demo_prior_verify_local_law",
+      "notes_cn": "无麸质，常与淀粉和胶体复配。",
+      "evidence": [
+        "USDA FoodData Central"
+      ],
+      "source_type": "curated_prior",
+      "confidence": "medium"
+    },
+    {
+      "id": "corn_flour",
+      "name": "Corn flour",
+      "cn_name": "玉米粉",
+      "category": "protein_carb",
+      "functions": [
+        "structure",
+        "bulking"
+      ],
+      "ph_min": 2.0,
+      "ph_max": 9.0,
+      "max_process_temp_c": 250.0,
+      "water_solubility": "high",
+      "typical_pct": [
+        20,
+        60
+      ],
+      "max_pct": 80,
+      "aw_effect": 0.0,
+      "texture_effect": "crisp",
+      "allergen": false,
+      "food_additive": false,
+      "e_number": null,
+      "clean_label": true,
+      "cost_index": 1,
+      "food_safe": true,
+      "regulatory": "demo_prior_verify_local_law",
+      "notes_cn": "膨化零食基础；需控制水分和挤压参数。",
+      "evidence": [
+        "USDA FoodData Central"
+      ],
+      "source_type": "curated_prior",
+      "confidence": "medium"
+    },
+    {
+      "id": "corn_starch",
+      "name": "Corn starch",
+      "cn_name": "玉米淀粉",
+      "category": "hydrocolloid",
+      "functions": [
+        "thickener",
+        "gelling",
+        "bulking"
+      ],
+      "ph_min": 2.0,
+      "ph_max": 9.0,
+      "max_process_temp_c": 250.0,
+      "water_solubility": "high",
+      "typical_pct": [
+        1,
+        8
+      ],
+      "max_pct": 15,
+      "aw_effect": 0.0,
+      "texture_effect": "smooth",
+      "allergen": false,
+      "food_additive": false,
+      "e_number": null,
+      "clean_label": true,
+      "cost_index": 1,
+      "food_safe": true,
+      "regulatory": "demo_prior_verify_local_law",
+      "notes_cn": "糊化增稠；冷却后可能回生。",
+      "evidence": [
+        "Fennema's Food Chemistry"
+      ],
+      "source_type": "curated_prior",
+      "confidence": "medium"
+    },
+    {
+      "id": "wheat_gluten",
+      "name": "Wheat gluten",
+      "cn_name": "小麦面筋",
+      "category": "protein",
+      "functions": [
+        "structure",
+        "elasticity",
+        "protein_fortification"
+      ],
+      "ph_min": 2.0,
+      "ph_max": 9.0,
+      "max_process_temp_c": 250.0,
+      "water_solubility": "high",
+      "typical_pct": [
+        1,
+        8
+      ],
+      "max_pct": 15,
+      "aw_effect": 0.0,
+      "texture_effect": "elastic",
+      "allergen": true,
+      "food_additive": false,
+      "e_number": null,
+      "clean_label": true,
+      "cost_index": 2,
+      "food_safe": true,
+      "regulatory": "demo_prior_verify_local_law",
+      "notes_cn": "增强面团网络；过敏原和法规标签需明确。",
+      "evidence": [
+        "USDA FoodData Central"
+      ],
+      "source_type": "curated_prior",
+      "confidence": "medium"
+    },
+    {
+      "id": "soy_protein",
+      "name": "Soy protein isolate",
+      "cn_name": "大豆分离蛋白",
+      "category": "protein",
+      "functions": [
+        "protein_fortification",
+        "emulsification",
+        "gelling"
+      ],
+      "ph_min": 2.0,
+      "ph_max": 9.0,
+      "max_process_temp_c": 250.0,
+      "water_solubility": "high",
+      "typical_pct": [
+        2,
+        12
+      ],
+      "max_pct": 25,
+      "aw_effect": 0.0,
+      "texture_effect": "firm",
+      "allergen": true,
+      "food_additive": false,
+      "e_number": null,
+      "clean_label": true,
+      "cost_index": 3,
+      "food_safe": true,
+      "regulatory": "demo_prior_verify_local_law",
+      "notes_cn": "高蛋白植物基原料；豆腥味和过敏原需管理。",
+      "evidence": [
+        "USDA FoodData Central"
+      ],
+      "source_type": "curated_prior",
+      "confidence": "medium"
+    },
+    {
+      "id": "pea_protein",
+      "name": "Pea protein isolate",
+      "cn_name": "豌豆分离蛋白",
+      "category": "protein",
+      "functions": [
+        "protein_fortification",
+        "emulsification",
+        "gelling"
+      ],
+      "ph_min": 2.0,
+      "ph_max": 9.0,
+      "max_process_temp_c": 250.0,
+      "water_solubility": "high",
+      "typical_pct": [
+        2,
+        15
+      ],
+      "max_pct": 25,
+      "aw_effect": 0.0,
+      "texture_effect": "gritty",
+      "allergen": false,
+      "food_additive": false,
+      "e_number": null,
+      "clean_label": true,
+      "cost_index": 3,
+      "food_safe": true,
+      "regulatory": "demo_prior_verify_local_law",
+      "notes_cn": "非大豆植物蛋白；高剂量可能有豆腥和砂砾感。",
+      "evidence": [
+        "USDA FoodData Central"
+      ],
+      "source_type": "curated_prior",
+      "confidence": "medium"
+    },
+    {
+      "id": "whey_protein",
+      "name": "Whey protein isolate",
+      "cn_name": "乳清分离蛋白",
+      "category": "protein",
+      "functions": [
+        "protein_fortification",
+        "emulsification",
+        "foaming"
+      ],
+      "ph_min": 2.0,
+      "ph_max": 9.0,
+      "max_process_temp_c": 250.0,
+      "water_solubility": "high",
+      "typical_pct": [
+        2,
+        12
+      ],
+      "max_pct": 25,
+      "aw_effect": 0.0,
+      "texture_effect": "smooth",
+      "allergen": true,
+      "food_additive": false,
+      "e_number": null,
+      "clean_label": true,
+      "cost_index": 4,
+      "food_safe": true,
+      "regulatory": "demo_prior_verify_local_law",
+      "notes_cn": "高蛋白乳基原料；乳过敏原，热处理需防凝胶。",
+      "evidence": [
+        "USDA FoodData Central"
+      ],
+      "source_type": "curated_prior",
+      "confidence": "medium"
+    },
+    {
+      "id": "casein",
+      "name": "Casein",
+      "cn_name": "酪蛋白",
+      "category": "protein",
+      "functions": [
+        "protein_fortification",
+        "emulsification",
+        "structure"
+      ],
+      "ph_min": 2.0,
+      "ph_max": 9.0,
+      "max_process_temp_c": 250.0,
+      "water_solubility": "high",
+      "typical_pct": [
+        1,
+        8
+      ],
+      "max_pct": 20,
+      "aw_effect": 0.0,
+      "texture_effect": "firm",
+      "allergen": true,
+      "food_additive": false,
+      "e_number": null,
+      "clean_label": true,
+      "cost_index": 3,
+      "food_safe": true,
+      "regulatory": "demo_prior_verify_local_law",
+      "notes_cn": "乳蛋白；酸性条件下易凝聚。",
+      "evidence": [
+        "USDA FoodData Central"
+      ],
+      "source_type": "curated_prior",
+      "confidence": "medium"
+    },
+    {
+      "id": "milk_powder",
+      "name": "Milk powder",
+      "cn_name": "乳粉",
+      "category": "dairy",
+      "functions": [
+        "protein_fortification",
+        "dairy_solids",
+        "flavor"
+      ],
+      "ph_min": 2.0,
+      "ph_max": 9.0,
+      "max_process_temp_c": 250.0,
+      "water_solubility": "high",
+      "typical_pct": [
+        1,
+        10
+      ],
+      "max_pct": 25,
+      "aw_effect": 0.0,
+      "texture_effect": "creamy",
+      "allergen": true,
+      "food_additive": false,
+      "e_number": null,
+      "clean_label": true,
+      "cost_index": 2,
+      "food_safe": true,
+      "regulatory": "demo_prior_verify_local_law",
+      "notes_cn": "提供乳固体和风味；乳糖不耐受需标注。",
+      "evidence": [
+        "USDA FoodData Central"
+      ],
+      "source_type": "curated_prior",
+      "confidence": "medium"
+    },
+    {
+      "id": "cream",
+      "name": "Cream",
+      "cn_name": "稀奶油",
+      "category": "dairy",
+      "functions": [
+        "fat",
+        "flavor",
+        "mouthfeel"
+      ],
+      "ph_min": 2.0,
+      "ph_max": 9.0,
+      "max_process_temp_c": 250.0,
+      "water_solubility": "high",
+      "typical_pct": [
+        5,
+        25
+      ],
+      "max_pct": 40,
+      "aw_effect": 0.0,
+      "texture_effect": "creamy",
+      "allergen": true,
+      "food_additive": false,
+      "e_number": null,
+      "clean_label": true,
+      "cost_index": 3,
+      "food_safe": true,
+      "regulatory": "demo_prior_verify_local_law",
+      "notes_cn": "脂肪球影响冰淇淋和乳饮口感；需冷链。",
+      "evidence": [
+        "USDA FoodData Central"
+      ],
+      "source_type": "curated_prior",
+      "confidence": "medium"
+    },
+    {
+      "id": "egg_white",
+      "name": "Egg white",
+      "cn_name": "蛋清",
+      "category": "protein",
+      "functions": [
+        "foaming",
+        "gelling",
+        "structure"
+      ],
+      "ph_min": 2.0,
+      "ph_max": 9.0,
+      "max_process_temp_c": 250.0,
+      "water_solubility": "high",
+      "typical_pct": [
+        1,
+        10
+      ],
+      "max_pct": 20,
+      "aw_effect": 0.0,
+      "texture_effect": "foam",
+      "allergen": true,
+      "food_additive": false,
+      "e_number": null,
+      "clean_label": true,
+      "cost_index": 3,
+      "food_safe": true,
+      "regulatory": "demo_prior_verify_local_law",
+      "notes_cn": "打发和凝胶；蛋过敏原。",
+      "evidence": [
+        "USDA FoodData Central"
+      ],
+      "source_type": "curated_prior",
+      "confidence": "medium"
+    },
+    {
+      "id": "egg_yolk",
+      "name": "Egg yolk",
+      "cn_name": "蛋黄",
+      "category": "protein",
+      "functions": [
+        "emulsification",
+        "flavor",
+        "color"
+      ],
+      "ph_min": 2.0,
+      "ph_max": 9.0,
+      "max_process_temp_c": 250.0,
+      "water_solubility": "high",
+      "typical_pct": [
+        1,
+        8
+      ],
+      "max_pct": 15,
+      "aw_effect": 0.0,
+      "texture_effect": "creamy",
+      "allergen": true,
+      "food_additive": false,
+      "e_number": null,
+      "clean_label": true,
+      "cost_index": 3,
+      "food_safe": true,
+      "regulatory": "demo_prior_verify_local_law",
+      "notes_cn": "卵磷脂来源，蛋黄酱乳化；蛋过敏原。",
+      "evidence": [
+        "USDA FoodData Central"
+      ],
+      "source_type": "curated_prior",
+      "confidence": "medium"
+    },
+    {
+      "id": "pork_lean",
+      "name": "Lean pork",
+      "cn_name": "瘦猪肉",
+      "category": "meat",
+      "functions": [
+        "protein",
+        "texture",
+        "flavor"
+      ],
+      "ph_min": 2.0,
+      "ph_max": 9.0,
+      "max_process_temp_c": 250.0,
+      "water_solubility": "high",
+      "typical_pct": [
+        30,
+        60
+      ],
+      "max_pct": 80,
+      "aw_effect": 0.0,
+      "texture_effect": "firm",
+      "allergen": false,
+      "food_additive": false,
+      "e_number": null,
+      "clean_label": true,
+      "cost_index": 3,
+      "food_safe": true,
+      "regulatory": "demo_prior_verify_local_law",
+      "notes_cn": "肉制品蛋白来源；需冷链和微生物控制。",
+      "evidence": [
+        "USDA FoodData Central"
+      ],
+      "source_type": "curated_prior",
+      "confidence": "medium"
+    },
+    {
+      "id": "beef_lean",
+      "name": "Lean beef",
+      "cn_name": "瘦牛肉",
+      "category": "meat",
+      "functions": [
+        "protein",
+        "texture",
+        "flavor"
+      ],
+      "ph_min": 2.0,
+      "ph_max": 9.0,
+      "max_process_temp_c": 250.0,
+      "water_solubility": "high",
+      "typical_pct": [
+        30,
+        60
+      ],
+      "max_pct": 80,
+      "aw_effect": 0.0,
+      "texture_effect": "firm",
+      "allergen": false,
+      "food_additive": false,
+      "e_number": null,
+      "clean_label": true,
+      "cost_index": 4,
+      "food_safe": true,
+      "regulatory": "demo_prior_verify_local_law",
+      "notes_cn": "肉制品蛋白来源；需冷链和微生物控制。",
+      "evidence": [
+        "USDA FoodData Central"
+      ],
+      "source_type": "curated_prior",
+      "confidence": "medium"
+    },
+    {
+      "id": "chicken_breast",
+      "name": "Chicken breast",
+      "cn_name": "鸡胸肉",
+      "category": "meat",
+      "functions": [
+        "protein",
+        "texture",
+        "flavor"
+      ],
+      "ph_min": 2.0,
+      "ph_max": 9.0,
+      "max_process_temp_c": 250.0,
+      "water_solubility": "high",
+      "typical_pct": [
+        30,
+        60
+      ],
+      "max_pct": 80,
+      "aw_effect": 0.0,
+      "texture_effect": "firm",
+      "allergen": false,
+      "food_additive": false,
+      "e_number": null,
+      "clean_label": true,
+      "cost_index": 3,
+      "food_safe": true,
+      "regulatory": "demo_prior_verify_local_law",
+      "notes_cn": "低脂高蛋白；需冷链和微生物控制。",
+      "evidence": [
+        "USDA FoodData Central"
+      ],
+      "source_type": "curated_prior",
+      "confidence": "medium"
+    },
+    {
+      "id": "pork_fat",
+      "name": "Pork fat",
+      "cn_name": "猪脂肪",
+      "category": "fat",
+      "functions": [
+        "fat",
+        "mouthfeel",
+        "flavor"
+      ],
+      "ph_min": 2.0,
+      "ph_max": 9.0,
+      "max_process_temp_c": 250.0,
+      "water_solubility": "high",
+      "typical_pct": [
+        5,
+        25
+      ],
+      "max_pct": 35,
+      "aw_effect": 0.0,
+      "texture_effect": "juicy",
+      "allergen": false,
+      "food_additive": false,
+      "e_number": null,
+      "clean_label": true,
+      "cost_index": 2,
+      "food_safe": true,
+      "regulatory": "demo_prior_verify_local_law",
+      "notes_cn": "提供多汁感和风味；需控制氧化。",
+      "evidence": [
+        "USDA FoodData Central"
+      ],
+      "source_type": "curated_prior",
+      "confidence": "medium"
+    },
+    {
+      "id": "sunflower_oil",
+      "name": "Sunflower oil",
+      "cn_name": "葵花籽油",
+      "category": "fat",
+      "functions": [
+        "fat",
+        "emulsification",
+        "mouthfeel"
+      ],
+      "ph_min": 2.0,
+      "ph_max": 9.0,
+      "max_process_temp_c": 250.0,
+      "water_solubility": "high",
+      "typical_pct": [
+        2,
+        20
+      ],
+      "max_pct": 70,
+      "aw_effect": 0.0,
+      "texture_effect": "smooth",
+      "allergen": false,
+      "food_additive": false,
+      "e_number": null,
+      "clean_label": true,
+      "cost_index": 2,
+      "food_safe": true,
+      "regulatory": "demo_prior_verify_local_law",
+      "notes_cn": "高油酸版本氧化稳定性更好。",
+      "evidence": [
+        "USDA FoodData Central"
+      ],
+      "source_type": "curated_prior",
+      "confidence": "medium"
+    },
+    {
+      "id": "canola_oil",
+      "name": "Canola oil",
+      "cn_name": "菜籽油",
+      "category": "fat",
+      "functions": [
+        "fat",
+        "emulsification",
+        "mouthfeel"
+      ],
+      "ph_min": 2.0,
+      "ph_max": 9.0,
+      "max_process_temp_c": 250.0,
+      "water_solubility": "high",
+      "typical_pct": [
+        2,
+        20
+      ],
+      "max_pct": 70,
+      "aw_effect": 0.0,
+      "texture_effect": "smooth",
+      "allergen": false,
+      "food_additive": false,
+      "e_number": null,
+      "clean_label": true,
+      "cost_index": 2,
+      "food_safe": true,
+      "regulatory": "demo_prior_verify_local_law",
+      "notes_cn": "低饱和脂肪；需评估氧化和风味。",
+      "evidence": [
+        "USDA FoodData Central"
+      ],
+      "source_type": "curated_prior",
+      "confidence": "medium"
+    },
+    {
+      "id": "cocoa_butter",
+      "name": "Cocoa butter",
+      "cn_name": "可可脂",
+      "category": "fat",
+      "functions": [
+        "fat",
+        "crystallization",
+        "mouthfeel"
+      ],
+      "ph_min": 2.0,
+      "ph_max": 9.0,
+      "max_process_temp_c": 250.0,
+      "water_solubility": "high",
+      "typical_pct": [
+        10,
+        35
+      ],
+      "max_pct": 45,
+      "aw_effect": 0.0,
+      "texture_effect": "snap",
+      "allergen": false,
+      "food_additive": false,
+      "e_number": null,
+      "clean_label": true,
+      "cost_index": 5,
+      "food_safe": true,
+      "regulatory": "demo_prior_verify_local_law",
+      "notes_cn": "巧克力连续相；调温决定光泽和脆性。",
+      "evidence": [
+        "USDA FoodData Central",
+        "Beckett, Industrial Chocolate Manufacture"
+      ],
+      "source_type": "curated_prior",
+      "confidence": "medium"
+    },
+    {
+      "id": "coconut_oil",
+      "name": "Coconut oil",
+      "cn_name": "椰子油",
+      "category": "fat",
+      "functions": [
+        "fat",
+        "mouthfeel"
+      ],
+      "ph_min": 2.0,
+      "ph_max": 9.0,
+      "max_process_temp_c": 250.0,
+      "water_solubility": "high",
+      "typical_pct": [
+        2,
+        20
+      ],
+      "max_pct": 40,
+      "aw_effect": 0.0,
+      "texture_effect": "smooth",
+      "allergen": false,
+      "food_additive": false,
+      "e_number": null,
+      "clean_label": true,
+      "cost_index": 3,
+      "food_safe": true,
+      "regulatory": "demo_prior_verify_local_law",
+      "notes_cn": "饱和脂肪高，氧化稳定性较好；风味明显。",
+      "evidence": [
+        "USDA FoodData Central"
+      ],
+      "source_type": "curated_prior",
+      "confidence": "medium"
+    },
+    {
+      "id": "lecithin",
+      "name": "Lecithin",
+      "cn_name": "卵磷脂",
+      "category": "emulsifier",
+      "functions": [
+        "emulsifier",
+        "wetting",
+        "crystal_modifier"
+      ],
+      "ph_min": 2.0,
+      "ph_max": 9.0,
+      "max_process_temp_c": 250.0,
+      "water_solubility": "high",
+      "typical_pct": [
+        0.1,
+        1.0
+      ],
+      "max_pct": 2.0,
+      "aw_effect": 0.0,
+      "texture_effect": "smooth",
+      "allergen": false,
+      "food_additive": true,
+      "e_number": "E322",
+      "clean_label": true,
+      "cost_index": 3,
+      "food_safe": true,
+      "regulatory": "demo_prior_verify_local_law",
+      "notes_cn": "水包油乳化；巧克力中降低黏度。",
+      "evidence": [
+        "JECFA lecithin specifications"
+      ],
+      "source_type": "curated_prior",
+      "confidence": "medium"
+    },
+    {
+      "id": "mono_diglyceride",
+      "name": "Mono- and diglycerides",
+      "cn_name": "单双甘油脂肪酸酯",
+      "category": "emulsifier",
+      "functions": [
+        "emulsifier",
+        "foam_stabilizer",
+        "starch_complex"
+      ],
+      "ph_min": 2.0,
+      "ph_max": 9.0,
+      "max_process_temp_c": 250.0,
+      "water_solubility": "high",
+      "typical_pct": [
+        0.1,
+        1.0
+      ],
+      "max_pct": 2.0,
+      "aw_effect": 0.0,
+      "texture_effect": "smooth",
+      "allergen": false,
+      "food_additive": true,
+      "e_number": "E471",
+      "clean_label": false,
+      "cost_index": 2,
+      "food_safe": true,
+      "regulatory": "demo_prior_verify_local_law",
+      "notes_cn": "冰淇淋和烘焙乳化；与淀粉形成复合物。",
+      "evidence": [
+        "JECFA mono-diglycerides specifications"
+      ],
+      "source_type": "curated_prior",
+      "confidence": "medium"
+    },
+    {
+      "id": "polysorbate80",
+      "name": "Polysorbate 80",
+      "cn_name": "聚山梨醇酯80",
+      "category": "emulsifier",
+      "functions": [
+        "emulsifier",
+        "foam_stabilizer"
+      ],
+      "ph_min": 2.0,
+      "ph_max": 9.0,
+      "max_process_temp_c": 250.0,
+      "water_solubility": "high",
+      "typical_pct": [
+        0.01,
+        0.2
+      ],
+      "max_pct": 0.5,
+      "aw_effect": 0.0,
+      "texture_effect": "smooth",
+      "allergen": false,
+      "food_additive": true,
+      "e_number": "E433",
+      "clean_label": false,
+      "cost_index": 3,
+      "food_safe": true,
+      "regulatory": "demo_prior_verify_local_law",
+      "notes_cn": "强乳化剂；法规限量和清洁标签接受度需评估。",
+      "evidence": [
+        "JECFA polysorbate specifications"
+      ],
+      "source_type": "curated_prior",
+      "confidence": "medium"
+    },
+    {
+      "id": "citric_acid",
+      "name": "Citric acid",
+      "cn_name": "柠檬酸",
+      "category": "acidulant",
+      "functions": [
+        "acidulant",
+        "chelator",
+        "flavor"
+      ],
+      "ph_min": 1.5,
+      "ph_max": 7.0,
+      "max_process_temp_c": 250.0,
+      "water_solubility": "high",
+      "typical_pct": [
+        0.05,
+        1.5
+      ],
+      "max_pct": 3.0,
+      "aw_effect": 0.0,
+      "texture_effect": "tart",
+      "allergen": false,
+      "food_additive": false,
+      "e_number": null,
+      "clean_label": true,
+      "cost_index": 1,
+      "food_safe": true,
+      "regulatory": "demo_prior_verify_local_law",
+      "notes_cn": "主要酸味剂和 pH 调节剂；加速蛋白酸凝聚和色素降解。",
+      "evidence": [
+        "USDA FoodData Central",
+        "Fennema's Food Chemistry"
+      ],
+      "source_type": "curated_prior",
+      "confidence": "medium"
+    },
+    {
+      "id": "malic_acid",
+      "name": "Malic acid",
+      "cn_name": "苹果酸",
+      "category": "acidulant",
+      "functions": [
+        "acidulant",
+        "flavor"
+      ],
+      "ph_min": 2.0,
+      "ph_max": 9.0,
+      "max_process_temp_c": 250.0,
+      "water_solubility": "high",
+      "typical_pct": [
+        0.05,
+        1.0
+      ],
+      "max_pct": 2.0,
+      "aw_effect": 0.0,
+      "texture_effect": "tart",
+      "allergen": false,
+      "food_additive": false,
+      "e_number": null,
+      "clean_label": true,
+      "cost_index": 2,
+      "food_safe": true,
+      "regulatory": "demo_prior_verify_local_law",
+      "notes_cn": "酸味柔和持久；与柠檬酸复配。",
+      "evidence": [
+        "Fennema's Food Chemistry"
+      ],
+      "source_type": "curated_prior",
+      "confidence": "medium"
+    },
+    {
+      "id": "lactic_acid",
+      "name": "Lactic acid",
+      "cn_name": "乳酸",
+      "category": "acidulant",
+      "functions": [
+        "acidulant",
+        "fermentation_acid",
+        "flavor"
+      ],
+      "ph_min": 2.0,
+      "ph_max": 9.0,
+      "max_process_temp_c": 250.0,
+      "water_solubility": "high",
+      "typical_pct": [
+        0.1,
+        2.0
+      ],
+      "max_pct": 4.0,
+      "aw_effect": 0.0,
+      "texture_effect": "sour",
+      "allergen": false,
+      "food_additive": false,
+      "e_number": null,
+      "clean_label": true,
+      "cost_index": 2,
+      "food_safe": true,
+      "regulatory": "demo_prior_verify_local_law",
+      "notes_cn": "发酵乳和腌渍风味；降低 pH。",
+      "evidence": [
+        "Fennema's Food Chemistry"
+      ],
+      "source_type": "curated_prior",
+      "confidence": "medium"
+    },
+    {
+      "id": "acetic_acid",
+      "name": "Acetic acid",
+      "cn_name": "乙酸",
+      "category": "acidulant",
+      "functions": [
+        "acidulant",
+        "preservative",
+        "flavor"
+      ],
+      "ph_min": 2.0,
+      "ph_max": 9.0,
+      "max_process_temp_c": 250.0,
+      "water_solubility": "high",
+      "typical_pct": [
+        0.1,
+        2.0
+      ],
+      "max_pct": 5.0,
+      "aw_effect": 0.0,
+      "texture_effect": "sharp",
+      "allergen": false,
+      "food_additive": false,
+      "e_number": null,
+      "clean_label": true,
+      "cost_index": 1,
+      "food_safe": true,
+      "regulatory": "demo_prior_verify_local_law",
+      "notes_cn": "醋的风味；抑菌但需注意刺激性和法规。",
+      "evidence": [
+        "Fennema's Food Chemistry"
+      ],
+      "source_type": "curated_prior",
+      "confidence": "medium"
+    },
+    {
+      "id": "sodium_citrate",
+      "name": "Sodium citrate",
+      "cn_name": "柠檬酸钠",
+      "category": "buffer",
+      "functions": [
+        "buffer",
+        "chelator",
+        "emulsifying_salt"
+      ],
+      "ph_min": 2.0,
+      "ph_max": 9.0,
+      "max_process_temp_c": 250.0,
+      "water_solubility": "high",
+      "typical_pct": [
+        0.05,
+        1.0
+      ],
+      "max_pct": 2.0,
+      "aw_effect": 0.0,
+      "texture_effect": "neutral",
+      "allergen": false,
+      "food_additive": true,
+      "e_number": "E331",
+      "clean_label": false,
+      "cost_index": 2,
+      "food_safe": true,
+      "regulatory": "demo_prior_verify_local_law",
+      "notes_cn": "稳定 pH；奶酪和乳饮中作乳化盐。",
+      "evidence": [
+        "JECFA sodium citrate specifications"
+      ],
+      "source_type": "curated_prior",
+      "confidence": "medium"
+    },
+    {
+      "id": "potassium_sorbate",
+      "name": "Potassium sorbate",
+      "cn_name": "山梨酸钾",
+      "category": "preservative",
+      "functions": [
+        "preservative"
+      ],
+      "ph_min": 2.5,
+      "ph_max": 6.5,
+      "max_process_temp_c": 250.0,
+      "water_solubility": "high",
+      "typical_pct": [
+        0.02,
+        0.15
+      ],
+      "max_pct": 0.2,
+      "aw_effect": 0.0,
+      "texture_effect": "neutral",
+      "allergen": false,
+      "food_additive": true,
+      "e_number": "E202",
+      "clean_label": false,
+      "cost_index": 2,
+      "food_safe": true,
+      "regulatory": "demo_prior_verify_local_law",
+      "notes_cn": "霉菌酵母抑制；酸性条件下更有效。",
+      "evidence": [
+        "JECFA potassium sorbate specifications"
+      ],
+      "source_type": "curated_prior",
+      "confidence": "medium"
+    },
+    {
+      "id": "sodium_benzoate",
+      "name": "Sodium benzoate",
+      "cn_name": "苯甲酸钠",
+      "category": "preservative",
+      "functions": [
+        "preservative"
+      ],
+      "ph_min": 2.0,
+      "ph_max": 4.5,
+      "max_process_temp_c": 250.0,
+      "water_solubility": "high",
+      "typical_pct": [
+        0.02,
+        0.1
+      ],
+      "max_pct": 0.1,
+      "aw_effect": 0.0,
+      "texture_effect": "neutral",
+      "allergen": false,
+      "food_additive": true,
+      "e_number": "E211",
+      "clean_label": false,
+      "cost_index": 2,
+      "food_safe": true,
+      "regulatory": "demo_prior_verify_local_law",
+      "notes_cn": "酸性饮料防腐；与抗坏血酸共存需评估苯生成风险。",
+      "evidence": [
+        "JECFA sodium benzoate specifications"
+      ],
+      "source_type": "curated_prior",
+      "confidence": "medium"
+    },
+    {
+      "id": "nisin",
+      "name": "Nisin",
+      "cn_name": "乳酸链球菌素",
+      "category": "preservative",
+      "functions": [
+        "preservative",
+        "gram_positive_inhibitor"
+      ],
+      "ph_min": 2.0,
+      "ph_max": 9.0,
+      "max_process_temp_c": 250.0,
+      "water_solubility": "high",
+      "typical_pct": [
+        0.005,
+        0.02
+      ],
+      "max_pct": 0.05,
+      "aw_effect": 0.0,
+      "texture_effect": "neutral",
+      "allergen": false,
+      "food_additive": true,
+      "e_number": "E234",
+      "clean_label": false,
+      "cost_index": 5,
+      "food_safe": true,
+      "regulatory": "demo_prior_verify_local_law",
+      "notes_cn": "天然抗菌肽；法规允许范围和有效性需验证。",
+      "evidence": [
+        "JECFA nisin specifications"
+      ],
+      "source_type": "curated_prior",
+      "confidence": "medium"
+    },
+    {
+      "id": "ascorbic_acid",
+      "name": "Ascorbic acid",
+      "cn_name": "抗坏血酸",
+      "category": "antioxidant",
+      "functions": [
+        "antioxidant",
+        "oxygen_scavenger",
+        "acidulant",
+        "reducing_agent"
+      ],
+      "ph_min": 2,
+      "ph_max": 7,
+      "max_process_temp_c": 250.0,
+      "water_solubility": "high",
+      "typical_pct": [
+        0.02,
+        0.2
+      ],
+      "max_pct": 0.5,
+      "aw_effect": 0.0,
+      "texture_effect": "tart",
+      "allergen": false,
+      "food_additive": false,
+      "e_number": null,
+      "clean_label": true,
+      "cost_index": 2,
+      "food_safe": true,
+      "regulatory": "demo_prior_verify_local_law",
+      "notes_cn": "抗氧化和护色；与花青素、核黄素、苯甲酸盐有相互作用。",
+      "evidence": [
+        "Fennema's Food Chemistry",
+        "USDA FoodData Central"
+      ],
+      "source_type": "curated_prior",
+      "confidence": "medium"
+    },
+    {
+      "id": "tocopherol",
+      "name": "Tocopherol",
+      "cn_name": "生育酚",
+      "category": "antioxidant",
+      "functions": [
+        "antioxidant",
+        "lipid_oxidation_inhibitor"
+      ],
+      "ph_min": 2.0,
+      "ph_max": 9.0,
+      "max_process_temp_c": 250.0,
+      "water_solubility": "low",
+      "typical_pct": [
+        0.01,
+        0.1
+      ],
+      "max_pct": 0.3,
+      "aw_effect": 0.0,
+      "texture_effect": "neutral",
+      "allergen": false,
+      "food_additive": true,
+      "e_number": "E307",
+      "clean_label": true,
+      "cost_index": 4,
+      "food_safe": true,
+      "regulatory": "demo_prior_verify_local_law",
+      "notes_cn": "脂溶性抗氧化剂；适合油脂体系。",
+      "evidence": [
+        "JECFA tocopherol specifications"
+      ],
+      "source_type": "curated_prior",
+      "confidence": "medium"
+    },
+    {
+      "id": "rosemary_extract",
+      "name": "Rosemary extract",
+      "cn_name": "迷迭香提取物",
+      "category": "antioxidant",
+      "functions": [
+        "antioxidant",
+        "lipid_oxidation_inhibitor"
+      ],
+      "ph_min": 2.0,
+      "ph_max": 9.0,
+      "max_process_temp_c": 250.0,
+      "water_solubility": "low",
+      "typical_pct": [
+        0.01,
+        0.1
+      ],
+      "max_pct": 0.2,
+      "aw_effect": 0.0,
+      "texture_effect": "neutral",
+      "allergen": false,
+      "food_additive": false,
+      "e_number": null,
+      "clean_label": true,
+      "cost_index": 5,
+      "food_safe": true,
+      "regulatory": "demo_prior_verify_local_law",
+      "notes_cn": "清洁标签抗氧化；风味和颜色需评估。",
+      "evidence": [
+        "EFSA rosemary extract opinion"
+      ],
+      "source_type": "curated_prior",
+      "confidence": "medium"
+    },
+    {
+      "id": "beta_carotene",
+      "name": "Beta-carotene",
+      "cn_name": "β-胡萝卜素",
+      "category": "colorant",
+      "functions": [
+        "colorant",
+        "provitamin_a",
+        "antioxidant"
+      ],
+      "ph_min": 2.0,
+      "ph_max": 9.0,
+      "max_process_temp_c": 250.0,
+      "water_solubility": "low",
+      "typical_pct": [
+        0.001,
+        0.02
+      ],
+      "max_pct": 0.05,
+      "aw_effect": 0.0,
+      "texture_effect": "neutral",
+      "allergen": false,
+      "food_additive": true,
+      "e_number": "E160a",
+      "clean_label": true,
+      "cost_index": 3,
+      "food_safe": true,
+      "regulatory": "demo_prior_verify_local_law",
+      "notes_cn": "橙黄色；对光和氧敏感，需乳化/包埋。",
+      "evidence": [
+        "JECFA beta-carotene specifications"
+      ],
+      "source_type": "curated_prior",
+      "confidence": "medium"
+    },
+    {
+      "id": "anthocyanin",
+      "name": "Anthocyanins",
+      "cn_name": "花青素",
+      "category": "colorant",
+      "functions": [
+        "colorant",
+        "antioxidant",
+        "ph_indicator"
+      ],
+      "ph_min": 2.0,
+      "ph_max": 5.5,
+      "max_process_temp_c": 250.0,
+      "water_solubility": "high",
+      "typical_pct": [
+        0.005,
+        0.08
+      ],
+      "max_pct": 0.2,
+      "aw_effect": 0.0,
+      "texture_effect": "neutral",
+      "allergen": false,
+      "food_additive": false,
+      "e_number": null,
+      "clean_label": true,
+      "cost_index": 4,
+      "food_safe": true,
+      "regulatory": "demo_prior_verify_local_law",
+      "notes_cn": "红色/紫色；pH、金属离子、抗坏血酸和热会加速褪色。",
+      "evidence": [
+        "EFSA anthocyanins opinion",
+        "Fennema's Food Chemistry"
+      ],
+      "source_type": "curated_prior",
+      "confidence": "medium"
+    },
+    {
+      "id": "riboflavin",
+      "name": "Riboflavin",
+      "cn_name": "核黄素",
+      "category": "colorant",
+      "functions": [
+        "colorant",
+        "vitamin",
+        "fluorescent"
+      ],
+      "ph_min": 2.0,
+      "ph_max": 9.0,
+      "max_process_temp_c": 250.0,
+      "water_solubility": "high",
+      "typical_pct": [
+        0.001,
+        0.02
+      ],
+      "max_pct": 0.05,
+      "aw_effect": 0.0,
+      "texture_effect": "neutral",
+      "allergen": false,
+      "food_additive": true,
+      "e_number": "E101",
+      "clean_label": true,
+      "cost_index": 3,
+      "food_safe": true,
+      "regulatory": "demo_prior_verify_local_law",
+      "notes_cn": "黄色荧光维生素；光敏，与抗坏血酸共存时可能光氧化。",
+      "evidence": [
+        "JECFA riboflavin specifications",
+        "PubChem CID 493570"
+      ],
+      "source_type": "curated_prior",
+      "confidence": "medium"
+    },
+    {
+      "id": "phycocyanin",
+      "name": "Phycocyanin",
+      "cn_name": "藻蓝蛋白",
+      "category": "colorant",
+      "functions": [
+        "colorant",
+        "fluorescent",
+        "protein"
+      ],
+      "ph_min": 4.0,
+      "ph_max": 7.0,
+      "max_process_temp_c": 70,
+      "water_solubility": "high",
+      "typical_pct": [
+        0.01,
+        0.1
+      ],
+      "max_pct": 0.3,
+      "aw_effect": 0.0,
+      "texture_effect": "neutral",
+      "allergen": false,
+      "food_additive": false,
+      "e_number": null,
+      "clean_label": true,
+      "cost_index": 5,
+      "food_safe": true,
+      "regulatory": "demo_prior_verify_local_law",
+      "notes_cn": "蓝色蛋白色素；酸性/高温易变性褪色，需保护剂和温和工艺。",
+      "evidence": [
+        "EFSA phycocyanin opinion",
+        "PubChem CID 16218904"
+      ],
+      "source_type": "curated_prior",
+      "confidence": "medium"
+    },
+    {
+      "id": "quercetin",
+      "name": "Quercetin",
+      "cn_name": "槲皮素",
+      "category": "polyphenol",
+      "functions": [
+        "antioxidant",
+        "polyphenol",
+        "colorant_cofactor"
+      ],
+      "ph_min": 2.0,
+      "ph_max": 9.0,
+      "max_process_temp_c": 250.0,
+      "water_solubility": "low",
+      "typical_pct": [
+        0.01,
+        0.1
+      ],
+      "max_pct": 0.3,
+      "aw_effect": 0.0,
+      "texture_effect": "astringent",
+      "allergen": false,
+      "food_additive": false,
+      "e_number": null,
+      "clean_label": true,
+      "cost_index": 4,
+      "food_safe": true,
+      "regulatory": "demo_prior_verify_local_law",
+      "notes_cn": "黄酮类抗氧化；与蛋白结合可能产生浑浊/涩感。",
+      "evidence": [
+        "USDA FoodData Central",
+        "PubChem CID 5280343"
+      ],
+      "source_type": "curated_prior",
+      "confidence": "medium"
+    },
+    {
+      "id": "caffeine",
+      "name": "Caffeine",
+      "cn_name": "咖啡因",
+      "category": "bioactive",
+      "functions": [
+        "stimulant",
+        "bitterness"
+      ],
+      "ph_min": 2.0,
+      "ph_max": 9.0,
+      "max_process_temp_c": 250.0,
+      "water_solubility": "high",
+      "typical_pct": [
+        0.01,
+        0.05
+      ],
+      "max_pct": 0.1,
+      "aw_effect": 0.0,
+      "texture_effect": "bitter",
+      "allergen": false,
+      "food_additive": false,
+      "e_number": null,
+      "clean_label": true,
+      "cost_index": 3,
+      "food_safe": true,
+      "regulatory": "demo_prior_verify_local_law",
+      "notes_cn": "地区限量和警示标签；不适合儿童产品。",
+      "evidence": [
+        "EFSA caffeine safety opinion"
+      ],
+      "source_type": "curated_prior",
+      "confidence": "medium"
+    },
+    {
+      "id": "sodium_chloride",
+      "name": "Sodium chloride",
+      "cn_name": "氯化钠",
+      "category": "salt",
+      "functions": [
+        "salt",
+        "flavor",
+        "preservative_hurdle",
+        "ionic_strength"
+      ],
+      "ph_min": 2.0,
+      "ph_max": 9.0,
+      "max_process_temp_c": 250.0,
+      "water_solubility": "high",
+      "typical_pct": [
+        0.2,
+        3.0
+      ],
+      "max_pct": 8.0,
+      "aw_effect": 0.1,
+      "texture_effect": "salty",
+      "allergen": false,
+      "food_additive": false,
+      "e_number": null,
+      "clean_label": true,
+      "cost_index": 1,
+      "food_safe": true,
+      "regulatory": "demo_prior_verify_local_law",
+      "notes_cn": "调味和抑菌；高盐影响胶体和蛋白溶解度。",
+      "evidence": [
+        "USDA FoodData Central",
+        "Fennema's Food Chemistry"
+      ],
+      "source_type": "curated_prior",
+      "confidence": "medium"
+    },
+    {
+      "id": "potassium_chloride",
+      "name": "Potassium chloride",
+      "cn_name": "氯化钾",
+      "category": "salt",
+      "functions": [
+        "salt_replacer",
+        "ionic_strength",
+        "gelling_cofactor"
+      ],
+      "ph_min": 2.0,
+      "ph_max": 9.0,
+      "max_process_temp_c": 250.0,
+      "water_solubility": "high",
+      "typical_pct": [
+        0.1,
+        1.5
+      ],
+      "max_pct": 3.0,
+      "aw_effect": 0.08,
+      "texture_effect": "salty/bitter",
+      "allergen": false,
+      "food_additive": false,
+      "e_number": null,
+      "clean_label": true,
+      "cost_index": 2,
+      "food_safe": true,
+      "regulatory": "demo_prior_verify_local_law",
+      "notes_cn": "减钠替代；高剂量有苦味，卡拉胶凝胶需要 K+。",
+      "evidence": [
+        "Fennema's Food Chemistry"
+      ],
+      "source_type": "curated_prior",
+      "confidence": "medium"
+    },
+    {
+      "id": "calcium_chloride",
+      "name": "Calcium chloride",
+      "cn_name": "氯化钙",
+      "category": "salt",
+      "functions": [
+        "calcium_source",
+        "gelling_cofactor",
+        "firming_agent"
+      ],
+      "ph_min": 2.0,
+      "ph_max": 9.0,
+      "max_process_temp_c": 250.0,
+      "water_solubility": "high",
+      "typical_pct": [
+        0.01,
+        0.5
+      ],
+      "max_pct": 1.0,
+      "aw_effect": 0.05,
+      "texture_effect": "firm",
+      "allergen": false,
+      "food_additive": false,
+      "e_number": null,
+      "clean_label": true,
+      "cost_index": 2,
+      "food_safe": true,
+      "regulatory": "demo_prior_verify_local_law",
+      "notes_cn": "低酯果胶/海藻酸盐的钙交联；过量有苦味。",
+      "evidence": [
+        "Fennema's Food Chemistry"
+      ],
+      "source_type": "curated_prior",
+      "confidence": "medium"
+    },
+    {
+      "id": "sodium_alginate",
+      "name": "Sodium alginate",
+      "cn_name": "海藻酸钠",
+      "category": "hydrocolloid",
+      "functions": [
+        "gelling",
+        "calcium_gel",
+        "film_forming"
+      ],
+      "ph_min": 2.0,
+      "ph_max": 9.0,
+      "max_process_temp_c": 250.0,
+      "water_solubility": "high",
+      "typical_pct": [
+        0.1,
+        1.5
+      ],
+      "max_pct": 3.0,
+      "aw_effect": 0.0,
+      "texture_effect": "gel",
+      "allergen": false,
+      "food_additive": false,
+      "e_number": null,
+      "clean_label": true,
+      "cost_index": 3,
+      "food_safe": true,
+      "regulatory": "demo_prior_verify_local_law",
+      "notes_cn": "钙离子交联形成凝胶/膜；适合可食膜和重组食品。",
+      "evidence": [
+        "Glicksman, Gum Technology in the Food Industry"
+      ],
+      "source_type": "curated_prior",
+      "confidence": "medium"
+    },
+    {
+      "id": "calcium_lactate",
+      "name": "Calcium lactate",
+      "cn_name": "乳酸钙",
+      "category": "salt",
+      "functions": [
+        "calcium_source",
+        "gelling_cofactor",
+        "firming_agent"
+      ],
+      "ph_min": 2.0,
+      "ph_max": 9.0,
+      "max_process_temp_c": 250.0,
+      "water_solubility": "high",
+      "typical_pct": [
+        0.05,
+        0.8
+      ],
+      "max_pct": 2.0,
+      "aw_effect": 0.0,
+      "texture_effect": "firm",
+      "allergen": false,
+      "food_additive": false,
+      "e_number": null,
+      "clean_label": true,
+      "cost_index": 3,
+      "food_safe": true,
+      "regulatory": "demo_prior_verify_local_law",
+      "notes_cn": "温和钙源；用于果冻和可食膜交联。",
+      "evidence": [
+        "Fennema's Food Chemistry"
+      ],
+      "source_type": "curated_prior",
+      "confidence": "medium"
+    },
+    {
+      "id": "transglutaminase",
+      "name": "Transglutaminase",
+      "cn_name": "谷氨酰胺转氨酶",
+      "category": "enzyme",
+      "functions": [
+        "protein_crosslink",
+        "texture_binder"
+      ],
+      "ph_min": 2.0,
+      "ph_max": 9.0,
+      "max_process_temp_c": 60,
+      "water_solubility": "high",
+      "typical_pct": [
+        0.01,
+        0.2
+      ],
+      "max_pct": 0.5,
+      "aw_effect": 0.0,
+      "texture_effect": "neutral",
+      "allergen": false,
+      "food_additive": false,
+      "e_number": null,
+      "clean_label": true,
+      "cost_index": 5,
+      "food_safe": true,
+      "regulatory": "demo_prior_verify_local_law",
+      "notes_cn": "酶法交联蛋白，改善植物基肉和乳制品质构；需控制温度和失活。",
+      "evidence": [
+        "EFSA transglutaminase opinion"
+      ],
+      "source_type": "curated_prior",
+      "confidence": "medium"
+    },
+    {
+      "id": "baking_soda",
+      "name": "Baking soda",
+      "cn_name": "碳酸氢钠",
+      "category": "leavening",
+      "functions": [
+        "leavening",
+        "ph_adjuster"
+      ],
+      "ph_min": 2.0,
+      "ph_max": 9.0,
+      "max_process_temp_c": 250.0,
+      "water_solubility": "high",
+      "typical_pct": [
+        0.1,
+        1.5
+      ],
+      "max_pct": 2.5,
+      "aw_effect": 0.0,
+      "texture_effect": "porous",
+      "allergen": false,
+      "food_additive": false,
+      "e_number": null,
+      "clean_label": true,
+      "cost_index": 1,
+      "food_safe": true,
+      "regulatory": "demo_prior_verify_local_law",
+      "notes_cn": "化学膨松；与酸反应释放 CO2。",
+      "evidence": [
+        "Fennema's Food Chemistry"
+      ],
+      "source_type": "curated_prior",
+      "confidence": "medium"
+    },
+    {
+      "id": "yeast",
+      "name": "Baker's yeast",
+      "cn_name": "面包酵母",
+      "category": "microbial",
+      "functions": [
+        "fermentation",
+        "leavening",
+        "flavor"
+      ],
+      "ph_min": 2.0,
+      "ph_max": 9.0,
+      "max_process_temp_c": 45,
+      "water_solubility": "high",
+      "typical_pct": [
+        0.5,
+        2.0
+      ],
+      "max_pct": 3.0,
+      "aw_effect": 0.0,
+      "texture_effect": "neutral",
+      "allergen": false,
+      "food_additive": false,
+      "e_number": null,
+      "clean_label": true,
+      "cost_index": 2,
+      "food_safe": true,
+      "regulatory": "demo_prior_verify_local_law",
+      "notes_cn": "发酵产气和风味；需控制温度和糖/盐。",
+      "evidence": [
+        "AACC International methods"
+      ],
+      "source_type": "curated_prior",
+      "confidence": "medium"
+    },
+    {
+      "id": "sourdough",
+      "name": "Sourdough starter",
+      "cn_name": "酸面团",
+      "category": "microbial",
+      "functions": [
+        "fermentation",
+        "acidification",
+        "flavor"
+      ],
+      "ph_min": 2.0,
+      "ph_max": 9.0,
+      "max_process_temp_c": 45,
+      "water_solubility": "high",
+      "typical_pct": [
+        5,
+        25
+      ],
+      "max_pct": 40,
+      "aw_effect": 0.0,
+      "texture_effect": "soft",
+      "allergen": false,
+      "food_additive": false,
+      "e_number": null,
+      "clean_label": true,
+      "cost_index": 3,
+      "food_safe": true,
+      "regulatory": "demo_prior_verify_local_law",
+      "notes_cn": "乳酸菌/酵母共生；降低 pH、改善风味和保质期。",
+      "evidence": [
+        "AACC International methods"
+      ],
+      "source_type": "curated_prior",
+      "confidence": "medium"
+    },
+    {
+      "id": "vanilla",
+      "name": "Vanilla extract",
+      "cn_name": "香草提取物",
+      "category": "flavor",
+      "functions": [
+        "flavor"
+      ],
+      "ph_min": 2.0,
+      "ph_max": 9.0,
+      "max_process_temp_c": 250.0,
+      "water_solubility": "high",
+      "typical_pct": [
+        0.05,
+        0.5
+      ],
+      "max_pct": 1.0,
+      "aw_effect": 0.0,
+      "texture_effect": "neutral",
+      "allergen": false,
+      "food_additive": false,
+      "e_number": null,
+      "clean_label": true,
+      "cost_index": 5,
+      "food_safe": true,
+      "regulatory": "demo_prior_verify_local_law",
+      "notes_cn": "风味；天然提取物成本高。",
+      "evidence": [
+        "USDA FoodData Central"
+      ],
+      "source_type": "curated_prior",
+      "confidence": "medium"
+    },
+    {
+      "id": "cocoa_powder",
+      "name": "Cocoa powder",
+      "cn_name": "可可粉",
+      "category": "flavor",
+      "functions": [
+        "flavor",
+        "colorant",
+        "polyphenol",
+        "fiber"
+      ],
+      "ph_min": 2.0,
+      "ph_max": 9.0,
+      "max_process_temp_c": 250.0,
+      "water_solubility": "high",
+      "typical_pct": [
+        1,
+        8
+      ],
+      "max_pct": 15,
+      "aw_effect": 0.0,
+      "texture_effect": "chocolate",
+      "allergen": false,
+      "food_additive": false,
+      "e_number": null,
+      "clean_label": true,
+      "cost_index": 3,
+      "food_safe": true,
+      "regulatory": "demo_prior_verify_local_law",
+      "notes_cn": "风味和色泽；多酚与蛋白结合，可能影响口感和颜色。",
+      "evidence": [
+        "USDA FoodData Central"
+      ],
+      "source_type": "curated_prior",
+      "confidence": "medium"
+    },
+    {
+      "id": "cocoa_mass",
+      "name": "Cocoa mass",
+      "cn_name": "可可液块",
+      "category": "fat",
+      "functions": [
+        "flavor",
+        "fat",
+        "colorant"
+      ],
+      "ph_min": 2.0,
+      "ph_max": 9.0,
+      "max_process_temp_c": 250.0,
+      "water_solubility": "high",
+      "typical_pct": [
+        10,
+        45
+      ],
+      "max_pct": 60,
+      "aw_effect": 0.0,
+      "texture_effect": "chocolate",
+      "allergen": false,
+      "food_additive": false,
+      "e_number": null,
+      "clean_label": true,
+      "cost_index": 5,
+      "food_safe": true,
+      "regulatory": "demo_prior_verify_local_law",
+      "notes_cn": "巧克力基础；含可可脂和多酚。",
+      "evidence": [
+        "USDA FoodData Central"
+      ],
+      "source_type": "curated_prior",
+      "confidence": "medium"
+    },
+    {
+      "id": "honey",
+      "name": "Honey",
+      "cn_name": "蜂蜜",
+      "category": "sweetener",
+      "functions": [
+        "sweetener",
+        "humectant",
+        "flavor",
+        "reducing_sugar"
+      ],
+      "ph_min": 2.0,
+      "ph_max": 9.0,
+      "max_process_temp_c": 250.0,
+      "water_solubility": "high",
+      "typical_pct": [
+        2,
+        20
+      ],
+      "max_pct": 40,
+      "aw_effect": 0.12,
+      "texture_effect": "neutral",
+      "allergen": false,
+      "food_additive": false,
+      "e_number": null,
+      "clean_label": true,
+      "cost_index": 3,
+      "food_safe": true,
+      "regulatory": "demo_prior_verify_local_law",
+      "notes_cn": "还原糖和风味；高温易褐变，不适合 1 岁以下婴儿。",
+      "evidence": [
+        "USDA FoodData Central"
+      ],
+      "source_type": "curated_prior",
+      "confidence": "medium"
+    },
+    {
+      "id": "molasses",
+      "name": "Molasses",
+      "cn_name": "糖蜜",
+      "category": "sweetener",
+      "functions": [
+        "sweetener",
+        "colorant",
+        "minerals",
+        "flavor"
+      ],
+      "ph_min": 2.0,
+      "ph_max": 9.0,
+      "max_process_temp_c": 250.0,
+      "water_solubility": "high",
+      "typical_pct": [
+        1,
+        10
+      ],
+      "max_pct": 20,
+      "aw_effect": 0.1,
+      "texture_effect": "neutral",
+      "allergen": false,
+      "food_additive": false,
+      "e_number": null,
+      "clean_label": true,
+      "cost_index": 2,
+      "food_safe": true,
+      "regulatory": "demo_prior_verify_local_law",
+      "notes_cn": "深色风味和矿物质；高剂量影响颜色和口感。",
+      "evidence": [
+        "USDA FoodData Central"
+      ],
+      "source_type": "curated_prior",
+      "confidence": "medium"
+    },
+    {
+      "id": "oats",
+      "name": "Rolled oats",
+      "cn_name": "燕麦片",
+      "category": "protein_carb",
+      "functions": [
+        "structure",
+        "fiber",
+        "bulking"
+      ],
+      "ph_min": 2.0,
+      "ph_max": 9.0,
+      "max_process_temp_c": 250.0,
+      "water_solubility": "high",
+      "typical_pct": [
+        10,
+        40
+      ],
+      "max_pct": 60,
+      "aw_effect": 0.0,
+      "texture_effect": "chewy",
+      "allergen": false,
+      "food_additive": false,
+      "e_number": null,
+      "clean_label": true,
+      "cost_index": 2,
+      "food_safe": true,
+      "regulatory": "demo_prior_verify_local_law",
+      "notes_cn": "含 β-葡聚糖；谷物棒的结构和纤维来源。",
+      "evidence": [
+        "USDA FoodData Central"
+      ],
+      "source_type": "curated_prior",
+      "confidence": "medium"
+    },
+    {
+      "id": "orange_juice_concentrate",
+      "name": "Orange juice concentrate",
+      "cn_name": "橙汁浓缩液",
+      "category": "fruit",
+      "functions": [
+        "flavor",
+        "sugar",
+        "acidulant",
+        "color"
+      ],
+      "ph_min": 2.5,
+      "ph_max": 4.5,
+      "max_process_temp_c": 250.0,
+      "water_solubility": "high",
+      "typical_pct": [
+        2,
+        15
+      ],
+      "max_pct": 30,
+      "aw_effect": 0.08,
+      "texture_effect": "neutral",
+      "allergen": false,
+      "food_additive": false,
+      "e_number": null,
+      "clean_label": true,
+      "cost_index": 3,
+      "food_safe": true,
+      "regulatory": "demo_prior_verify_local_law",
+      "notes_cn": "果汁风味和固形物；需冷链或防腐。",
+      "evidence": [
+        "USDA FoodData Central"
+      ],
+      "source_type": "curated_prior",
+      "confidence": "medium"
+    },
+    {
+      "id": "tea_extract",
+      "name": "Tea extract",
+      "cn_name": "茶提取物",
+      "category": "botanical",
+      "functions": [
+        "flavor",
+        "polyphenol",
+        "antioxidant",
+        "color"
+      ],
+      "ph_min": 2.5,
+      "ph_max": 7.0,
+      "max_process_temp_c": 250.0,
+      "water_solubility": "high",
+      "typical_pct": [
+        0.05,
+        1.0
+      ],
+      "max_pct": 3.0,
+      "aw_effect": 0.0,
+      "texture_effect": "neutral",
+      "allergen": false,
+      "food_additive": false,
+      "e_number": null,
+      "clean_label": true,
+      "cost_index": 3,
+      "food_safe": true,
+      "regulatory": "demo_prior_verify_local_law",
+      "notes_cn": "茶多酚；与蛋白结合可能产生浑浊。",
+      "evidence": [
+        "USDA FoodData Central"
+      ],
+      "source_type": "curated_prior",
+      "confidence": "medium"
+    },
+    {
+      "id": "coffee_extract",
+      "name": "Coffee extract",
+      "cn_name": "咖啡提取物",
+      "category": "botanical",
+      "functions": [
+        "flavor",
+        "color",
+        "polyphenol"
+      ],
+      "ph_min": 2.5,
+      "ph_max": 6.5,
+      "max_process_temp_c": 250.0,
+      "water_solubility": "high",
+      "typical_pct": [
+        0.05,
+        1.0
+      ],
+      "max_pct": 3.0,
+      "aw_effect": 0.0,
+      "texture_effect": "neutral",
+      "allergen": false,
+      "food_additive": false,
+      "e_number": null,
+      "clean_label": true,
+      "cost_index": 3,
+      "food_safe": true,
+      "regulatory": "demo_prior_verify_local_law",
+      "notes_cn": "咖啡风味；高剂量苦味和颜色明显。",
+      "evidence": [
+        "USDA FoodData Central"
+      ],
+      "source_type": "curated_prior",
+      "confidence": "medium"
+    },
+    {
+      "id": "tomato_paste",
+      "name": "Tomato paste",
+      "cn_name": "番茄酱",
+      "category": "vegetable",
+      "functions": [
+        "flavor",
+        "color",
+        "umami",
+        "acidity"
+      ],
+      "ph_min": 3.5,
+      "ph_max": 5.0,
+      "max_process_temp_c": 250.0,
+      "water_solubility": "high",
+      "typical_pct": [
+        15,
+        40
+      ],
+      "max_pct": 60,
+      "aw_effect": 0.05,
+      "texture_effect": "neutral",
+      "allergen": false,
+      "food_additive": false,
+      "e_number": null,
+      "clean_label": true,
+      "cost_index": 2,
+      "food_safe": true,
+      "regulatory": "demo_prior_verify_local_law",
+      "notes_cn": "番茄固形物和鲜味；需控制 Brix 和热处理。",
+      "evidence": [
+        "USDA FoodData Central"
+      ],
+      "source_type": "curated_prior",
+      "confidence": "medium"
+    },
+    {
+      "id": "mustard",
+      "name": "Mustard",
+      "cn_name": "芥末",
+      "category": "flavor",
+      "functions": [
+        "flavor",
+        "emulsifier",
+        "acidulant"
+      ],
+      "ph_min": 2.0,
+      "ph_max": 9.0,
+      "max_process_temp_c": 250.0,
+      "water_solubility": "high",
+      "typical_pct": [
+        0.5,
+        3.0
+      ],
+      "max_pct": 5.0,
+      "aw_effect": 0.0,
+      "texture_effect": "neutral",
+      "allergen": true,
+      "food_additive": false,
+      "e_number": null,
+      "clean_label": true,
+      "cost_index": 3,
+      "food_safe": true,
+      "regulatory": "demo_prior_verify_local_law",
+      "notes_cn": "风味和乳化；芥末过敏原。",
+      "evidence": [
+        "USDA FoodData Central"
+      ],
+      "source_type": "curated_prior",
+      "confidence": "medium"
+    },
+    {
+      "id": "onion_powder",
+      "name": "Onion powder",
+      "cn_name": "洋葱粉",
+      "category": "flavor",
+      "functions": [
+        "flavor",
+        "umami"
+      ],
+      "ph_min": 2.0,
+      "ph_max": 9.0,
+      "max_process_temp_c": 250.0,
+      "water_solubility": "high",
+      "typical_pct": [
+        0.2,
+        2.0
+      ],
+      "max_pct": 4.0,
+      "aw_effect": 0.0,
+      "texture_effect": "neutral",
+      "allergen": false,
+      "food_additive": false,
+      "e_number": null,
+      "clean_label": true,
+      "cost_index": 2,
+      "food_safe": true,
+      "regulatory": "demo_prior_verify_local_law",
+      "notes_cn": "风味；吸湿后易结块。",
+      "evidence": [
+        "USDA FoodData Central"
+      ],
+      "source_type": "curated_prior",
+      "confidence": "medium"
+    },
+    {
+      "id": "garlic_powder",
+      "name": "Garlic powder",
+      "cn_name": "大蒜粉",
+      "category": "flavor",
+      "functions": [
+        "flavor",
+        "umami"
+      ],
+      "ph_min": 2.0,
+      "ph_max": 9.0,
+      "max_process_temp_c": 250.0,
+      "water_solubility": "high",
+      "typical_pct": [
+        0.1,
+        1.5
+      ],
+      "max_pct": 3.0,
+      "aw_effect": 0.0,
+      "texture_effect": "neutral",
+      "allergen": false,
+      "food_additive": false,
+      "e_number": null,
+      "clean_label": true,
+      "cost_index": 2,
+      "food_safe": true,
+      "regulatory": "demo_prior_verify_local_law",
+      "notes_cn": "风味；需控制微生物和结块。",
+      "evidence": [
+        "USDA FoodData Central"
+      ],
+      "source_type": "curated_prior",
+      "confidence": "medium"
+    },
+    {
+      "id": "cabbage",
+      "name": "Cabbage",
+      "cn_name": "卷心菜",
+      "category": "vegetable",
+      "functions": [
+        "substrate",
+        "fiber",
+        "texture"
+      ],
+      "ph_min": 2.0,
+      "ph_max": 9.0,
+      "max_process_temp_c": 250.0,
+      "water_solubility": "high",
+      "typical_pct": [
+        40,
+        80
+      ],
+      "max_pct": 90,
+      "aw_effect": 0.0,
+      "texture_effect": "crunchy",
+      "allergen": false,
+      "food_additive": false,
+      "e_number": null,
+      "clean_label": true,
+      "cost_index": 1,
+      "food_safe": true,
+      "regulatory": "demo_prior_verify_local_law",
+      "notes_cn": "发酵蔬菜基质；需控制盐度和厌氧条件。",
+      "evidence": [
+        "USDA FoodData Central"
+      ],
+      "source_type": "curated_prior",
+      "confidence": "medium"
+    },
+    {
+      "id": "vinegar",
+      "name": "Vinegar",
+      "cn_name": "食醋",
+      "category": "acidulant",
+      "functions": [
+        "acidulant",
+        "flavor",
+        "preservative"
+      ],
+      "ph_min": 2.5,
+      "ph_max": 4.0,
+      "max_process_temp_c": 250.0,
+      "water_solubility": "high",
+      "typical_pct": [
+        1,
+        8
+      ],
+      "max_pct": 15,
+      "aw_effect": 0.0,
+      "texture_effect": "neutral",
+      "allergen": false,
+      "food_additive": false,
+      "e_number": null,
+      "clean_label": true,
+      "cost_index": 2,
+      "food_safe": true,
+      "regulatory": "demo_prior_verify_local_law",
+      "notes_cn": "乙酸来源；影响 pH、风味和抑菌。",
+      "evidence": [
+        "USDA FoodData Central"
+      ],
+      "source_type": "curated_prior",
+      "confidence": "medium"
+    },
+    {
+      "id": "fish_oil",
+      "name": "Fish oil",
+      "cn_name": "鱼油",
+      "category": "fat",
+      "functions": [
+        "omega3",
+        "fat"
+      ],
+      "ph_min": 2.0,
+      "ph_max": 9.0,
+      "max_process_temp_c": 250.0,
+      "water_solubility": "low",
+      "typical_pct": [
+        0.5,
+        3.0
+      ],
+      "max_pct": 5.0,
+      "aw_effect": 0.0,
+      "texture_effect": "neutral",
+      "allergen": true,
+      "food_additive": false,
+      "e_number": null,
+      "clean_label": true,
+      "cost_index": 5,
+      "food_safe": true,
+      "regulatory": "demo_prior_verify_local_law",
+      "notes_cn": "易氧化；需抗氧化剂和包埋，鱼过敏原。",
+      "evidence": [
+        "USDA FoodData Central"
+      ],
+      "source_type": "curated_prior",
+      "confidence": "medium"
+    },
+    {
+      "id": "vitamin_d",
+      "name": "Vitamin D3",
+      "cn_name": "维生素D3",
+      "category": "micronutrient",
+      "functions": [
+        "fortification"
+      ],
+      "ph_min": 2.0,
+      "ph_max": 9.0,
+      "max_process_temp_c": 250.0,
+      "water_solubility": "low",
+      "typical_pct": [
+        0.0001,
+        0.001
+      ],
+      "max_pct": 0.005,
+      "aw_effect": 0.0,
+      "texture_effect": "neutral",
+      "allergen": false,
+      "food_additive": true,
+      "e_number": null,
+      "clean_label": true,
+      "cost_index": 4,
+      "food_safe": true,
+      "regulatory": "demo_prior_verify_local_law",
+      "notes_cn": "强化剂；需按法规上限和均匀度控制。",
+      "evidence": [
+        "EFSA vitamin D upper intake guidance"
+      ],
+      "source_type": "curated_prior",
+      "confidence": "medium"
+    },
+    {
+      "id": "zinc_oxide",
+      "name": "Zinc oxide",
+      "cn_name": "氧化锌",
+      "category": "micronutrient",
+      "functions": [
+        "fortification"
+      ],
+      "ph_min": 2.0,
+      "ph_max": 9.0,
+      "max_process_temp_c": 250.0,
+      "water_solubility": "high",
+      "typical_pct": [
+        0.001,
+        0.01
+      ],
+      "max_pct": 0.02,
+      "aw_effect": 0.0,
+      "texture_effect": "neutral",
+      "allergen": false,
+      "food_additive": true,
+      "e_number": null,
+      "clean_label": true,
+      "cost_index": 3,
+      "food_safe": true,
+      "regulatory": "demo_prior_verify_local_law",
+      "notes_cn": "锌强化；法规上限和生物利用度需评估。",
+      "evidence": [
+        "EFSA zinc upper intake guidance"
+      ],
+      "source_type": "curated_prior",
+      "confidence": "medium"
+    },
+    {
+      "id": "iron_sulfate",
+      "name": "Ferrous sulfate",
+      "cn_name": "硫酸亚铁",
+      "category": "micronutrient",
+      "functions": [
+        "fortification",
+        "metal_ion"
+      ],
+      "ph_min": 2.0,
+      "ph_max": 9.0,
+      "max_process_temp_c": 250.0,
+      "water_solubility": "high",
+      "typical_pct": [
+        0.001,
+        0.01
+      ],
+      "max_pct": 0.02,
+      "aw_effect": 0.0,
+      "texture_effect": "neutral",
+      "allergen": false,
+      "food_additive": true,
+      "e_number": null,
+      "clean_label": true,
+      "cost_index": 2,
+      "food_safe": true,
+      "regulatory": "demo_prior_verify_local_law",
+      "notes_cn": "铁强化；可催化花青素/脂质氧化，需包埋或螯合。",
+      "evidence": [
+        "EFSA iron upper intake guidance"
+      ],
+      "source_type": "curated_prior",
+      "confidence": "medium"
+    },
+    {
+      "id": "beet_extract",
+      "name": "Beetroot extract",
+      "cn_name": "甜菜根提取物",
+      "category": "colorant",
+      "functions": [
+        "colorant",
+        "antioxidant",
+        "nitrate"
+      ],
+      "ph_min": 2.0,
+      "ph_max": 9.0,
+      "max_process_temp_c": 250.0,
+      "water_solubility": "high",
+      "typical_pct": [
+        0.1,
+        1.0
+      ],
+      "max_pct": 3.0,
+      "aw_effect": 0.0,
+      "texture_effect": "neutral",
+      "allergen": false,
+      "food_additive": false,
+      "e_number": null,
+      "clean_label": true,
+      "cost_index": 3,
+      "food_safe": true,
+      "regulatory": "demo_prior_verify_local_law",
+      "notes_cn": "甜菜红/甜菜苷来源；热、光和氧敏感，pH 影响色泽。",
+      "evidence": [
+        "EFSA beetroot red opinion"
+      ],
+      "source_type": "curated_prior",
+      "confidence": "medium"
+    },
+    {
+      "id": "flavor",
+      "name": "Natural flavor",
+      "cn_name": "天然风味物质",
+      "category": "flavor",
+      "functions": [
+        "flavor"
+      ],
+      "ph_min": 2.0,
+      "ph_max": 9.0,
+      "max_process_temp_c": 250.0,
+      "water_solubility": "high",
+      "typical_pct": [
+        0.05,
+        0.5
+      ],
+      "max_pct": 2.0,
+      "aw_effect": 0.0,
+      "texture_effect": "neutral",
+      "allergen": false,
+      "food_additive": false,
+      "e_number": null,
+      "clean_label": true,
+      "cost_index": 3,
+      "food_safe": true,
+      "regulatory": "demo_prior_verify_local_law",
+      "notes_cn": "占位性风味原料；实际配方需写明具体风味物质、溶剂和法规状态。",
+      "evidence": [
+        "USDA FoodData Central"
+      ],
+      "source_type": "curated_prior",
+      "confidence": "medium"
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# Runtime data and secrets
+runtime/
+logs/
+run1/
+*.log
+.env
+.env.*
+!.env.example
+
+# Android build artifacts and signing key
+android/build/
+android/keystore/
+android/sdk
+
+# iOS build artifacts and signing files
+ios/build/
+ios/ExportOptions.plist
+*.xcarchive
+*.ipa
+*.idsig
+
+# macOS
+.DS_Store
+
+# Local distributions
+dist/

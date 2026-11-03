@@ -1,0 +1,701 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#f5f5f7">
+  <meta name="description" content="BioForge Studio 3.2.2 - 配方设计、在线证据、机制计算、文献库与模型实验室">
+  <title>BioForge Studio 3.2.2</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/icon-192.png">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="ambient-bg" aria-hidden="true"><i></i><i></i><i></i></div>
+  <div id="login-gate" class="login-gate">
+    <div class="login-orb one"></div><div class="login-orb two"></div>
+    <form id="login-form" class="login-card">
+      <div class="brand-mark large" aria-hidden="true">
+        <svg viewBox="0 0 40 40"><path d="M13 4h14v3.2l-2.2 2.2v9.4l8.6 14.7A4.1 4.1 0 0 1 29.8 40H10.2a4.1 4.1 0 0 1-3.6-6.5l8.6-14.7V9.4L13 7.2Z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/><circle cx="20" cy="29" r="3.8" fill="currentColor"/></svg>
+      </div>
+      <span class="eyebrow">BIOFORGE STUDIO</span>
+      <h1>登录工作台</h1>
+      <p class="muted">配方组合、在线数据库证据、本地分子机制计算与模型实验室。</p>
+      <label>用户名<input id="login-user" name="username" autocomplete="username" value="admin" required></label>
+      <label>密码<input id="login-pass" name="password" type="password" autocomplete="current-password" required></label>
+      <button class="btn primary wide" type="submit">进入 Studio</button>
+      <button id="native-server-btn" class="btn ghost wide" type="button" hidden>修改服务器地址</button>
+      <p id="login-error" class="login-error" role="alert"></p>
+      <p class="fineprint">首次登录凭据保存在服务器 <code>runtime/login.txt</code>；生产环境请立即修改密码。</p>
+    </form>
+  </div>
+
+  <div id="app" class="app hidden">
+    <aside class="sidebar">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 40 40"><path d="M13 4h14v3.2l-2.2 2.2v9.4l8.6 14.7A4.1 4.1 0 0 1 29.8 40H10.2a4.1 4.1 0 0 1-3.6-6.5l8.6-14.7V9.4L13 7.2Z" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linejoin="round"/><circle cx="20" cy="29" r="3.8" fill="currentColor"/></svg>
+        </span>
+        <span class="brand-text"><b>BioForge</b><small>STUDIO 3.2.2</small></span>
+      </div>
+      <nav class="side-nav" aria-label="主导航">
+        <button class="nav-item active" data-page="design"><span class="nav-icon">◈</span>设计工作台</button>
+        <button class="nav-item" data-page="cases"><span class="nav-icon">▤</span>案例库</button>
+        <button class="nav-item" data-page="evidence"><span class="nav-icon">⌘</span>在线证据</button>
+        <button class="nav-item" data-page="compute"><span class="nav-icon">◎</span>机制计算</button>
+        <button class="nav-item" data-page="lab"><span class="nav-icon">⌬</span>模型实验室</button>
+        <button class="nav-item" data-page="resources"><span class="nav-icon">▦</span>资源库</button>
+        <button class="nav-item" data-page="guide"><span class="nav-icon">?</span>使用指南</button>
+        <button class="nav-item" data-page="settings"><span class="nav-icon">⚙</span>设置</button>
+      </nav>
+      <div class="side-milestones" aria-hidden="true">
+        <figure class="side-milestone"><img src="./art/dna-helix.svg" alt=""><figcaption>Sequence</figcaption></figure>
+        <figure class="side-milestone"><img src="./art/protein-ribbon.svg" alt=""><figcaption>Structure</figcaption></figure>
+        <figure class="side-milestone"><img src="./art/rna-strand.svg" alt=""><figcaption>Evidence</figcaption></figure>
+      </div>
+      <div class="side-foot">
+        <div class="conn"><span id="conn-dot" class="dot"></span><span id="conn-label">连接中</span></div>
+        <p class="fineprint">v3.2.2 · 本地优先</p>
+      </div>
+    </aside>
+
+    <div class="stage">
+      <header class="topbar">
+        <button id="menu-btn" class="icon-btn mobile-only" aria-label="菜单">☰</button>
+        <div><p id="page-kicker" class="kicker">DESIGN</p><h2 id="page-title">设计工作台</h2></div>
+        <div class="top-actions">
+          <button id="resource-chip" class="status-chip" type="button" aria-expanded="false" aria-controls="resource-popover"><span class="pulse"></span><span id="source-count">45</span> 条资源 · 资源库</button>
+          <div id="resource-popover" class="resource-popover hidden" role="dialog" aria-label="快速资源">
+            <div class="popover-head"><div><span class="eyebrow">QUICK LINKS</span><b>资源与全文入口</b></div><button id="resource-popover-close" class="icon-btn" type="button" aria-label="关闭">×</button></div>
+            <div id="resource-popover-links" class="popover-links"></div>
+            <button id="resource-open-page" class="btn primary wide" type="button">打开完整资源库</button>
+            <p class="fineprint">只列公开/机构授权入口；不提供 Sci-Hub 或付费墙绕过链接。</p>
+          </div>
+          <button id="lang-btn" class="icon-btn" type="button" title="切换中文/English" aria-label="切换语言">EN</button>
+          <button id="help-btn" class="icon-btn" title="打开使用指南" aria-label="使用指南">?</button>
+          <button id="account-btn" class="avatar" title="账户">A</button>
+        </div>
+      </header>
+
+      <main id="main" class="views">
+        <section id="view-design" class="view active">
+          <div class="hero card">
+            <div class="hero-copy">
+              <span class="eyebrow">FOOD SYSTEMS · EVIDENCE · MECHANISM</span>
+              <h1 data-i18n-html="一句话，生成一组可比较的配方。">一句话，生成<em>一组</em>可比较的配方。</h1>
+              <p>覆盖饮料、乳品、烘焙、植物基、肉制品、酱料、糖果、冷冻甜品等 20 个食品体系；每条配方都附指标、相互作用、风险与来源。</p>
+            </div>
+            <div class="hero-badge"><b>8</b><span>候选组合</span></div>
+          </div>
+
+          <form id="design-form" class="composer card">
+            <div class="composer-head">
+              <span class="eyebrow">NEW DESIGN</span>
+              <div class="segmented" id="mode-seg">
+                <button type="button" class="active" data-mode="auto">自动</button>
+                <button type="button" data-mode="food">食品配方</button>
+                <button type="button" data-mode="biologic">生物设计</button>
+              </div>
+            </div>
+            <textarea id="design-query" rows="3" placeholder="例如：低钠番茄酱，钠降低 30%，pH 3.7，保持货架期和番茄风味"></textarea>
+            <div class="composer-foot">
+              <div class="chips" id="quick-prompts">
+                <button type="button" class="chip" data-q="高蛋白无麸质面包，蛋白 ≥ 12%，无麸质">高蛋白面包</button>
+                <button type="button" class="chip" data-q="低糖酸奶，糖降低 40%，清洁标签">低糖酸奶</button>
+                <button type="button" class="chip" data-q="植物基肉饼，蛋白 ≥ 18%，无大豆">植物肉</button>
+                <button type="button" class="chip" data-q="天然色素软糖，无合成色素，pH 3.4">天然软糖</button>
+              </div>
+              <button id="design-submit" class="btn primary" type="submit">生成方案 <span>↗</span></button>
+            </div>
+          </form>
+
+          <div id="design-loading" class="card loading-card hidden">
+            <span class="spinner"></span><div><b>正在组合配方与评估相互作用</b><p class="muted">生成 8 个候选、约束检查、证据与工艺卡。</p></div>
+          </div>
+
+          <div id="design-result" class="hidden">
+            <div class="result-head">
+              <div>
+                <span class="eyebrow">RESULT</span>
+                <h2 id="result-title">—</h2>
+                <p id="result-sub" class="muted"></p>
+              </div>
+              <div class="result-actions">
+                <button id="graph-btn" class="btn ghost">证据图谱</button>
+                <button id="compute-btn" class="btn dark">运行机制计算</button>
+              </div>
+            </div>
+            <div id="metric-grid" class="metric-grid"></div>
+            <details id="result-explainer" class="card explainer"></details>
+            <div class="section-head"><h3 id="candidate-heading">可比较候选</h3><span class="muted">横向滑动 · 点击查看详情</span></div>
+            <div id="portfolio-rail" class="rail" aria-label="候选配方"></div>
+            <div id="candidate-detail" class="detail-grid"></div>
+          </div>
+
+          <div id="design-empty" class="empty card">
+            <span class="empty-glyph">◌</span>
+            <h3>输入一个产品目标开始</h3>
+            <p>系统不会只给一个答案：它会生成 8 个可比较组合，并明确哪些约束已满足、哪些仍需实测。</p>
+          </div>
+        </section>
+
+        <section id="view-cases" class="view">
+          <div class="section-head"><div><span class="eyebrow">CASE LIBRARY</span><h2 id="case-count-title">端到端案例</h2></div><span class="muted" id="case-count-note">点击任意案例即可复现</span></div>
+          <div id="case-grid" class="case-grid"></div>
+        </section>
+
+        <section id="view-evidence" class="view">
+          <div class="section-head"><div><span class="eyebrow">FEDERATED EVIDENCE</span><h2>在线数据库证据</h2></div><span class="muted">检索时间 · 记录号 · 原始链接</span></div>
+          <form id="evidence-form" class="searchbar card">
+            <input id="evidence-query" placeholder="输入化合物、蛋白、靶点或关键词，例如 quercetin" value="quercetin">
+            <select id="evidence-entity" aria-label="实体类型">
+              <option value="auto">自动判断实体</option>
+              <option value="compound">小分子 / 化合物</option>
+              <option value="protein">蛋白 / 靶点</option>
+              <option value="food">食品 / 配方</option>
+              <option value="complex">化合物-蛋白复合</option>
+            </select>
+            <button class="btn primary" type="submit">检索</button>
+          </form>
+          <p class="fineprint evidence-hint">先判断实体类型，再选择数据库；化合物不会调用 UniProt/PDB/STRING，蛋白结构只通过 UniProt→PDB 交叉引用。</p>
+          <div id="source-status" class="source-status"></div>
+          <div id="evidence-output"></div>
+          <div class="card spectra-sources">
+            <div><span class="eyebrow">SPECTROSCOPY EVIDENCE</span><h3>IR · UV-Vis · 荧光 · MS · NMR 参考入口</h3><p class="muted">谱图证据必须核对仪器、溶剂、碰撞能量和原始记录；这里只提供合法公开/机构入口，不抓取受限谱库。</p></div>
+            <div class="spectra-links">
+              <a href="https://webbook.nist.gov/chemistry/" target="_blank" rel="noopener noreferrer">NIST WebBook ↗</a>
+              <a href="https://sdbs.db.aist.go.jp/" target="_blank" rel="noopener noreferrer">SDBS ↗</a>
+              <a href="https://massbank.eu/MassBank/" target="_blank" rel="noopener noreferrer">MassBank ↗</a>
+              <a href="https://hmdb.ca/" target="_blank" rel="noopener noreferrer">HMDB ↗</a>
+              <a href="https://www.ebi.ac.uk/metabolights/" target="_blank" rel="noopener noreferrer">MetaboLights ↗</a>
+              <a href="https://gnps.ucsd.edu/" target="_blank" rel="noopener noreferrer">GNPS ↗</a>
+              <a href="https://nmredata.org/" target="_blank" rel="noopener noreferrer">NMReDATA ↗</a>
+            </div>
+            <p class="fineprint">参考谱不等于同条件实测；MS 需说明离子模式/碰撞能量，NMR 需说明溶剂/频率，IR 需说明样品制备。完整目录见资源库“光谱与波谱证据”。</p>
+          </div>
+          <div class="card literature-card" id="literature-card">
+            <div class="section-head" style="margin:0 0 10px"><div><span class="eyebrow">LOCAL LITERATURE</span><h3>本地 OA 文献库</h3></div><span id="lit-stats" class="badge blue">加载中…</span></div>
+            <form id="lit-form" class="searchbar compact">
+              <input id="lit-query" placeholder="中英文均可，例如 槲皮素 乳清蛋白 相互作用 / quercetin whey protein" autocomplete="off">
+              <button class="btn primary" type="submit">检索</button>
+            </form>
+            <div id="lit-topics" class="lit-topics"></div>
+            <div id="lit-results"></div>
+            <p class="fineprint">Europe PMC OA 元数据 + 本地 BM25 索引；标签由标题/摘要规则、MeSH、作者关键词与化合物映射生成。检索结果需核对原文与许可，不是系统综述。</p>
+          </div>
+        </section>
+
+        <section id="view-resources" class="view">
+          <div class="resources-hero card">
+            <div>
+              <span class="eyebrow">SOURCE DIRECTORY · LEGAL ACCESS</span>
+              <h1>数据库、原文与机构入口<br>一处直达。</h1>
+              <p>所有来源都标注许可、接入状态和用途。开放数据直接跳转；需许可或机构登录的来源只提供官方入口，不抓取、不代存账号密码。Sci-Hub 及绕过付费墙的链接不收录。</p>
+            </div>
+            <div id="resource-stats" class="resource-stats"><span class="spinner"></span></div>
+          </div>
+          <div class="card resource-toolbar">
+            <label class="resource-search"><span>检索资源</span><input id="resource-search" type="search" placeholder="例如 PubChem、UniProt、OpenAlex、图书馆"></label>
+            <div id="resource-filters" class="resource-filters" role="group" aria-label="来源筛选">
+              <button class="active" data-filter="all" type="button">全部</button>
+              <button data-filter="live" type="button">可直接查询</button>
+              <button data-filter="api_ready" type="button">API/解析</button>
+              <button data-filter="license_required" type="button">需许可</button>
+              <button data-filter="institution_login" type="button">机构登录</button>
+            </div>
+          </div>
+          <div id="resource-groups" class="resource-groups"><div class="loading-card"><span class="spinner"></span><span>读取来源目录…</span></div></div>
+          <div class="resource-lower">
+            <div class="card" id="identifier-card">
+              <span class="eyebrow">DOI / PMID RESOLVER</span>
+              <h3>解析标识符，找合法全文入口</h3>
+              <p class="muted">输入 DOI 或 PubMed PMID。<b>只解析元数据和合法 OA 位置</b>；最终权限由出版方或学校授权决定，不绕过付费墙。</p>
+              <form id="identifier-form" class="identifier-form">
+                <input id="identifier-input" placeholder="10.3390/polym17131871 或 41386882" autocomplete="off" spellcheck="false" required>
+                <button class="btn primary" type="submit">解析</button>
+              </form>
+              <p id="identifier-status" class="fineprint">不会收集或保存你的图书馆账号密码。</p>
+              <div id="identifier-result"></div>
+            </div>
+            <div class="card access-card">
+              <span class="eyebrow">INSTITUTION ACCESS</span>
+              <h3>SCUT / CARSI / EZproxy</h3>
+              <p>软件不提供账号密码表单，也不代存校园密码。请从学校官方入口登录，再回到 DOI/出版社页面获取全文。</p>
+              <div class="access-links">
+                <a href="https://www.lib.scut.edu.cn/" target="_blank" rel="noopener noreferrer">华南理工大学图书馆 ↗</a>
+                <a href="https://www.carsi.edu.cn/" target="_blank" rel="noopener noreferrer">CARSI 联盟 ↗</a>
+                <a href="https://www.scut.edu.cn/" target="_blank" rel="noopener noreferrer">华南理工大学主页 ↗</a>
+              </div>
+              <p class="fineprint">如果学校提供 EZproxy 前缀，可由管理员配置 <code>BIOFORGE_EZPROXY_PREFIX</code>；软件只拼接官方登录 URL，不保存凭据。</p>
+              <button id="institution-help" class="btn ghost wide" type="button">打开机构登录说明</button>
+            </div>
+          </div>
+        </section>
+
+        <section id="view-compute" class="view">
+          <div class="section-head"><div><span class="eyebrow">LOCAL MECHANISM</span><h2>HADDOCK3 · 对接 · MD · QM</h2></div><div class="section-head-actions"><span class="muted">HADDOCK3 / AutoDock Vina / GROMACS / CP2K</span><button id="haddock-open" class="btn ghost small" type="button">HADDOCK3 运行选择</button></div></div>
+          <div id="compute-caps" class="cap-grid"></div>
+          <details id="haddock-panel" class="card params-card">
+            <summary><span>HADDOCK3 对接</span><span class="muted">蛋白-蛋白 · 蛋白-配体 · 蛋白-多糖</span></summary>
+            <form id="haddock-form" class="haddock-form">
+              <div class="haddock-intro">
+                <p data-i18n-html="独立 HADDOCK3 作业：按下列参数生成 haddock.cfg，保留输入结构、约束、日志、CAPRI 表和最佳模型。HADDOCK score 是任意单位（a.u.，越低越好），不是结合自由能；没有实验参考结构时不会把 CAPRI RMSD 当作验证。"><b>独立 HADDOCK3 作业</b>：按下列参数生成 <code>haddock.cfg</code>，保留输入结构、约束、日志、CAPRI 表和最佳模型。HADDOCK score 是任意单位（a.u.，越低越好），不是结合自由能；没有实验参考结构时不会把 CAPRI RMSD 当作验证。</p>
+                <p class="fineprint" data-i18n-html="蛋白-配体请填配体名称或 SMILES；蛋白-多糖请填含糖链的 PDB（可写 1LMQ:B）。留空链号时自动选择首个合适链。">蛋白-配体请填配体名称或 SMILES；蛋白-多糖请填含糖链的 PDB（可写 <code>1LMQ:B</code>）。留空链号时自动选择首个合适链。</p>
+              </div>
+              <label class="haddock-query-label">体系描述（可选，留空也可按下方字段运行）
+                <textarea id="haddock-query" rows="2" placeholder="例如：1BEB 与 1GFL 的蛋白-蛋白对接；或 1BEB + quercetin 的蛋白-配体对接"></textarea>
+              </label>
+              <div class="param-grid">
+                <label>工作流
+                  <select id="haddock-workflow">
+                    <option value="protein-protein">蛋白-蛋白</option>
+                    <option value="protein-ligand">蛋白-配体</option>
+                    <option value="protein-polysaccharide">蛋白-多糖</option>
+                  </select>
+                </label>
+                <label>受体（PDB ID 或名称）<input id="haddock-receptor" placeholder="例如 1BEB" autocomplete="off"></label>
+                <label>受体链（留空自动）<input id="haddock-receptor-chain" placeholder="例如 A" maxlength="2" autocomplete="off"></label>
+                <label>对接伙伴（蛋白 PDB / 糖链 / 配体名称或 SMILES）<input id="haddock-partner" placeholder="例如 1GFL、1LMQ:B、quercetin" autocomplete="off"></label>
+                <label>伙伴链（配体忽略）<input id="haddock-partner-chain" placeholder="留空自动" maxlength="2" autocomplete="off"></label>
+                <label>受体活性残基（逗号/空格/范围）<input id="haddock-active-receptor" placeholder="例如 58,60,64 或 10-20" autocomplete="off"></label>
+                <label>伙伴活性残基（配体填 1）<input id="haddock-active-partner" placeholder="例如 1,2,3" autocomplete="off"></label>
+                <label>约束半径 / Å<input id="haddock-restraint-radius" type="number" min="0" max="30" step="0.5" value="6.5"></label>
+                <label>最大约束数<input id="haddock-max-restraints" type="number" min="1" max="1000" value="200"></label>
+                <label>刚体采样数<input id="haddock-sampling" type="number" min="1" max="500" value="20"></label>
+                <label>评分容差<input id="haddock-tolerance" type="number" min="0" max="99" step="0.5" value="5"></label>
+                <label>精修选取数<input id="haddock-select-top" type="number" min="1" max="100" value="5"></label>
+                <label>最小簇大小<input id="haddock-min-population" type="number" min="1" max="100" value="1"></label>
+                <label>输出模型数<input id="haddock-top-models" type="number" min="1" max="50" value="4"></label>
+                <label>聚类截断 / Å<input id="haddock-clust-cutoff" type="number" min="0.1" max="20" step="0.1" value="1.5"></label>
+                <label>CPU 核数<input id="haddock-ncores" type="number" min="1" max="64" value="8"></label>
+                <label>随机种子<input id="haddock-seed" type="number" min="0" max="9999999999999999" value="917"></label>
+                <label>超时 / s<input id="haddock-timeout" type="number" min="60" max="14400" value="1800"></label>
+                <label>vDW 权重<input id="haddock-w-vdw" type="number" min="0" max="100" step="0.1" value="1"></label>
+                <label>静电权重<input id="haddock-w-elec" type="number" min="0" max="100" step="0.1" value="1"></label>
+                <label>分子间刚体权重<input id="haddock-inter-rigid" type="number" min="0" max="1" step="0.05" value="1"></label>
+                <label>介电常数 ε<input id="haddock-epsilon" type="number" min="1" max="78" step="1" value="10"></label>
+                <label>flexref 刚体步数<input id="haddock-mdsteps-rigid" type="number" min="0" max="10000" value="500"></label>
+                <label>flexref cool1 步数<input id="haddock-mdsteps-cool1" type="number" min="0" max="10000" value="500"></label>
+                <label class="check"><input id="haddock-flexref" type="checkbox" checked> flexref 半柔性精修</label>
+                <label class="check"><input id="haddock-emref" type="checkbox" checked> emref 能量最小化</label>
+                <label class="check"><input id="haddock-cluster" type="checkbox" checked> 聚类并选代表模型</label>
+                <label class="check"><input id="haddock-cmrest" type="checkbox" checked> 无活性残基时用 cmrest</label>
+                <label class="check"><input id="haddock-ranair" type="checkbox"> 无活性残基时用 ranair</label>
+              </div>
+              <div class="param-actions"><span class="fineprint">默认 20 个刚体采样，运行时间取决于体系与核数；配体需要 RDKit 生成 3D 结构。作业步骤和文件会记录在下方任务卡片。</span><button id="haddock-reset" class="btn ghost" type="button">恢复默认</button><button class="btn dark" type="submit">启动 HADDOCK3 作业</button></div>
+            </form>
+          </details>
+          <details id="compute-params" class="card params-card">
+            <summary><span>计算参数</span><span class="muted">种子 · 采样 · 步数 · 超时</span></summary>
+            <div class="param-grid">
+              <label class="check"><input id="p-docking" type="checkbox" checked> 运行 Vina 对接</label>
+              <label class="check"><input id="p-md" type="checkbox" checked> 运行短 MD</label>
+              <label class="check"><input id="p-qm" type="checkbox" checked> 运行 CP2K</label>
+              <label>MD 体系<select id="p-md-mode"><option value="complex">蛋白-配体复合物（推荐）</option><option value="protein">仅蛋白</option></select></label>
+              <label>随机种子<input id="p-seed" type="number" min="0" max="2147483647" placeholder="留空自动"></label>
+              <label>Vina 采样强度<input id="p-exhaustiveness" type="number" min="1" max="64" value="8"></label>
+              <label>输出构象数<input id="p-poses" type="number" min="1" max="20" value="9"></label>
+              <label>对接盒边长 / Å<input id="p-box" type="number" min="16" max="48" step="1" value="26"></label>
+              <label>EM 步数<input id="p-em-steps" type="number" min="50" max="5000" value="5000"></label>
+              <label>MD 步数<input id="p-md-steps" type="number" min="100" max="100000" value="1000"></label>
+              <label>时间步 / ps<input id="p-dt" type="number" min="0.001" max="0.004" step="0.001" value="0.002"></label>
+              <label>温度 / K<input id="p-temp" type="number" min="250" max="400" step="5" value="300"></label>
+              <label>线程数<input id="p-threads" type="number" min="1" max="64" value="8"></label>
+              <label>高级计算覆盖<select id="p-advanced-scope"><option value="representative">代表项（默认，推荐）</option><option value="all">全部受体/配体</option></select></label>
+              <label>EM 超时 / s<input id="p-timeout-em" type="number" min="30" max="7200" value="900"></label>
+              <label>MD 超时 / s<input id="p-timeout-md" type="number" min="30" max="7200" value="1800"></label>
+              <label>QM 截断能 / Ry<input id="p-qm-cutoff" type="number" min="150" max="600" value="300"></label>
+              <label>QM SCF 上限<input id="p-qm-scf" type="number" min="10" max="200" value="30"></label>
+            </div>
+            <div class="param-actions"><span class="fineprint">默认种子留空时每次生成新种子；固定种子可复现。超时只保护单步，不再因 EM 超时丢掉已完成对接。</span><button id="params-reset" class="btn ghost" type="button">恢复默认</button></div>
+          </details>
+          <details id="tool-panel" class="card params-card">
+            <summary><span>本地软件接口</span><span class="muted">检测路径 · HADDOCK</span></summary>
+            <div id="tool-paths" class="tool-paths"><p class="muted">加载中…</p></div>
+            <div class="param-actions"><span id="tool-status" class="fineprint"></span><button id="tool-save" class="btn ghost" type="button">保存路径并检测</button></div>
+          </details>
+          <form id="compute-form" class="composer card">
+            <div class="composer-head"><span class="eyebrow">NEW JOB</span><span class="muted">参数可调 · 结果带指纹</span></div>
+            <textarea id="compute-query" rows="2" placeholder="例如：分析乳清蛋白与槲皮素的结合机制，运行对接、短 MD 和 QM"></textarea>
+            <div class="compute-grid">
+              <label>受体（PDB ID 或名称，可多个，逗号分隔）<input id="compute-receptors" placeholder="留空从一句话解析，例如 1BEB, 1GFL" autocomplete="off"></label>
+              <label>配体（名称或 SMILES，可多个，逗号分隔）<input id="compute-ligands" placeholder="留空从一句话解析，例如 quercetin, curcumin" autocomplete="off"></label>
+            </div>
+            <p class="fineprint">多个受体会与每个配体做笛卡尔组合；单次最多 12 对。高级 MD/QM 默认只跑代表项，避免误启动数小时任务；“全部”会逐项运行。</p>
+            <div class="composer-foot"><span id="compute-design" class="muted">未关联配方</span><button class="btn dark" type="submit">启动作业</button></div>
+          </form>
+          <div class="jobs-toolbar">
+            <span id="jobs-count" class="fineprint"></span>
+            <div class="jobs-toolbar-actions">
+              <button id="jobs-expand-all" class="btn ghost small" type="button">全部展开</button>
+              <button id="jobs-collapse-all" class="btn ghost small" type="button">全部收起</button>
+            </div>
+          </div>
+          <div id="jobs-list" class="jobs"></div>
+          <section id="structure-card" class="card structure-card">
+            <div class="section-head"><div><span class="eyebrow">3D STRUCTURE</span><h3>分子结构查看器</h3></div><span class="muted">拖拽旋转 · 滚轮/双指缩放</span></div>
+            <form id="structure-form" class="structure-form">
+              <input id="structure-pdb" maxlength="4" placeholder="PDB ID，例如 1BEB" autocomplete="off">
+              <button class="btn ghost" type="submit">加载 PDB</button>
+              <button id="structure-export" class="btn ghost" type="button">导出图像</button>
+              <label class="check"><input id="structure-spin" type="checkbox" checked> 自动旋转</label>
+            </form>
+            <div class="structure-toolbar">
+              <label>表示法<select id="structure-style">
+                <option value="cartoon">卡通主链</option>
+                <option value="trace">主链线</option>
+                <option value="ball">球棍</option>
+                <option value="spacefill">空间填充</option>
+              </select></label>
+              <label>着色<select id="structure-color">
+                <option value="element">按元素</option>
+                <option value="chain">按链</option>
+                <option value="ss">按二级结构</option>
+                <option value="polarity">按残基极性</option>
+                <option value="rainbow">按序列彩虹</option>
+                <option value="bfactor">按 B-factor</option>
+                <option value="depth">按深度</option>
+              </select></label>
+              <button id="structure-fit" class="btn ghost small" type="button">聚焦</button>
+              <button id="structure-reset" class="btn ghost small" type="button">重置</button>
+            </div>
+            <div id="structure-components" class="structure-components" aria-label="结构组分显示">
+              <span class="fineprint">加载结构后按文件真实残基生成组分。</span>
+            </div>
+            <div id="structure-pose-row" class="structure-pose-row hidden"><label>构象 <select id="structure-pose"></select></label><span id="structure-pose-note" class="fineprint"></span></div>
+            <div class="structure-wrap">
+              <canvas id="structure-canvas" aria-label="三维分子结构"></canvas>
+              <div id="structure-hint" class="structure-hint">加载一个 PDB / PDBQT / GRO，或从计算结果中打开结构文件</div>
+              <div id="structure-legend" class="structure-legend"></div>
+            </div>
+            <div id="structure-sequence" class="sequence-strip" aria-label="全部蛋白/核酸序列与配体组分"></div>
+            <div id="structure-residue" class="residue-note">点击原子可查看残基；拖拽旋转，右键/Shift 拖拽平移，滚轮或双指缩放。</div>
+            <p id="structure-meta" class="fineprint">支持 PDB、PDBQT 多构象与 GROMACS GRO；组分会按蛋白链、核酸链、配体、糖链、脂质、离子和水全部列出。序列区换行展示所有链，不再截断；结构仅用于可视化，不替代专业结构分析。</p>
+          </section>
+        </section>
+
+        <section id="view-lab" class="view">
+          <div class="section-head">
+            <div><span class="eyebrow">MODEL LAB</span><h2>从数据到下一轮候选</h2></div>
+            <span class="muted">导入 · 训练 · 不确定性 · 贝叶斯优化 · 回灌</span>
+          </div>
+          <div class="lab-hero card">
+            <div class="lab-flow" aria-label="模型实验室流程">
+              <span><b>01</b>数据底座</span><i>→</i>
+              <span><b>02</b>特征与训练</span><i>→</i>
+              <span><b>03</b>不确定性与 BO</span><i>→</i>
+              <span><b>04</b>实测回灌</span>
+            </div>
+            <p>这是一个可审计的小数据工作台：CSV/JSON 导入、数据来源标记、交叉验证、残差/树集成/GP 不确定性、带约束搜索空间和 EI 候选。它不训练通用大模型，也不会把合成数据伪装成实验证据。</p>
+            <div id="lab-stats" class="lab-stats"></div>
+          </div>
+          <div class="segmented lab-tabs" id="lab-tabs">
+            <button type="button" class="active" data-lab-tab="data">数据集</button>
+            <button type="button" data-lab-tab="train">训练与模型</button>
+            <button type="button" data-lab-tab="optimize">贝叶斯优化</button>
+            <button type="button" data-lab-tab="feedback">实验回灌</button>
+          </div>
+
+          <div id="lab-panel-data" class="lab-panel">
+            <div class="lab-grid two">
+              <div class="card lab-card">
+                <div class="lab-card-head"><h3>数据集</h3><span id="lab-dataset-count" class="badge">0</span></div>
+                <div id="lab-dataset-list" class="lab-dataset-list"></div>
+                <div class="lab-actions">
+                  <button id="lab-demo-btn" class="btn primary" type="button">载入内置演示数据</button>
+                  <a class="btn ghost" id="lab-template-link" href="/api/v3/lab/template.csv" data-lab-download data-filename="bioforge-lab-template.csv">下载 CSV 模板</a>
+                </div>
+                <p class="fineprint">演示集是 180 行合成数据（source_type=synthetic），仅用于验证流程；训练时必须显式确认。</p>
+              </div>
+              <div class="card lab-card">
+                <div class="lab-card-head"><h3>导入 CSV / JSON</h3><span class="badge blue">≤ 20,000 行</span></div>
+                <form id="lab-import-form" class="stack">
+                  <label>名称<input id="lab-import-name" maxlength="80" placeholder="例如：2026-10 乳清饮料实测" required></label>
+                  <label>来源类型<select id="lab-import-source">
+                    <option value="measured">实测（wet lab）</option>
+                    <option value="literature">文献整理</option>
+                    <option value="simulation">模拟</option>
+                    <option value="synthetic">合成 / 演示</option>
+                    <option value="mixed">混合</option>
+                  </select></label>
+                  <label>说明<input id="lab-import-desc" maxlength="300" placeholder="批次、单位、实验设计"></label>
+                  <label>文件<input id="lab-import-file" type="file" accept=".csv,.json,.txt"></label>
+                  <label>或粘贴 CSV / JSON<textarea id="lab-import-text" rows="5" placeholder="sample_id,protein_pct,ph,stability_days&#10;S001,4.2,4.1,45"></textarea></label>
+                  <label class="check"><input id="lab-import-dedupe" type="checkbox" checked> 去重完全相同的行</label>
+                  <button class="btn dark" type="submit">导入数据集</button>
+                  <p id="lab-import-msg" class="fineprint"></p>
+                </form>
+              </div>
+            </div>
+            <div id="lab-dataset-detail"></div>
+          </div>
+
+          <div id="lab-panel-train" class="lab-panel hidden">
+            <div class="card lab-card">
+              <div class="lab-card-head"><h3>训练配置</h3><span id="lab-train-dataset-badge" class="badge">未选择数据集</span></div>
+              <div class="lab-form-grid">
+                <label>数据集<select id="lab-train-dataset"></select></label>
+                <label>目标列<select id="lab-train-target"></select></label>
+                <label>算法<select id="lab-train-algorithm">
+                  <option value="auto">自动选择</option>
+                  <option value="ridge">Ridge 线性</option>
+                  <option value="random_forest">随机森林</option>
+                  <option value="gradient_boosting">梯度提升</option>
+                  <option value="gaussian_process">高斯过程</option>
+                  <option value="ensemble">集成（RF+HGB+Ridge）</option>
+                </select></label>
+                <label>交叉验证折数<input id="lab-train-folds" type="number" min="2" max="10" value="5"></label>
+                <label>分组列（可选）<select id="lab-train-group"><option value="">不分组</option></select></label>
+                <label class="check"><input id="lab-train-synthetic" type="checkbox"> 允许合成/混合数据（仅流程验证）</label>
+              </div>
+              <div class="lab-feature-head">
+                <span>特征列 <small class="muted">默认排除标识符和可能的结果列</small></span>
+                <span><button id="lab-feature-all" class="link-btn" type="button">默认全选</button><button id="lab-feature-none" class="link-btn" type="button">清空</button></span>
+              </div>
+              <div id="lab-feature-list" class="feature-list"></div>
+              <div class="lab-actions"><button id="lab-train-btn" class="btn primary" type="button">训练模型</button><span id="lab-train-status" class="muted"></span></div>
+              <p class="fineprint">训练使用交叉验证，默认按随机 KFold 划分；同批次/同配方请设置分组列。结果列若被强制作为特征，会标记数据泄漏风险。</p>
+            </div>
+            <div id="lab-train-result"></div>
+            <div class="card lab-card">
+              <div class="lab-card-head"><h3>已训练模型</h3><span id="lab-model-count" class="badge">0</span></div>
+              <div id="lab-model-list" class="lab-model-list"></div>
+            </div>
+          </div>
+
+          <div id="lab-panel-optimize" class="lab-panel hidden">
+            <div class="card lab-card">
+              <div class="lab-card-head"><h3>贝叶斯优化</h3><span class="badge blue">EI + 不确定性</span></div>
+              <div class="lab-form-grid">
+                <label>模型<select id="lab-opt-model"></select></label>
+                <label>目标方向<select id="lab-opt-direction"><option value="maximize">最大化</option><option value="minimize">最小化</option></select></label>
+                <label>候选数<input id="lab-opt-count" type="number" min="1" max="20" value="5"></label>
+                <label>搜索点数<input id="lab-opt-search" type="number" min="256" max="8000" value="2048"></label>
+              </div>
+              <div class="lab-feature-head"><span>搜索空间（默认使用训练范围）</span><span class="fineprint">可收窄，不能外推</span></div>
+              <div id="lab-space-list" class="space-list"></div>
+              <div class="lab-actions"><button id="lab-opt-btn" class="btn primary" type="button">生成候选</button><span id="lab-opt-status" class="muted"></span></div>
+              <p class="fineprint">采集函数为 Expected Improvement；候选按 EI 排序并做多样性筛选。范围外的输入会被收窄到训练数据范围。</p>
+            </div>
+            <div id="lab-opt-result"></div>
+          </div>
+
+          <div id="lab-panel-feedback" class="lab-panel hidden">
+            <div class="card lab-card">
+              <div class="lab-card-head"><h3>实验回灌</h3><span class="badge">闭环</span></div>
+              <p class="muted">把湿实验/模拟结果追加到原数据集，再用同一配置重训。追加会更新数据集哈希和模型版本；合成数据仍需显式确认。</p>
+              <div class="lab-form-grid">
+                <label>数据集<select id="lab-fb-dataset"></select></label>
+                <label>模型（用于重训）<select id="lab-fb-model"></select></label>
+              </div>
+              <div class="lab-actions"><button id="lab-fb-retrain-btn" class="btn dark" type="button">用最新数据重训</button><a id="lab-fb-export" class="btn ghost" href="#" download>导出数据集 CSV</a><button id="lab-fb-refresh" class="btn ghost" type="button">刷新近期记录</button></div>
+              <p id="lab-fb-msg" class="fineprint"></p>
+            </div>
+            <div id="lab-feedback-result"></div>
+          </div>
+        </section>
+
+
+        <section id="view-guide" class="view">
+          <div class="guide-hero card">
+            <span class="eyebrow">FIELD MANUAL</span>
+            <h1>把每个按钮，变成可解释的动作。</h1>
+            <p>这份应用内指南解释数据从哪来、结果怎么读、哪些结论不能下。完整版同时保存在服务器 <code>docs/USER_GUIDE.md</code> 与 Obsidian 文献库。</p>
+            <div class="guide-jump">
+              <a href="#guide-start">快速开始</a><a href="#guide-design">设计结果</a><a href="#guide-graph">证据图谱</a><a href="#guide-3d">3D 与计算</a><a href="#guide-lab">模型实验室</a><a href="#guide-literature">文献库</a><a href="#guide-trouble">故障排查</a>
+            </div>
+          </div>
+          <div class="guide-tools">
+            <article class="card guide-tool" id="assistant-card">
+              <details class="guide-tool-details" open>
+              <summary class="guide-tool-head"><div><span class="eyebrow">LOCAL ASSISTANT</span><h3>问 BioForge</h3></div><span id="assistant-status" class="badge">检测 Ollama…</span></summary>
+              <p class="muted">使用服务器本地 Ollama 模型回答软件使用问题；记录会写入服务器 <code>runtime/assistant/</code> 并保留每日备份。不要输入密码、Token 或未公开数据。</p>
+              <div class="assistant-layout">
+                <div class="assistant-main">
+                  <form id="assistant-form" class="assistant-form">
+                    <textarea id="assistant-question" rows="2" maxlength="2000" placeholder="例如：证据图谱里的流程边算实验证据吗？" required></textarea>
+                    <button class="btn primary" type="submit">提问</button>
+                  </form>
+                  <div id="assistant-answer" class="assistant-answer"><p class="muted">回答会引用应用内指南与资源政策；不确定时会明确说明。</p></div>
+                </div>
+                <aside class="assistant-sidebar" aria-label="本地问答历史">
+                  <div class="assistant-sidebar-head"><div><b>问答历史</b><span id="assistant-history-count" class="fineprint">加载中…</span></div><button id="assistant-history-refresh" class="btn ghost small" type="button">刷新</button></div>
+                  <input id="assistant-history-search" type="search" placeholder="搜索问题或回答…" autocomplete="off">
+                  <div id="assistant-history" class="assistant-history-list"><p class="muted">加载中…</p></div>
+                </aside>
+              </div>
+              </details>
+            </article>
+            <article class="card guide-tool" id="notes-card">
+              <details class="guide-tool-details" open>
+              <summary class="guide-tool-head"><div><span class="eyebrow">OBSIDIAN READ-ONLY</span><h3>笔记实时浏览</h3></div><span id="notes-status" class="badge">只读</span></summary>
+              <p class="muted">无法把 Obsidian 桌面 UI 原样嵌入浏览器；这里直接读取服务器上的 Markdown 文件。选中笔记后会定时刷新，修改只请在 Obsidian 中进行。</p>
+              <div class="notes-controls">
+                <select id="notes-select" aria-label="选择 Obsidian 笔记"><option value="">加载笔记列表…</option></select>
+                <button id="notes-refresh" class="btn ghost small" type="button">刷新</button>
+                <label class="check"><input id="notes-auto" type="checkbox" checked> 自动刷新</label>
+              </div>
+              <div id="notes-content" class="notes-content"><p class="muted">选择一篇笔记查看只读内容。</p></div>
+              </details>
+            </article>
+          </div>
+          <div class="guide-grid">
+            <article class="card guide-section" id="guide-start"><h3>01 · 快速开始</h3>
+              <ol><li>服务器启动后，浏览器打开 <code>http://服务器IP:8010</code>；手机与服务器同一 Wi-Fi 时用局域网 IP。</li><li>登录后先在“设置”修改演示密码。公网访问必须使用 HTTPS，不要直接端口转发明文 HTTP。</li><li>在“设计工作台”选择自动/食品/生物设计，输入目标并生成候选。</li><li>点击“证据图谱”检查推理链；点击“运行机制计算”进入 Vina/MD/QM 作业。</li><li>在“在线证据”底部检索本地 OA 文献；在“模型实验室”导入自己的实测数据。</li></ol>
+              <p class="fineprint">远程访问：推荐 Cloudflare Tunnel、Tailscale 或带 HTTPS 的反向代理。具体步骤见服务器 <code>docs/DEPLOYMENT.md</code>。</p>
+            </article>
+            <article class="card guide-section" id="guide-design"><h3>02 · 设计工作台怎么读</h3>
+              <p><b>候选</b>是可比较的数字原型，不是已经做出来的产品。<b>综合评分</b>是加权决策指数，不是成功概率。<b>约束通过</b>只表示模型内的规则通过，仍需实测。</p>
+              <p>食品模式展示配方占比、配料角色、相互作用与工艺；生物模式展示蛋白/化合物、保护剂组合、Tm、保留率、亮度与光谱。</p>
+              <p><b>at_risk</b> 表示筛选区间跨过边界，必须做验证实验。所有区间都是假设，不是统计置信区间。</p>
+              <p class="fineprint">报告不会用随机数挑选候选；每个候选都能追溯到数据版本、规则和参数指纹。</p>
+            </article>
+            <article class="card guide-section" id="guide-graph"><h3>03 · 证据图谱</h3>
+              <p>节点代表设计、候选、配料/保护剂、推理步骤、约束、文献或数据源；边代表使用、支持、相互作用或下一步。滚轮/双指缩放，拖拽平移，点击节点查看详情。</p>
+              <p>“类型着色”区分节点角色；“连接度着色”让枢纽节点更醒目。数据源节点可打开原始数据库；文献节点来自 curated prior，不等于临床证据。</p>
+            </article>
+            <article class="card guide-section" id="guide-3d"><h3>04 · 机制计算与 3D</h3>
+              <p>Vina 给出对接姿态与打分；GROMACS 短 MD 只检查局部稳定性；CP2K 只计算小体系电子结构。三者都不是生产级自由能、成药性或安全结论。</p>
+              <p>3D 查看器支持 PDB、PDBQT 多构象、GRO；可切换卡通/主链/球棍/空间填充，按元素/链/深度着色，显示配体与单字母序列。点击原子查看残基，导出当前视图 PNG。</p>
+              <p>从计算结果中可直接打开 receptor.pdb、poses.pdbqt、md.gro；多构象文件会显示构象选择器。</p>
+            </article>
+            <article class="card guide-section" id="guide-lab"><h3>05 · 模型实验室</h3>
+              <p>先导入 CSV/JSON，明确标记实测、文献、模拟或合成来源。训练使用交叉验证；合成数据必须显式勾选。贝叶斯优化只会在训练范围内搜索，不会外推。</p>
+              <p>预测区间与 EI 是统计辅助，不是实验保证。回灌实测会更新数据哈希与模型版本。</p>
+            </article>
+            <article class="card guide-section" id="guide-literature"><h3>06 · 文献库与标签</h3>
+              <p>本地库当前含 10,000 篇 Europe PMC OA 元数据、25,000+ 文本块和 Obsidian 笔记。检索使用 SQLite FTS5/BM25，不需要联网。</p>
+              <p>标签映射：标题/摘要规则 → topic；MeSH → mesh/…；作者关键词 → keyword/…；化合物 → chemical/…。Obsidian 笔记位于服务器数据目录的 <code>obsidian/&lt;year&gt;/</code>。</p>
+            </article>
+            <article class="card guide-section" id="guide-trouble"><h3>07 · 故障排查</h3>
+              <p><b>手机打不开：</b>确认地址是电脑局域网 IP 和 8010 端口；<code>127.0.0.1</code> 只指手机自己。检查防火墙与同一 Wi-Fi。</p>
+              <p><b>Internal Server Error：</b>查看 <code>logs/bioforge.log</code> 或 <code>logs/server-v3.log</code>；生物设计缺少 ID 的问题已在 3.2 修复。</p>
+              <p><b>计算失败：</b>在“机制计算”展开本地软件接口，检查 Vina/GROMACS/CP2K 路径；超时只保护单步。</p>
+              <p><b>数据备份：</b>备份 <code>runtime/</code>、Lab 数据库与文献数据目录；不要把 <code>runtime/.token</code> 或密码提交到仓库。</p>
+            </article>
+            <article class="card guide-section" id="guide-database"><h3>08 · 数据库与来源</h3>
+              <p>主库为 PostgreSQL 16 + pgvector；当前已同步 <b>10,000</b> 条文献元数据、<b>25,062</b> 个文本块、<b>48,544</b> 个图谱实体和 <b>76,954</b> 条边。页面“资源库”列出全部公开/许可来源、许可说明和官方跳转链接。</p>
+              <p>pgvector 字段已建立但尚未生成嵌入向量；文献检索当前使用 PostgreSQL 全文索引，失败时回退到本地 SQLite FTS5。开放获取解析只调用 Crossref、Europe PMC、Unpaywall 等合法接口。</p>
+              <p class="fineprint">Sci-Hub、付费墙绕过、验证码规避和未授权批量下载不提供。机构资源请使用学校官方 SSO/EZproxy/CARSI 登录；软件不收集账号密码。</p>
+            </article>
+            <article class="card guide-section" id="guide-limits"><h3>09 · 必须保留的边界</h3>
+              <ul><li>配方、模型、对接、MD、QM 和文献检索均为研究与设计决策支持。</li><li>不构成食品/药品/医疗器械合规、安全性、有效性或临床结论。</li><li>合成/模拟数据不能替代湿实验；文献标签不能替代人工阅读。</li><li>公网部署前必须修改默认密码、启用 HTTPS、限制访问并做好备份。</li></ul>
+            </article>
+          </div>
+        </section>
+        <section id="view-settings" class="view">
+          <div class="section-head"><div><span class="eyebrow">SETTINGS</span><h2>账户与系统</h2></div></div>
+          <div class="settings-grid">
+            <div class="card" id="android-server-card" hidden>
+              <h3>App 服务器</h3>
+              <p class="muted">当前地址 <b id="settings-server-url">—</b></p>
+              <p class="fineprint">手机和电脑需在同一局域网。服务器默认监听 0.0.0.0:8010；明文 HTTP 只建议在可信家庭/实验室网络使用。远程客户请按 docs/DEPLOYMENT.md 部署 HTTPS。</p>
+              <button id="server-settings-btn" class="btn ghost" type="button">修改服务器地址</button>
+            </div>
+            <div class="card">
+              <h3>账户</h3>
+              <p class="muted">当前用户 <b id="settings-user">—</b></p>
+              <form id="password-form" class="stack">
+                <label>当前密码<input id="pw-current" type="password" autocomplete="current-password" required></label>
+                <label>新密码（≥ 8 位）<input id="pw-new" type="password" autocomplete="new-password" minlength="8" required></label>
+                <button class="btn dark" type="submit">更新密码</button>
+              </form>
+              <p id="pw-msg" class="muted"></p>
+            </div>
+            <div class="card appearance-card">
+              <h3>外观主题</h3>
+              <p class="muted">主题只改变颜色与背景，不影响数据和权限。设置保存在本机浏览器。</p>
+              <div class="theme-mode segmented" id="theme-mode" role="group" aria-label="明暗模式">
+                <button type="button" data-mode="auto">跟随系统</button>
+                <button type="button" data-mode="light">浅色</button>
+                <button type="button" data-mode="dark">深色</button>
+              </div>
+              <div id="theme-grid" class="theme-grid" role="group" aria-label="主题"></div>
+              <p id="theme-status" class="fineprint">当前：跟随系统 · 极光</p>
+            </div>
+            <div class="card">
+              <h3>登录与 Token</h3>
+              <p class="muted">浏览器使用 HttpOnly 会话 Cookie。外部脚本/AutoDL 可使用服务器生成的 API Token：</p>
+              <pre class="token-box">Authorization: Bearer &lt;runtime/.token 内容&gt;</pre>
+              <p class="fineprint">Token 只用于 API 鉴权，不是数据库密钥，也不会传给第三方；请保持 0600 权限，不要提交到仓库。</p>
+              <button id="logout-btn" class="btn ghost">退出登录</button>
+            </div>
+            <div class="card">
+              <h3>数据集</h3>
+              <div id="dataset-list" class="dataset-list"></div>
+              <p class="fineprint">配方与指标是 curated priors 与模板估算，不是实测或法规结论。</p>
+            </div>
+            <div class="card">
+              <h3>PostgreSQL 知识库</h3>
+              <div id="knowledge-status" class="knowledge-status"><span class="muted">读取中…</span></div>
+              <button id="knowledge-refresh" class="btn ghost" type="button">刷新数据库状态</button>
+              <p class="fineprint">PostgreSQL 16 + pgvector；不可用时自动回退 SQLite FTS5。向量列已建立，嵌入尚未生成。</p>
+            </div>
+            <div class="card">
+              <h3>数据源与许可</h3>
+              <div id="source-catalog" class="source-catalog"><span class="muted">登录后加载。</span></div>
+              <p class="fineprint">有许可/凭据要求的来源不会伪装成“已接入”；需要机构代理或 API key 的来源会明确标注。</p>
+            </div>
+            <div class="card">
+              <h3>版本</h3>
+              <p><b>BioForge Studio 3.2.2</b></p>
+              <p class="muted">食品引擎 2.1.0-food · 生物引擎 1.0.0 · 模型实验室 3.2.2 · 文献库 3.2.2</p>
+              <p class="fineprint">在线证据必须核验原始记录；计算结果是机制假设，不是自由能或安全结论。</p>
+              <p class="fineprint">模型实验室的预测来自表格模型与交叉验证不确定性，不是机理模型；合成/模拟数据不能替代湿实验。</p>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <nav class="mobile-tabs" aria-label="移动导航">
+        <button class="active" data-page="design"><span>◈</span>设计</button>
+        <button data-page="cases"><span>▤</span>案例</button>
+        <button data-page="evidence"><span>⌘</span>证据</button>
+        <button data-page="compute"><span>◎</span>计算</button>
+        <button data-page="lab"><span>⌬</span>实验室</button>
+        <button data-page="resources"><span>▦</span>资源</button>
+        <button data-page="guide"><span>?</span>指南</button>
+        <button data-page="settings"><span>⚙</span>设置</button>
+      </nav>
+    </div>
+  </div>
+
+
+  <div id="institution-modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="institution-modal-title">
+    <div class="modal-card card">
+      <button id="institution-modal-close" class="modal-close" type="button" aria-label="关闭">×</button>
+      <span class="eyebrow">INSTITUTION ACCESS</span>
+      <h3 id="institution-modal-title">机构登录由学校官方页面完成</h3>
+      <p class="muted">BioForge 不提供账号密码输入框，也不接收、记录或代存校园密码。请在新窗口中使用学校官方 SSO/EZproxy/CARSI 登录，登录态由学校和出版社维护。</p>
+      <div class="access-links">
+        <a href="https://www.lib.scut.edu.cn/" target="_blank" rel="noopener noreferrer">华南理工大学图书馆 ↗</a>
+        <a href="https://www.carsi.edu.cn/" target="_blank" rel="noopener noreferrer">CARSI 联盟 ↗</a>
+        <a href="https://www.scut.edu.cn/" target="_blank" rel="noopener noreferrer">华南理工大学主页 ↗</a>
+      </div>
+      <p class="fineprint">登录后回到 DOI、PubMed 或出版社页面获取全文；授权范围以学校许可为准。软件不绕过付费墙，也不提供 Sci-Hub 链接。</p>
+    </div>
+  </div>
+
+  <div id="lab-modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="lab-modal-title">
+    <div class="modal-card card">
+      <button id="lab-modal-close" class="modal-close" type="button" aria-label="关闭">×</button>
+      <span class="eyebrow">WET LAB FEEDBACK</span>
+      <h3 id="lab-modal-title">记录实测</h3>
+      <p id="lab-modal-sub" class="muted"></p>
+      <form id="lab-feedback-form" class="stack">
+        <label>实测 <span id="lab-modal-target-name"></span><input id="lab-modal-measured" type="number" step="any" required></label>
+        <label>备注<input id="lab-modal-notes" maxlength="1000" placeholder="仪器、批次、重复数"></label>
+        <label class="check"><input id="lab-modal-retrain" type="checkbox" checked> 追加后立即重训</label>
+        <div class="modal-actions"><button type="button" id="lab-modal-cancel" class="btn ghost">取消</button><button type="submit" class="btn primary">保存实测并回灌</button></div>
+      </form>
+      <div id="lab-modal-preview" class="fineprint"></div>
+    </div>
+  </div>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="i18n-data.js"></script>
+  <script src="app.js"></script>
+  <script src="lab.js"></script>
+</body>
+</html>

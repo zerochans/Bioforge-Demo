@@ -1,0 +1,453 @@
+{
+  "schema_version": "1.0",
+  "curated_date": "2026-10-20",
+  "disclaimer": "Approximate literature-informed peak lists for a teaching/demo spectral matcher. They are not certified reference spectra and must not be used for regulatory or clinical decisions.",
+  "items": [
+    {
+      "id": "riboflavin_uvvis",
+      "compound_id": "riboflavin",
+      "type": "UV-Vis",
+      "solvent": "water",
+      "peaks": [
+        [
+          270,
+          0.55
+        ],
+        [
+          373,
+          0.78
+        ],
+        [
+          445,
+          1.0
+        ]
+      ],
+      "unit": "nm",
+      "evidence_level": "approximate_reference",
+      "notes": "Three-band absorption; 445 nm band gives yellow colour and fluorescence."
+    },
+    {
+      "id": "caffeine_uvvis",
+      "compound_id": "caffeine",
+      "type": "UV-Vis",
+      "solvent": "water",
+      "peaks": [
+        [
+          205,
+          0.9
+        ],
+        [
+          273,
+          1.0
+        ]
+      ],
+      "unit": "nm",
+      "evidence_level": "approximate_reference",
+      "notes": "Strong UV absorption near 273 nm."
+    },
+    {
+      "id": "curcumin_uvvis",
+      "compound_id": "curcumin",
+      "type": "UV-Vis",
+      "solvent": "ethanol",
+      "peaks": [
+        [
+          265,
+          0.45
+        ],
+        [
+          425,
+          1.0
+        ]
+      ],
+      "unit": "nm",
+      "evidence_level": "approximate_reference",
+      "notes": "Broad 425 nm band; pH-dependent."
+    },
+    {
+      "id": "ascorbic_uvvis",
+      "compound_id": "ascorbic_acid",
+      "type": "UV-Vis",
+      "solvent": "water",
+      "peaks": [
+        [
+          245,
+          1.0
+        ],
+        [
+          265,
+          0.35
+        ]
+      ],
+      "unit": "nm",
+      "evidence_level": "approximate_reference",
+      "notes": "Strong UV end absorption."
+    },
+    {
+      "id": "chlorophyllin_uvvis",
+      "compound_id": "chlorophyllin",
+      "type": "UV-Vis",
+      "solvent": "water",
+      "peaks": [
+        [
+          405,
+          0.8
+        ],
+        [
+          630,
+          1.0
+        ]
+      ],
+      "unit": "nm",
+      "evidence_level": "approximate_reference",
+      "notes": "Soret and Q bands."
+    },
+    {
+      "id": "quercetin_uvvis",
+      "compound_id": "quercetin",
+      "type": "UV-Vis",
+      "solvent": "ethanol",
+      "peaks": [
+        [
+          255,
+          0.6
+        ],
+        [
+          370,
+          1.0
+        ]
+      ],
+      "unit": "nm",
+      "evidence_level": "approximate_reference",
+      "notes": "Two principal absorption bands."
+    },
+    {
+      "id": "caffeine_ir",
+      "compound_id": "caffeine",
+      "type": "IR",
+      "solvent": "KBr",
+      "peaks": [
+        [
+          1700,
+          0.95
+        ],
+        [
+          1660,
+          0.8
+        ],
+        [
+          1548,
+          0.55
+        ],
+        [
+          1240,
+          0.5
+        ],
+        [
+          745,
+          0.4
+        ]
+      ],
+      "unit": "cm-1",
+      "evidence_level": "approximate_reference",
+      "notes": "Carbonyl and ring modes, illustrative."
+    },
+    {
+      "id": "curcumin_ir",
+      "compound_id": "curcumin",
+      "type": "IR",
+      "solvent": "KBr",
+      "peaks": [
+        [
+          3500,
+          0.55
+        ],
+        [
+          1628,
+          0.85
+        ],
+        [
+          1600,
+          0.8
+        ],
+        [
+          1510,
+          0.7
+        ],
+        [
+          1280,
+          0.55
+        ],
+        [
+          960,
+          0.45
+        ]
+      ],
+      "unit": "cm-1",
+      "evidence_level": "approximate_reference",
+      "notes": "Phenolic O-H and conjugated carbonyl bands, illustrative."
+    },
+    {
+      "id": "ascorbic_ir",
+      "compound_id": "ascorbic_acid",
+      "type": "IR",
+      "solvent": "KBr",
+      "peaks": [
+        [
+          3520,
+          0.6
+        ],
+        [
+          3410,
+          0.65
+        ],
+        [
+          1750,
+          0.85
+        ],
+        [
+          1670,
+          0.55
+        ],
+        [
+          1270,
+          0.5
+        ],
+        [
+          1020,
+          0.45
+        ]
+      ],
+      "unit": "cm-1",
+      "evidence_level": "approximate_reference",
+      "notes": "Lactone carbonyl and O-H bands, illustrative."
+    },
+    {
+      "id": "caffeine_ms",
+      "compound_id": "caffeine",
+      "type": "MS",
+      "ion_mode": "ESI+",
+      "peaks": [
+        [
+          195.08,
+          1.0
+        ],
+        [
+          138.07,
+          0.25
+        ],
+        [
+          110.07,
+          0.15
+        ]
+      ],
+      "unit": "m/z",
+      "evidence_level": "approximate_reference",
+      "notes": "[M+H]+ at 195.08."
+    },
+    {
+      "id": "riboflavin_ms",
+      "compound_id": "riboflavin",
+      "type": "MS",
+      "ion_mode": "ESI+",
+      "peaks": [
+        [
+          377.15,
+          1.0
+        ],
+        [
+          243.09,
+          0.35
+        ],
+        [
+          359.14,
+          0.2
+        ]
+      ],
+      "unit": "m/z",
+      "evidence_level": "approximate_reference",
+      "notes": "[M+H]+ near 377.15."
+    },
+    {
+      "id": "curcumin_ms",
+      "compound_id": "curcumin",
+      "type": "MS",
+      "ion_mode": "ESI+",
+      "peaks": [
+        [
+          369.13,
+          1.0
+        ],
+        [
+          177.05,
+          0.45
+        ],
+        [
+          145.03,
+          0.3
+        ]
+      ],
+      "unit": "m/z",
+      "evidence_level": "approximate_reference",
+      "notes": "[M+H]+ near 369.13."
+    },
+    {
+      "id": "ascorbic_ms",
+      "compound_id": "ascorbic_acid",
+      "type": "MS",
+      "ion_mode": "ESI-",
+      "peaks": [
+        [
+          175.02,
+          1.0
+        ],
+        [
+          115.0,
+          0.3
+        ]
+      ],
+      "unit": "m/z",
+      "evidence_level": "approximate_reference",
+      "notes": "[M-H]- near 175.02."
+    },
+    {
+      "id": "quercetin_ms",
+      "compound_id": "quercetin",
+      "type": "MS",
+      "ion_mode": "ESI-",
+      "peaks": [
+        [
+          301.03,
+          1.0
+        ],
+        [
+          151.0,
+          0.35
+        ],
+        [
+          179.0,
+          0.25
+        ]
+      ],
+      "unit": "m/z",
+      "evidence_level": "approximate_reference",
+      "notes": "[M-H]- near 301.03."
+    },
+    {
+      "id": "caffeine_nmr",
+      "compound_id": "caffeine",
+      "type": "1H-NMR",
+      "solvent": "D2O",
+      "peaks": [
+        [
+          3.23,
+          0.8
+        ],
+        [
+          3.5,
+          0.8
+        ],
+        [
+          3.92,
+          0.8
+        ],
+        [
+          7.9,
+          1.0
+        ]
+      ],
+      "unit": "ppm",
+      "evidence_level": "approximate_reference",
+      "notes": "Three N-methyl singlets and one aromatic proton."
+    },
+    {
+      "id": "curcumin_nmr",
+      "compound_id": "curcumin",
+      "type": "1H-NMR",
+      "solvent": "DMSO-d6",
+      "peaks": [
+        [
+          3.84,
+          0.8
+        ],
+        [
+          6.08,
+          0.6
+        ],
+        [
+          6.76,
+          0.8
+        ],
+        [
+          7.15,
+          0.6
+        ],
+        [
+          7.52,
+          0.5
+        ]
+      ],
+      "unit": "ppm",
+      "evidence_level": "approximate_reference",
+      "notes": "Methoxy, olefinic and aromatic signals."
+    },
+    {
+      "id": "ascorbic_nmr",
+      "compound_id": "ascorbic_acid",
+      "type": "1H-NMR",
+      "solvent": "D2O",
+      "peaks": [
+        [
+          3.75,
+          0.6
+        ],
+        [
+          3.95,
+          0.5
+        ],
+        [
+          4.72,
+          1.0
+        ]
+      ],
+      "unit": "ppm",
+      "evidence_level": "approximate_reference",
+      "notes": "Ring methine and methylene signals."
+    },
+    {
+      "id": "riboflavin_nmr",
+      "compound_id": "riboflavin",
+      "type": "1H-NMR",
+      "solvent": "DMSO-d6",
+      "peaks": [
+        [
+          2.42,
+          0.6
+        ],
+        [
+          2.5,
+          0.6
+        ],
+        [
+          4.05,
+          0.4
+        ],
+        [
+          4.7,
+          0.4
+        ],
+        [
+          7.85,
+          0.5
+        ],
+        [
+          8.05,
+          0.5
+        ]
+      ],
+      "unit": "ppm",
+      "evidence_level": "approximate_reference",
+      "notes": "Methyl, sugar and aromatic signals, illustrative."
+    }
+  ]
+}

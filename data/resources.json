@@ -1,0 +1,465 @@
+{
+  "schema_version": "1.0",
+  "updated": "2026-10-23",
+  "policy": {
+    "sci_hub": "excluded",
+    "note": "只列出公开、机构许可或作者授权的入口；不提供 Sci-Hub、付费墙绕过、验证码规避或未授权批量下载链接。",
+    "credential_rule": "本软件不收集、不记录、不代存校园账号密码；机构访问请使用学校官方 SSO/EZproxy/CARSI 页面。"
+  },
+  "groups": [
+    {
+      "id": "identity",
+      "name": "化学与食品身份",
+      "items": [
+        {
+          "id": "pubchem",
+          "name": "PubChem",
+          "url": "https://pubchem.ncbi.nlm.nih.gov/",
+          "license": "Public domain / NIH",
+          "status": "live",
+          "note": "化合物身份、性质、同义词与实验谱图。",
+          "note_en": "Compound identity, properties, synonyms and experimental spectra."
+        },
+        {
+          "id": "chebi",
+          "name": "ChEBI",
+          "url": "https://www.ebi.ac.uk/chebi/",
+          "license": "CC BY 4.0",
+          "status": "live",
+          "note": "化学实体本体与角色注释。",
+          "note_en": "Chemical entity ontology and role annotations."
+        },
+        {
+          "id": "unichem",
+          "name": "UniChem",
+          "url": "https://www.ebi.ac.uk/unichem/",
+          "license": "CC BY 4.0",
+          "status": "live",
+          "note": "跨库化合物标识映射。",
+          "note_en": "Cross-database compound identifier mapping."
+        },
+        {
+          "id": "chemspider",
+          "name": "ChemSpider",
+          "url": "https://www.chemspider.com/",
+          "license": "site terms",
+          "status": "link_only",
+          "note": "仅跳转；自动查询需遵守站点条款。",
+          "note_en": "Link-out only; automated queries must follow the site terms."
+        },
+        {
+          "id": "drugbank",
+          "name": "DrugBank",
+          "url": "https://go.drugbank.com/",
+          "license": "commercial/academic license",
+          "status": "license_required",
+          "note": "需许可和 API key，未授权时不抓取。",
+          "note_en": "Licence and API key required; no scraping without authorisation."
+        },
+        {
+          "id": "ccdc",
+          "name": "CCDC / CSD",
+          "url": "https://www.ccdc.cam.ac.uk/",
+          "license": "institutional subscription",
+          "status": "license_required",
+          "note": "晶体结构数据库，需机构订阅。",
+          "note_en": "Crystal structure database; institutional subscription required."
+        },
+        {
+          "id": "zinc",
+          "name": "ZINC",
+          "url": "https://zinc.docking.org/",
+          "license": "free for research",
+          "status": "link_only",
+          "note": "浏览器验证码会阻止自动抓取，保留链接入口。",
+          "note_en": "Browser CAPTCHA blocks automated access; link-out entry retained."
+        },
+        {
+          "id": "nmrshiftdb2",
+          "name": "NMRShiftDB2",
+          "url": "https://nmrshiftdb.nmr.uni-koeln.de/",
+          "license": "open reference",
+          "status": "public_reference",
+          "note": "公开 NMR 参考；批量查询需遵守条款。",
+          "note_en": "Public NMR reference; bulk queries must follow the terms."
+        },
+        {
+          "id": "massbank",
+          "name": "MassBank",
+          "url": "https://massbank.eu/MassBank/",
+          "license": "record-specific",
+          "status": "link_only",
+          "note": "谱图记录许可逐条不同。",
+          "note_en": "Spectral record licences vary by record."
+        },
+        {
+          "id": "lipidmaps",
+          "name": "LIPID MAPS",
+          "url": "https://www.lipidmaps.org/",
+          "license": "open reference",
+          "status": "public_reference",
+          "note": "脂质分类与结构参考。",
+          "note_en": "Lipid classification and structure reference."
+        },
+        {
+          "id": "glytoucan",
+          "name": "GlyTouCan",
+          "url": "https://glytoucan.org/",
+          "license": "open reference",
+          "status": "public_reference",
+          "note": "聚糖 accession 参考。",
+          "note_en": "Glycan accession reference."
+        }
+      ],
+      "name_en": "Chemical and food identity"
+    },
+    {
+      "id": "food",
+      "name": "食品与配方",
+      "items": [
+        {
+          "id": "fdc",
+          "name": "USDA FoodData Central",
+          "url": "https://fdc.nal.usda.gov/",
+          "license": "US public domain",
+          "status": "live",
+          "note": "食品成分与营养数据；可用 API key 提高限额。",
+          "note_en": "Food composition and nutrition data; an API key raises rate limits."
+        },
+        {
+          "id": "openfoodfacts",
+          "name": "Open Food Facts",
+          "url": "https://world.openfoodfacts.org/",
+          "license": "ODbL 1.0",
+          "status": "live",
+          "note": "开放食品标签与产品数据。",
+          "note_en": "Open food labels and product data."
+        },
+        {
+          "id": "foodb",
+          "name": "FooDB",
+          "url": "https://foodb.ca/",
+          "license": "site terms",
+          "status": "link_only",
+          "note": "食品成分与风味参考；下载需遵守条款。",
+          "note_en": "Food composition and flavour reference; downloads must follow the terms."
+        },
+        {
+          "id": "ebasis",
+          "name": "eBASIS",
+          "url": "https://ebasis.eurofir.org/",
+          "license": "institutional/licensed",
+          "status": "license_required",
+          "note": "生物活性物质数据库，需许可。",
+          "note_en": "Bioactive compound database; licence required."
+        }
+      ],
+      "name_en": "Food and formulations"
+    },
+    {
+      "id": "bio",
+      "name": "蛋白、结构与通路",
+      "items": [
+        {
+          "id": "uniprot",
+          "name": "UniProt",
+          "url": "https://www.uniprot.org/",
+          "license": "CC BY 4.0",
+          "status": "live",
+          "note": "蛋白序列、功能与交叉引用。",
+          "note_en": "Protein sequences, function and cross-references."
+        },
+        {
+          "id": "pdb",
+          "name": "RCSB PDB",
+          "url": "https://www.rcsb.org/",
+          "license": "CC0 1.0",
+          "status": "live",
+          "note": "实验结构。",
+          "note_en": "Experimental structures."
+        },
+        {
+          "id": "alphafold",
+          "name": "AlphaFold DB",
+          "url": "https://alphafold.ebi.ac.uk/",
+          "license": "CC BY 4.0",
+          "status": "live",
+          "note": "预测结构；不是实验结构。",
+          "note_en": "Predicted structures; not experimental structures."
+        },
+        {
+          "id": "string",
+          "name": "STRING",
+          "url": "https://string-db.org/",
+          "license": "CC BY 4.0",
+          "status": "live",
+          "note": "蛋白互作证据与置信度。",
+          "note_en": "Protein interaction evidence and confidence."
+        },
+        {
+          "id": "genbank",
+          "name": "NCBI GenBank / Protein",
+          "url": "https://www.ncbi.nlm.nih.gov/genbank/",
+          "license": "US public domain",
+          "status": "live",
+          "note": "核酸/蛋白序列；建议配置 NCBI API key。",
+          "note_en": "Nucleic acid/protein sequences; an NCBI API key is recommended."
+        },
+        {
+          "id": "kegg",
+          "name": "KEGG",
+          "url": "https://www.kegg.jp/",
+          "license": "academic use; redistribution restricted",
+          "status": "live",
+          "note": "通路与化合物；再分发前核对条款。",
+          "note_en": "Pathways and compounds; check terms before redistribution."
+        },
+        {
+          "id": "chembl",
+          "name": "ChEMBL",
+          "url": "https://www.ebi.ac.uk/chembl/",
+          "license": "CC BY-SA 4.0",
+          "status": "live",
+          "note": "生物活性与药物相似性数据。",
+          "note_en": "Bioactivity and drug-likeness data."
+        }
+      ],
+      "name_en": "Proteins, structures and pathways"
+    },
+    {
+      "id": "literature",
+      "name": "文献与开放获取",
+      "items": [
+        {
+          "id": "europepmc",
+          "name": "Europe PMC",
+          "url": "https://europepmc.org/",
+          "license": "metadata CC BY 4.0; abstracts per publisher",
+          "status": "live",
+          "note": "本地 OA 元数据与全文来源。",
+          "note_en": "Local OA metadata and full-text sources."
+        },
+        {
+          "id": "pubmed",
+          "name": "PubMed",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/",
+          "license": "NCBI terms",
+          "status": "link_only",
+          "note": "题录与摘要入口。",
+          "note_en": "Citation and abstract entry point."
+        },
+        {
+          "id": "openalex",
+          "name": "OpenAlex",
+          "url": "https://openalex.org/",
+          "license": "CC0 1.0",
+          "status": "api_ready",
+          "note": "开放学术图谱；使用 contact email 进入 polite pool。",
+          "note_en": "Open scholarly graph; use a contact email to join the polite pool."
+        },
+        {
+          "id": "unpaywall",
+          "name": "Unpaywall",
+          "url": "https://unpaywall.org/",
+          "license": "open API",
+          "status": "api_ready",
+          "note": "按 DOI 查找合法 OA 版本。",
+          "note_en": "Find legal OA versions by DOI."
+        },
+        {
+          "id": "crossref",
+          "name": "Crossref",
+          "url": "https://www.crossref.org/",
+          "license": "open metadata",
+          "status": "api_ready",
+          "note": "DOI 元数据与引用关系。",
+          "note_en": "DOI metadata and citation links."
+        },
+        {
+          "id": "doaj",
+          "name": "DOAJ",
+          "url": "https://doaj.org/",
+          "license": "open metadata",
+          "status": "link_only",
+          "note": "开放获取期刊目录。",
+          "note_en": "Directory of open-access journals."
+        },
+        {
+          "id": "core",
+          "name": "CORE",
+          "url": "https://core.ac.uk/",
+          "license": "mixed; per record",
+          "status": "link_only",
+          "note": "聚合机构仓储；下载前核对许可。",
+          "note_en": "Aggregates institutional repositories; check licences before download."
+        },
+        {
+          "id": "semanticscholar",
+          "name": "Semantic Scholar",
+          "url": "https://www.semanticscholar.org/",
+          "license": "site/API terms",
+          "status": "link_only",
+          "note": "引用与相关文献入口。",
+          "note_en": "Citation and related-literature entry point."
+        },
+        {
+          "id": "arxiv",
+          "name": "arXiv",
+          "url": "https://arxiv.org/",
+          "license": "per-paper",
+          "status": "link_only",
+          "note": "预印本；未经同行评审。",
+          "note_en": "Preprint; not peer reviewed."
+        },
+        {
+          "id": "biorxiv",
+          "name": "bioRxiv",
+          "url": "https://www.biorxiv.org/",
+          "license": "per-paper",
+          "status": "link_only",
+          "note": "预印本；需核对版本与同行评审状态。",
+          "note_en": "Preprint; check version and peer-review status."
+        }
+      ],
+      "name_en": "Literature and open access"
+    },
+    {
+      "id": "spectra",
+      "name": "光谱与波谱证据",
+      "items": [
+        {
+          "id": "nist_webbook",
+          "name": "NIST Chemistry WebBook",
+          "url": "https://webbook.nist.gov/chemistry/",
+          "license": "NIST terms; public reference",
+          "status": "public_reference",
+          "note": "IR/MS/UV-Vis 等参考谱与热化学数据；逐条核对仪器条件，不自动抓取。",
+          "note_en": "Reference IR/MS/UV-Vis spectra and thermochemical data; verify instrument conditions per record, with no automated scraping."
+        },
+        {
+          "id": "sdbs",
+          "name": "SDBS 有机化合物谱图数据库",
+          "url": "https://sdbs.db.aist.go.jp/",
+          "license": "AIST terms; public reference",
+          "status": "public_reference",
+          "note": "IR、1H/13C NMR、MS 参考谱；适合交叉核对，不能替代同条件实测。",
+          "note_en": "Reference IR, 1H/13C NMR and MS spectra; suitable for cross-checking, not a substitute for same-condition measurement."
+        },
+        {
+          "id": "hmdb",
+          "name": "HMDB 人类代谢组数据库",
+          "url": "https://hmdb.ca/",
+          "license": "academic free; commercial terms vary",
+          "status": "link_only",
+          "note": "代谢物 MS/MS 与 NMR 参考；商用或再分发前确认许可。",
+          "note_en": "Metabolite MS/MS and NMR references; confirm licence before commercial use or redistribution."
+        },
+        {
+          "id": "metabolights",
+          "name": "MetaboLights",
+          "url": "https://www.ebi.ac.uk/metabolights/",
+          "license": "CC BY 4.0 (record-specific)",
+          "status": "live",
+          "note": "EBI 代谢组学原始数据与谱图；按研究记录核对方法和许可。",
+          "note_en": "EBI metabolomics raw data and spectra; verify methods and licence per study."
+        },
+        {
+          "id": "gnps",
+          "name": "GNPS",
+          "url": "https://gnps.ucsd.edu/",
+          "license": "open research resource; record-specific",
+          "status": "public_reference",
+          "note": "串联质谱网络与参考谱；用于候选发现，需核对碰撞能量与样本背景。",
+          "note_en": "Tandem MS networks and reference spectra; for candidate discovery, verify collision energy and sample background."
+        },
+        {
+          "id": "nmredata",
+          "name": "NMReDATA",
+          "url": "https://nmredata.org/",
+          "license": "open format/specification",
+          "status": "public_reference",
+          "note": "NMR 原始峰表与结构归属交换格式；适合审计，不存放受版权保护的全文。",
+          "note_en": "Exchange format for raw NMR peak tables and assignments; suitable for audit, with no copyrighted full text stored."
+        },
+        {
+          "id": "pdb_ccd",
+          "name": "RCSB PDB Chemical Component Dictionary",
+          "url": "https://www.wwpdb.org/data/ccd",
+          "license": "CC0 1.0",
+          "status": "live",
+          "note": "配体/组分的原子、键和标识符定义；用于结构核对。",
+          "note_en": "Atom, bond and identifier definitions for ligands/components; used for structure checks."
+        }
+      ],
+      "name_en": "Spectra and spectroscopic evidence"
+    },
+    {
+      "id": "institution",
+      "name": "华南理工大学 / 机构访问",
+      "items": [
+        {
+          "id": "scut_library",
+          "name": "华南理工大学图书馆",
+          "url": "https://www.lib.scut.edu.cn/",
+          "license": "institutional",
+          "status": "institution_login",
+          "note": "请从学校官方入口登录；软件不收集账号密码。",
+          "note_en": "Sign in through the official university entry point; the app collects no credentials."
+        },
+        {
+          "id": "carsi",
+          "name": "CARSI 联盟",
+          "url": "https://www.carsi.edu.cn/",
+          "license": "institutional SSO",
+          "status": "institution_login",
+          "note": "通过学校身份认证访问已授权资源。",
+          "note_en": "Access licensed resources through university authentication."
+        },
+        {
+          "id": "scut",
+          "name": "华南理工大学",
+          "url": "https://www.scut.edu.cn/",
+          "license": "institutional",
+          "status": "institution_login",
+          "note": "学校主页与统一身份认证入口。",
+          "note_en": "University homepage and unified identity entry point."
+        }
+      ],
+      "name_en": "SCUT / institutional access"
+    },
+    {
+      "id": "utilities",
+      "name": "标识符与引用工具",
+      "items": [
+        {
+          "id": "doi",
+          "name": "DOI Resolver",
+          "url": "https://doi.org/",
+          "license": "open resolver",
+          "status": "api_ready",
+          "note": "DOI 解析；最终全文权限由出版方/机构决定。",
+          "note_en": "DOI resolution; final full-text access is decided by the publisher/institution."
+        },
+        {
+          "id": "orcid",
+          "name": "ORCID",
+          "url": "https://orcid.org/",
+          "license": "open identifier",
+          "status": "link_only",
+          "note": "作者标识符。",
+          "note_en": "Author identifier."
+        },
+        {
+          "id": "crossref_api",
+          "name": "Crossref REST API",
+          "url": "https://api.crossref.org/",
+          "license": "open metadata",
+          "status": "api_ready",
+          "note": "题录与引用元数据。",
+          "note_en": "Citation and reference metadata."
+        }
+      ],
+      "name_en": "Identifiers and citation tools"
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+.git
+android
+dist
+runtime
+logs
+tests/__pycache__
+**/__pycache__
+*.pyc
+.pytest_cache

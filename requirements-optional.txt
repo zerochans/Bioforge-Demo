@@ -1,0 +1,4 @@
+# Optional heavy validation backends. Install only if you have the disk and CPU time.
+openmm>=8.0
+# PySCF is optional; quick_qm returns "unavailable" when it is absent.
+pyscf>=2.4

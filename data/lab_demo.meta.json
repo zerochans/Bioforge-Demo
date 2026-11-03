@@ -1,0 +1,33 @@
+{
+  "name": "演示配方实验（合成数据）",
+  "source_type": "synthetic",
+  "description": "确定性生成的 180 条合成配方-工艺-结果数据，仅用于验证导入、训练、贝叶斯优化与回灌流程；不是实测数据，不能用于真实决策。",
+  "generator": "scripts/build_lab_demo.py",
+  "seed": 20261020,
+  "rows": 180,
+  "columns": [
+    "sample_id",
+    "system",
+    "protein_type",
+    "hydrocolloid",
+    "protein_pct",
+    "sugar_pct",
+    "fat_pct",
+    "ph",
+    "homogenization_bar",
+    "pasteurization_temp_c",
+    "pasteurization_time_s",
+    "storage_temp_c",
+    "stability_days",
+    "particle_size_nm",
+    "viscosity_mpas",
+    "sensory_score"
+  ],
+  "sha256": "cf93df6f479d236244610d5b10a81009928d6b34d21c48eb8d638979a35922ef",
+  "target_candidates": [
+    "stability_days",
+    "particle_size_nm",
+    "viscosity_mpas",
+    "sensory_score"
+  ]
+}

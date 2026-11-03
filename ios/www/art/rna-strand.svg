@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 420" fill="none" stroke="#fff" stroke-linecap="round">
+  <g opacity=".8" stroke-width="4">
+    <path d="M30 310c90-250 190-250 280 0s190 250 280 0"/>
+  </g>
+  <g opacity=".55" stroke-width="2">
+    <path d="M30 310l52-52M82 258l52 52M134 310l52-52M186 258l52 52M238 310l52-52M290 258l52 52M342 310l52-52M394 258l52 52M446 310l52-52M498 258l52 52M550 310l52-52M602 258l52 52"/>
+  </g>
+  <g opacity=".9" fill="#fff" stroke="none">
+    <circle cx="30" cy="310" r="6"/><circle cx="170" cy="180" r="5"/><circle cx="310" cy="310" r="6"/><circle cx="450" cy="180" r="5"/><circle cx="590" cy="310" r="6"/>
+  </g>
+</svg>

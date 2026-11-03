@@ -1,0 +1,1850 @@
+{
+  "schema_version": "2.1",
+  "source_type": "usda_fdc_sr_legacy + curated_estimate",
+  "generated_utc": "2026-10-20T13:23:58+00:00",
+  "basis": "per 100 g edible portion",
+  "primary_source": {
+    "id": "usda_fdc_sr_legacy",
+    "name": "USDA FoodData Central SR Legacy",
+    "url": "https://fdc.nal.usda.gov/fdc-datasets/FoodData_Central_sr_legacy_food_json_2018-04.zip",
+    "license": "US public domain (CC0)",
+    "sha256": "70d4235ae3a2bdf48a7b9eaa1286a83fa67b6f3270436c9ce8b008213f500129",
+    "published": "2018-04 (download)"
+  },
+  "methods": [
+    "For mapped ingredients, nutrient amounts are copied from the selected SR Legacy record.",
+    "Unmapped ingredients retain the v2 curated screening estimate and are labelled curated_estimate/low.",
+    "No supplier lot, brand or measured product data are implied."
+  ],
+  "counts": {
+    "ingredients": 96,
+    "fdc_mapped": 35,
+    "curated_estimates": 61
+  },
+  "items": [
+    {
+      "ingredient_id": "water",
+      "name": "Water",
+      "cn_name": "水",
+      "nutrients": {
+        "protein_g": 0.0,
+        "fat_g": 0.0,
+        "sugar_g": 0.0,
+        "fiber_g": 0.0,
+        "sodium_mg": 4.0
+      },
+      "source_type": "usda_fdc_sr_legacy",
+      "confidence": "medium",
+      "match": "exact",
+      "fdc_id": 173647,
+      "fdc_description": "Beverages, water, tap, drinking",
+      "source_url": "https://fdc.nal.usda.gov/food-details/173647/nutrients",
+      "note": "USDA SR Legacy food composition, per 100 g. SR Legacy is a compiled reference dataset, not a measurement of this supplier lot."
+    },
+    {
+      "ingredient_id": "sucrose",
+      "name": "Sucrose",
+      "cn_name": "蔗糖",
+      "nutrients": {
+        "protein_g": 0.0,
+        "fat_g": 0.0,
+        "sugar_g": 99.8,
+        "fiber_g": 0.0,
+        "sodium_mg": 1.0
+      },
+      "source_type": "usda_fdc_sr_legacy",
+      "confidence": "medium",
+      "match": "exact",
+      "fdc_id": 169655,
+      "fdc_description": "Sugars, granulated",
+      "source_url": "https://fdc.nal.usda.gov/food-details/169655/nutrients",
+      "note": "USDA SR Legacy food composition, per 100 g. SR Legacy is a compiled reference dataset, not a measurement of this supplier lot."
+    },
+    {
+      "ingredient_id": "glucose",
+      "name": "Glucose",
+      "cn_name": "葡萄糖",
+      "nutrients": {
+        "protein_g": 0.0,
+        "fat_g": 0.0,
+        "sugar_g": 100.0,
+        "fiber_g": 0.0,
+        "sodium_mg": 0.0
+      },
+      "source_type": "curated_estimate",
+      "confidence": "low",
+      "match": "none",
+      "fdc_id": null,
+      "fdc_description": null,
+      "source_url": null,
+      "note": "No defensible USDA SR Legacy match; retained as a screening estimate. Do not use as a label value."
+    },
+    {
+      "ingredient_id": "fructose",
+      "name": "Fructose",
+      "cn_name": "果糖",
+      "nutrients": {
+        "protein_g": 0.0,
+        "fat_g": 0.0,
+        "sugar_g": 92.7,
+        "fiber_g": 0.0,
+        "sodium_mg": 12.0
+      },
+      "source_type": "usda_fdc_sr_legacy",
+      "confidence": "medium",
+      "match": "exact",
+      "fdc_id": 169896,
+      "fdc_description": "Sweeteners, tabletop, fructose, dry, powder",
+      "source_url": "https://fdc.nal.usda.gov/food-details/169896/nutrients",
+      "note": "USDA SR Legacy food composition, per 100 g. SR Legacy is a compiled reference dataset, not a measurement of this supplier lot."
+    },
+    {
+      "ingredient_id": "glucose_syrup",
+      "name": "Glucose syrup",
+      "cn_name": "葡萄糖浆",
+      "nutrients": {
+        "protein_g": 0.0,
+        "fat_g": 0.2,
+        "sugar_g": 76.8,
+        "fiber_g": 0.0,
+        "sodium_mg": 62.0
+      },
+      "source_type": "usda_fdc_sr_legacy",
+      "confidence": "medium",
+      "match": "exact",
+      "fdc_id": 168837,
+      "fdc_description": "Syrups, corn, light",
+      "source_url": "https://fdc.nal.usda.gov/food-details/168837/nutrients",
+      "note": "USDA SR Legacy food composition, per 100 g. SR Legacy is a compiled reference dataset, not a measurement of this supplier lot."
+    },
+    {
+      "ingredient_id": "maltodextrin",
+      "name": "Maltodextrin",
+      "cn_name": "麦芽糊精",
+      "nutrients": {
+        "protein_g": 0.0,
+        "fat_g": 0.0,
+        "sugar_g": 5.0,
+        "fiber_g": 0.0,
+        "sodium_mg": 0.0
+      },
+      "source_type": "curated_estimate",
+      "confidence": "low",
+      "match": "none",
+      "fdc_id": null,
+      "fdc_description": null,
+      "source_url": null,
+      "note": "No defensible USDA SR Legacy match; retained as a screening estimate. Do not use as a label value."
+    },
+    {
+      "ingredient_id": "trehalose",
+      "name": "Trehalose",
+      "cn_name": "海藻糖",
+      "nutrients": {
+        "protein_g": 0.0,
+        "fat_g": 0.0,
+        "sugar_g": 0.0,
+        "fiber_g": 0.0,
+        "sodium_mg": 0.0
+      },
+      "source_type": "curated_estimate",
+      "confidence": "low",
+      "match": "none",
+      "fdc_id": null,
+      "fdc_description": null,
+      "source_url": null,
+      "note": "No defensible USDA SR Legacy match; retained as a screening estimate. Do not use as a label value."
+    },
+    {
+      "ingredient_id": "sorbitol",
+      "name": "Sorbitol",
+      "cn_name": "山梨糖醇",
+      "nutrients": {
+        "protein_g": 0.0,
+        "fat_g": 0.0,
+        "sugar_g": 0.0,
+        "fiber_g": 0.0,
+        "sodium_mg": 0.0
+      },
+      "source_type": "curated_estimate",
+      "confidence": "low",
+      "match": "none",
+      "fdc_id": null,
+      "fdc_description": null,
+      "source_url": null,
+      "note": "No defensible USDA SR Legacy match; retained as a screening estimate. Do not use as a label value."
+    },
+    {
+      "ingredient_id": "glycerol",
+      "name": "Glycerol",
+      "cn_name": "甘油",
+      "nutrients": {
+        "protein_g": 0.0,
+        "fat_g": 0.0,
+        "sugar_g": 0.0,
+        "fiber_g": 0.0,
+        "sodium_mg": 0.0
+      },
+      "source_type": "curated_estimate",
+      "confidence": "low",
+      "match": "none",
+      "fdc_id": null,
+      "fdc_description": null,
+      "source_url": null,
+      "note": "No defensible USDA SR Legacy match; retained as a screening estimate. Do not use as a label value."
+    },
+    {
+      "ingredient_id": "erythritol",
+      "name": "Erythritol",
+      "cn_name": "赤藓糖醇",
+      "nutrients": {
+        "protein_g": 0.0,
+        "fat_g": 0.0,
+        "sugar_g": 0.0,
+        "fiber_g": 0.0,
+        "sodium_mg": 0.0
+      },
+      "source_type": "curated_estimate",
+      "confidence": "low",
+      "match": "none",
+      "fdc_id": null,
+      "fdc_description": null,
+      "source_url": null,
+      "note": "No defensible USDA SR Legacy match; retained as a screening estimate. Do not use as a label value."
+    },
+    {
+      "ingredient_id": "reb_a",
+      "name": "Rebaudioside A",
+      "cn_name": "莱鲍迪苷A",
+      "nutrients": {
+        "protein_g": 0.0,
+        "fat_g": 0.0,
+        "sugar_g": 0.0,
+        "fiber_g": 0.0,
+        "sodium_mg": 0.0
+      },
+      "source_type": "curated_estimate",
+      "confidence": "low",
+      "match": "none",
+      "fdc_id": null,
+      "fdc_description": null,
+      "source_url": null,
+      "note": "No defensible USDA SR Legacy match; retained as a screening estimate. Do not use as a label value."
+    },
+    {
+      "ingredient_id": "sucralose",
+      "name": "Sucralose",
+      "cn_name": "三氯蔗糖",
+      "nutrients": {
+        "protein_g": 0.0,
+        "fat_g": 0.0,
+        "sugar_g": 0.0,
+        "fiber_g": 0.0,
+        "sodium_mg": 0.0
+      },
+      "source_type": "curated_estimate",
+      "confidence": "low",
+      "match": "none",
+      "fdc_id": null,
+      "fdc_description": null,
+      "source_url": null,
+      "note": "No defensible USDA SR Legacy match; retained as a screening estimate. Do not use as a label value."
+    },
+    {
+      "ingredient_id": "inulin",
+      "name": "Inulin",
+      "cn_name": "菊粉",
+      "nutrients": {
+        "protein_g": 0.0,
+        "fat_g": 0.0,
+        "sugar_g": 0.0,
+        "fiber_g": 90.0,
+        "sodium_mg": 0.0
+      },
+      "source_type": "curated_estimate",
+      "confidence": "low",
+      "match": "none",
+      "fdc_id": null,
+      "fdc_description": null,
+      "source_url": null,
+      "note": "No defensible USDA SR Legacy match; retained as a screening estimate. Do not use as a label value."
+    },
+    {
+      "ingredient_id": "pectin_hm",
+      "name": "High-methoxyl pectin",
+      "cn_name": "高酯果胶",
+      "nutrients": {
+        "protein_g": 0.0,
+        "fat_g": 0.0,
+        "sugar_g": 0.0,
+        "fiber_g": 85.0,
+        "sodium_mg": 0.0
+      },
+      "source_type": "curated_estimate",
+      "confidence": "low",
+      "match": "none",
+      "fdc_id": null,
+      "fdc_description": null,
+      "source_url": null,
+      "note": "No defensible USDA SR Legacy match; retained as a screening estimate. Do not use as a label value."
+    },
+    {
+      "ingredient_id": "pectin_lm",
+      "name": "Low-methoxyl pectin",
+      "cn_name": "低酯果胶",
+      "nutrients": {
+        "protein_g": 0.0,
+        "fat_g": 0.0,
+        "sugar_g": 0.0,
+        "fiber_g": 85.0,
+        "sodium_mg": 0.0
+      },
+      "source_type": "curated_estimate",
+      "confidence": "low",
+      "match": "none",
+      "fdc_id": null,
+      "fdc_description": null,
+      "source_url": null,
+      "note": "No defensible USDA SR Legacy match; retained as a screening estimate. Do not use as a label value."
+    },
+    {
+      "ingredient_id": "xanthan",
+      "name": "Xanthan gum",
+      "cn_name": "黄原胶",
+      "nutrients": {
+        "protein_g": 0.0,
+        "fat_g": 0.0,
+        "sugar_g": 0.0,
+        "fiber_g": 80.0,
+        "sodium_mg": 0.0
+      },
+      "source_type": "curated_estimate",
+      "confidence": "low",
+      "match": "none",
+      "fdc_id": null,
+      "fdc_description": null,
+      "source_url": null,
+      "note": "No defensible USDA SR Legacy match; retained as a screening estimate. Do not use as a label value."
+    },
+    {
+      "ingredient_id": "guar",
+      "name": "Guar gum",
+      "cn_name": "瓜尔胶",
+      "nutrients": {
+        "protein_g": 0.0,
+        "fat_g": 0.0,
+        "sugar_g": 0.0,
+        "fiber_g": 80.0,
+        "sodium_mg": 0.0
+      },
+      "source_type": "curated_estimate",
+      "confidence": "low",
+      "match": "none",
+      "fdc_id": null,
+      "fdc_description": null,
+      "source_url": null,
+      "note": "No defensible USDA SR Legacy match; retained as a screening estimate. Do not use as a label value."
+    },
+    {
+      "ingredient_id": "cmc",
+      "name": "Carboxymethyl cellulose",
+      "cn_name": "羧甲基纤维素钠",
+      "nutrients": {
+        "protein_g": 0.0,
+        "fat_g": 0.0,
+        "sugar_g": 0.0,
+        "fiber_g": 0.0,
+        "sodium_mg": 0.0
+      },
+      "source_type": "curated_estimate",
+      "confidence": "low",
+      "match": "none",
+      "fdc_id": null,
+      "fdc_description": null,
+      "source_url": null,
+      "note": "No defensible USDA SR Legacy match; retained as a screening estimate. Do not use as a label value."
+    },
+    {
+      "ingredient_id": "carrageenan",
+      "name": "Carrageenan",
+      "cn_name": "卡拉胶",
+      "nutrients": {
+        "protein_g": 0.0,
+        "fat_g": 0.0,
+        "sugar_g": 0.0,
+        "fiber_g": 80.0,
+        "sodium_mg": 0.0
+      },
+      "source_type": "curated_estimate",
+      "confidence": "low",
+      "match": "none",
+      "fdc_id": null,
+      "fdc_description": null,
+      "source_url": null,
+      "note": "No defensible USDA SR Legacy match; retained as a screening estimate. Do not use as a label value."
+    },
+    {
+      "ingredient_id": "agar",
+      "name": "Agar",
+      "cn_name": "琼脂",
+      "nutrients": {
+        "protein_g": 0.0,
+        "fat_g": 0.0,
+        "sugar_g": 0.0,
+        "fiber_g": 80.0,
+        "sodium_mg": 0.0
+      },
+      "source_type": "curated_estimate",
+      "confidence": "low",
+      "match": "none",
+      "fdc_id": null,
+      "fdc_description": null,
+      "source_url": null,
+      "note": "No defensible USDA SR Legacy match; retained as a screening estimate. Do not use as a label value."
+    },
+    {
+      "ingredient_id": "gelatin",
+      "name": "Gelatin",
+      "cn_name": "明胶",
+      "nutrients": {
+        "protein_g": 85.6,
+        "fat_g": 0.1,
+        "sugar_g": 0.0,
+        "fiber_g": 0.0,
+        "sodium_mg": 196.0
+      },
+      "source_type": "usda_fdc_sr_legacy",
+      "confidence": "medium",
+      "match": "exact",
+      "fdc_id": 169599,
+      "fdc_description": "Gelatins, dry powder, unsweetened",
+      "source_url": "https://fdc.nal.usda.gov/food-details/169599/nutrients",
+      "note": "USDA SR Legacy food composition, per 100 g. SR Legacy is a compiled reference dataset, not a measurement of this supplier lot."
+    },
+    {
+      "ingredient_id": "modified_starch",
+      "name": "Modified starch",
+      "cn_name": "改性淀粉",
+      "nutrients": {
+        "protein_g": 0.0,
+        "fat_g": 0.0,
+        "sugar_g": 0.0,
+        "fiber_g": 0.0,
+        "sodium_mg": 0.0
+      },
+      "source_type": "curated_estimate",
+      "confidence": "low",
+      "match": "none",
+      "fdc_id": null,
+      "fdc_description": null,
+      "source_url": null,
+      "note": "No defensible USDA SR Legacy match; retained as a screening estimate. Do not use as a label value."
+    },
+    {
+      "ingredient_id": "waxy_starch",
+      "name": "Waxy maize starch",
+      "cn_name": "蜡质玉米淀粉",
+      "nutrients": {
+        "protein_g": 0.0,
+        "fat_g": 0.0,
+        "sugar_g": 0.0,
+        "fiber_g": 0.0,
+        "sodium_mg": 0.0
+      },
+      "source_type": "curated_estimate",
+      "confidence": "low",
+      "match": "none",
+      "fdc_id": null,
+      "fdc_description": null,
+      "source_url": null,
+      "note": "No defensible USDA SR Legacy match; retained as a screening estimate. Do not use as a label value."
+    },
+    {
+      "ingredient_id": "methylcellulose",
+      "name": "Methylcellulose",
+      "cn_name": "甲基纤维素",
+      "nutrients": {
+        "protein_g": 0.0,
+        "fat_g": 0.0,
+        "sugar_g": 0.0,
+        "fiber_g": 0.0,
+        "sodium_mg": 0.0
+      },
+      "source_type": "curated_estimate",
+      "confidence": "low",
+      "match": "none",
+      "fdc_id": null,
+      "fdc_description": null,
+      "source_url": null,
+      "note": "No defensible USDA SR Legacy match; retained as a screening estimate. Do not use as a label value."
+    },
+    {
+      "ingredient_id": "wheat_flour",
+      "name": "Wheat flour",
+      "cn_name": "小麦粉",
+      "nutrients": {
+        "protein_g": 10.3,
+        "fat_g": 0.98,
+        "sugar_g": 0.27,
+        "fiber_g": 2.7,
+        "sodium_mg": 2.0
+      },
+      "source_type": "usda_fdc_sr_legacy",
+      "confidence": "medium",
+      "match": "exact",
+      "fdc_id": 168894,
+      "fdc_description": "Wheat flour, white, all-purpose, enriched, bleached",
+      "source_url": "https://fdc.nal.usda.gov/food-details/168894/nutrients",
+      "note": "USDA SR Legacy food composition, per 100 g. SR Legacy is a compiled reference dataset, not a measurement of this supplier lot."
+    },
+    {
+      "ingredient_id": "oat_flour",
+      "name": "Oat flour",
+      "cn_name": "燕麦粉",
+      "nutrients": {
+        "protein_g": 14.7,
+        "fat_g": 9.12,
+        "sugar_g": 0.8,
+        "fiber_g": 6.5,
+        "sodium_mg": 19.0
+      },
+      "source_type": "usda_fdc_sr_legacy",
+      "confidence": "medium",
+      "match": "exact",
+      "fdc_id": 169741,
+      "fdc_description": "Oat flour, partially debranned",
+      "source_url": "https://fdc.nal.usda.gov/food-details/169741/nutrients",
+      "note": "USDA SR Legacy food composition, per 100 g. SR Legacy is a compiled reference dataset, not a measurement of this supplier lot."
+    },
+    {
+      "ingredient_id": "rice_flour",
+      "name": "Rice flour",
+      "cn_name": "米粉",
+      "nutrients": {
+        "protein_g": 5.95,
+        "fat_g": 1.42,
+        "sugar_g": 0.12,
+        "fiber_g": 2.4,
+        "sodium_mg": 0.0
+      },
+      "source_type": "usda_fdc_sr_legacy",
+      "confidence": "medium",
+      "match": "exact",
+      "fdc_id": 169714,
+      "fdc_description": "Rice flour, white, unenriched",
+      "source_url": "https://fdc.nal.usda.gov/food-details/169714/nutrients",
+      "note": "USDA SR Legacy food composition, per 100 g. SR Legacy is a compiled reference dataset, not a measurement of this supplier lot."
+    },
+    {
+      "ingredient_id": "corn_flour",
+      "name": "Corn flour",
+      "cn_name": "玉米粉",
+      "nutrients": {
+        "protein_g": 6.93,
+        "fat_g": 3.86,
+        "sugar_g": 0.64,
+        "fiber_g": 7.3,
+        "sodium_mg": 5.0
+      },
+      "source_type": "usda_fdc_sr_legacy",
+      "confidence": "medium",
+      "match": "exact",
+      "fdc_id": 169748,
+      "fdc_description": "Corn flour, whole-grain, white",
+      "source_url": "https://fdc.nal.usda.gov/food-details/169748/nutrients",
+      "note": "USDA SR Legacy food composition, per 100 g. SR Legacy is a compiled reference dataset, not a measurement of this supplier lot."
+    },
+    {
+      "ingredient_id": "corn_starch",
+      "name": "Corn starch",
+      "cn_name": "玉米淀粉",
+      "nutrients": {
+        "protein_g": 0.26,
+        "fat_g": 0.05,
+        "sugar_g": 0.0,
+        "fiber_g": 0.9,
+        "sodium_mg": 9.0
+      },
+      "source_type": "usda_fdc_sr_legacy",
+      "confidence": "medium",
+      "match": "exact",
+      "fdc_id": 169698,
+      "fdc_description": "Cornstarch",
+      "source_url": "https://fdc.nal.usda.gov/food-details/169698/nutrients",
+      "note": "USDA SR Legacy food composition, per 100 g. SR Legacy is a compiled reference dataset, not a measurement of this supplier lot."
+    },
+    {
+      "ingredient_id": "wheat_gluten",
+      "name": "Wheat gluten",
+      "cn_name": "小麦面筋",
+      "nutrients": {
+        "protein_g": 75.2,
+        "fat_g": 1.85,
+        "sugar_g": 0.0,
+        "fiber_g": 0.6,
+        "sodium_mg": 29.0
+      },
+      "source_type": "usda_fdc_sr_legacy",
+      "confidence": "medium",
+      "match": "exact",
+      "fdc_id": 168147,
+      "fdc_description": "Vital wheat gluten",
+      "source_url": "https://fdc.nal.usda.gov/food-details/168147/nutrients",
+      "note": "USDA SR Legacy food composition, per 100 g. SR Legacy is a compiled reference dataset, not a measurement of this supplier lot."
+    },
+    {
+      "ingredient_id": "soy_protein",
+      "name": "Soy protein isolate",
+      "cn_name": "大豆分离蛋白",
+      "nutrients": {
+        "protein_g": 88.3,
+        "fat_g": 3.39,
+        "sugar_g": 0.0,
+        "fiber_g": 0.0,
+        "sodium_mg": 1000.0
+      },
+      "source_type": "usda_fdc_sr_legacy",
+      "confidence": "medium",
+      "match": "exact",
+      "fdc_id": 174276,
+      "fdc_description": "Soy protein isolate",
+      "source_url": "https://fdc.nal.usda.gov/food-details/174276/nutrients",
+      "note": "USDA SR Legacy food composition, per 100 g. SR Legacy is a compiled reference dataset, not a measurement of this supplier lot."
+    },
+    {
+      "ingredient_id": "pea_protein",
+      "name": "Pea protein isolate",
+      "cn_name": "豌豆分离蛋白",
+      "nutrients": {
+        "protein_g": 82.0,
+        "fat_g": 2.0,
+        "sugar_g": 0.0,
+        "fiber_g": 2.0,
+        "sodium_mg": 0.0
+      },
+      "source_type": "curated_estimate",
+      "confidence": "low",
+      "match": "none",
+      "fdc_id": null,
+      "fdc_description": null,
+      "source_url": null,
+      "note": "No defensible USDA SR Legacy match; retained as a screening estimate. Do not use as a label value."
+    },
+    {
+      "ingredient_id": "whey_protein",
+      "name": "Whey protein isolate",
+      "cn_name": "乳清分离蛋白",
+      "nutrients": {
+        "protein_g": 90.0,
+        "fat_g": 1.0,
+        "sugar_g": 1.0,
+        "fiber_g": 0.0,
+        "sodium_mg": 0.0
+      },
+      "source_type": "curated_estimate",
+      "confidence": "low",
+      "match": "none",
+      "fdc_id": null,
+      "fdc_description": null,
+      "source_url": null,
+      "note": "No defensible USDA SR Legacy match; retained as a screening estimate. Do not use as a label value."
+    },
+    {
+      "ingredient_id": "casein",
+      "name": "Casein",
+      "cn_name": "酪蛋白",
+      "nutrients": {
+        "protein_g": 80.0,
+        "fat_g": 1.0,
+        "sugar_g": 0.0,
+        "fiber_g": 0.0,
+        "sodium_mg": 0.0
+      },
+      "source_type": "curated_estimate",
+      "confidence": "low",
+      "match": "none",
+      "fdc_id": null,
+      "fdc_description": null,
+      "source_url": null,
+      "note": "No defensible USDA SR Legacy match; retained as a screening estimate. Do not use as a label value."
+    },
+    {
+      "ingredient_id": "milk_powder",
+      "name": "Milk powder",
+      "cn_name": "乳粉",
+      "nutrients": {
+        "protein_g": 26.3,
+        "fat_g": 26.7,
+        "sugar_g": 38.4,
+        "fiber_g": 0.0,
+        "sodium_mg": 371.0
+      },
+      "source_type": "usda_fdc_sr_legacy",
+      "confidence": "medium",
+      "match": "exact",
+      "fdc_id": 170876,
+      "fdc_description": "Milk, dry, whole, with added vitamin D",
+      "source_url": "https://fdc.nal.usda.gov/food-details/170876/nutrients",
+      "note": "USDA SR Legacy food composition, per 100 g. SR Legacy is a compiled reference dataset, not a measurement of this supplier lot."
+    },
+    {
+      "ingredient_id": "cream",
+      "name": "Cream",
+      "cn_name": "稀奶油",
+      "nutrients": {
+        "protein_g": 2.84,
+        "fat_g": 36.1,
+        "sugar_g": 2.92,
+        "fiber_g": 0.0,
+        "sodium_mg": 27.0
+      },
+      "source_type": "usda_fdc_sr_legacy",
+      "confidence": "medium",
+      "match": "exact",
+      "fdc_id": 170859,
+      "fdc_description": "Cream, fluid, heavy whipping",
+      "source_url": "https://fdc.nal.usda.gov/food-details/170859/nutrients",
+      "note": "USDA SR Legacy food composition, per 100 g. SR Legacy is a compiled reference dataset, not a measurement of this supplier lot."
+    },
+    {
+      "ingredient_id": "egg_white",
+      "name": "Egg white",
+      "cn_name": "蛋清",
+      "nutrients": {
+        "protein_g": 10.9,
+        "fat_g": 0.17,
+        "sugar_g": 0.71,
+        "fiber_g": 0.0,
+        "sodium_mg": 166.0
+      },
+      "source_type": "usda_fdc_sr_legacy",
+      "confidence": "medium",
+      "match": "exact",
+      "fdc_id": 172183,
+      "fdc_description": "Egg, white, raw, fresh",
+      "source_url": "https://fdc.nal.usda.gov/food-details/172183/nutrients",
+      "note": "USDA SR Legacy food composition, per 100 g. SR Legacy is a compiled reference dataset, not a measurement of this supplier lot."
+    },
+    {
+      "ingredient_id": "egg_yolk",
+      "name": "Egg yolk",
+      "cn_name": "蛋黄",
+      "nutrients": {
+        "protein_g": 15.9,
+        "fat_g": 26.5,
+        "sugar_g": 0.56,
+        "fiber_g": 0.0,
+        "sodium_mg": 48.0
+      },
+      "source_type": "usda_fdc_sr_legacy",
+      "confidence": "medium",
+      "match": "exact",
+      "fdc_id": 172184,
+      "fdc_description": "Egg, yolk, raw, fresh",
+      "source_url": "https://fdc.nal.usda.gov/food-details/172184/nutrients",
+      "note": "USDA SR Legacy food composition, per 100 g. SR Legacy is a compiled reference dataset, not a measurement of this supplier lot."
+    },
+    {
+      "ingredient_id": "pork_lean",
+      "name": "Lean pork",
+      "cn_name": "瘦猪肉",
+      "nutrients": {
+        "protein_g": 21.4,
+        "fat_g": 5.66,
+        "sugar_g": 0.0,
+        "fiber_g": 0.0,
+        "sodium_mg": 52.0
+      },
+      "source_type": "usda_fdc_sr_legacy",
+      "confidence": "medium",
+      "match": "exact",
+      "fdc_id": 168230,
+      "fdc_description": "Pork, fresh, loin, whole, separable lean only, raw",
+      "source_url": "https://fdc.nal.usda.gov/food-details/168230/nutrients",
+      "note": "USDA SR Legacy food composition, per 100 g. SR Legacy is a compiled reference dataset, not a measurement of this supplier lot."
+    },
+    {
+      "ingredient_id": "beef_lean",
+      "name": "Lean beef",
+      "cn_name": "瘦牛肉",
+      "nutrients": {
+        "protein_g": 23.6,
+        "fat_g": 2.94,
+        "sugar_g": 0.0,
+        "fiber_g": 0.0,
+        "sodium_mg": 54.0
+      },
+      "source_type": "usda_fdc_sr_legacy",
+      "confidence": "medium",
+      "match": "exact",
+      "fdc_id": 171757,
+      "fdc_description": "Beef, round, top round steak, boneless, separable lean only, trimmed to 0\" fat, all grades, raw",
+      "source_url": "https://fdc.nal.usda.gov/food-details/171757/nutrients",
+      "note": "USDA SR Legacy food composition, per 100 g. SR Legacy is a compiled reference dataset, not a measurement of this supplier lot."
+    },
+    {
+      "ingredient_id": "chicken_breast",
+      "name": "Chicken breast",
+      "cn_name": "鸡胸肉",
+      "nutrients": {
+        "protein_g": 22.5,
+        "fat_g": 2.62,
+        "sugar_g": 0.0,
+        "fiber_g": 0.0,
+        "sodium_mg": 45.0
+      },
+      "source_type": "usda_fdc_sr_legacy",
+      "confidence": "medium",
+      "match": "exact",
+      "fdc_id": 171077,
+      "fdc_description": "Chicken, broiler or fryers, breast, skinless, boneless, meat only, raw",
+      "source_url": "https://fdc.nal.usda.gov/food-details/171077/nutrients",
+      "note": "USDA SR Legacy food composition, per 100 g. SR Legacy is a compiled reference dataset, not a measurement of this supplier lot."
+    },
+    {
+      "ingredient_id": "pork_fat",
+      "name": "Pork fat",
+      "cn_name": "猪脂肪",
+      "nutrients": {
+        "protein_g": 9.25,
+        "fat_g": 65.7,
+        "sugar_g": 0.0,
+        "fiber_g": 0.0,
+        "sodium_mg": 47.0
+      },
+      "source_type": "usda_fdc_sr_legacy",
+      "confidence": "medium",
+      "match": "exact",
+      "fdc_id": 167813,
+      "fdc_description": "Pork, fresh, separable fat, raw",
+      "source_url": "https://fdc.nal.usda.gov/food-details/167813/nutrients",
+      "note": "USDA SR Legacy food composition, per 100 g. SR Legacy is a compiled reference dataset, not a measurement of this supplier lot."
+    },
+    {
+      "ingredient_id": "sunflower_oil",
+      "name": "Sunflower oil",
+      "cn_name": "葵花籽油",
+      "nutrients": {
+        "protein_g": 0.0,
+        "fat_g": 100.0,
+        "sugar_g": 0.0,
+        "fiber_g": 0.0,
+        "sodium_mg": 0.0
+      },
+      "source_type": "usda_fdc_sr_legacy",
+      "confidence": "medium",
+      "match": "exact",
+      "fdc_id": 172338,
+      "fdc_description": "Oil, sunflower, high oleic (70% and over)",
+      "source_url": "https://fdc.nal.usda.gov/food-details/172338/nutrients",
+      "note": "USDA SR Legacy food composition, per 100 g. SR Legacy is a compiled reference dataset, not a measurement of this supplier lot."
+    },
+    {
+      "ingredient_id": "canola_oil",
+      "name": "Canola oil",
+      "cn_name": "菜籽油",
+      "nutrients": {
+        "protein_g": 0.0,
+        "fat_g": 100.0,
+        "sugar_g": 0.0,
+        "fiber_g": 0.0,
+        "sodium_mg": 0.0
+      },
+      "source_type": "usda_fdc_sr_legacy",
+      "confidence": "medium",
+      "match": "exact",
+      "fdc_id": 172336,
+      "fdc_description": "Oil, canola",
+      "source_url": "https://fdc.nal.usda.gov/food-details/172336/nutrients",
+      "note": "USDA SR Legacy food composition, per 100 g. SR Legacy is a compiled reference dataset, not a measurement of this supplier lot."
+    },
+    {
+      "ingredient_id": "cocoa_butter",
+      "name": "Cocoa butter",
+      "cn_name": "可可脂",
+      "nutrients": {
+        "protein_g": 0.0,
+        "fat_g": 100.0,
+        "sugar_g": 0.0,
+        "fiber_g": 0.0,
+        "sodium_mg": 0.0
+      },
+      "source_type": "usda_fdc_sr_legacy",
+      "confidence": "medium",
+      "match": "exact",
+      "fdc_id": 171421,
+      "fdc_description": "Oil, cocoa butter",
+      "source_url": "https://fdc.nal.usda.gov/food-details/171421/nutrients",
+      "note": "USDA SR Legacy food composition, per 100 g. SR Legacy is a compiled reference dataset, not a measurement of this supplier lot."
+    },
+    {
+      "ingredient_id": "coconut_oil",
+      "name": "Coconut oil",
+      "cn_name": "椰子油",
+      "nutrients": {
+        "protein_g": 0.0,
+        "fat_g": 99.1,
+        "sugar_g": 0.0,
+        "fiber_g": 0.0,
+        "sodium_mg": 0.0
+      },
+      "source_type": "usda_fdc_sr_legacy",
+      "confidence": "medium",
+      "match": "exact",
+      "fdc_id": 171412,
+      "fdc_description": "Oil, coconut",
+      "source_url": "https://fdc.nal.usda.gov/food-details/171412/nutrients",
+      "note": "USDA SR Legacy food composition, per 100 g. SR Legacy is a compiled reference dataset, not a measurement of this supplier lot."
+    },
+    {
+      "ingredient_id": "lecithin",
+      "name": "Lecithin",
+      "cn_name": "卵磷脂",
+      "nutrients": {
+        "protein_g": 0.0,
+        "fat_g": 100.0,
+        "sugar_g": 0.0,
+        "fiber_g": 0.0,
+        "sodium_mg": 0.0
+      },
+      "source_type": "usda_fdc_sr_legacy",
+      "confidence": "medium",
+      "match": "exact",
+      "fdc_id": 171426,
+      "fdc_description": "Oil, soybean lecithin",
+      "source_url": "https://fdc.nal.usda.gov/food-details/171426/nutrients",
+      "note": "USDA SR Legacy food composition, per 100 g. SR Legacy is a compiled reference dataset, not a measurement of this supplier lot."
+    },
+    {
+      "ingredient_id": "mono_diglyceride",
+      "name": "Mono- and diglycerides",
+      "cn_name": "单双甘油脂肪酸酯",
+      "nutrients": {
+        "protein_g": 0.0,
+        "fat_g": 0.0,
+        "sugar_g": 0.0,
+        "fiber_g": 0.0,
+        "sodium_mg": 0.0
+      },
+      "source_type": "curated_estimate",
+      "confidence": "low",
+      "match": "none",
+      "fdc_id": null,
+      "fdc_description": null,
+      "source_url": null,
+      "note": "No defensible USDA SR Legacy match; retained as a screening estimate. Do not use as a label value."
+    },
+    {
+      "ingredient_id": "polysorbate80",
+      "name": "Polysorbate 80",
+      "cn_name": "聚山梨醇酯80",
+      "nutrients": {
+        "protein_g": 0.0,
+        "fat_g": 0.0,
+        "sugar_g": 0.0,
+        "fiber_g": 0.0,
+        "sodium_mg": 0.0
+      },
+      "source_type": "curated_estimate",
+      "confidence": "low",
+      "match": "none",
+      "fdc_id": null,
+      "fdc_description": null,
+      "source_url": null,
+      "note": "No defensible USDA SR Legacy match; retained as a screening estimate. Do not use as a label value."
+    },
+    {
+      "ingredient_id": "citric_acid",
+      "name": "Citric acid",
+      "cn_name": "柠檬酸",
+      "nutrients": {
+        "protein_g": 0.0,
+        "fat_g": 0.0,
+        "sugar_g": 0.0,
+        "fiber_g": 0.0,
+        "sodium_mg": 0.0
+      },
+      "source_type": "curated_estimate",
+      "confidence": "low",
+      "match": "none",
+      "fdc_id": null,
+      "fdc_description": null,
+      "source_url": null,
+      "note": "No defensible USDA SR Legacy match; retained as a screening estimate. Do not use as a label value."
+    },
+    {
+      "ingredient_id": "malic_acid",
+      "name": "Malic acid",
+      "cn_name": "苹果酸",
+      "nutrients": {
+        "protein_g": 0.0,
+        "fat_g": 0.0,
+        "sugar_g": 0.0,
+        "fiber_g": 0.0,
+        "sodium_mg": 0.0
+      },
+      "source_type": "curated_estimate",
+      "confidence": "low",
+      "match": "none",
+      "fdc_id": null,
+      "fdc_description": null,
+      "source_url": null,
+      "note": "No defensible USDA SR Legacy match; retained as a screening estimate. Do not use as a label value."
+    },
+    {
+      "ingredient_id": "lactic_acid",
+      "name": "Lactic acid",
+      "cn_name": "乳酸",
+      "nutrients": {
+        "protein_g": 0.0,
+        "fat_g": 0.0,
+        "sugar_g": 0.0,
+        "fiber_g": 0.0,
+        "sodium_mg": 0.0
+      },
+      "source_type": "curated_estimate",
+      "confidence": "low",
+      "match": "none",
+      "fdc_id": null,
+      "fdc_description": null,
+      "source_url": null,
+      "note": "No defensible USDA SR Legacy match; retained as a screening estimate. Do not use as a label value."
+    },
+    {
+      "ingredient_id": "acetic_acid",
+      "name": "Acetic acid",
+      "cn_name": "乙酸",
+      "nutrients": {
+        "protein_g": 0.0,
+        "fat_g": 0.0,
+        "sugar_g": 0.0,
+        "fiber_g": 0.0,
+        "sodium_mg": 0.0
+      },
+      "source_type": "curated_estimate",
+      "confidence": "low",
+      "match": "none",
+      "fdc_id": null,
+      "fdc_description": null,
+      "source_url": null,
+      "note": "No defensible USDA SR Legacy match; retained as a screening estimate. Do not use as a label value."
+    },
+    {
+      "ingredient_id": "sodium_citrate",
+      "name": "Sodium citrate",
+      "cn_name": "柠檬酸钠",
+      "nutrients": {
+        "protein_g": 0.0,
+        "fat_g": 0.0,
+        "sugar_g": 0.0,
+        "fiber_g": 0.0,
+        "sodium_mg": 23000.0
+      },
+      "source_type": "curated_estimate",
+      "confidence": "low",
+      "match": "none",
+      "fdc_id": null,
+      "fdc_description": null,
+      "source_url": null,
+      "note": "No defensible USDA SR Legacy match; retained as a screening estimate. Do not use as a label value."
+    },
+    {
+      "ingredient_id": "potassium_sorbate",
+      "name": "Potassium sorbate",
+      "cn_name": "山梨酸钾",
+      "nutrients": {
+        "protein_g": 0.0,
+        "fat_g": 0.0,
+        "sugar_g": 0.0,
+        "fiber_g": 0.0,
+        "sodium_mg": 0.0
+      },
+      "source_type": "curated_estimate",
+      "confidence": "low",
+      "match": "none",
+      "fdc_id": null,
+      "fdc_description": null,
+      "source_url": null,
+      "note": "No defensible USDA SR Legacy match; retained as a screening estimate. Do not use as a label value."
+    },
+    {
+      "ingredient_id": "sodium_benzoate",
+      "name": "Sodium benzoate",
+      "cn_name": "苯甲酸钠",
+      "nutrients": {
+        "protein_g": 0.0,
+        "fat_g": 0.0,
+        "sugar_g": 0.0,
+        "fiber_g": 0.0,
+        "sodium_mg": 16000.0
+      },
+      "source_type": "curated_estimate",
+      "confidence": "low",
+      "match": "none",
+      "fdc_id": null,
+      "fdc_description": null,
+      "source_url": null,
+      "note": "No defensible USDA SR Legacy match; retained as a screening estimate. Do not use as a label value."
+    },
+    {
+      "ingredient_id": "nisin",
+      "name": "Nisin",
+      "cn_name": "乳酸链球菌素",
+      "nutrients": {
+        "protein_g": 0.0,
+        "fat_g": 0.0,
+        "sugar_g": 0.0,
+        "fiber_g": 0.0,
+        "sodium_mg": 0.0
+      },
+      "source_type": "curated_estimate",
+      "confidence": "low",
+      "match": "none",
+      "fdc_id": null,
+      "fdc_description": null,
+      "source_url": null,
+      "note": "No defensible USDA SR Legacy match; retained as a screening estimate. Do not use as a label value."
+    },
+    {
+      "ingredient_id": "ascorbic_acid",
+      "name": "Ascorbic acid",
+      "cn_name": "抗坏血酸",
+      "nutrients": {
+        "protein_g": 0.0,
+        "fat_g": 0.0,
+        "sugar_g": 0.0,
+        "fiber_g": 0.0,
+        "sodium_mg": 0.0
+      },
+      "source_type": "curated_estimate",
+      "confidence": "low",
+      "match": "none",
+      "fdc_id": null,
+      "fdc_description": null,
+      "source_url": null,
+      "note": "No defensible USDA SR Legacy match; retained as a screening estimate. Do not use as a label value."
+    },
+    {
+      "ingredient_id": "tocopherol",
+      "name": "Tocopherol",
+      "cn_name": "生育酚",
+      "nutrients": {
+        "protein_g": 0.0,
+        "fat_g": 0.0,
+        "sugar_g": 0.0,
+        "fiber_g": 0.0,
+        "sodium_mg": 0.0
+      },
+      "source_type": "curated_estimate",
+      "confidence": "low",
+      "match": "none",
+      "fdc_id": null,
+      "fdc_description": null,
+      "source_url": null,
+      "note": "No defensible USDA SR Legacy match; retained as a screening estimate. Do not use as a label value."
+    },
+    {
+      "ingredient_id": "rosemary_extract",
+      "name": "Rosemary extract",
+      "cn_name": "迷迭香提取物",
+      "nutrients": {
+        "protein_g": 0.0,
+        "fat_g": 0.0,
+        "sugar_g": 0.0,
+        "fiber_g": 0.0,
+        "sodium_mg": 0.0
+      },
+      "source_type": "curated_estimate",
+      "confidence": "low",
+      "match": "none",
+      "fdc_id": null,
+      "fdc_description": null,
+      "source_url": null,
+      "note": "No defensible USDA SR Legacy match; retained as a screening estimate. Do not use as a label value."
+    },
+    {
+      "ingredient_id": "beta_carotene",
+      "name": "Beta-carotene",
+      "cn_name": "β-胡萝卜素",
+      "nutrients": {
+        "protein_g": 0.0,
+        "fat_g": 0.0,
+        "sugar_g": 0.0,
+        "fiber_g": 0.0,
+        "sodium_mg": 0.0
+      },
+      "source_type": "curated_estimate",
+      "confidence": "low",
+      "match": "none",
+      "fdc_id": null,
+      "fdc_description": null,
+      "source_url": null,
+      "note": "No defensible USDA SR Legacy match; retained as a screening estimate. Do not use as a label value."
+    },
+    {
+      "ingredient_id": "anthocyanin",
+      "name": "Anthocyanins",
+      "cn_name": "花青素",
+      "nutrients": {
+        "protein_g": 0.0,
+        "fat_g": 0.0,
+        "sugar_g": 0.0,
+        "fiber_g": 0.0,
+        "sodium_mg": 0.0
+      },
+      "source_type": "curated_estimate",
+      "confidence": "low",
+      "match": "none",
+      "fdc_id": null,
+      "fdc_description": null,
+      "source_url": null,
+      "note": "No defensible USDA SR Legacy match; retained as a screening estimate. Do not use as a label value."
+    },
+    {
+      "ingredient_id": "riboflavin",
+      "name": "Riboflavin",
+      "cn_name": "核黄素",
+      "nutrients": {
+        "protein_g": 0.0,
+        "fat_g": 0.0,
+        "sugar_g": 0.0,
+        "fiber_g": 0.0,
+        "sodium_mg": 0.0
+      },
+      "source_type": "curated_estimate",
+      "confidence": "low",
+      "match": "none",
+      "fdc_id": null,
+      "fdc_description": null,
+      "source_url": null,
+      "note": "No defensible USDA SR Legacy match; retained as a screening estimate. Do not use as a label value."
+    },
+    {
+      "ingredient_id": "phycocyanin",
+      "name": "Phycocyanin",
+      "cn_name": "藻蓝蛋白",
+      "nutrients": {
+        "protein_g": 0.0,
+        "fat_g": 0.0,
+        "sugar_g": 0.0,
+        "fiber_g": 0.0,
+        "sodium_mg": 0.0
+      },
+      "source_type": "curated_estimate",
+      "confidence": "low",
+      "match": "none",
+      "fdc_id": null,
+      "fdc_description": null,
+      "source_url": null,
+      "note": "No defensible USDA SR Legacy match; retained as a screening estimate. Do not use as a label value."
+    },
+    {
+      "ingredient_id": "quercetin",
+      "name": "Quercetin",
+      "cn_name": "槲皮素",
+      "nutrients": {
+        "protein_g": 0.0,
+        "fat_g": 0.0,
+        "sugar_g": 0.0,
+        "fiber_g": 0.0,
+        "sodium_mg": 0.0
+      },
+      "source_type": "curated_estimate",
+      "confidence": "low",
+      "match": "none",
+      "fdc_id": null,
+      "fdc_description": null,
+      "source_url": null,
+      "note": "No defensible USDA SR Legacy match; retained as a screening estimate. Do not use as a label value."
+    },
+    {
+      "ingredient_id": "caffeine",
+      "name": "Caffeine",
+      "cn_name": "咖啡因",
+      "nutrients": {
+        "protein_g": 0.0,
+        "fat_g": 0.0,
+        "sugar_g": 0.0,
+        "fiber_g": 0.0,
+        "sodium_mg": 0.0
+      },
+      "source_type": "curated_estimate",
+      "confidence": "low",
+      "match": "none",
+      "fdc_id": null,
+      "fdc_description": null,
+      "source_url": null,
+      "note": "No defensible USDA SR Legacy match; retained as a screening estimate. Do not use as a label value."
+    },
+    {
+      "ingredient_id": "sodium_chloride",
+      "name": "Sodium chloride",
+      "cn_name": "氯化钠",
+      "nutrients": {
+        "protein_g": 0.0,
+        "fat_g": 0.0,
+        "sugar_g": 0.0,
+        "fiber_g": 0.0,
+        "sodium_mg": 38800.0
+      },
+      "source_type": "usda_fdc_sr_legacy",
+      "confidence": "medium",
+      "match": "exact",
+      "fdc_id": 173468,
+      "fdc_description": "Salt, table",
+      "source_url": "https://fdc.nal.usda.gov/food-details/173468/nutrients",
+      "note": "USDA SR Legacy food composition, per 100 g. SR Legacy is a compiled reference dataset, not a measurement of this supplier lot."
+    },
+    {
+      "ingredient_id": "potassium_chloride",
+      "name": "Potassium chloride",
+      "cn_name": "氯化钾",
+      "nutrients": {
+        "protein_g": 0.0,
+        "fat_g": 0.0,
+        "sugar_g": 0.0,
+        "fiber_g": 0.0,
+        "sodium_mg": 0.0
+      },
+      "source_type": "curated_estimate",
+      "confidence": "low",
+      "match": "none",
+      "fdc_id": null,
+      "fdc_description": null,
+      "source_url": null,
+      "note": "No defensible USDA SR Legacy match; retained as a screening estimate. Do not use as a label value."
+    },
+    {
+      "ingredient_id": "calcium_chloride",
+      "name": "Calcium chloride",
+      "cn_name": "氯化钙",
+      "nutrients": {
+        "protein_g": 0.0,
+        "fat_g": 0.0,
+        "sugar_g": 0.0,
+        "fiber_g": 0.0,
+        "sodium_mg": 0.0
+      },
+      "source_type": "curated_estimate",
+      "confidence": "low",
+      "match": "none",
+      "fdc_id": null,
+      "fdc_description": null,
+      "source_url": null,
+      "note": "No defensible USDA SR Legacy match; retained as a screening estimate. Do not use as a label value."
+    },
+    {
+      "ingredient_id": "sodium_alginate",
+      "name": "Sodium alginate",
+      "cn_name": "海藻酸钠",
+      "nutrients": {
+        "protein_g": 0.0,
+        "fat_g": 0.0,
+        "sugar_g": 0.0,
+        "fiber_g": 0.0,
+        "sodium_mg": 0.0
+      },
+      "source_type": "curated_estimate",
+      "confidence": "low",
+      "match": "none",
+      "fdc_id": null,
+      "fdc_description": null,
+      "source_url": null,
+      "note": "No defensible USDA SR Legacy match; retained as a screening estimate. Do not use as a label value."
+    },
+    {
+      "ingredient_id": "calcium_lactate",
+      "name": "Calcium lactate",
+      "cn_name": "乳酸钙",
+      "nutrients": {
+        "protein_g": 0.0,
+        "fat_g": 0.0,
+        "sugar_g": 0.0,
+        "fiber_g": 0.0,
+        "sodium_mg": 0.0
+      },
+      "source_type": "curated_estimate",
+      "confidence": "low",
+      "match": "none",
+      "fdc_id": null,
+      "fdc_description": null,
+      "source_url": null,
+      "note": "No defensible USDA SR Legacy match; retained as a screening estimate. Do not use as a label value."
+    },
+    {
+      "ingredient_id": "transglutaminase",
+      "name": "Transglutaminase",
+      "cn_name": "谷氨酰胺转氨酶",
+      "nutrients": {
+        "protein_g": 0.0,
+        "fat_g": 0.0,
+        "sugar_g": 0.0,
+        "fiber_g": 0.0,
+        "sodium_mg": 0.0
+      },
+      "source_type": "curated_estimate",
+      "confidence": "low",
+      "match": "none",
+      "fdc_id": null,
+      "fdc_description": null,
+      "source_url": null,
+      "note": "No defensible USDA SR Legacy match; retained as a screening estimate. Do not use as a label value."
+    },
+    {
+      "ingredient_id": "baking_soda",
+      "name": "Baking soda",
+      "cn_name": "碳酸氢钠",
+      "nutrients": {
+        "protein_g": 0.0,
+        "fat_g": 0.0,
+        "sugar_g": 0.0,
+        "fiber_g": 0.0,
+        "sodium_mg": 27400.0
+      },
+      "source_type": "usda_fdc_sr_legacy",
+      "confidence": "medium",
+      "match": "exact",
+      "fdc_id": 175040,
+      "fdc_description": "Leavening agents, baking soda",
+      "source_url": "https://fdc.nal.usda.gov/food-details/175040/nutrients",
+      "note": "USDA SR Legacy food composition, per 100 g. SR Legacy is a compiled reference dataset, not a measurement of this supplier lot."
+    },
+    {
+      "ingredient_id": "yeast",
+      "name": "Baker's yeast",
+      "cn_name": "面包酵母",
+      "nutrients": {
+        "protein_g": 0.0,
+        "fat_g": 0.0,
+        "sugar_g": 0.0,
+        "fiber_g": 0.0,
+        "sodium_mg": 0.0
+      },
+      "source_type": "curated_estimate",
+      "confidence": "low",
+      "match": "none",
+      "fdc_id": null,
+      "fdc_description": null,
+      "source_url": null,
+      "note": "No defensible USDA SR Legacy match; retained as a screening estimate. Do not use as a label value."
+    },
+    {
+      "ingredient_id": "sourdough",
+      "name": "Sourdough starter",
+      "cn_name": "酸面团",
+      "nutrients": {
+        "protein_g": 0.0,
+        "fat_g": 0.0,
+        "sugar_g": 0.0,
+        "fiber_g": 0.0,
+        "sodium_mg": 0.0
+      },
+      "source_type": "curated_estimate",
+      "confidence": "low",
+      "match": "none",
+      "fdc_id": null,
+      "fdc_description": null,
+      "source_url": null,
+      "note": "No defensible USDA SR Legacy match; retained as a screening estimate. Do not use as a label value."
+    },
+    {
+      "ingredient_id": "vanilla",
+      "name": "Vanilla extract",
+      "cn_name": "香草提取物",
+      "nutrients": {
+        "protein_g": 0.06,
+        "fat_g": 0.06,
+        "sugar_g": 12.6,
+        "fiber_g": 0.0,
+        "sodium_mg": 9.0
+      },
+      "source_type": "usda_fdc_sr_legacy",
+      "confidence": "medium",
+      "match": "exact",
+      "fdc_id": 173471,
+      "fdc_description": "Vanilla extract",
+      "source_url": "https://fdc.nal.usda.gov/food-details/173471/nutrients",
+      "note": "USDA SR Legacy food composition, per 100 g. SR Legacy is a compiled reference dataset, not a measurement of this supplier lot."
+    },
+    {
+      "ingredient_id": "cocoa_powder",
+      "name": "Cocoa powder",
+      "cn_name": "可可粉",
+      "nutrients": {
+        "protein_g": 19.6,
+        "fat_g": 13.7,
+        "sugar_g": 1.75,
+        "fiber_g": 37.0,
+        "sodium_mg": 21.0
+      },
+      "source_type": "usda_fdc_sr_legacy",
+      "confidence": "medium",
+      "match": "exact",
+      "fdc_id": 169593,
+      "fdc_description": "Cocoa, dry powder, unsweetened",
+      "source_url": "https://fdc.nal.usda.gov/food-details/169593/nutrients",
+      "note": "USDA SR Legacy food composition, per 100 g. SR Legacy is a compiled reference dataset, not a measurement of this supplier lot."
+    },
+    {
+      "ingredient_id": "cocoa_mass",
+      "name": "Cocoa mass",
+      "cn_name": "可可液块",
+      "nutrients": {
+        "protein_g": 13.0,
+        "fat_g": 52.0,
+        "sugar_g": 0.0,
+        "fiber_g": 12.0,
+        "sodium_mg": 0.0
+      },
+      "source_type": "curated_estimate",
+      "confidence": "low",
+      "match": "none",
+      "fdc_id": null,
+      "fdc_description": null,
+      "source_url": null,
+      "note": "No defensible USDA SR Legacy match; retained as a screening estimate. Do not use as a label value."
+    },
+    {
+      "ingredient_id": "honey",
+      "name": "Honey",
+      "cn_name": "蜂蜜",
+      "nutrients": {
+        "protein_g": 0.0,
+        "fat_g": 0.0,
+        "sugar_g": 80.0,
+        "fiber_g": 0.0,
+        "sodium_mg": 0.0
+      },
+      "source_type": "curated_estimate",
+      "confidence": "low",
+      "match": "none",
+      "fdc_id": null,
+      "fdc_description": null,
+      "source_url": null,
+      "note": "No defensible USDA SR Legacy match; retained as a screening estimate. Do not use as a label value."
+    },
+    {
+      "ingredient_id": "molasses",
+      "name": "Molasses",
+      "cn_name": "糖蜜",
+      "nutrients": {
+        "protein_g": 0.0,
+        "fat_g": 0.1,
+        "sugar_g": 74.7,
+        "fiber_g": 0.0,
+        "sodium_mg": 37.0
+      },
+      "source_type": "usda_fdc_sr_legacy",
+      "confidence": "medium",
+      "match": "exact",
+      "fdc_id": 168820,
+      "fdc_description": "Molasses",
+      "source_url": "https://fdc.nal.usda.gov/food-details/168820/nutrients",
+      "note": "USDA SR Legacy food composition, per 100 g. SR Legacy is a compiled reference dataset, not a measurement of this supplier lot."
+    },
+    {
+      "ingredient_id": "oats",
+      "name": "Rolled oats",
+      "cn_name": "燕麦片",
+      "nutrients": {
+        "protein_g": 16.9,
+        "fat_g": 6.9,
+        "sugar_g": 1.0,
+        "fiber_g": 10.6,
+        "sodium_mg": 2.0
+      },
+      "source_type": "usda_fdc_sr_legacy",
+      "confidence": "medium",
+      "match": "exact",
+      "fdc_id": 169705,
+      "fdc_description": "Oats (Includes foods for USDA's Food Distribution Program)",
+      "source_url": "https://fdc.nal.usda.gov/food-details/169705/nutrients",
+      "note": "USDA SR Legacy food composition, per 100 g. SR Legacy is a compiled reference dataset, not a measurement of this supplier lot."
+    },
+    {
+      "ingredient_id": "orange_juice_concentrate",
+      "name": "Orange juice concentrate",
+      "cn_name": "橙汁浓缩液",
+      "nutrients": {
+        "protein_g": 2.4,
+        "fat_g": 0.25,
+        "sugar_g": 29.7,
+        "fiber_g": 1.0,
+        "sodium_mg": 7.0
+      },
+      "source_type": "usda_fdc_sr_legacy",
+      "confidence": "medium",
+      "match": "exact",
+      "fdc_id": 169923,
+      "fdc_description": "Orange juice, frozen concentrate, unsweetened, undiluted",
+      "source_url": "https://fdc.nal.usda.gov/food-details/169923/nutrients",
+      "note": "USDA SR Legacy food composition, per 100 g. SR Legacy is a compiled reference dataset, not a measurement of this supplier lot."
+    },
+    {
+      "ingredient_id": "tea_extract",
+      "name": "Tea extract",
+      "cn_name": "茶提取物",
+      "nutrients": {
+        "protein_g": 0.0,
+        "fat_g": 0.0,
+        "sugar_g": 0.0,
+        "fiber_g": 0.0,
+        "sodium_mg": 0.0
+      },
+      "source_type": "curated_estimate",
+      "confidence": "low",
+      "match": "none",
+      "fdc_id": null,
+      "fdc_description": null,
+      "source_url": null,
+      "note": "No defensible USDA SR Legacy match; retained as a screening estimate. Do not use as a label value."
+    },
+    {
+      "ingredient_id": "coffee_extract",
+      "name": "Coffee extract",
+      "cn_name": "咖啡提取物",
+      "nutrients": {
+        "protein_g": 0.0,
+        "fat_g": 0.0,
+        "sugar_g": 0.0,
+        "fiber_g": 0.0,
+        "sodium_mg": 0.0
+      },
+      "source_type": "curated_estimate",
+      "confidence": "low",
+      "match": "none",
+      "fdc_id": null,
+      "fdc_description": null,
+      "source_url": null,
+      "note": "No defensible USDA SR Legacy match; retained as a screening estimate. Do not use as a label value."
+    },
+    {
+      "ingredient_id": "tomato_paste",
+      "name": "Tomato paste",
+      "cn_name": "番茄酱",
+      "nutrients": {
+        "protein_g": 4.32,
+        "fat_g": 0.47,
+        "sugar_g": 12.2,
+        "fiber_g": 4.1,
+        "sodium_mg": 59.0
+      },
+      "source_type": "usda_fdc_sr_legacy",
+      "confidence": "medium",
+      "match": "exact",
+      "fdc_id": 170459,
+      "fdc_description": "Tomato products, canned, paste, without salt added (Includes foods for USDA's Food Distribution Program)",
+      "source_url": "https://fdc.nal.usda.gov/food-details/170459/nutrients",
+      "note": "USDA SR Legacy food composition, per 100 g. SR Legacy is a compiled reference dataset, not a measurement of this supplier lot."
+    },
+    {
+      "ingredient_id": "mustard",
+      "name": "Mustard",
+      "cn_name": "芥末",
+      "nutrients": {
+        "protein_g": 0.0,
+        "fat_g": 0.0,
+        "sugar_g": 0.0,
+        "fiber_g": 0.0,
+        "sodium_mg": 0.0
+      },
+      "source_type": "curated_estimate",
+      "confidence": "low",
+      "match": "none",
+      "fdc_id": null,
+      "fdc_description": null,
+      "source_url": null,
+      "note": "No defensible USDA SR Legacy match; retained as a screening estimate. Do not use as a label value."
+    },
+    {
+      "ingredient_id": "onion_powder",
+      "name": "Onion powder",
+      "cn_name": "洋葱粉",
+      "nutrients": {
+        "protein_g": 0.0,
+        "fat_g": 0.0,
+        "sugar_g": 0.0,
+        "fiber_g": 0.0,
+        "sodium_mg": 0.0
+      },
+      "source_type": "curated_estimate",
+      "confidence": "low",
+      "match": "none",
+      "fdc_id": null,
+      "fdc_description": null,
+      "source_url": null,
+      "note": "No defensible USDA SR Legacy match; retained as a screening estimate. Do not use as a label value."
+    },
+    {
+      "ingredient_id": "garlic_powder",
+      "name": "Garlic powder",
+      "cn_name": "大蒜粉",
+      "nutrients": {
+        "protein_g": 0.0,
+        "fat_g": 0.0,
+        "sugar_g": 0.0,
+        "fiber_g": 0.0,
+        "sodium_mg": 0.0
+      },
+      "source_type": "curated_estimate",
+      "confidence": "low",
+      "match": "none",
+      "fdc_id": null,
+      "fdc_description": null,
+      "source_url": null,
+      "note": "No defensible USDA SR Legacy match; retained as a screening estimate. Do not use as a label value."
+    },
+    {
+      "ingredient_id": "cabbage",
+      "name": "Cabbage",
+      "cn_name": "卷心菜",
+      "nutrients": {
+        "protein_g": 1.28,
+        "fat_g": 0.1,
+        "sugar_g": 3.2,
+        "fiber_g": 2.5,
+        "sodium_mg": 18.0
+      },
+      "source_type": "usda_fdc_sr_legacy",
+      "confidence": "medium",
+      "match": "exact",
+      "fdc_id": 169975,
+      "fdc_description": "Cabbage, raw",
+      "source_url": "https://fdc.nal.usda.gov/food-details/169975/nutrients",
+      "note": "USDA SR Legacy food composition, per 100 g. SR Legacy is a compiled reference dataset, not a measurement of this supplier lot."
+    },
+    {
+      "ingredient_id": "vinegar",
+      "name": "Vinegar",
+      "cn_name": "食醋",
+      "nutrients": {
+        "protein_g": 0.0,
+        "fat_g": 0.0,
+        "sugar_g": 0.04,
+        "fiber_g": 0.0,
+        "sodium_mg": 2.0
+      },
+      "source_type": "usda_fdc_sr_legacy",
+      "confidence": "medium",
+      "match": "exact",
+      "fdc_id": 172237,
+      "fdc_description": "Vinegar, distilled",
+      "source_url": "https://fdc.nal.usda.gov/food-details/172237/nutrients",
+      "note": "USDA SR Legacy food composition, per 100 g. SR Legacy is a compiled reference dataset, not a measurement of this supplier lot."
+    },
+    {
+      "ingredient_id": "fish_oil",
+      "name": "Fish oil",
+      "cn_name": "鱼油",
+      "nutrients": {
+        "protein_g": 0.0,
+        "fat_g": 0.0,
+        "sugar_g": 0.0,
+        "fiber_g": 0.0,
+        "sodium_mg": 0.0
+      },
+      "source_type": "curated_estimate",
+      "confidence": "low",
+      "match": "none",
+      "fdc_id": null,
+      "fdc_description": null,
+      "source_url": null,
+      "note": "No defensible USDA SR Legacy match; retained as a screening estimate. Do not use as a label value."
+    },
+    {
+      "ingredient_id": "vitamin_d",
+      "name": "Vitamin D3",
+      "cn_name": "维生素D3",
+      "nutrients": {
+        "protein_g": 0.0,
+        "fat_g": 0.0,
+        "sugar_g": 0.0,
+        "fiber_g": 0.0,
+        "sodium_mg": 0.0
+      },
+      "source_type": "curated_estimate",
+      "confidence": "low",
+      "match": "none",
+      "fdc_id": null,
+      "fdc_description": null,
+      "source_url": null,
+      "note": "No defensible USDA SR Legacy match; retained as a screening estimate. Do not use as a label value."
+    },
+    {
+      "ingredient_id": "zinc_oxide",
+      "name": "Zinc oxide",
+      "cn_name": "氧化锌",
+      "nutrients": {
+        "protein_g": 0.0,
+        "fat_g": 0.0,
+        "sugar_g": 0.0,
+        "fiber_g": 0.0,
+        "sodium_mg": 0.0
+      },
+      "source_type": "curated_estimate",
+      "confidence": "low",
+      "match": "none",
+      "fdc_id": null,
+      "fdc_description": null,
+      "source_url": null,
+      "note": "No defensible USDA SR Legacy match; retained as a screening estimate. Do not use as a label value."
+    },
+    {
+      "ingredient_id": "iron_sulfate",
+      "name": "Ferrous sulfate",
+      "cn_name": "硫酸亚铁",
+      "nutrients": {
+        "protein_g": 0.0,
+        "fat_g": 0.0,
+        "sugar_g": 0.0,
+        "fiber_g": 0.0,
+        "sodium_mg": 0.0
+      },
+      "source_type": "curated_estimate",
+      "confidence": "low",
+      "match": "none",
+      "fdc_id": null,
+      "fdc_description": null,
+      "source_url": null,
+      "note": "No defensible USDA SR Legacy match; retained as a screening estimate. Do not use as a label value."
+    },
+    {
+      "ingredient_id": "beet_extract",
+      "name": "Beetroot extract",
+      "cn_name": "甜菜根提取物",
+      "nutrients": {
+        "protein_g": 0.0,
+        "fat_g": 0.0,
+        "sugar_g": 0.0,
+        "fiber_g": 0.0,
+        "sodium_mg": 0.0
+      },
+      "source_type": "curated_estimate",
+      "confidence": "low",
+      "match": "none",
+      "fdc_id": null,
+      "fdc_description": null,
+      "source_url": null,
+      "note": "No defensible USDA SR Legacy match; retained as a screening estimate. Do not use as a label value."
+    },
+    {
+      "ingredient_id": "flavor",
+      "name": "Natural flavor",
+      "cn_name": "天然风味物质",
+      "nutrients": {
+        "protein_g": 0.0,
+        "fat_g": 0.0,
+        "sugar_g": 0.0,
+        "fiber_g": 0.0,
+        "sodium_mg": 0.0
+      },
+      "source_type": "curated_estimate",
+      "confidence": "low",
+      "match": "none",
+      "fdc_id": null,
+      "fdc_description": null,
+      "source_url": null,
+      "note": "No defensible USDA SR Legacy match; retained as a screening estimate. Do not use as a label value."
+    }
+  ]
+}

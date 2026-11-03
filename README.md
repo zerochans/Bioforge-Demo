@@ -2,7 +2,7 @@
 
 GitHub 仓库：<https://github.com/zerochans/Bioforge-Demo>  
 iOS CI：[![Build iOS unsigned IPA](https://github.com/zerochans/Bioforge-Demo/actions/workflows/build-ios-unsigned.yml/badge.svg)](https://github.com/zerochans/Bioforge-Demo/actions/workflows/build-ios-unsigned.yml)  
-CI run #2：成功，artifact `BioForgeStudio-3.2.2-unsigned-ipa`（631,893 bytes，[运行记录](https://github.com/zerochans/Bioforge-Demo/actions/runs/41571598315)）
+CI run #3：成功，未签名 IPA 已发布到 Releases（634,728 bytes，SHA-256 `d7186d551cff597d8f913883103674eb1ce2c71e302e80b19cb0091792e5964d`，[下载](https://github.com/zerochans/Bioforge-Demo/releases/download/ios-unsigned-3.2.2/BioForgeStudio-3.2.2-unsigned.ipa) · [run #3](https://github.com/zerochans/Bioforge-Demo/actions/runs/41572031544)）
 
 把一个产品目标，变成**一组可比较、可追溯、可计算**的食品配方或生物设计方案，并把配方/工艺实验数据接成**训练 → 不确定性 → 贝叶斯优化 → 实测回灌**的本地闭环。
 
@@ -163,10 +163,10 @@ iOS 壳是 WKWebView 客户端，首次启动填写服务器地址并请求 `/ap
 
 1. 打开 <https://github.com/zerochans/Bioforge-Demo/actions/workflows/build-ios-unsigned.yml>。
 2. 点击 **Run workflow**。
-3. 下载 artifact `BioForgeStudio-3.2.2-unsigned-ipa`（[CI run #2](https://github.com/zerochans/Bioforge-Demo/actions/runs/41571598315) 已成功，631,893 bytes）。
+3. 直接下载未签名 IPA：[BioForgeStudio-3.2.2-unsigned.ipa](https://github.com/zerochans/Bioforge-Demo/releases/download/ios-unsigned-3.2.2/BioForgeStudio-3.2.2-unsigned.ipa)（634,728 bytes，SHA-256 `d7186d551cff597d8f913883103674eb1ce2c71e302e80b19cb0091792e5964d`）；也可从 [run #3](https://github.com/zerochans/Bioforge-Demo/actions/runs/41572031544) 下载 artifact。
 4. 用 Sideloadly/AltStore + 自己的 Apple ID 重签安装；正式分发需要 Apple Developer 证书/描述文件。
 
-未签名 IPA 不能直接安装；workflow 不包含任何 Apple 私钥或证书。
+未签名 IPA 不能直接安装；workflow 不包含任何 Apple 私钥或证书。IPA 已校验为 arm64、Bundle ID `ai.bioforge.studio`、版本 3.2.2 (8)、内含 shell-13，且无 `embedded.mobileprovision`/`_CodeSignature`。Release：[https://github.com/zerochans/Bioforge-Demo/releases/tag/ios-unsigned-3.2.2](https://github.com/zerochans/Bioforge-Demo/releases/tag/ios-unsigned-3.2.2)。
 
 ## Model Lab
 

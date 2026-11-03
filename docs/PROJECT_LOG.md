@@ -274,4 +274,8 @@
 - 推送：`main` 从 `4093e8c` 更新到 `d237f3a`；push 自动触发 GitHub Actions。
 - CI run #1：[41571174925](https://github.com/zerochans/Bioforge-Demo/actions/runs/41571174925)，2026-11-03T03:16:05Z 创建，03:17:45Z 完成，结论 `success`；job `125704150277` 的 7 个步骤全部成功；artifact `13201382665`，631,892 bytes。
 - 限制 workflow 触发路径后推送 `4caa64f`；CI run #2：[41571598315](https://github.com/zerochans/Bioforge-Demo/actions/runs/41571598315)，2026-11-03T03:20:18Z 创建，03:22:32Z 完成，结论 `success`；job `125705503472` 的 7 个步骤全部成功；artifact `13202045851`，631,893 bytes，2026-11-17T03:22:27Z 过期。
+- 新增 Release 发布步骤（`contents: write`，`gh release upload --clobber`）；推送 `c751894` 后触发 CI run #3。
+- CI run #3：[41572031544](https://github.com/zerochans/Bioforge-Demo/actions/runs/41572031544)，2026-11-03T03:24:39Z 创建，03:27:25Z 完成，结论 `success`；job `125706924794` 核心 8 步及 post 步骤全部成功；artifact `13201921951`，631,894 bytes。
+- 公开 Release：[ios-unsigned-3.2.2](https://github.com/zerochans/Bioforge-Demo/releases/tag/ios-unsigned-3.2.2)；asset `BioForgeStudio-3.2.2-unsigned.ipa` 634,728 bytes，SHA-256 `d7186d551cff597d8f913883103674eb1ce2c71e302e80b19cb0091792e5964d`，无需 GitHub 登录即可下载。
+- 已下载并校验 Release IPA：26 files / 1,480,631 bytes 解压后；Mach-O arm64；Bundle ID `ai.bioforge.studio`；版本 3.2.2 (8)；iOS 15.0+；`www/sw.js` 为 shell-13；`www/index.html` 含 “App 服务器”；无 `embedded.mobileprovision`、无 `_CodeSignature`，确认未签名。
 - 仍未签名、未做模拟器/真机验收；未签名 IPA 不能直接安装，必须用 Apple ID/开发者证书重签。

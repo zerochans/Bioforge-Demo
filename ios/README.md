@@ -8,8 +8,8 @@ CI：<https://github.com/zerochans/Bioforge-Demo/actions/workflows/build-ios-uns
 ## 状态
 
 - 已在 Linux 上生成 Xcode 工程、Swift 源码、Info.plist、资源目录和同步脚本。
-- GitHub Actions macOS 构建 workflow 已成功运行第 2 次：`BioForgeStudio-3.2.2-unsigned-ipa`，631,893 bytes；[run #2](https://github.com/zerochans/Bioforge-Demo/actions/runs/41571598315)。
-- **GitHub Actions 已生成未签名 IPA artifact；本地尚未下载该 artifact，未做真机或模拟器验收。**
+- GitHub Actions macOS 构建 workflow 已成功运行第 3 次：未签名 IPA 634,728 bytes，SHA-256 `d7186d551cff597d8f913883103674eb1ce2c71e302e80b19cb0091792e5964d`；[run #3](https://github.com/zerochans/Bioforge-Demo/actions/runs/41572031544)。
+- **已下载并校验 Release IPA（arm64，3.2.2 (8)，shell-13，无签名）；未做真机或模拟器验收。**
 - Linux 无法完成 iOS 编译和签名；必须使用 macOS、Xcode 和 Apple 签名凭据。
 - 不能把“工程存在”“CI 成功”或“未签名 artifact”表述为“已安装”或“已上架”。
 
@@ -110,10 +110,10 @@ xcodebuild \
 1. 打开仓库的 **Actions** 页面。
 2. 选择 **Build iOS unsigned IPA**。
 3. 点击 **Run workflow**，等待 macOS runner 完成。
-4. 下载 artifact：`BioForgeStudio-3.2.2-unsigned-ipa`。
-5. 解压后得到 `BioForgeStudio-3.2.2-unsigned.ipa` 和 `.sha256`。
+4. 直接下载 Release IPA：[BioForgeStudio-3.2.2-unsigned.ipa](https://github.com/zerochans/Bioforge-Demo/releases/download/ios-unsigned-3.2.2/BioForgeStudio-3.2.2-unsigned.ipa)；或下载 artifact `BioForgeStudio-3.2.2-unsigned-ipa`。
+5. Release 附带 `.sha256`；当前文件 SHA-256 为 `d7186d551cff597d8f913883103674eb1ce2c71e302e80b19cb0091792e5964d`。
 
-最新运行：[41571598315](https://github.com/zerochans/Bioforge-Demo/actions/runs/41571598315)，macOS job 成功，artifact 生成于 2026-11-03T03:22:28Z，14 天后过期。第 1 次运行 [41571174925](https://github.com/zerochans/Bioforge-Demo/actions/runs/41571174925) 也已成功。
+最新运行：[41572031544](https://github.com/zerochans/Bioforge-Demo/actions/runs/41572031544)，macOS job 成功；Release：[ios-unsigned-3.2.2](https://github.com/zerochans/Bioforge-Demo/releases/tag/ios-unsigned-3.2.2)。第 1 次 [41571174925](https://github.com/zerochans/Bioforge-Demo/actions/runs/41571174925) 和第 2 次 [41571598315](https://github.com/zerochans/Bioforge-Demo/actions/runs/41571598315) 也已成功。
 
 workflow 使用 `macos-15`，执行 `xcodebuild` 的 Release device build，关闭代码签名，然后把 `.app` 打成 `Payload/*.app` 的未签名 IPA。
 

@@ -24,7 +24,7 @@ GitHub：<https://github.com/zerochans/Bioforge-Demo>
 | 测试 | `tests/` | 64 passed, 1 warning（2026-11-02 回归） |
 | 部署 | `Dockerfile`、`docker-compose.yml`、`deploy/` | PostgreSQL healthcheck、Caddy HTTPS、Tunnel 骨架 |
 | 文档 | `README.md`、`docs/`、`RELEASES.md`、`CHANGELOG.md` | 含用户指南、部署、数据源、限制说明 |
-| GitHub CI | `.github/workflows/build-ios-unsigned.yml` | run #2 成功；artifact `BioForgeStudio-3.2.2-unsigned-ipa` 631,893 bytes；需重签后安装 |
+| GitHub CI | `.github/workflows/build-ios-unsigned.yml` | run #3 成功；未签名 IPA 634,728 bytes，SHA-256 `d7186d551cff597d8f913883103674eb1ce2c71e302e80b19cb0091792e5964d`；需重签后安装 |
 
 旧版 `dist/BioForgeStudio-3.2.1.apk`、3.2.0、3.1.0 和 3.0.0 保留用于回滚，不作为本次交付主包。
 
@@ -43,8 +43,9 @@ GitHub：<https://github.com/zerochans/Bioforge-Demo>
 - 功能：服务器地址输入 + `/api/health` 探测、Cookie 登录、离线静态预览、外部链接跳转、文件导出、`AndroidBridge` 兼容桥。
 - 同步：修改 `web/` 后执行 `./scripts/sync_ios_web.sh`；工程也可用 `cd ios && xcodegen generate` 从 `project.yml` 再生成。
 - 构建：需要 macOS 13+、Xcode 15+ 和 Apple Developer Team；`ios/README.md` 含模拟器编译、Archive 和 `.ipa` 导出命令。
-- CI 构建：`.github/workflows/build-ios-unsigned.yml` + `ios/ci/build_unsigned_ipa.sh`；GitHub Actions run #2 已成功生成未签名 artifact `BioForgeStudio-3.2.2-unsigned-ipa`（631,893 bytes），需用 Sideloadly/AltStore 或正式证书重签后才能安装。
-- 状态：**Linux 未编译/签名；GitHub Actions run #2 已成功生成未签名 artifact，仍未做模拟器/真机验收，当前没有可直接安装的签名 `.ipa`**；不能表述为“已交付 iOS 安装包”。
+- CI 构建：`.github/workflows/build-ios-unsigned.yml` + `ios/ci/build_unsigned_ipa.sh`；GitHub Actions run #3 已成功生成未签名 IPA 并发布到 Releases（634,728 bytes，SHA-256 `d7186d551cff597d8f913883103674eb1ce2c71e302e80b19cb0091792e5964d`），需用 Sideloadly/AltStore 或正式证书重签后才能安装。
+- 状态：**Linux 未编译/签名；GitHub Actions run #3 已生成并发布未签名 IPA，仍未做模拟器/真机验收，当前没有可直接安装的签名 `.ipa`**；不能表述为“已交付 iOS 安装包”。
+- Release：<https://github.com/zerochans/Bioforge-Demo/releases/tag/ios-unsigned-3.2.2>；IPA 已本地下载校验：634,728 bytes，SHA-256 `d7186d551cff597d8f913883103674eb1ce2c71e302e80b19cb0091792e5964d`，arm64，Bundle ID `ai.bioforge.studio`，版本 3.2.2 (8)，shell-13，无 `embedded.mobileprovision`/`_CodeSignature`。
 - ATS：为任意用户输入的局域网 HTTP 服务器启用 `NSAllowsArbitraryLoads`/`NSAllowsLocalNetworking`；公网必须 HTTPS。
 
 ## 英文覆盖（2026-10-28）

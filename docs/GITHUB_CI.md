@@ -53,7 +53,7 @@ dist/BioForgeStudio-3.2.2-unsigned.ipa.sha256
 1. 打开 <https://github.com/zerochans/Bioforge-Demo/actions/workflows/build-ios-unsigned.yml>。
 2. 点击 **Run workflow**。
 3. 等待 macOS job 完成。
-4. 下载 artifact `BioForgeStudio-3.2.2-unsigned-ipa`。
+4. 直接下载 Release IPA：[BioForgeStudio-3.2.2-unsigned.ipa](https://github.com/zerochans/Bioforge-Demo/releases/download/ios-unsigned-3.2.2/BioForgeStudio-3.2.2-unsigned.ipa)；或下载 artifact `BioForgeStudio-3.2.2-unsigned-ipa`。
 
 push 到 `main` 且改动涉及 `ios/BioForgeStudio/**`、`ios/BioForgeStudio.xcodeproj/**`、`ios/www/**`、`ios/ci/**`、`ios/project.yml`、`web/**`、`scripts/sync_ios_web.sh` 或 workflow 本身时，也会自动触发；只改 `ios/README.md` 或文档不会触发。
 
@@ -85,5 +85,7 @@ push 到 `main` 且改动涉及 `ios/BioForgeStudio/**`、`ios/BioForgeStudio.xc
 - Linux 主机无法运行 `xcodebuild`；实际 macOS 编译必须在 GitHub Actions 或 macOS 本机执行。
 - 当前仓库中的 APK：357,999 bytes，SHA-256 `d11806eb0bb74f0e9517eb9597add7d75fd4a33435e95f4b6f15ffcd2e3dcb7f`，v2/v3 签名通过。
 - CI run #1：[41571174925](https://github.com/zerochans/Bioforge-Demo/actions/runs/41571174925)，head `d237f3a`，结论 `success`；artifact 631,892 bytes。
-- CI run #2（最新）：[41571598315](https://github.com/zerochans/Bioforge-Demo/actions/runs/41571598315)，head `4caa64f`，2026-11-03T03:20:18Z 至 03:22:32Z，结论 `success`；artifact `BioForgeStudio-3.2.2-unsigned-ipa`，631,893 bytes，创建于 2026-11-03T03:22:28Z，2026-11-17T03:22:27Z 过期；artifact 下载需要 GitHub 登录。
-- iOS 当前状态：工程、资源、CI 和未签名 artifact 已准备；尚未产出签名 `.ipa`，未做模拟器/真机验收。
+- CI run #2：[41571598315](https://github.com/zerochans/Bioforge-Demo/actions/runs/41571598315)，head `4caa64f`，结论 `success`；artifact 631,893 bytes。
+- CI run #3（最新）：[41572031544](https://github.com/zerochans/Bioforge-Demo/actions/runs/41572031544)，head `c751894`，2026-11-03T03:24:39Z 至 03:27:25Z，结论 `success`；artifact `13201921951`，631,894 bytes；新增 Release 发布步骤成功。
+- 公开 Release：[ios-unsigned-3.2.2](https://github.com/zerochans/Bioforge-Demo/releases/tag/ios-unsigned-3.2.2)。IPA 634,728 bytes，SHA-256 `d7186d551cff597d8f913883103674eb1ce2c71e302e80b19cb0091792e5964d`，无需登录即可下载；已校验为 arm64、Bundle ID `ai.bioforge.studio`、3.2.2 (8)、shell-13，无 provisioning/code signature。
+- iOS 当前状态：工程、资源、CI、公开未签名 IPA 已准备；尚未产出签名 `.ipa`，未做模拟器/真机验收。

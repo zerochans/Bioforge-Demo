@@ -16,7 +16,7 @@
 - 图谱新增节点/边字典与 provenance：每条边显示 `evidence_status`/`basis`/`citations`，无引用非 workflow 边显示 caveat。
 - 12 套主题增加独立纹理与卡片/导航/hero 染色；核心界面支持中英切换，英文模式通过翻译记忆、数字模板和术语替换覆盖设计/计算/图谱/3D 动态内容。
 - 食品目标配料进入候选配方并受上限约束；显式荧光蛋白不再被食品色蛋白替代；计算支持 PDB 一句话解析与仅字段提交。案例/资源/助手/笔记/HADDOCK/参数/工具面板可折叠，任务卡按时间倒序并支持全部展开/收起；侧栏加入半透明科学里程碑图与星云背景。
-- iOS：新增 `ios/` WKWebView 原生壳、Xcode 工程和 XcodeGen 配置；支持服务器地址/health 探测、Cookie 登录、离线预览、文件导出和外部链接跳转。新增 `.github/workflows/build-ios-unsigned.yml` 和 `ios/ci/build_unsigned_ipa.sh`；GitHub Actions run #2 已在 macOS runner 成功生成未签名 artifact `BioForgeStudio-3.2.2-unsigned-ipa`（631,893 bytes），仍需重签后安装。GitHub 仓库：<https://github.com/zerochans/Bioforge-Demo>。
+- iOS：新增 `ios/` WKWebView 原生壳、Xcode 工程和 XcodeGen 配置；支持服务器地址/health 探测、Cookie 登录、离线预览、文件导出和外部链接跳转。新增 `.github/workflows/build-ios-unsigned.yml` 和 `ios/ci/build_unsigned_ipa.sh`；GitHub Actions run #3 已在 macOS runner 成功生成未签名 IPA 并发布到 Releases：[BioForgeStudio-3.2.2-unsigned.ipa](https://github.com/zerochans/Bioforge-Demo/releases/download/ios-unsigned-3.2.2/BioForgeStudio-3.2.2-unsigned.ipa)（634,728 bytes，SHA-256 `d7186d551cff597d8f913883103674eb1ce2c71e302e80b19cb0091792e5964d`），仍需重签后安装。GitHub 仓库：<https://github.com/zerochans/Bioforge-Demo>。
 - 版本 3.2.2；Android versionCode 8；Service Worker `bioforge-v322-shell-13`。新增 `web/i18n-data.js` 翻译记忆，20 个食品案例、机制案例、图谱、3D、HADDOCK3 表单/任务卡、资源/设置和助手英文问答均完成可见文案英文化；新增 `.xtc` 轨迹接口和缓存。配方候选按组成去重，不足 8 个时生成可追溯的原料替代变体；英文 `≤8% sugar` / `≥6% dietary fibre` 等目标量与中文解析对齐。
 
 **交付物**
@@ -63,7 +63,7 @@
 - 复合物 MD 使用自动质子化/电荷与 ACPYPE GAFF2/AM1-BCC；配体电荷、互变异构和蛋白质子化仍需人工复核。
 - GROMACS 复合物 MD 在“全部”模式按 pair 运行，耗时随组合数增加；CP2K 仍按唯一配体独立运行。
 - 无 adb/AVD，APK 3.2.2 真机首启、LAN WebView 登录、SW 更新未做设备级验收。
-- iOS 未产出签名 `.ipa`，未做真机验收；当前只有未签名 CI artifact。ATS 为任意用户输入服务器放宽，公网必须 HTTPS。
+- iOS 未产出签名 `.ipa`，未做真机验收；当前有公开未签名 Release IPA（634,728 bytes，SHA-256 `d7186d551cff597d8f913883103674eb1ce2c71e302e80b19cb0091792e5964d`）。ATS 为任意用户输入服务器放宽，公网必须 HTTPS。
 - `literature_chunks.embedding` 仍未回填；没有向量召回/HNSW。
 - Ollama 模型与 Obsidian 目录是本机环境依赖，换机需在设置/环境变量中重新配置。
 - 英文模式覆盖导航、按钮、表单占位符、资源库/设置、设计/计算/图谱/3D 动态 UI、20 个食品案例和机制案例；Obsidian 笔记保留原文并提示按需查看，助手历史在英文模式下只显示英文记录。

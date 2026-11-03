@@ -66,7 +66,7 @@
 - 回归：`64 passed, 1 warning`；`node --check`、`node scripts/check_web.js` 通过；Linux 侧完成 plist/YAML/XML/JSON/pbxproj 解析和 Swift tree-sitter 语法检查；后续 GitHub Actions macOS run #1 生成未签名 IPA artifact。
 - 新增 `.github/workflows/build-ios-unsigned.yml` 和 `ios/ci/build_unsigned_ipa.sh`：macOS runner 可构建未签名 IPA，需用 Sideloadly/AltStore 或正式证书重签后安装。
 - 发布 GitHub 仓库 <https://github.com/zerochans/Bioforge-Demo>；补充 `docs/GITHUB_CI.md`、仓库级 README、iOS CI 说明、最终 APK 与安全排除规则。
-- GitHub Actions run #1（41571174925）成功，生成未签名 artifact `BioForgeStudio-3.2.2-unsigned-ipa`（631,892 bytes）；run #2（41571598315）在限制触发路径后再次成功，artifact 631,893 bytes；仍未签名、未真机验收。
+- GitHub Actions run #1（41571174925）成功，生成未签名 artifact `BioForgeStudio-3.2.2-unsigned-ipa`（631,892 bytes）；run #2（41571598315）在限制触发路径后再次成功（631,893 bytes）；run #3（41572031544）增加 Release 发布并成功，公开 IPA 634,728 bytes，SHA-256 `d7186d551cff597d8f913883103674eb1ce2c71e302e80b19cb0091792e5964d`；仍未签名、未真机验收。
 
 ## 3.2.1 — 2026-10-23
 

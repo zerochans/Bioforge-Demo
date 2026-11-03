@@ -63,7 +63,7 @@ BioForge Studio 3.2.2 在 3.2.1 的基础上，新增 21 个端到端案例/20 �
 | 交付物 | 路径 |
 |---|---|
 | Android APK 3.2.2 | `dist/BioForgeStudio-3.2.2.apk`（357,999 bytes；SHA-256 `d11806eb0bb74f0e9517eb9597add7d75fd4a33435e95f4b6f15ffcd2e3dcb7f`） |
-| iOS 工程 3.2.2 | `ios/BioForgeStudio.xcodeproj`（WKWebView 壳；Xcode 15+/iOS 15+；CI 已生成未签名 artifact） |
+| iOS 工程 3.2.2 | `ios/BioForgeStudio.xcodeproj`（WKWebView 壳；Xcode 15+/iOS 15+；CI 已发布未签名 Release IPA） |
 | Web / PWA 3.2.2 | `web/index.html` |
 | FastAPI 3.2.2（端口 8010） | `backend/app_v3.py` |
 | PostgreSQL 16 + pgvector | `docker-compose.yml` / `scripts/start_postgres.sh` / `backend/db.py` |

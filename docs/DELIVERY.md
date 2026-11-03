@@ -12,7 +12,7 @@ GitHub：<https://github.com/zerochans/Bioforge-Demo>
 | Android APK | `dist/BioForgeStudio-3.2.2.apk` | 357,999 bytes，minSdk 24，targetSdk 34，versionCode 8，versionName 3.2.2，2026-11-02 重建（含 HADDOCK3 UI/可折叠界面） |
 | APK SHA-256 | `d11806eb0bb74f0e9517eb9597add7d75fd4a33435e95f4b6f15ffcd2e3dcb7f` | `sha256sum` 可复核；v2/v3 签名通过 |
 | Web/PWA | `web/index.html` + `web/app.js` + `web/lab.js` | 品牌 `STUDIO 3.2.2`，SW `bioforge-v322-shell-13` |
-| iOS 工程 | `ios/BioForgeStudio.xcodeproj` | WKWebView 壳，iOS 15+ / Xcode 15+；CI 已生成未签名 artifact，无签名 `.ipa` |
+| iOS 工程 | `ios/BioForgeStudio.xcodeproj` | WKWebView 壳，iOS 15+ / Xcode 15+；CI 已发布未签名 Release IPA，无签名 `.ipa` |
 | API 服务 | `backend/app_v3.py` | 监听 `0.0.0.0:8010` |
 | PostgreSQL | `bioforge-db` + `backend/db.py` | PostgreSQL 16.15 + pgvector 0.8.7，数据卷 `bioforge_pgdata` |
 | 资源目录 | `data/resources.json` + `backend/resources.py` | 7 组 45 条，含光谱/波谱证据，合法官方入口，排除 Sci-Hub |

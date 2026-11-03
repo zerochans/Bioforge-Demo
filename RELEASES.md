@@ -27,7 +27,7 @@
 
 | 其他交付物 | 路径/状态 |
 |---|---|
-| iOS 工程 | `ios/BioForgeStudio.xcodeproj`，WKWebView 壳，Xcode 15+/iOS 15+；CI 已生成未签名 artifact |
+| iOS 工程 | `ios/BioForgeStudio.xcodeproj`，WKWebView 壳，Xcode 15+/iOS 15+；CI 已发布未签名 Release IPA |
 
 **验证记录**
 
@@ -41,7 +41,7 @@
 - HADDOCK3 浏览器：表单 30 输入、三种工作流、英文标签/占位符、a.u. 分数/模型簇表/步骤/产物/3D 正常；`best_model.pdb` 加载 2,516 atoms/2 chains；20 个食品案例英文复扫 CJK 0。
 - Headless Chrome CDP：登录、指南/笔记、语言切换、资源库/设置动态文案、移动端 8 个标签在 320–430 px 全部可见、390 px 无横向溢出、0 JS 异常；英文静态页仅保留语言按钮“中”和代码示例“内容”两处有意中文；最终 20 案例复扫可见 CJK 为 0。
 - APK：`357,999` bytes；versionCode 8 / versionName 3.2.2；`apksigner` v2/v3 通过；内置 `assets/www/sw.js` 为 `bioforge-v322-shell-13`，含 HADDOCK3 表单/任务卡、多组合计算、助手/笔记、`i18n-data.js`、图谱/3D/计算动态翻译、可折叠 UI、侧栏里程碑图和科学背景 SVG；原生服务器标题已改为“App 服务器”。
-- iOS：`ios/BioForgeStudio.xcodeproj` 已生成；Info.plist、project.yml、XML/JSON 和 pbxproj 解析通过，Swift 语法检查无错误；GitHub Actions run #1 生成未签名 artifact，未签名、无签名 `.ipa`。
+- iOS：`ios/BioForgeStudio.xcodeproj` 已生成；Info.plist、project.yml、XML/JSON 和 pbxproj 解析通过，Swift 语法检查无错误；GitHub Actions run #3 已发布未签名 Release IPA（634,728 bytes）；仍无签名 `.ipa`。
 - 笔记接口：默认 Obsidian 目录 `/media/h3c/Win11Pro X64/data/literature/obsidian/00-BioForge`，10 篇 Markdown 可读。
 - 轨迹：`C20261023T091435Z-9e283468` 的 `pairs/01_1BEB_quercetin/gromacs_complex/md.xtc` 通过 `/api/v3/structure/trajectory/...` 返回 395,527 bytes PDB；仅接受作业内 `.xtc` 且要求 `md.tpr`，缓存 `viewer/*-v2.pdb`。
 - Docker 镜像 `v300-app:latest` 已重建（约 767 MB）；临时隔离容器 `18010` health 返回 `3.2.2`，HADDOCK3 按钮和 SW shell-13 可见，验证后已停止。宿主 8010 服务已重启到新代码（PID `3630499`）；compose 全栈未启动，公网未部署。

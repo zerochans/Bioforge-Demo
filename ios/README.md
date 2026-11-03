@@ -152,7 +152,7 @@ cd /path/to/bioforge/v3.0.0
 
 ## 已知边界
 
-- 未做真机验收；当前没有可安装的签名 `.ipa`，只有 CI 生成的未签名 artifact。
+- 未做真机验收；当前没有可安装的签名 `.ipa`，只有 CI 发布的未签名 Release IPA。
 - 未做 iOS 真机上的 Service Worker、Cookie、文件选择器、分享/保存面板回归。
 - iOS 端未实现 Android 的返回键行为；使用系统边缘返回手势或 Web 内导航。
 - 离线预览不提供服务器功能；完整离线引擎仍只在 v1.0.0 APK 中。

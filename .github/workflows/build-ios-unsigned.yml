@@ -17,7 +17,7 @@ on:
       - ".github/workflows/build-ios-unsigned.yml"
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   build:
@@ -65,3 +65,14 @@ jobs:
             dist/BioForgeStudio-3.2.2-unsigned.ipa.sha256
           if-no-files-found: error
           retention-days: 14
+
+      - name: Publish IPA to Releases
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          TAG="ios-unsigned-3.2.2"
+          if ! gh release view "$TAG" >/dev/null 2>&1; then
+            gh release create "$TAG"               --title "BioForge Studio 3.2.2 unsigned IPA"               --notes "Unsigned iOS IPA built by GitHub Actions. Install only after signing with Sideloadly/AltStore or an Apple Developer certificate."               --prerelease
+          fi
+          gh release upload "$TAG"             dist/BioForgeStudio-3.2.2-unsigned.ipa             dist/BioForgeStudio-3.2.2-unsigned.ipa.sha256             --clobber

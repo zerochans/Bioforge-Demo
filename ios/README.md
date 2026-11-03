@@ -8,7 +8,7 @@ CI：<https://github.com/zerochans/Bioforge-Demo/actions/workflows/build-ios-uns
 ## 状态
 
 - 已在 Linux 上生成 Xcode 工程、Swift 源码、Info.plist、资源目录和同步脚本。
-- GitHub Actions macOS 构建 workflow 已成功运行第 1 次：`BioForgeStudio-3.2.2-unsigned-ipa`，631,892 bytes；运行记录见上方 CI 链接。
+- GitHub Actions macOS 构建 workflow 已成功运行第 2 次：`BioForgeStudio-3.2.2-unsigned-ipa`，631,893 bytes；[run #2](https://github.com/zerochans/Bioforge-Demo/actions/runs/41571598315)。
 - **GitHub Actions 已生成未签名 IPA artifact；本地尚未下载该 artifact，未做真机或模拟器验收。**
 - Linux 无法完成 iOS 编译和签名；必须使用 macOS、Xcode 和 Apple 签名凭据。
 - 不能把“工程存在”“CI 成功”或“未签名 artifact”表述为“已安装”或“已上架”。
@@ -113,7 +113,7 @@ xcodebuild \
 4. 下载 artifact：`BioForgeStudio-3.2.2-unsigned-ipa`。
 5. 解压后得到 `BioForgeStudio-3.2.2-unsigned.ipa` 和 `.sha256`。
 
-第 1 次运行：[41571174925](https://github.com/zerochans/Bioforge-Demo/actions/runs/41571174925)，macOS job 成功，artifact 生成于 2026-11-03T03:17:31Z，14 天后过期。
+最新运行：[41571598315](https://github.com/zerochans/Bioforge-Demo/actions/runs/41571598315)，macOS job 成功，artifact 生成于 2026-11-03T03:22:28Z，14 天后过期。第 1 次运行 [41571174925](https://github.com/zerochans/Bioforge-Demo/actions/runs/41571174925) 也已成功。
 
 workflow 使用 `macos-15`，执行 `xcodebuild` 的 Release device build，关闭代码签名，然后把 `.app` 打成 `Payload/*.app` 的未签名 IPA。
 

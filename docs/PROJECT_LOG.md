@@ -272,6 +272,6 @@
 - 新增 `docs/GITHUB_CI.md`：记录仓库结构、安全排除、CI 触发、artifact 下载、Sideloadly/AltStore 自签安装和正式证书边界。
 - 校验：`actionlint 1.7.12` 通过；`bash -n ios/ci/build_unsigned_ipa.sh` 通过；workflow YAML 由 PyYAML 读取通过。
 - 推送：`main` 从 `4093e8c` 更新到 `d237f3a`；push 自动触发 GitHub Actions。
-- CI run #1：[41571174925](https://github.com/zerochans/Bioforge-Demo/actions/runs/41571174925)，2026-11-03T03:16:05Z 创建，03:17:45Z 完成，结论 `success`；job `125704150277` 的 7 个步骤全部成功。
-- artifact：`BioForgeStudio-3.2.2-unsigned-ipa`，artifact ID `13201382665`，631,892 bytes，2026-11-17T03:17:28Z 过期；下载需要 GitHub 登录。
+- CI run #1：[41571174925](https://github.com/zerochans/Bioforge-Demo/actions/runs/41571174925)，2026-11-03T03:16:05Z 创建，03:17:45Z 完成，结论 `success`；job `125704150277` 的 7 个步骤全部成功；artifact `13201382665`，631,892 bytes。
+- 限制 workflow 触发路径后推送 `4caa64f`；CI run #2：[41571598315](https://github.com/zerochans/Bioforge-Demo/actions/runs/41571598315)，2026-11-03T03:20:18Z 创建，03:22:32Z 完成，结论 `success`；job `125705503472` 的 7 个步骤全部成功；artifact `13202045851`，631,893 bytes，2026-11-17T03:22:27Z 过期。
 - 仍未签名、未做模拟器/真机验收；未签名 IPA 不能直接安装，必须用 Apple ID/开发者证书重签。

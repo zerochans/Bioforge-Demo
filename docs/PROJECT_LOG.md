@@ -280,7 +280,7 @@
 - 已下载并校验 Release IPA：26 files / 1,480,631 bytes 解压后；Mach-O arm64；Bundle ID `ai.bioforge.studio`；版本 3.2.2 (8)；iOS 15.0+；`www/sw.js` 为 shell-13；`www/index.html` 含 “App 服务器”；无 `embedded.mobileprovision`、无 `_CodeSignature`，确认未签名。
 - 仍未签名、未做模拟器/真机验收；未签名 IPA 不能直接安装，必须用 Apple ID/开发者证书重签。
 
-## 2026-11-03 · BioForge 3.3.0 RAG / 人工监督 / 跨 WiFi
+## 2026-11-03/04 · BioForge 3.3.0 RAG / 人工监督 / 跨 WiFi
 
 - 新增 `backend/knowledge_agent.py`：LangGraph 状态图 `plan → local_retrieve → graph_expand → assess_quality → external_retrieve → generate → verify → revise`，最多 2 轮回查；本地 10,000 篇 OA 优先，证据不足才调用 Europe PMC OA + OpenAlex。
 - 新增 `backend/rag_store.py`：`runtime/rag/rag.sqlite3` 保存运行、审核、反馈和关系权重；回答初始 `pending_review`，支持 approve/reject/rollback/反馈。

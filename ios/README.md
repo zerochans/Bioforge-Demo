@@ -8,7 +8,7 @@ CI：<https://github.com/zerochans/Bioforge-Demo/actions/workflows/build-ios-uns
 ## 状态（3.3.0）
 
 - 工程版本已升到 3.3.0（CURRENT_PROJECT_VERSION 9）；Web 资源已通过 `scripts/sync_ios_web.sh` 同步，SW 为 `bioforge-v330-rag-1`。
-- 3.3.0 新增 RAG 证据/质量/审核 UI；iOS 构建需本次提交后触发 CI，具体 run 与 IPA 校验记录以 CI 完成后为准。
+- 3.3.0 新增 RAG 证据/质量/审核 UI；CI [run 41762199614](https://github.com/zerochans/Bioforge-Demo/actions/runs/41762199614) 成功，Release [ios-unsigned-3.3.0](https://github.com/zerochans/Bioforge-Demo/releases/tag/ios-unsigned-3.3.0) 已发布未签名 IPA：639,818 bytes，SHA-256 `61b17723935dbd30a99b9c26e77fc74759ae051c9529ebbd1edfb644ac198b10`。
 - 上一版 3.2.2 未签名 Release IPA 仍保留：634,728 bytes，SHA-256 `d7186d551cff597d8f913883103674eb1ce2c71e302e80b19cb0091792e5964d`；[run #3](https://github.com/zerochans/Bioforge-Demo/actions/runs/41572031544)。它**未做真机或模拟器验收**。
 - Linux 无法完成 iOS 编译和签名；必须使用 macOS、Xcode 和 Apple 签名凭据。
 - 不能把“工程存在”“CI 成功”或“未签名 artifact”表述为“已安装”或“已上架”。
@@ -113,7 +113,7 @@ xcodebuild \
 4. 3.3.0 构建完成后，下载对应 Release IPA `BioForgeStudio-3.3.0-unsigned.ipa`；上一版仍可从 [ios-unsigned-3.2.2](https://github.com/zerochans/Bioforge-Demo/releases/tag/ios-unsigned-3.2.2) 获取。
 5. Release 附带 `.sha256`；当前文件 SHA-256 为 `d7186d551cff597d8f913883103674eb1ce2c71e302e80b19cb0091792e5964d`。
 
-3.2.2 最新运行：[41572031544](https://github.com/zerochans/Bioforge-Demo/actions/runs/41572031544)，macOS job 成功；Release：[ios-unsigned-3.2.2](https://github.com/zerochans/Bioforge-Demo/releases/tag/ios-unsigned-3.2.2)。3.3.0 运行记录在 CI 完成后追加。
+3.2.2 最新运行：[41572031544](https://github.com/zerochans/Bioforge-Demo/actions/runs/41572031544)，macOS job 成功；Release：[ios-unsigned-3.2.2](https://github.com/zerochans/Bioforge-Demo/releases/tag/ios-unsigned-3.2.2)。3.3.0 运行：[41762199614](https://github.com/zerochans/Bioforge-Demo/actions/runs/41762199614)，macOS job 成功；Release：[ios-unsigned-3.3.0](https://github.com/zerochans/Bioforge-Demo/releases/tag/ios-unsigned-3.3.0)。
 
 workflow 使用 `macos-15`，执行 `xcodebuild` 的 Release device build，关闭代码签名，然后把 `.app` 打成 `Payload/*.app` 的未签名 IPA。
 

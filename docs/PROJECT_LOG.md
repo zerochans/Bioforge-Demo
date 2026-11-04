@@ -290,4 +290,6 @@
 - DeepAgent：主进程 Python 3.10 不能安装 `deepagents==0.7.32`（要求 Python ≥3.11、LangChain ≥1.4）；新增 `rag_worker/deep_review.py` 可选独立 worker，未配置时 API 明确 `available=false`。
 - 版本 3.3.0；APK `dist/BioForgeStudio-3.3.0.apk` 362,095 bytes / SHA-256 `c8b5fcc1bafa8785f02a370ff4b7e85be8ec874a1e60f2c6ef5c199d423d44cc`，versionCode 9，SW `bioforge-v330-rag-1`；Web 已同步 Android/iOS。
 - 测试：`69 passed`；`node --check web/app.js`、`node scripts/check_web.js` 通过；RAG 本地/无证据/外部回退/审核/回滚/API/LangGraph 覆盖。
-- 待完成：iOS 3.3.0 CI/Release 与真机验收、Android 真机验收、DeepAgent worker 安装验收、真实人工审核抽检。
+- 推送 `e834233` 后 iOS CI run [41762199614](https://github.com/zerochans/Bioforge-Demo/actions/runs/41762199614) 成功（job 126352224829，8 步全过）；artifact `13291061904` 637,006 bytes；Release [ios-unsigned-3.3.0](https://github.com/zerochans/Bioforge-Demo/releases/tag/ios-unsigned-3.3.0) 已发布。
+- 已下载并校验 3.3.0 未签名 IPA：639,818 bytes，SHA-256 `61b17723935dbd30a99b9c26e77fc74759ae051c9529ebbd1edfb644ac198b10`；Bundle ID `ai.bioforge.studio`，版本 3.3.0 (9)，iOS 15.0+，SW `bioforge-v330-rag-1`；无 `embedded.mobileprovision`/`_CodeSignature`。
+- 待完成：iOS/Android 真机验收、DeepAgent worker 安装验收、真实人工审核抽检。

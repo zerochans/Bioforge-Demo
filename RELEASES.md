@@ -13,7 +13,7 @@
 - UI：指南页显示质量、证据、许可、图谱、逐句核验、警告、审核队列和回滚/反馈按钮。
 - 文本：`docs/KNOWLEDGE_RAG.md`、`docs/REMOTE_ACCESS.md`、`rag_worker/README.md`。
 - 构建：Android APK `dist/BioForgeStudio-3.3.0.apk`，362,095 bytes，SHA-256 `c8b5fcc1bafa8785f02a370ff4b7e85be8ec874a1e60f2c6ef5c199d423d44cc`，versionCode 9 / versionName 3.3.0，v2/v3 签名通过；SW `bioforge-v330-rag-1`。
-- iOS：工程 3.3.0/build 9、Web 资源已同步；CI 与 Release 待本次提交后生成，完成后补记 run ID、IPA 大小和 SHA-256。上一版 3.2.2 IPA 仍可用。
+- iOS：工程 3.3.0/build 9、Web 已同步；CI [run 41762199614](https://github.com/zerochans/Bioforge-Demo/actions/runs/41762199614) 成功，Release [ios-unsigned-3.3.0](https://github.com/zerochans/Bioforge-Demo/releases/tag/ios-unsigned-3.3.0) 已发布未签名 IPA：639,818 bytes，SHA-256 `61b17723935dbd30a99b9c26e77fc74759ae051c9529ebbd1edfb644ac198b10`。未做真机验收。
 - DeepAgent：主进程 Python 3.10 不启用；`rag_worker/deep_review.py` 需 Python ≥3.11，未配置时 API 明确 `available=false`。
 
 **验证**

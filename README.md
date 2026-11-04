@@ -2,15 +2,14 @@
 
 GitHub 仓库：<https://github.com/zerochans/Bioforge-Demo>  
 iOS CI：[![Build iOS unsigned IPA](https://github.com/zerochans/Bioforge-Demo/actions/workflows/build-ios-unsigned.yml/badge.svg)](https://github.com/zerochans/Bioforge-Demo/actions/workflows/build-ios-unsigned.yml)  
-3.3.0 当前构建：Android APK `dist/BioForgeStudio-3.3.0.apk`（versionCode 9，362,095 bytes，SHA-256 `c8b5fcc1bafa8785f02a370ff4b7e85be8ec874a1e60f2c6ef5c199d423d44cc`）；iOS 3.3.0 CI 构建与 Release 待本次提交后触发。上一版 3.2.2 未签名 IPA 仍可下载（634,728 bytes，SHA-256 `d7186d551cff597d8f913883103674eb1ce2c71e302e80b19cb0091792e5964d`，[下载](https://github.com/zerochans/Bioforge-Demo/releases/download/ios-unsigned-3.2.2/BioForgeStudio-3.2.2-unsigned.ipa) · [run #3](https://github.com/zerochans/Bioforge-Demo/actions/runs/41572031544)）。
+3.3.0 当前构建：Android APK `dist/BioForgeStudio-3.3.0.apk`（versionCode 9，362,095 bytes，SHA-256 `c8b5fcc1bafa8785f02a370ff4b7e85be8ec874a1e60f2c6ef5c199d423d44cc`）；iOS 3.3.0 未签名 IPA 已发布（639,818 bytes，SHA-256 `61b17723935dbd30a99b9c26e77fc74759ae051c9529ebbd1edfb644ac198b10`，[下载](https://github.com/zerochans/Bioforge-Demo/releases/download/ios-unsigned-3.3.0/BioForgeStudio-3.3.0-unsigned.ipa) · [run](https://github.com/zerochans/Bioforge-Demo/actions/runs/41762199614)）。上一版 3.2.2 IPA 仍可下载（634,728 bytes，SHA-256 `d7186d551cff597d8f913883103674eb1ce2c71e302e80b19cb0091792e5964d`）。
 
 把一个产品目标，变成**一组可比较、可追溯、可计算**的食品配方或生物设计方案，并把配方/工艺实验数据接成**训练 → 不确定性 → 贝叶斯优化 → 实测回灌**的本地闭环。
 
 BioForge Studio 3.3.0 在 3.2.2 的基础上，新增 **LangGraph RAG + 知识图谱覆盖层 + 人工审核/回滚/反馈闭环**：先查本地 10,000 篇 OA 与图谱，证据不足才调用 Europe PMC/OpenAlex 公共 OA API，逐句核验后进入审核队列；并提供手机跨 WiFi 访问的 Tailscale/Cloudflare 两种方案。完整逻辑链、标签和限制见 [`docs/KNOWLEDGE_RAG.md`](docs/KNOWLEDGE_RAG.md)。
 
-> 科学边界：配方、指标、稳定性与机制结果仍是 curated prior、模板估算或计算假设；RAG 回答也需人工审核，不能替代系统综述、同行评审、法规批准或湿实验。
 
-> **科学边界**：配方、指标、稳定性与机制结果仍是 curated prior、模板估算或计算假设；模型实验室是表格回归 + 采集函数，不是机理模型、通用大模型、法规批准、食品安全结论或湿实验替代品。演示集是 180 行合成数据，训练时必须显式确认。没有湿实验数据时，A 级证据仍为空。
+> **科学边界**：配方、指标、稳定性与机制结果仍是 curated prior、模板估算或计算假设；RAG 回答需人工审核，不能替代系统综述、同行评审、法规批准或湿实验。模型实验室是表格回归 + 采集函数，不是机理模型、通用大模型、法规批准、食品安全结论或湿实验替代品。演示集是 180 行合成数据，训练时必须显式确认。没有湿实验数据时，A 级证据仍为空。
 
 ## v3.3.0 重点
 
@@ -22,7 +21,7 @@ BioForge Studio 3.3.0 在 3.2.2 的基础上，新增 **LangGraph RAG + 知识�
 - **知识图谱标签**：保留既有设计图的 `workflow/curated/verified/model/online/reference`，RAG 覆盖层新增 `query/local_paper/concept/external_paper` 与 `retrieves/mentions/co_occurs_with/routes_to_external`；共现不当作因果。
 - **DeepAgent 透明化**：主进程 Python 3.10 不能安装要求 Python ≥3.11 的 `deepagents`；活跃编排是 LangGraph，另提供 `rag_worker/deep_review.py` 可选独立复核，未配置时明确 `available=false`。
 - **跨 WiFi 访问**：新增 [`docs/REMOTE_ACCESS.md`](docs/REMOTE_ACCESS.md) 与 `scripts/tailscale_serve.sh`；两种方案为 Tailscale Serve（私网）和 Cloudflare Tunnel + Access（受身份策略保护的 HTTPS）。
-- **同步构建**：Web 资源同步到 Android/iOS；APK 3.3.0（versionCode 9）v2/v3 签名通过，Service Worker `bioforge-v330-rag-1`；iOS 3.3.0 CI 待触发。
+- **同步构建**：Web 资源同步到 Android/iOS；APK 3.3.0（versionCode 9）v2/v3 签名通过，Service Worker `bioforge-v330-rag-1`；iOS 3.3.0 CI 与未签名 IPA Release 已完成，未做真机验收。
 - **测试**：RAG 单元/API 测试覆盖本地命中、无证据、外部回退、审核/反馈/回滚；全量回归见下。
 
 ## v3.2.2 重点
@@ -78,7 +77,7 @@ BioForge Studio 3.3.0 在 3.2.2 的基础上，新增 **LangGraph RAG + 知识�
 | 交付物 | 路径 |
 |---|---|
 | Android APK 3.3.0 | `dist/BioForgeStudio-3.3.0.apk`（362,095 bytes；SHA-256 `c8b5fcc1bafa8785f02a370ff4b7e85be8ec874a1e60f2c6ef5c199d423d44cc`） |
-| iOS 工程 3.3.0 | `ios/BioForgeStudio.xcodeproj`（WKWebView 壳；CI 3.3.0 待触发） |
+| iOS 工程 3.3.0 | `ios/BioForgeStudio.xcodeproj`（WKWebView 壳；CI 未签名 IPA 639,818 bytes，SHA-256 `61b17723935dbd30a99b9c26e77fc74759ae051c9529ebbd1edfb644ac198b10`） |
 | Web / PWA 3.3.0 | `web/index.html` |
 | FastAPI 3.3.0（端口 8010） | `backend/app_v3.py` |
 | RAG 编排 | `backend/knowledge_agent.py` + `backend/rag_store.py` |

@@ -20,7 +20,7 @@
 - 版本升至 3.3.0；Android versionCode 9 / versionName 3.3.0；iOS MARKETING_VERSION 3.3.0 / build 9；Service Worker `bioforge-v330-rag-1`。
 - Android APK 重建为 `dist/BioForgeStudio-3.3.0.apk`：362,095 bytes，SHA-256 `c8b5fcc1bafa8785f02a370ff4b7e85be8ec874a1e60f2c6ef5c199d423d44cc`，v2/v3 签名通过；Web 资源已同步到 `android/app/src/main/assets/www` 和 `ios/www`。
 - `requirements.txt` 增加 `langgraph==0.2.76`、`langchain-core==0.3.76`、`langchain-ollama==0.2.3`；Docker 构建会安装 RAG 依赖。
-- GitHub Actions iOS workflow 改用 `APP_VERSION` 生成 artifact/tag/Release 名称，支持 3.3.0；3.3.0 构建待本次提交触发。
+- GitHub Actions iOS workflow 改用 `APP_VERSION` 生成 artifact/tag/Release 名称；3.3.0 CI [run 41762199614](https://github.com/zerochans/Bioforge-Demo/actions/runs/41762199614) 成功，未签名 IPA 已发布到 [ios-unsigned-3.3.0](https://github.com/zerochans/Bioforge-Demo/releases/tag/ios-unsigned-3.3.0)（639,818 bytes，SHA-256 `61b17723935dbd30a99b9c26e77fc74759ae051c9529ebbd1edfb644ac198b10`）。
 - 旧的 `/api/v3/assistant/*` 保留兼容；指南页前端改用 `/api/v3/rag/ask`。
 
 ### Tests
@@ -36,7 +36,7 @@
 - 本地库只有 12 篇全文，大量记录只有题录/摘要；外部 OA 元数据也需回原文核对许可与实验条件。
 - 规则核验只检查有效 `[E#]` 和词项重叠，不是自然语言推理证明；人工审核仍是必需步骤。
 - `deepagents` 未在主进程启用；可选 worker 未在本次环境安装/验收。
-- iOS 3.3.0 尚未完成 CI/真机验收；Android 未做真机 `adb` 验收。
+- iOS 3.3.0 CI/Release 已完成，但未做真机验收；Android 未做真机 `adb` 验收。
 
 ## 3.2.2 — 2026-10-25
 

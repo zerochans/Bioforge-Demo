@@ -14,7 +14,7 @@
 | 跨 WiFi | `docs/REMOTE_ACCESS.md`；Tailscale Serve / Cloudflare Tunnel + Access |
 | DeepAgent | 主进程未启用（Python 3.10）；可选 `rag_worker/deep_review.py`，需 Python ≥3.11 |
 | 测试 | 69 passed（含 RAG 5 项），2026-11-03 |
-| iOS | 工程 3.3.0/build 9，Web 已同步；CI/Release 待提交后生成，未做真机验收 |
+| iOS | 工程 3.3.0/build 9，Web 已同步；CI [run 41762199614](https://github.com/zerochans/Bioforge-Demo/actions/runs/41762199614) 成功，未签名 IPA 639,818 bytes，SHA-256 `61b17723935dbd30a99b9c26e77fc74759ae051c9529ebbd1edfb644ac198b10`；未做真机验收 |
 
 3.3.0 回答一律进入人工审核队列；审核通过不等于外部同行评审或监管批准。外部 OA 元数据和共现边仍需回原文核对。
 

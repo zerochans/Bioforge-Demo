@@ -57,13 +57,13 @@ def test_v3_health_static_and_auth_gate(client):
     health = client.get("/api/health")
     assert health.status_code == 200
     body = health.json()
-    assert body["version"] == "3.2.2"
-    assert body["lab_version"] == "3.2.2"
+    assert body["version"] == "3.3.0"
+    assert body["lab_version"] == "3.3.0"
     assert body["mode"] == "food+biologic+lab"
     assert client.get("/api/v3/lab/overview").status_code == 401
     shell = client.get("/")
     assert shell.status_code == 200
-    assert "BioForge Studio 3.2" in shell.text
+    assert "BioForge Studio 3.3" in shell.text
     assert "模型实验室" in shell.text
     script = client.get("/lab.js")
     assert script.status_code == 200

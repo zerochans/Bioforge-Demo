@@ -1,4 +1,4 @@
-const CACHE = "bioforge-v322-shell-13";
+const CACHE = "bioforge-v330-rag-1";
 const ASSETS = ["./", "./index.html", "./styles.css", "./i18n-data.js", "./app.js", "./lab.js", "./art/dna-helix.svg", "./art/protein-ribbon.svg", "./art/rna-strand.svg", "./manifest.webmanifest", "./icons/icon-192.png", "./icons/icon-512.png", "./icons/maskable-512.png"];
 self.addEventListener("install", (event) => {
   event.waitUntil(caches.open(CACHE).then((cache) => cache.addAll(ASSETS)).then(() => self.skipWaiting()));

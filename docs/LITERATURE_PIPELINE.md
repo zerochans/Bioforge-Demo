@@ -114,3 +114,11 @@ $PY scripts/literature_pipeline.py stats
 - Europe PMC PDF 端点被 Cloudflare 拦截；当前全文本地转换主要来自 JATS XML。
 - 文献记录是背景证据，不是湿实验数据，也不能自动生成法规结论。
 - MeSH/关键词/化合物是外部元数据，可能缺项、拼写不一致或版本滞后；不要把标签计数当成研究热度或因果证据。
+
+
+## 3.3.0 RAG 覆盖层
+
+- `backend/knowledge_agent.py` 在文献 BM25 之上增加 `query → local_paper → concept` 阅读图，并可按质量门控路由到 Europe PMC OA / OpenAlex。
+- 文献库仍是首选证据源；外部 API 只在本地证据不足时调用，并缓存 24 小时。
+- RAG 记录写入 `runtime/rag/rag.sqlite3`，包含证据、引用、图谱、核验、警告、审核和反馈。
+- 完整逻辑链、标签和限制见 `docs/KNOWLEDGE_RAG.md`；共现边不是因果或机制证明。

@@ -25,7 +25,7 @@ jobs:
     timeout-minutes: 30
     env:
       APP_NAME: BioForgeStudio
-      APP_VERSION: "3.2.2"
+      APP_VERSION: "3.3.0"
 
     steps:
       - name: Checkout
@@ -59,10 +59,10 @@ jobs:
       - name: Upload IPA
         uses: actions/upload-artifact@v4
         with:
-          name: BioForgeStudio-3.2.2-unsigned-ipa
+          name: BioForgeStudio-${{ env.APP_VERSION }}-unsigned-ipa
           path: |
-            dist/BioForgeStudio-3.2.2-unsigned.ipa
-            dist/BioForgeStudio-3.2.2-unsigned.ipa.sha256
+            dist/BioForgeStudio-${{ env.APP_VERSION }}-unsigned.ipa
+            dist/BioForgeStudio-${{ env.APP_VERSION }}-unsigned.ipa.sha256
           if-no-files-found: error
           retention-days: 14
 
@@ -71,8 +71,8 @@ jobs:
           GH_TOKEN: ${{ github.token }}
         run: |
           set -euo pipefail
-          TAG="ios-unsigned-3.2.2"
+          TAG="ios-unsigned-${APP_VERSION}"
           if ! gh release view "$TAG" >/dev/null 2>&1; then
-            gh release create "$TAG"               --title "BioForge Studio 3.2.2 unsigned IPA"               --notes "Unsigned iOS IPA built by GitHub Actions. Install only after signing with Sideloadly/AltStore or an Apple Developer certificate."               --prerelease
+            gh release create "$TAG"               --title "BioForge Studio ${APP_VERSION} unsigned IPA"               --notes "Unsigned iOS IPA built by GitHub Actions. Install only after signing with Sideloadly/AltStore or an Apple Developer certificate."               --prerelease
           fi
-          gh release upload "$TAG"             dist/BioForgeStudio-3.2.2-unsigned.ipa             dist/BioForgeStudio-3.2.2-unsigned.ipa.sha256             --clobber
+          gh release upload "$TAG"             dist/BioForgeStudio-${{ env.APP_VERSION }}-unsigned.ipa             dist/BioForgeStudio-${{ env.APP_VERSION }}-unsigned.ipa.sha256             --clobber

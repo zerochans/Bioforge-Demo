@@ -1,3 +1,3 @@
 """BioForge Studio backend package."""
 
-__version__ = "3.2.2"
+__version__ = "3.3.0"

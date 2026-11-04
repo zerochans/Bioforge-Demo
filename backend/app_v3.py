@@ -20,11 +20,12 @@ from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field, field_validator
 from starlette.middleware.base import BaseHTTPMiddleware
 
-from . import __version__, assistant, auth, compute, data, datasources, db, engine, food, graph, lab, literature, notes, oa, query_text, resources, training, validation
+from . import __version__, assistant, auth, compute, data, datasources, db, engine, food, graph, knowledge_agent, lab, literature, notes, oa, query_text, rag_store, resources, training, validation
 
 LOG_PATH = data.LOGS_DIR / "bioforge.log"
 TOKEN_PATH = data.RUNTIME_DIR / ".token"
 JOB_ID_RE = re.compile(r"^[0-9A-Za-z:_\-]{10,80}$")
+RAG_RUN_ID_RE = re.compile(r"^R[0-9A-Za-z:_\-]{8,90}$")
 ALLOWED_JOB_FILES = {
     "result.json", "manifest.json", "report.html", "report.pdf", "protocol.md",
     "dataset.csv", "README.txt", "animation.gif", "animation.mp4", "package.zip",
@@ -120,6 +121,7 @@ db_limiter = RateLimiter(limit=40, window_seconds=60.0)
 lab_limiter = RateLimiter(limit=40, window_seconds=60.0)
 training_limiter = RateLimiter(limit=8, window_seconds=60.0)
 assistant_limiter = RateLimiter(limit=8, window_seconds=60.0)
+rag_limiter = RateLimiter(limit=8, window_seconds=60.0)
 
 
 class SecurityMiddleware(BaseHTTPMiddleware):
@@ -195,6 +197,47 @@ class AssistantRequest(BaseModel):
         if not value:
             raise ValueError("question must not be empty")
         return value
+
+
+class RAGRequest(BaseModel):
+    question: str = Field(min_length=1, max_length=2000)
+    max_iterations: int = Field(default=2, ge=1, le=3)
+    external: bool | None = None
+    prior_run_id: str | None = Field(default=None, max_length=120)
+
+    @field_validator("question")
+    @classmethod
+    def strip_rag_question(cls, value: str) -> str:
+        value = value.strip()
+        if not value:
+            raise ValueError("question must not be empty")
+        return value
+
+    @field_validator("prior_run_id")
+    @classmethod
+    def clean_prior_run_id(cls, value: str | None) -> str | None:
+        if value and not RAG_RUN_ID_RE.match(value):
+            raise ValueError("invalid prior_run_id")
+        return value
+
+
+class RAGReviewRequest(BaseModel):
+    action: Literal["approve", "reject"]
+    reviewer: str = Field(default="local-human-reviewer", max_length=120)
+    note: str = Field(default="", max_length=4000)
+    corrected_answer: str = Field(default="", max_length=12000)
+
+
+class RAGRollbackRequest(BaseModel):
+    reviewer: str = Field(default="local-human-reviewer", max_length=120)
+    note: str = Field(default="", max_length=4000)
+    extra_query: str = Field(default="", max_length=1000)
+
+
+class RAGFeedbackRequest(BaseModel):
+    reward: float = Field(ge=-1.0, le=1.0)
+    dimension: str = Field(default="overall", max_length=80)
+    note: str = Field(default="", max_length=2000)
 
 
 class EvidenceRequest(BaseModel):
@@ -420,6 +463,120 @@ def assistant_history(limit: int = 200, q: str = "") -> dict[str, Any]:
     }
 
 
+def _rag_record_or_404(run_id: str) -> dict[str, Any]:
+    if not RAG_RUN_ID_RE.match(run_id or ""):
+        raise HTTPException(status_code=422, detail="invalid run_id")
+    record = rag_store.get_run(run_id)
+    if record is None:
+        raise HTTPException(status_code=404, detail="RAG run not found")
+    return record
+
+
+@app.get("/api/v3/rag/status", dependencies=[Depends(require_auth)])
+async def rag_status() -> dict[str, Any]:
+    return await asyncio.to_thread(knowledge_agent.health)
+
+
+@app.post("/api/v3/rag/ask", dependencies=[Depends(require_auth)])
+async def rag_ask(payload: RAGRequest, request: Request) -> dict[str, Any]:
+    client = request.client.host if request.client else "local"
+    if not rag_limiter.allow(f"rag:{client}"):
+        raise HTTPException(status_code=429, detail="RAG rate limit exceeded; try again in a minute")
+    try:
+        return await knowledge_agent.ask(
+            payload.question,
+            max_iterations=payload.max_iterations,
+            prior_run_id=payload.prior_run_id or "",
+            force_external=payload.external,
+        )
+    except ValueError as exc:
+        raise HTTPException(status_code=422, detail=str(exc))
+    except Exception as exc:
+        json_log.write({"ts": _now(), "event": "rag_error", "error": type(exc).__name__, "detail": str(exc)[:300]})
+        raise HTTPException(status_code=503, detail="RAG pipeline failed; check server logs") from exc
+
+
+@app.get("/api/v3/rag/runs/{run_id}", dependencies=[Depends(require_auth)])
+async def rag_run(run_id: str) -> dict[str, Any]:
+    return await asyncio.to_thread(_rag_record_or_404, run_id)
+
+
+@app.get("/api/v3/rag/reviews", dependencies=[Depends(require_auth)])
+async def rag_reviews(status: str = "pending_review", limit: int = 25) -> dict[str, Any]:
+    allowed = {"pending_review", "approved", "rejected", "rolled_back", ""}
+    if status not in allowed:
+        raise HTTPException(status_code=422, detail="invalid review status")
+    items = await asyncio.to_thread(rag_store.list_runs, status or None, max(1, min(100, limit)))
+    return {
+        "items": items,
+        "count": len(items),
+        "stats": await asyncio.to_thread(rag_store.stats),
+    }
+
+
+@app.post("/api/v3/rag/runs/{run_id}/review", dependencies=[Depends(require_auth)])
+async def rag_review(run_id: str, payload: RAGReviewRequest) -> dict[str, Any]:
+    _rag_record_or_404(run_id)
+    try:
+        return await asyncio.to_thread(
+            knowledge_agent.review,
+            run_id,
+            payload.action,
+            payload.reviewer,
+            payload.note,
+            payload.corrected_answer,
+        )
+    except KeyError:
+        raise HTTPException(status_code=404, detail="RAG run not found")
+    except ValueError as exc:
+        raise HTTPException(status_code=422, detail=str(exc))
+
+
+@app.post("/api/v3/rag/runs/{run_id}/rollback", dependencies=[Depends(require_auth)])
+async def rag_rollback(run_id: str, payload: RAGRollbackRequest, request: Request) -> dict[str, Any]:
+    client = request.client.host if request.client else "local"
+    if not rag_limiter.allow(f"rag-rollback:{client}"):
+        raise HTTPException(status_code=429, detail="RAG rate limit exceeded; try again in a minute")
+    _rag_record_or_404(run_id)
+    try:
+        return await knowledge_agent.rollback(run_id, payload.reviewer, payload.note, payload.extra_query)
+    except KeyError:
+        raise HTTPException(status_code=404, detail="RAG run not found")
+
+
+@app.post("/api/v3/rag/runs/{run_id}/feedback", dependencies=[Depends(require_auth)])
+async def rag_feedback(run_id: str, payload: RAGFeedbackRequest) -> dict[str, Any]:
+    _rag_record_or_404(run_id)
+    try:
+        return await asyncio.to_thread(
+            knowledge_agent.add_feedback,
+            run_id,
+            payload.reward,
+            payload.dimension,
+            payload.note,
+        )
+    except KeyError:
+        raise HTTPException(status_code=404, detail="RAG run not found")
+
+
+@app.post("/api/v3/rag/runs/{run_id}/deep-review", dependencies=[Depends(require_auth)])
+async def rag_deep_review(run_id: str, request: Request) -> dict[str, Any]:
+    client = request.client.host if request.client else "local"
+    if not rag_limiter.allow(f"rag-deep:{client}"):
+        raise HTTPException(status_code=429, detail="RAG rate limit exceeded; try again in a minute")
+    _rag_record_or_404(run_id)
+    try:
+        return await knowledge_agent.deepagent_review(run_id)
+    except KeyError:
+        raise HTTPException(status_code=404, detail="RAG run not found")
+
+
+@app.get("/api/v3/rag/weights", dependencies=[Depends(require_auth)])
+async def rag_weights(limit: int = 50) -> dict[str, Any]:
+    items = await asyncio.to_thread(rag_store.weights, limit)
+    return {"items": items, "count": len(items)}
+
+
 @app.get("/api/v3/notes", dependencies=[Depends(require_auth)])
 async def notes_list() -> dict[str, Any]:
     items = await asyncio.to_thread(notes.list_notes)
@@ -597,7 +754,8 @@ async def meta() -> dict[str, Any]:
         },
         "privacy": {
             "telemetry": False,
-            "network": "only when the user explicitly calls an /api/db/* connector",
+            "network": "database connectors on explicit calls; RAG may call Europe PMC/OpenAlex OA APIs when local evidence is insufficient (disable with BIOFORGE_RAG_EXTERNAL=0)",
+            "rag_external": rag._external_enabled(),
             "storage": str(data.RUNTIME_DIR),
             "auth": "bearer token in runtime/.token (chmod 600)",
         },

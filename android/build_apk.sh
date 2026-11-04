@@ -27,8 +27,8 @@ mkdir -p "$BUILD/gen" "$BUILD/classes" "$BUILD/dex" "$DIST"
   --java "$BUILD/gen" \
   --min-sdk-version 24 \
   --target-sdk-version 34 \
-  --version-code 8 \
-  --version-name 3.2.2 \
+  --version-code 9 \
+  --version-name 3.3.0 \
   --auto-add-overlay
 
 find "$APP/src/main/java" "$BUILD/gen" -name '*.java' > "$BUILD/sources.txt"
@@ -52,7 +52,7 @@ if [ ! -f "$KS" ]; then
   chmod 600 "$KS"
 fi
 
-APK="$DIST/BioForgeStudio-3.2.2.apk"
+APK="$DIST/BioForgeStudio-3.3.0.apk"
 "$BT/apksigner" sign \
   --ks "$KS" \
   --ks-pass "pass:$KS_PASS" \

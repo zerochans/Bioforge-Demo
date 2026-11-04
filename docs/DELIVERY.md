@@ -1,4 +1,26 @@
-# v3.2.2 交付说明
+# BioForge Studio 交付说明
+
+## 3.3.0 增量交付（2026-11-03）
+
+| 产物 | 路径/状态 |
+|---|---|
+| Android APK | `dist/BioForgeStudio-3.3.0.apk`，362,095 bytes，versionCode 9 / versionName 3.3.0 |
+| APK SHA-256 | `c8b5fcc1bafa8785f02a370ff4b7e85be8ec874a1e60f2c6ef5c199d423d44cc` |
+| Web/PWA | 3.3.0，SW `bioforge-v330-rag-1`，指南页含 RAG 证据/审核/回滚 UI |
+| API | `backend/app_v3.py`，`/api/v3/rag/*`；保留旧 `/api/v3/assistant/*` |
+| RAG 编排 | `backend/knowledge_agent.py`（LangGraph）+ `backend/rag_store.py` |
+| RAG 记录库 | `runtime/rag/rag.sqlite3`（首次运行创建） |
+| 关键报告 | `docs/KNOWLEDGE_RAG.md`（Mermaid 全逻辑链、标签、评分、API、限制） |
+| 跨 WiFi | `docs/REMOTE_ACCESS.md`；Tailscale Serve / Cloudflare Tunnel + Access |
+| DeepAgent | 主进程未启用（Python 3.10）；可选 `rag_worker/deep_review.py`，需 Python ≥3.11 |
+| 测试 | 69 passed（含 RAG 5 项），2026-11-03 |
+| iOS | 工程 3.3.0/build 9，Web 已同步；CI/Release 待提交后生成，未做真机验收 |
+
+3.3.0 回答一律进入人工审核队列；审核通过不等于外部同行评审或监管批准。外部 OA 元数据和共现边仍需回原文核对。
+
+---
+
+# v3.2.2 交付说明（历史）
 
 日期：2026-11-02  
 版本：BioForge Studio 3.2.2  

@@ -279,3 +279,15 @@
 - 公开 Release：[ios-unsigned-3.2.2](https://github.com/zerochans/Bioforge-Demo/releases/tag/ios-unsigned-3.2.2)；asset `BioForgeStudio-3.2.2-unsigned.ipa` 634,728 bytes，SHA-256 `d7186d551cff597d8f913883103674eb1ce2c71e302e80b19cb0091792e5964d`，无需 GitHub 登录即可下载。
 - 已下载并校验 Release IPA：26 files / 1,480,631 bytes 解压后；Mach-O arm64；Bundle ID `ai.bioforge.studio`；版本 3.2.2 (8)；iOS 15.0+；`www/sw.js` 为 shell-13；`www/index.html` 含 “App 服务器”；无 `embedded.mobileprovision`、无 `_CodeSignature`，确认未签名。
 - 仍未签名、未做模拟器/真机验收；未签名 IPA 不能直接安装，必须用 Apple ID/开发者证书重签。
+
+## 2026-11-03 · BioForge 3.3.0 RAG / 人工监督 / 跨 WiFi
+
+- 新增 `backend/knowledge_agent.py`：LangGraph 状态图 `plan → local_retrieve → graph_expand → assess_quality → external_retrieve → generate → verify → revise`，最多 2 轮回查；本地 10,000 篇 OA 优先，证据不足才调用 Europe PMC OA + OpenAlex。
+- 新增 `backend/rag_store.py`：`runtime/rag/rag.sqlite3` 保存运行、审核、反馈和关系权重；回答初始 `pending_review`，支持 approve/reject/rollback/反馈。
+- 新增 `/api/v3/rag/*` 与指南页 RAG 面板：质量分级、路由链、证据/许可/链接、图谱标签、逐句核验、警告、审核队列、回滚。
+- 新增 RAG 覆盖层标签：`query/local_paper/concept/external_paper` 节点；`retrieves/mentions/co_occurs_with/routes_to_external` 边；共现仅作假设，不替代既有设计图 provenance。
+- 新增 `docs/KNOWLEDGE_RAG.md`（关键报告 + Mermaid）、`docs/REMOTE_ACCESS.md`（Tailscale Serve / Cloudflare Tunnel + Access）、`scripts/tailscale_serve.sh`。
+- DeepAgent：主进程 Python 3.10 不能安装 `deepagents==0.7.32`（要求 Python ≥3.11、LangChain ≥1.4）；新增 `rag_worker/deep_review.py` 可选独立 worker，未配置时 API 明确 `available=false`。
+- 版本 3.3.0；APK `dist/BioForgeStudio-3.3.0.apk` 362,095 bytes / SHA-256 `c8b5fcc1bafa8785f02a370ff4b7e85be8ec874a1e60f2c6ef5c199d423d44cc`，versionCode 9，SW `bioforge-v330-rag-1`；Web 已同步 Android/iOS。
+- 测试：`69 passed`；`node --check web/app.js`、`node scripts/check_web.js` 通过；RAG 本地/无证据/外部回退/审核/回滚/API/LangGraph 覆盖。
+- 待完成：iOS 3.3.0 CI/Release 与真机验收、Android 真机验收、DeepAgent worker 安装验收、真实人工审核抽检。

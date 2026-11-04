@@ -2062,16 +2062,136 @@
     return String(text || "").split(/\n{2,}/).map((part) => `<p>${esc(part).replace(/\n/g, "<br>")}</p>`).join("");
   }
 
+  function ragT(zh, en) {
+    return state.lang === "en" ? en : zh;
+  }
+
+  function ragNodeLabel(node) {
+    const labels = {
+      plan: ["规划", "Plan"],
+      local_retrieve: ["本地检索", "Local search"],
+      graph_expand: ["图谱扩展", "Graph expand"],
+      assess_quality: ["质量门控", "Quality gate"],
+      external_retrieve: ["外部 OA", "External OA"],
+      draft: ["生成", "Draft"],
+      verify: ["核验", "Verify"],
+      revise: ["回查", "Revise"],
+      human_rollback: ["人工回滚", "Human rollback"],
+    };
+    const pair = labels[node] || [node, node];
+    return ragT(pair[0], pair[1]);
+  }
+
+  function ragQuality(q = {}) {
+    const map = {
+      strong: ["较强", "Strong", "ok"],
+      moderate: ["中等", "Moderate", "blue"],
+      weak: ["偏弱", "Weak", "warn"],
+      insufficient: ["不足", "Insufficient", "no"],
+    };
+    const item = map[q.label] || [q.label || "—", q.label || "—", "blue"];
+    return { zh: item[0], en: item[1], cls: item[2] };
+  }
+
+  function ragReviewStatus(status) {
+    const map = {
+      pending_review: ["待人工审核", "Pending human review", "warn"],
+      approved: ["已审核通过", "Approved", "ok"],
+      rejected: ["已驳回", "Rejected", "no"],
+      rolled_back: ["已回滚", "Rolled back", "blue"],
+    };
+    const item = map[status] || [status || "—", status || "—", "blue"];
+    return { zh: item[0], en: item[1], cls: item[2] };
+  }
+
+  function renderRagResult(res) {
+    const answer = $("#assistant-answer");
+    if (!answer || !res) return;
+    const q = ragQuality(res.quality || {});
+    const rs = ragReviewStatus(res.status);
+    const warnings = res.warnings || [];
+    const route = res.route || [];
+    const evidence = res.evidence || [];
+    const graph = res.graph || {};
+    const verification = res.verification || {};
+    const concepts = graph.concepts || [];
+    const edges = graph.edges || [];
+    const seen = new Set();
+    const routeNodes = route.filter((item) => {
+      if (seen.has(item.node)) return false;
+      seen.add(item.node);
+      return true;
+    }).map((item) => `<span class="rag-route-node" title="${esc(item.detail || "")}">${esc(ragNodeLabel(item.node))}</span>`).join('<span class="rag-route-arrow">→</span>');
+    const warningHtml = warnings.length ? `<div class="rag-warning"><b>${ragT("证据警告", "Evidence warnings")}</b><ul>${warnings.map((item) => `<li>${esc(item)}</li>`).join("")}</ul></div>` : "";
+    const evidenceHtml = evidence.length ? `<details class="rag-details" open><summary>${ragT("证据清单", "Evidence")} · ${evidence.length}</summary><div class="rag-evidence-list">${evidence.map((item) => `
+      <details class="rag-evidence-item">
+        <summary><b>[${esc(item.evidence_id || "")}]</b> ${esc(item.title || "")}<span>${esc(item.source || "")}${item.year ? " · " + esc(item.year) : ""}${item.license ? " · " + esc(item.license) : ""}</span></summary>
+        <p>${esc(item.snippet || item.abstract || ragT("仅题录信息。", "Metadata only."))}</p>
+        ${item.url ? `<a href="${esc(item.url)}" target="_blank" rel="noopener noreferrer">${ragT("打开原始入口", "Open source")} ↗</a>` : ""}
+      </details>`).join("")}</div></details>` : "";
+    const conceptHtml = concepts.length ? `<details class="rag-details"><summary>${ragT("图谱概念与标签", "Graph concepts and labels")} · ${concepts.length}</summary><div class="rag-concepts">${concepts.map((item) => `<span class="rag-concept">${esc(item.label || item.id || "")}<small>${esc(item.papers ?? "")}</small></span>`).join("")}</div><p class="fineprint">${esc(graph.notice || "")}</p></details>` : "";
+    const edgesHtml = edges.length ? `<details class="rag-details"><summary>${ragT("关系边", "Relation edges")} · ${edges.length}</summary><div class="rag-edges">${edges.slice(0, 16).map((edge) => `<div><code>${esc(edge.label || edge.predicate || "")}</code><span>${esc(edge.source || "")} → ${esc(edge.target || "")}</span><small>${esc(edge.status || "")}</small></div>`).join("")}</div><p class="fineprint">${ragT("关键词共现关系是待验证假设；流程/模型关系不等于实验证据。", "Keyword co-occurrence is a hypothesis; workflow/model edges are not experimental evidence.")}</p></details>` : "";
+    const claims = (verification.claims || []).slice(0, 6);
+    const verifyHtml = `<details class="rag-details"><summary>${ragT("逐句核验", "Claim verification")} · ${esc(verification.status || "—")} · ${Math.round(Number(verification.support_rate || 0) * 100)}%</summary><div class="rag-claims">${claims.map((claim) => `<div class="rag-claim ${claim.status === "supported" ? "ok" : "warn"}"><span>${claim.status === "supported" ? "✓" : "!"}</span><p>${esc(claim.claim)}</p><small>${esc((claim.citations || []).join(" "))}</small></div>`).join("") || `<p class="muted">${ragT("无逐句核验记录。", "No claim-level checks.")}</p>`}</div><p class="fineprint">${esc(verification.rule || "")}</p></details>`;
+    const actions = `<div class="rag-actions" data-rag-run="${esc(res.id || "")}">
+      <button class="btn ghost small" type="button" data-rag-action="approve">${ragT("审核通过", "Approve")}</button>
+      <button class="btn ghost small" type="button" data-rag-action="reject">${ragT("驳回", "Reject")}</button>
+      <button class="btn ghost small" type="button" data-rag-action="feedback-up">${ragT("有帮助 +1", "Helpful +1")}</button>
+      <button class="btn ghost small" type="button" data-rag-action="feedback-down">${ragT("无帮助 -1", "Not helpful -1")}</button>
+      <button class="btn ghost small" type="button" data-rag-action="rollback">${ragT("回滚并重查", "Rollback & retry")}</button>
+    </div>`;
+    answer.innerHTML = `
+      <div class="rag-summary">
+        <span class="badge ${q.cls}">${ragT("证据", "Evidence")}：${ragT(q.zh, q.en)} · ${Math.round(Number((res.quality || {}).score || 0) * 100)}</span>
+        <span class="badge ${rs.cls}">${ragT(rs.zh, rs.en)}</span>
+        <span class="badge blue">${esc((res.engine || "langgraph"))}</span>
+        <span class="badge">${ragT("证据", "Evidence")} ${evidence.length} · ${ragT("外部", "External")} ${(res.quality || {}).external_count || 0}</span>
+      </div>
+      <div class="rag-route">${routeNodes || `<span class="rag-route-node">${ragT("无路由记录", "No route")}</span>`}</div>
+      <div class="rag-answer-text">${assistantLineBreaks(res.answer || "")}</div>
+      ${warningHtml}
+      ${evidenceHtml}
+      ${conceptHtml}
+      ${edgesHtml}
+      ${verifyHtml}
+      <p class="meta">${ragT("本地库", "Local library")} ${((res.limits || {}).local_library || {}).papers || 0} ${ragT("篇 OA；回答需人工审核，不构成同行评审或监管批准。", "OA papers; human review is required and is not peer review or regulatory approval.")}</p>
+      ${res.deepagent?.status ? `<p class="fineprint">DeepAgent：${esc(res.deepagent.status)} · ${esc(res.deepagent.reason || "")}</p>` : ""}
+      ${actions}
+    `;
+  }
+
+  async function loadRagQueue() {
+    const box = $("#rag-queue-list");
+    const count = $("#rag-queue-count");
+    if (!box) return;
+    try {
+      const res = await api("/api/v3/rag/reviews?status=pending_review&limit=20");
+      const items = res.items || [];
+      if (count) count.textContent = `${items.length} ${ragT("条待审核", "pending")}`;
+      box.innerHTML = items.length ? items.map((item) => {
+        const q = ragQuality(item.quality || {});
+        return `<button class="rag-queue-item" type="button" data-run-id="${esc(item.id || "")}"><b>${esc(item.question || "")}</b><span>${esc(String(item.created_at || "").slice(0, 16).replace("T", " "))} · ${ragT(q.zh, q.en)}</span></button>`;
+      }).join("") : `<p class="muted">${ragT("没有待审核记录。", "No pending reviews.")}</p>`;
+    } catch {
+      if (count) count.textContent = ragT("不可用", "unavailable");
+      box.innerHTML = `<p class="muted">${ragT("审核队列暂不可用。", "Review queue unavailable.")}</p>`;
+    }
+  }
+
   async function loadAssistantStatus() {
     const badge = $("#assistant-status");
     try {
-      const status = await api("/api/v3/assistant/status");
+      const [status, ragStatus] = await Promise.all([
+        api("/api/v3/assistant/status"),
+        api("/api/v3/rag/status"),
+      ]);
       state.assistantStatus = status;
+      state.ragStatus = ragStatus;
       if (badge) {
-        badge.textContent = status.available ? `${status.model} · 本地` : "Ollama 未连接";
-        badge.className = `badge ${status.available ? "ok" : "no"}`;
+        badge.textContent = `${ragStatus.orchestrator || "langgraph"} · ${ragStatus.local_literature?.papers || 0} OA`;
+        badge.className = "badge ok";
       }
-      await loadAssistantHistory();
+      await Promise.all([loadAssistantHistory(), loadRagQueue()]);
     } catch (err) {
       if (badge) { badge.textContent = "状态不可用"; badge.className = "badge no"; }
       if (err.message !== "unauthorized") toast(err.message);
@@ -2103,19 +2223,59 @@
     const answer = $("#assistant-answer");
     const button = $("#assistant-form button[type=submit]");
     const question = input?.value.trim();
-    if (!question) { toast("请输入问题。"); return; }
+    if (!question) { toast(ragT("请输入问题。", "Enter a question.")); return; }
     button.disabled = true;
-    answer.innerHTML = '<p class="muted"><span class="spinner"></span> 本地模型思考中；27B 模型首次加载可能需要几十秒…</p>';
+    button.textContent = ragT("检索与核验中…", "Retrieving & verifying…");
+    answer.innerHTML = `<p class="muted"><span class="spinner"></span> ${ragT("先查本地 10,000 篇 OA + 图谱；证据不足再查外部 OA；随后逐句核验。27B 模型可能较慢…", "Searching local 10,000 OA + graph; falling back to external OA if needed; then verifying claims. The 27B model may be slow…")}</p>`;
     try {
-      const res = await api("/api/v3/assistant/ask", { method: "POST", body: JSON.stringify({ question }) });
-      answer.innerHTML = assistantLineBreaks(res.answer) + `<p class="meta">模型 ${esc(res.model || "")} · 已保存到服务器 · ${esc(String(res.ts || "").slice(0, 19).replace("T", " "))}</p>`;
+      const res = await api("/api/v3/rag/ask", { method: "POST", body: JSON.stringify({ question, max_iterations: 2 }) });
+      renderRagResult(res);
       input.value = "";
-      await loadAssistantHistory();
+      await Promise.all([loadAssistantHistory(), loadRagQueue()]);
     } catch (err) {
       answer.innerHTML = `<p class="note bad">${esc(err.message)}</p>`;
     } finally {
       button.disabled = false;
+      button.textContent = ragT("检索并回答", "Search & answer");
     }
+  }
+
+  async function ragReviewAction(button) {
+    const runId = button.closest("[data-rag-run]")?.dataset.ragRun;
+    const action = button.dataset.ragAction;
+    if (!runId || !action) return;
+    if (action === "rollback") {
+      const note = window.prompt(ragT("回滚原因/补充检索词（可留空）", "Rollback reason / extra search terms (optional)"), "");
+      if (note === null) return;
+      button.disabled = true;
+      try {
+        const res = await api(`/api/v3/rag/runs/${encodeURIComponent(runId)}/rollback`, { method: "POST", body: JSON.stringify({ reviewer: "local-human-reviewer", note, extra_query: note }) });
+        renderRagResult(res.new_run);
+        toast(ragT("已回滚并生成新记录；旧记录保留。", "Rolled back; old record retained."));
+        await loadRagQueue();
+      } catch (err) { toast(err.message); }
+      finally { button.disabled = false; }
+      return;
+    }
+    if (action === "feedback-up" || action === "feedback-down") {
+      button.disabled = true;
+      try {
+        await api(`/api/v3/rag/runs/${encodeURIComponent(runId)}/feedback`, { method: "POST", body: JSON.stringify({ reward: action === "feedback-up" ? 1 : -1, dimension: "user_feedback" }) });
+        toast(ragT("反馈已记录，并更新关系权重。", "Feedback recorded and relation weights updated."));
+      } catch (err) { toast(err.message); }
+      finally { button.disabled = false; }
+      return;
+    }
+    const note = window.prompt(action === "approve" ? ragT("审核备注（可留空）", "Review note (optional)") : ragT("驳回原因（建议填写）", "Rejection reason (recommended)"), "");
+    if (note === null) return;
+    button.disabled = true;
+    try {
+      const res = await api(`/api/v3/rag/runs/${encodeURIComponent(runId)}/review`, { method: "POST", body: JSON.stringify({ action, reviewer: "local-human-reviewer", note }) });
+      renderRagResult(res.record);
+      toast(action === "approve" ? ragT("已审核通过。", "Approved.") : ragT("已驳回。", "Rejected."));
+      await loadRagQueue();
+    } catch (err) { toast(err.message); }
+    finally { button.disabled = false; }
   }
 
   function markdownToHtml(text) {
@@ -2198,6 +2358,7 @@
   function initAssistantAndNotes() {
     $("#assistant-form")?.addEventListener("submit", askAssistant);
     $("#assistant-history-refresh")?.addEventListener("click", loadAssistantHistory);
+    $("#rag-queue-refresh")?.addEventListener("click", loadRagQueue);
     let historyTimer = null;
     $("#assistant-history-search")?.addEventListener("input", () => {
       clearTimeout(historyTimer);
@@ -2209,6 +2370,19 @@
       const answer = $("#assistant-answer");
       const content = item.querySelector(".assistant-history-answer");
       if (answer && content) answer.innerHTML = content.innerHTML + `<p class="meta">历史记录 ${esc(item.dataset.assistantId || "")}</p>`;
+    });
+    $("#assistant-answer")?.addEventListener("click", (event) => {
+      const button = event.target.closest("[data-rag-action]");
+      if (button) ragReviewAction(button);
+    });
+    $("#rag-queue-list")?.addEventListener("click", async (event) => {
+      const button = event.target.closest("[data-run-id]");
+      if (!button) return;
+      try {
+        const record = await api(`/api/v3/rag/runs/${encodeURIComponent(button.dataset.runId)}`);
+        renderRagResult(record);
+        $("#assistant-answer")?.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      } catch (err) { toast(err.message); }
     });
     $("#notes-select")?.addEventListener("change", (event) => readNote(event.target.value));
     $("#notes-refresh")?.addEventListener("click", loadNotes);
@@ -2944,7 +3118,7 @@
     "不会再用 quercetin 代替。若只想做蛋白短 MD，请关闭对接/QM 后另行确认。": "Quercetin will not be substituted silently. For protein-only short MD, disable docking/QM and confirm explicitly.",
     "当前本地映射包括": "Current local mappings:",
     "登录工作台": "Sign in", "用户名": "Username", "密码": "Password", "进入 Studio": "Enter Studio",
-    "修改服务器地址": "Change server address", "连接中": "Connecting", "v3.2.2 · 本地优先": "v3.2.2 · local-first",
+    "修改服务器地址": "Change server address", "连接中": "Connecting", "v3.3.0 · 本地优先": "v3.3.0 · local-first",
     "资源与全文入口": "Resources and full-text access", "打开完整资源库": "Open full resource directory",
     "一组": "set", "生成方案": "Generate plan", "正在组合配方与评估相互作用": "Composing formulations and evaluating interactions",
     "IR · UV-Vis · 荧光 · MS · NMR 参考入口": "IR · UV-Vis · fluorescence · MS · NMR reference entry points",
@@ -2962,6 +3136,44 @@
     "用最新数据重训": "Retrain with latest data", "导出数据集 CSV": "Export dataset CSV", "刷新近期记录": "Refresh recent records",
     "快速开始": "Quick start", "设计结果": "Design results", "3D 与计算": "3D and compute", "文献库": "Literature", "故障排查": "Troubleshooting",
     "回答会引用应用内指南与资源政策；不确定时会明确说明。": "Answers cite the in-app guide and resource policy; uncertainty is stated explicitly.",
+    "问 BioForge（证据检索）": "Ask BioForge (evidence-grounded)",
+    "先查本地 10,000 篇 OA 文献与知识图谱；证据不足时才调用 Europe PMC/OpenAlex 公共 API，并由 LangGraph 做检索—核验循环。所有回答进入人工审核队列，可回滚、修订和反馈；不要输入密码、Token、患者数据或未公开数据。": "Searches the local 10,000-paper OA library and knowledge graph first; only uses Europe PMC/OpenAlex when evidence is insufficient, with a LangGraph retrieve-and-verify loop. Every answer enters human review and can be rolled back, revised or rated. Never enter passwords, tokens, patient data or unpublished data.",
+    "例如：槲皮素与乳清蛋白相互作用的证据强度如何？": "e.g. how strong is the evidence for quercetin–whey protein interactions?",
+    "回答会显示证据、图谱标签、质量分级、核验结果与审核按钮；证据不足时会明确警告。": "Answers show evidence, graph labels, quality grade, verification and review controls; weak evidence is warned explicitly.",
+    "检索并回答": "Search & answer",
+    "人工审核队列": "Human review queue",
+    "检测 RAG…": "Checking RAG…",
+    "检索与核验中…": "Retrieving & verifying…",
+    "本地库": "Local library",
+    "证据": "Evidence",
+    "外部": "External",
+    "证据警告": "Evidence warnings",
+    "证据清单": "Evidence list",
+    "图谱概念与标签": "Graph concepts and labels",
+    "关系边": "Relation edges",
+    "逐句核验": "Claim verification",
+    "审核通过": "Approve",
+    "驳回": "Reject",
+    "有帮助 +1": "Helpful +1",
+    "无帮助 -1": "Not helpful -1",
+    "回滚并重查": "Rollback & retry",
+    "条待审核": "pending",
+    "没有待审核记录。": "No pending reviews.",
+    "审核队列暂不可用。": "Review queue unavailable.",
+    "不可用": "unavailable",
+    "回滚原因/补充检索词（可留空）": "Rollback reason / extra search terms (optional)",
+    "审核备注（可留空）": "Review note (optional)",
+    "驳回原因（建议填写）": "Rejection reason (recommended)",
+    "已审核通过。": "Approved.",
+    "已驳回。": "Rejected.",
+    "已回滚并生成新记录；旧记录保留。": "Rolled back; the old record is retained.",
+    "反馈已记录，并更新关系权重。": "Feedback recorded and relation weights updated.",
+    "无路由记录": "No route",
+    "无逐句核验记录。": "No claim-level checks.",
+    "打开原始入口": "Open source",
+    "仅题录信息。": "Metadata only.",
+    "关键词共现关系是待验证假设；流程/模型关系不等于实验证据。": "Keyword co-occurrence is a hypothesis; workflow/model edges are not experimental evidence.",
+    "先查本地 10,000 篇 OA + 图谱；证据不足再查外部 OA；随后逐句核验。27B 模型可能较慢…": "Searching local 10,000 OA + graph; falling back to external OA if needed; then verifying claims. The 27B model may be slow…",
     "加载笔记列表…": "Loading note list…", "选择一篇笔记查看只读内容。": "Select a note to read it.",
     "账户与系统": "Account and system", "App 服务器": "App server", "当前地址": "Current address", "当前用户": "Current user",
     "当前密码": "Current password", "新密码（≥ 8 位）": "New password (≥ 8 characters)", "更新密码": "Update password",
@@ -3187,7 +3399,7 @@
     "浏览器使用 HttpOnly 会话 Cookie。外部脚本/AutoDL 可使用服务器生成的 API Token：": "The browser uses an HttpOnly session cookie. External scripts/AutoDL can use a server-generated API token:",
     "Token 只用于 API 鉴权，不是数据库密钥，也不会传给第三方；请保持 0600 权限，不要提交到仓库。": "The token is only for API authentication, not a database key, and is never sent to third parties; keep it at mode 0600 and never commit it.",
     "有许可/凭据要求的来源不会伪装成“已接入”；需要机构代理或 API key 的来源会明确标注。": "Sources requiring a licence or credentials are never presented as connected; institutional proxy or API-key requirements are labelled explicitly.",
-    "食品引擎 2.1.0-food · 生物引擎 1.0.0 · 模型实验室 3.2.2 · 文献库 3.2.2": "Food engine 2.1.0-food · Biologic engine 1.0.0 · Model Lab 3.2.2 · Literature 3.2.2",
+    "食品引擎 2.1.0-food · 生物引擎 1.0.0 · 模型实验室 3.3.0 · 文献库 3.3.0": "Food engine 2.1.0-food · Biologic engine 1.0.0 · Model Lab 3.3.0 · Literature 3.3.0",
     "全部硬约束通过": "All hard constraints pass", "约束存在区间风险": "Constraint ranges at risk",
     "存在未达标约束": "Unmet constraints", "证据等级": "Evidence grade",
     "决策指数，不是概率": "Decision index, not a probability", "这张结果怎么读？": "How to read this result",

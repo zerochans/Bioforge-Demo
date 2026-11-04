@@ -2,6 +2,26 @@
 
 > 历史记录中的 8003 是 3.2.0 及更早版本的端口；自 3.2.1 起 BioForge 使用 8010，8003 已释放给 RustDesk。
 
+## v3.3.0 — 2026-11-03
+
+**主题：本地优先 RAG、可审核知识图谱问答、人工回滚与跨 WiFi 访问。**
+
+- RAG：LangGraph 编排本地 BM25 → 图谱扩展 → 质量门控 → Europe PMC/OpenAlex 外部回退 → 答案生成 → 逐句核验 → 回查；证据不足显式警告。
+- 记录：SQLite `runtime/rag/rag.sqlite3` 保存 run/review/feedback/relation weights；所有回答 `pending_review`，支持 approve/reject/rollback/修正答案。
+- 标签：保留既有设计图 provenance；RAG 覆盖层定义 4 类节点、4 类边；关键词共现不当作因果。
+- 接口：`/api/v3/rag/status|ask|runs/{id}|reviews|review|rollback|feedback|weights|deep-review`。
+- UI：指南页显示质量、证据、许可、图谱、逐句核验、警告、审核队列和回滚/反馈按钮。
+- 文本：`docs/KNOWLEDGE_RAG.md`、`docs/REMOTE_ACCESS.md`、`rag_worker/README.md`。
+- 构建：Android APK `dist/BioForgeStudio-3.3.0.apk`，362,095 bytes，SHA-256 `c8b5fcc1bafa8785f02a370ff4b7e85be8ec874a1e60f2c6ef5c199d423d44cc`，versionCode 9 / versionName 3.3.0，v2/v3 签名通过；SW `bioforge-v330-rag-1`。
+- iOS：工程 3.3.0/build 9、Web 资源已同步；CI 与 Release 待本次提交后生成，完成后补记 run ID、IPA 大小和 SHA-256。上一版 3.2.2 IPA 仍可用。
+- DeepAgent：主进程 Python 3.10 不启用；`rag_worker/deep_review.py` 需 Python ≥3.11，未配置时 API 明确 `available=false`。
+
+**验证**
+
+- `pytest -q`：69 passed；`node --check web/app.js`、`node scripts/check_web.js` 通过。
+- RAG 本地命中/无证据/外部回退/审核/反馈/回滚测试通过；本地 API 实测 `orchestrator=langgraph`、`pending_review`。
+- 未做：iOS 3.3.0 真机、Android 真机、DeepAgent worker 安装、真实场景人工审核抽检。
+
 ## v3.2.2 — 2026-10-25
 
 **主题：把案例、资源、计算、3D、图谱、助手和双语界面补成可交付的完整闭环。**

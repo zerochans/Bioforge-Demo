@@ -109,3 +109,19 @@ CSV/JSON → schema + SHA-256 → OOF 训练 → artifact + model card
 - 登录 gate、服务器设置、设计、案例、在线证据、机制计算、3D 结构、Model Lab、设置。
 - 3D 查看器为 canvas 2D 投影，不加载 WebGL/Three.js。
 - Service Worker 缓存 `bioforge-v31-shell-2`。
+
+
+## 3.3.0 RAG 编排
+
+```mermaid
+flowchart LR
+  Q --> P[plan] --> L[local BM25] --> G[graph expand] --> A{quality gate}
+  A -->|sufficient| D[generate] --> V{verify}
+  A -->|insufficient| X[Europe PMC/OpenAlex] --> A
+  V -->|revise| R[revise query] --> L
+  V -->|finalize| H[human review] --> F[feedback weights]
+```
+
+- 入口：`backend/knowledge_agent.py`；记录：`backend/rag_store.py`；接口：`/api/v3/rag/*`。
+- 质量分/阈值、节点边标签、人工审核/回滚、DeepAgent 兼容性详见 `docs/KNOWLEDGE_RAG.md`。
+- 本地库仍是 SQLite FTS5/BM25；外部只使用合法 OA 公共 API；回答必须人工审核。

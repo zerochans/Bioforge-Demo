@@ -1208,6 +1208,51 @@ details.assistant-history-item > summary::before { content: "▸ "; color: var(-
 details.assistant-history-item[open] > summary::before { content: "▾ "; }
 .assistant-history-answer { margin-top: 7px; padding-top: 7px; border-top: 1px dashed var(--line); font-size: 10.5px; line-height: 1.6; color: var(--ink-2); white-space: pre-wrap; }
 .assistant-history-item .fineprint { margin: 4px 0 0; }
+.rag-review-queue { margin-top: 14px; border-top: 1px solid var(--line); padding-top: 12px; }
+.rag-queue-list { display: grid; gap: 6px; max-height: 190px; overflow: auto; margin-top: 8px; }
+.rag-queue-item { display: grid; gap: 3px; width: 100%; text-align: left; border: 1px solid var(--line); border-left: 2px solid var(--amber, #b7791f); border-radius: 9px; background: var(--card-solid); padding: 8px 9px; color: var(--ink); cursor: pointer; }
+.rag-queue-item:hover { border-color: var(--blue); }
+.rag-queue-item b { font-size: 10.5px; font-weight: 600; overflow-wrap: anywhere; }
+.rag-queue-item span { font-size: 9.5px; color: var(--muted); }
+.rag-summary { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 9px; }
+.rag-route { display: flex; flex-wrap: wrap; align-items: center; gap: 5px; margin: 8px 0 10px; }
+.rag-route-node { border: 1px solid var(--line); border-radius: 999px; padding: 3px 7px; font-size: 9.5px; color: var(--ink-2); background: var(--card-solid); }
+.rag-route-arrow { color: var(--muted); font-size: 9px; }
+.rag-answer-text { border-left: 2px solid var(--blue); padding-left: 10px; }
+.rag-warning { margin: 10px 0; padding: 9px 11px; border: 1px solid var(--line); border-radius: 10px; background: var(--bg-2); border-color: color-mix(in srgb, var(--red, #b42318) 35%, var(--line)); }
+.rag-warning b { font-size: 10.5px; }
+.rag-warning ul { margin: 5px 0 0; padding-left: 16px; }
+.rag-warning li { font-size: 10.5px; line-height: 1.5; color: var(--ink-2); }
+.rag-details { margin: 9px 0; border: 1px solid var(--line); border-radius: 10px; padding: 8px 10px; background: var(--card-solid); }
+.rag-details > summary { cursor: pointer; font-size: 10.5px; font-weight: 600; color: var(--ink); }
+.rag-evidence-list { display: grid; gap: 6px; margin-top: 7px; }
+.rag-evidence-item { border-left: 2px solid var(--blue); padding: 5px 8px; background: var(--bg-2); border-radius: 7px; }
+.rag-evidence-item > summary { cursor: pointer; font-size: 10.5px; line-height: 1.45; overflow-wrap: anywhere; }
+.rag-evidence-item > summary span { display: block; color: var(--muted); font-size: 9px; margin-top: 2px; }
+.rag-evidence-item p { margin: 6px 0; font-size: 10.5px; line-height: 1.55; color: var(--ink-2); }
+.rag-evidence-item a { font-size: 10px; color: var(--blue); }
+.rag-concepts { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 7px; }
+.rag-concept { display: inline-flex; align-items: center; gap: 5px; border: 1px solid var(--line); border-radius: 999px; padding: 3px 7px; font-size: 9.5px; background: var(--bg-2); }
+.rag-concept small { color: var(--muted); font-size: 8.5px; }
+.rag-edges { display: grid; gap: 4px; margin-top: 7px; }
+.rag-edges > div { display: grid; grid-template-columns: 82px minmax(0, 1fr) auto; gap: 6px; align-items: baseline; font-size: 9.5px; }
+.rag-edges code { color: var(--blue); font-size: 9px; overflow-wrap: anywhere; }
+.rag-edges span { color: var(--ink-2); overflow-wrap: anywhere; }
+.rag-edges small { color: var(--muted); font-size: 8.5px; }
+.rag-claims { display: grid; gap: 6px; margin-top: 7px; }
+.rag-claim { display: grid; grid-template-columns: 16px minmax(0, 1fr); gap: 5px; padding: 5px 7px; border-radius: 7px; background: var(--bg-2); }
+.rag-claim span { font-weight: 700; }
+.rag-claim.ok span { color: var(--green, #1f7a4d); }
+.rag-claim.warn span { color: var(--red, #b42318); }
+.rag-claim p { margin: 0; font-size: 10px; line-height: 1.45; color: var(--ink-2); }
+.rag-claim small { grid-column: 2; color: var(--muted); font-size: 8.5px; }
+.rag-actions { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 11px; padding-top: 9px; border-top: 1px dashed var(--line); }
+.rag-actions .btn { font-size: 10px; }
+@media (max-width: 720px) {
+  .rag-edges > div { grid-template-columns: 72px minmax(0, 1fr); }
+  .rag-edges small { grid-column: 2; }
+  .rag-review-queue { max-height: none; }
+}
 
 details.lab-model-item { padding: 0; overflow: hidden; }
 details.lab-model-item > summary { display: flex; padding: 13px 14px; cursor: pointer; list-style: none; }

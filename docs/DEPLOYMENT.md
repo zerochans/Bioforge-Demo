@@ -125,3 +125,17 @@ curl -fsS https://你的域名/api/health
 ```
 
 应返回 `status=ok`、`version=3.2.2`、`mode=food+biologic+lab`。若返回 502，检查 `docker compose logs app`；若证书失败，检查域名解析和 80/443。
+
+## 3.3.0 远程访问与 RAG
+
+- 跨 WiFi 两种方案：`docs/REMOTE_ACCESS.md`（Tailscale Serve / Cloudflare Tunnel + Access）。
+- 推荐个人/小团队用 Tailscale Serve；外部合作者用命名 Cloudflare Tunnel + Access，不要直接转发 8010。
+- RAG 依赖已加入 `requirements.txt`；服务启动后检查：
+
+```bash
+curl -fsS http://127.0.0.1:8010/api/v3/rag/status
+```
+
+- RAG 记录默认写 `runtime/rag/rag.sqlite3`，不要把 `runtime/` 打进镜像或提交到 Git。
+- Ollama 必须可从服务进程访问；不可用时 RAG 退回确定性证据模板，不会伪造模型输出。
+- 外部 API 只使用 Europe PMC/OpenAlex 等合法 OA 公共入口；网络受限时会在 warnings 中报告。

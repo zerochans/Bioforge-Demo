@@ -1,5 +1,43 @@
 # Changelog
 
+## 3.3.0 — 2026-11-03
+
+### Added
+
+- 新增 LangGraph RAG 编排（`backend/knowledge_agent.py`）：`plan → 本地 BM25 → 图谱扩展 → 质量门控 → 外部 OA → 生成 → 逐句核验 → 回查`；本地 10,000 篇 OA 优先，证据不足才调用 Europe PMC/OpenAlex，缓存 24 小时。
+- 新增 `backend/rag_store.py`：SQLite `runtime/rag/rag.sqlite3`，保存 `rag_runs`、`rag_reviews`、`rag_feedback`、`rag_relation_weights`；记录问题、路由、证据、图谱、引用、核验、警告、审核、反馈和回滚链。
+- 新增 `/api/v3/rag/status|ask|runs/{id}|reviews|review|rollback|feedback|weights|deep-review`；所有回答初始 `pending_review`，支持 approve/reject/rollback 与修订答案；rollback 保留旧记录并创建新 run。
+- 新增轻量反馈加权：`w ← clamp(w + 0.08*(reward-w), -1, 1)`，仅影响关系排序，明确不是训练神经网络策略。
+- 新增 RAG 覆盖层标签：`query/local_paper/concept/external_paper` 节点，`retrieves/mentions/co_occurs_with/routes_to_external` 边；既有设计图 provenance 不变，关键词共现标为待验证假设。
+- 指南页“问 BioForge”改为 RAG 证据面板：显示质量评分、路由链、证据/许可/链接、图谱概念/边、逐句核验、警告、审核队列、回滚和反馈按钮。
+- 新增 `docs/KNOWLEDGE_RAG.md`（关键报告 + Mermaid 全逻辑链 + 标签/评分/API/失败模式）与 `docs/REMOTE_ACCESS.md`（Tailscale Serve / Cloudflare Tunnel + Access 两种跨 WiFi 方案）。
+- 新增 `scripts/tailscale_serve.sh`；保留 `scripts/public_tunnel.sh` 作为 Cloudflare Quick Tunnel 测试入口，正式环境要求命名隧道 + Access。
+- 新增 `rag_worker/deep_review.py` 可选 DeepAgent 复核 worker；`deepagents` 要求 Python ≥3.11，主进程 Python 3.10 不安装、不冒充已启用，未配置 `BIOFORGE_DEEPAGENT_PYTHON` 时 API 返回 `available=false`。
+- 新增 `tests/test_rag.py`：本地命中、无证据、外部回退、审核/反馈/回滚、RAG API 和 LangGraph 状态。
+
+### Changed
+
+- 版本升至 3.3.0；Android versionCode 9 / versionName 3.3.0；iOS MARKETING_VERSION 3.3.0 / build 9；Service Worker `bioforge-v330-rag-1`。
+- Android APK 重建为 `dist/BioForgeStudio-3.3.0.apk`：362,095 bytes，SHA-256 `c8b5fcc1bafa8785f02a370ff4b7e85be8ec874a1e60f2c6ef5c199d423d44cc`，v2/v3 签名通过；Web 资源已同步到 `android/app/src/main/assets/www` 和 `ios/www`。
+- `requirements.txt` 增加 `langgraph==0.2.76`、`langchain-core==0.3.76`、`langchain-ollama==0.2.3`；Docker 构建会安装 RAG 依赖。
+- GitHub Actions iOS workflow 改用 `APP_VERSION` 生成 artifact/tag/Release 名称，支持 3.3.0；3.3.0 构建待本次提交触发。
+- 旧的 `/api/v3/assistant/*` 保留兼容；指南页前端改用 `/api/v3/rag/ask`。
+
+### Tests
+
+- `molecule_tools/bin/python -m pytest -q`：69 passed（含 RAG 5 项）。
+- `node --check web/app.js`、`node scripts/check_web.js` 通过。
+- APK：`362,095` bytes；versionCode 9 / versionName 3.3.0；`apksigner` v2/v3 通过；`assets/www/sw.js` 为 `bioforge-v330-rag-1`。
+- 本地 RAG 实测（`BIOFORGE_RAG_LLM=off`）：本地命中返回证据/引用/`moderate|strong`；无命中返回 `insufficient` 和显式警告；外部回退查询实际命中 Europe PMC/OpenAlex 并标记外部待审核。
+- RAG API 实测：`/api/v3/rag/status` 返回 `orchestrator=langgraph`；`/api/v3/rag/ask` 返回 `pending_review` 和完整 route。
+
+### Known limitations
+
+- 本地库只有 12 篇全文，大量记录只有题录/摘要；外部 OA 元数据也需回原文核对许可与实验条件。
+- 规则核验只检查有效 `[E#]` 和词项重叠，不是自然语言推理证明；人工审核仍是必需步骤。
+- `deepagents` 未在主进程启用；可选 worker 未在本次环境安装/验收。
+- iOS 3.3.0 尚未完成 CI/真机验收；Android 未做真机 `adb` 验收。
+
 ## 3.2.2 — 2026-10-25
 
 ### Added

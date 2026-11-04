@@ -3,7 +3,7 @@ set -euo pipefail
 
 ROOT="$(cd "$(dirname "$0")/../.." && pwd)"
 APP_NAME="BioForgeStudio"
-APP_VERSION="3.2.2"
+APP_VERSION="3.3.0"
 BUILD_DIR="${IOS_BUILD_DIR:-$ROOT/ios/build}"
 DERIVED="${IOS_DERIVED_DATA:-$BUILD_DIR/DerivedData}"
 APP="$DERIVED/Build/Products/Release-iphoneos/$APP_NAME.app"

@@ -89,3 +89,11 @@ push 到 `main` 且改动涉及 `ios/BioForgeStudio/**`、`ios/BioForgeStudio.xc
 - CI run #3（最新）：[41572031544](https://github.com/zerochans/Bioforge-Demo/actions/runs/41572031544)，head `c751894`，2026-11-03T03:24:39Z 至 03:27:25Z，结论 `success`；artifact `13201921951`，631,894 bytes；新增 Release 发布步骤成功。
 - 公开 Release：[ios-unsigned-3.2.2](https://github.com/zerochans/Bioforge-Demo/releases/tag/ios-unsigned-3.2.2)。IPA 634,728 bytes，SHA-256 `d7186d551cff597d8f913883103674eb1ce2c71e302e80b19cb0091792e5964d`，无需登录即可下载；已校验为 arm64、Bundle ID `ai.bioforge.studio`、3.2.2 (8)、shell-13，无 provisioning/code signature。
 - iOS 当前状态：工程、资源、CI、公开未签名 IPA 已准备；尚未产出签名 `.ipa`，未做模拟器/真机验收。
+
+## 3.3.0 构建变更
+
+- `APP_VERSION` 升至 `3.3.0`；artifact、IPA、Release tag 和标题改用该变量，避免多处硬编码。
+- 3.3.0 的 Web 资源已同步到 `ios/www/`，Service Worker 为 `bioforge-v330-rag-1`。
+- 推送本次提交会触发 CI；完成后需补记新的 run ID、artifact 大小、Release IPA 大小和 SHA-256。
+- 触发路径仍包含 `web/**`、`ios/www/**`、`ios/BioForgeStudio/**`、`ios/BioForgeStudio.xcodeproj/**`、`ios/ci/**`、`ios/project.yml` 和 workflow 本身；纯 docs 修改不会触发。
+- 未签名 IPA 仍需 Sideloadly/AltStore 或 Apple 证书重签；CI 不包含任何 Apple 私钥或证书。

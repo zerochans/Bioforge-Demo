@@ -1,14 +1,29 @@
-# BioForge Studio 3.2.2
+# BioForge Studio 3.3.0
 
 GitHub 仓库：<https://github.com/zerochans/Bioforge-Demo>  
 iOS CI：[![Build iOS unsigned IPA](https://github.com/zerochans/Bioforge-Demo/actions/workflows/build-ios-unsigned.yml/badge.svg)](https://github.com/zerochans/Bioforge-Demo/actions/workflows/build-ios-unsigned.yml)  
-CI run #3：成功，未签名 IPA 已发布到 Releases（634,728 bytes，SHA-256 `d7186d551cff597d8f913883103674eb1ce2c71e302e80b19cb0091792e5964d`，[下载](https://github.com/zerochans/Bioforge-Demo/releases/download/ios-unsigned-3.2.2/BioForgeStudio-3.2.2-unsigned.ipa) · [run #3](https://github.com/zerochans/Bioforge-Demo/actions/runs/41572031544)）
+3.3.0 当前构建：Android APK `dist/BioForgeStudio-3.3.0.apk`（versionCode 9，362,095 bytes，SHA-256 `c8b5fcc1bafa8785f02a370ff4b7e85be8ec874a1e60f2c6ef5c199d423d44cc`）；iOS 3.3.0 CI 构建与 Release 待本次提交后触发。上一版 3.2.2 未签名 IPA 仍可下载（634,728 bytes，SHA-256 `d7186d551cff597d8f913883103674eb1ce2c71e302e80b19cb0091792e5964d`，[下载](https://github.com/zerochans/Bioforge-Demo/releases/download/ios-unsigned-3.2.2/BioForgeStudio-3.2.2-unsigned.ipa) · [run #3](https://github.com/zerochans/Bioforge-Demo/actions/runs/41572031544)）。
 
 把一个产品目标，变成**一组可比较、可追溯、可计算**的食品配方或生物设计方案，并把配方/工艺实验数据接成**训练 → 不确定性 → 贝叶斯优化 → 实测回灌**的本地闭环。
 
-BioForge Studio 3.2.2 在 3.2.1 的基础上，新增 21 个端到端案例/20 个食品体系/45 条合法资源、多受体×多配体 Vina 对接与复合物 PDB、HADDOCK3 蛋白-蛋白/蛋白-配体/蛋白-多糖独立任务、Ollama 本地问答、Obsidian 只读笔记、7 种 3D 着色与全组分序列、图谱 provenance、中英界面和 12 套主题纹理。
+BioForge Studio 3.3.0 在 3.2.2 的基础上，新增 **LangGraph RAG + 知识图谱覆盖层 + 人工审核/回滚/反馈闭环**：先查本地 10,000 篇 OA 与图谱，证据不足才调用 Europe PMC/OpenAlex 公共 OA API，逐句核验后进入审核队列；并提供手机跨 WiFi 访问的 Tailscale/Cloudflare 两种方案。完整逻辑链、标签和限制见 [`docs/KNOWLEDGE_RAG.md`](docs/KNOWLEDGE_RAG.md)。
+
+> 科学边界：配方、指标、稳定性与机制结果仍是 curated prior、模板估算或计算假设；RAG 回答也需人工审核，不能替代系统综述、同行评审、法规批准或湿实验。
 
 > **科学边界**：配方、指标、稳定性与机制结果仍是 curated prior、模板估算或计算假设；模型实验室是表格回归 + 采集函数，不是机理模型、通用大模型、法规批准、食品安全结论或湿实验替代品。演示集是 180 行合成数据，训练时必须显式确认。没有湿实验数据时，A 级证据仍为空。
+
+## v3.3.0 重点
+
+- **RAG 路由**：`plan → 本地 BM25 → 图谱扩展 → 质量门控 → 外部 OA → 生成 → 逐句核验 → 回查`，由 LangGraph 状态图执行；证据不足时明确显示 `weak/insufficient` 警告。
+- **本地优先**：10,000 篇 OA、25,062 chunks、48,544 实体、76,954 边；只有 12 篇有本地全文，回答会提示“多数仅有题录/摘要”。
+- **外部回退**：Europe PMC OA + OpenAlex，24 小时缓存；外部材料标记 `external_needs_review`，不自动升级为已验证。
+- **人工监督**：所有回答 `pending_review`；支持 approve/reject/rollback（保留旧记录并生成新 run）、审核备注、修订答案和反馈权重。
+- **可审计记录**：SQLite `runtime/rag/rag.sqlite3` 保存 `rag_runs`、`rag_reviews`、`rag_feedback`、`rag_relation_weights`；接口见 `/api/v3/rag/*`。
+- **知识图谱标签**：保留既有设计图的 `workflow/curated/verified/model/online/reference`，RAG 覆盖层新增 `query/local_paper/concept/external_paper` 与 `retrieves/mentions/co_occurs_with/routes_to_external`；共现不当作因果。
+- **DeepAgent 透明化**：主进程 Python 3.10 不能安装要求 Python ≥3.11 的 `deepagents`；活跃编排是 LangGraph，另提供 `rag_worker/deep_review.py` 可选独立复核，未配置时明确 `available=false`。
+- **跨 WiFi 访问**：新增 [`docs/REMOTE_ACCESS.md`](docs/REMOTE_ACCESS.md) 与 `scripts/tailscale_serve.sh`；两种方案为 Tailscale Serve（私网）和 Cloudflare Tunnel + Access（受身份策略保护的 HTTPS）。
+- **同步构建**：Web 资源同步到 Android/iOS；APK 3.3.0（versionCode 9）v2/v3 签名通过，Service Worker `bioforge-v330-rag-1`；iOS 3.3.0 CI 待触发。
+- **测试**：RAG 单元/API 测试覆盖本地命中、无证据、外部回退、审核/反馈/回滚；全量回归见下。
 
 ## v3.2.2 重点
 
@@ -62,10 +77,13 @@ BioForge Studio 3.2.2 在 3.2.1 的基础上，新增 21 个端到端案例/20 �
 
 | 交付物 | 路径 |
 |---|---|
-| Android APK 3.2.2 | `dist/BioForgeStudio-3.2.2.apk`（357,999 bytes；SHA-256 `d11806eb0bb74f0e9517eb9597add7d75fd4a33435e95f4b6f15ffcd2e3dcb7f`） |
-| iOS 工程 3.2.2 | `ios/BioForgeStudio.xcodeproj`（WKWebView 壳；Xcode 15+/iOS 15+；CI 已发布未签名 Release IPA） |
-| Web / PWA 3.2.2 | `web/index.html` |
-| FastAPI 3.2.2（端口 8010） | `backend/app_v3.py` |
+| Android APK 3.3.0 | `dist/BioForgeStudio-3.3.0.apk`（362,095 bytes；SHA-256 `c8b5fcc1bafa8785f02a370ff4b7e85be8ec874a1e60f2c6ef5c199d423d44cc`） |
+| iOS 工程 3.3.0 | `ios/BioForgeStudio.xcodeproj`（WKWebView 壳；CI 3.3.0 待触发） |
+| Web / PWA 3.3.0 | `web/index.html` |
+| FastAPI 3.3.0（端口 8010） | `backend/app_v3.py` |
+| RAG 编排 | `backend/knowledge_agent.py` + `backend/rag_store.py` |
+| RAG 报告 | `docs/KNOWLEDGE_RAG.md` |
+| 跨 WiFi 访问 | `docs/REMOTE_ACCESS.md` + `scripts/tailscale_serve.sh` + `scripts/public_tunnel.sh` |
 | PostgreSQL 16 + pgvector | `docker-compose.yml` / `scripts/start_postgres.sh` / `backend/db.py` |
 | 资源库与 DOI/PMID 解析 | `data/resources.json` / `backend/resources.py` / `backend/oa.py` |
 | Model Lab 引擎 | `backend/lab.py` |
@@ -77,9 +95,9 @@ BioForge Studio 3.2.2 在 3.2.1 的基础上，新增 21 个端到端案例/20 �
 | 在线数据库规划/联邦 | `backend/datasources.py` |
 | 证据图谱（交互式） | `backend/graph.py` + `web/app.js` |
 | 本地机制计算 | `backend/compute.py` |
-| 文献/RAG/知识图谱 | `scripts/literature_pipeline.py` + `backend/literature.py` |
+| 文献/RAG/知识图谱 | `scripts/literature_pipeline.py` + `backend/literature.py` + `backend/knowledge_agent.py` + `backend/rag_store.py` |
 | 登录与会话 | `backend/auth.py` |
-| 测试 | `tests/`（64 passed，2026-11-02 回归） |
+| 测试 | `tests/`（69 passed，2026-11-03 回归） |
 | 远程部署 | `Dockerfile`、`docker-compose.yml`、`deploy/`、`docs/DEPLOYMENT.md` |
 | 文档 | `docs/`、`RELEASES.md`、`CHANGELOG.md` |
 
@@ -137,7 +155,7 @@ Token 只用于 API 鉴权，不是数据库密钥，也不会发送给第三方
 ### APK
 
 ```bash
-adb install -r dist/BioForgeStudio-3.2.2.apk
+adb install -r dist/BioForgeStudio-3.3.0.apk
 ```
 
 APK 是 WebView 客户端。首次启动必须填写服务器地址，例如 `http://10.194.51.41:8010/`，点“测试并保存”会请求 `/api/health` 验证；之后可从登录页或设置页重新打开服务器配置。

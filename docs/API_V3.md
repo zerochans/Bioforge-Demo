@@ -496,3 +496,38 @@ GET /api/v3/library/resolve?q=10.3390/polym17131871
 ### GET `/api/v3/assistant/history?limit=20`
 
 返回 `{items, count}`；`count` 优先使用历史文件计数，不受 `limit` 截断影响；`query` 可过滤问题/回答。`limit` 默认 20、最大 200。
+
+## 3.3.0 RAG / 审核接口
+
+所有接口要求登录（`require_auth`），并受 `rag_limiter` 限制（8 次/60 秒）。
+
+### `POST /api/v3/rag/ask`
+
+```json
+{"question":"槲皮素与乳清蛋白相互作用的证据强度如何？","max_iterations":2,"external":null}
+```
+
+返回完整 run：`id/status/quality/route/evidence/citations/graph/verification/warnings/human_review`。`status` 初始为 `pending_review`。
+
+### 运行与审核
+
+| 方法 | 路径 | 说明 |
+|---|---|---|
+| GET | `/api/v3/rag/status` | LangGraph、本地库、RAG 存储状态 |
+| GET | `/api/v3/rag/runs/{id}` | 完整记录 |
+| GET | `/api/v3/rag/reviews?status=pending_review&limit=25` | 审核队列 |
+| POST | `/api/v3/rag/runs/{id}/review` | `{"action":"approve|reject","reviewer":"...","note":"...","corrected_answer":"..."}` |
+| POST | `/api/v3/rag/runs/{id}/rollback` | `{"reviewer":"...","note":"...","extra_query":"..."}`；旧记录 `rolled_back`，返回 `new_run` |
+| POST | `/api/v3/rag/runs/{id}/feedback` | `{"reward":-1..1,"dimension":"overall","note":"..."}` |
+| GET | `/api/v3/rag/weights` | 关系权重 |
+| POST | `/api/v3/rag/runs/{id}/deep-review` | 可选 DeepAgent；未配置 `BIOFORGE_DEEPAGENT_PYTHON` 返回 `available=false` |
+
+### 错误
+
+- `401`：未登录；
+- `404`：run 不存在；
+- `422`：问题/审核动作/run ID 非法；
+- `429`：限流；
+- `503`：RAG 管线异常。
+
+完整逻辑、标签和限制见 `docs/KNOWLEDGE_RAG.md`。

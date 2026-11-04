@@ -31,7 +31,7 @@ SYSTEM_PROMPT = """你是 BioForge Studio 的本地使用助手。只回答与 B
 5. 用户用中文提问就用中文回答，用英文提问就用英文回答；先给直接答案，再给 2-5 个可操作步骤或边界说明。
 6. 不要输出你的内部推理过程，只给最终回答。"""
 
-APP_CONTEXT = """当前软件事实（2026-10-23，BioForge Studio 3.2.2 开发版）：
+APP_CONTEXT = """当前软件事实（2026-11-03，BioForge Studio 3.3.0 开发版）：
 - 页面顺序：设计、案例、在线证据、机制计算、模型实验室、资源库、使用指南、设置。
 - 资源库约 45 条合法入口，新增光谱与波谱证据组：NIST WebBook、SDBS、MassBank、HMDB、MetaboLights、GNPS、NMReDATA、PDB CCD；只提供入口，不抓取受限谱库。
 - 案例库覆盖 20 个食品体系 + 1 个乳清蛋白-槲皮素机制案例；UI 数字应从 API 动态读取，不写死。
@@ -41,6 +41,7 @@ APP_CONTEXT = """当前软件事实（2026-10-23，BioForge Studio 3.2.2 开发�
 - 设计结果附 curated 光谱参考峰（IR/UV-Vis/荧光/MS/NMR），明确标注参考谱不是同条件实测；资源库含合法公开谱库入口，不抓取受限谱库。
 - 模型实验室是表格模型与交叉验证，不是通用大模型；合成/模拟数据不能替代湿实验。实测回灌会写入证据图谱（lab_feedback → model/dataset → retrained model）。
 - 文献库是 Europe PMC OA 元数据和本地 BM25 索引；Obsidian 笔记可在指南页只读浏览，无法原样嵌入 Obsidian 桌面 UI。
+- 3.3.0 新增 LangGraph RAG：本地 BM25/图谱优先，证据不足时调用 Europe PMC/OpenAlex OA API，随后逐句核验；所有回答进入人工审核队列，可回滚。DeepAgent 需要 Python ≥3.11，当前主进程未启用，不能声称已运行 DeepAgent。
 - 默认演示账号是 admin，密码在 runtime/login.txt；生产前必须修改。服务端口 8010，8003 属于 RustDesk，不要占用。"""
 
 

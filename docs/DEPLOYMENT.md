@@ -137,5 +137,6 @@ curl -fsS http://127.0.0.1:8010/api/v3/rag/status
 ```
 
 - RAG 记录默认写 `runtime/rag/rag.sqlite3`，不要把 `runtime/` 打进镜像或提交到 Git。
+- 3.3.0 镜像 `v300-app:latest` 为 `9d4514b067d7`（855 MB）；容器默认没有 `/media/h3c/.../bioforge_literature.db`，需要把宿主机文献库以只读卷挂载，并设置 `BIOFORGE_LITERATURE_DB` 指向容器内路径。
 - Ollama 必须可从服务进程访问；不可用时 RAG 退回确定性证据模板，不会伪造模型输出。
 - 外部 API 只使用 Europe PMC/OpenAlex 等合法 OA 公共入口；网络受限时会在 warnings 中报告。

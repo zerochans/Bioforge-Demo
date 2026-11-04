@@ -22,6 +22,7 @@ BioForge Studio 3.3.0 在 3.2.2 的基础上，新增 **LangGraph RAG + 知识�
 - **DeepAgent 透明化**：主进程 Python 3.10 不能安装要求 Python ≥3.11 的 `deepagents`；活跃编排是 LangGraph，另提供 `rag_worker/deep_review.py` 可选独立复核，未配置时明确 `available=false`。
 - **跨 WiFi 访问**：新增 [`docs/REMOTE_ACCESS.md`](docs/REMOTE_ACCESS.md) 与 `scripts/tailscale_serve.sh`；两种方案为 Tailscale Serve（私网）和 Cloudflare Tunnel + Access（受身份策略保护的 HTTPS）。
 - **同步构建**：Web 资源同步到 Android/iOS；APK 3.3.0（versionCode 9）v2/v3 签名通过，Service Worker `bioforge-v330-rag-1`；iOS 3.3.0 CI 与未签名 IPA Release 已完成，未做真机验收。
+- **Docker**：`v300-app:latest` 重建为 `9d4514b067d7`（855 MB），隔离 18010 验证 health 3.3.0、`/api/v3/rag/status` 和 LangGraph 静态页；容器默认无宿主文献库，需按 `BIOFORGE_LITERATURE_DB` 挂载。
 - **测试**：RAG 单元/API 测试覆盖本地命中、无证据、外部回退、审核/反馈/回滚；全量回归见下。
 
 ## v3.2.2 重点
@@ -97,6 +98,7 @@ BioForge Studio 3.3.0 在 3.2.2 的基础上，新增 **LangGraph RAG + 知识�
 | 文献/RAG/知识图谱 | `scripts/literature_pipeline.py` + `backend/literature.py` + `backend/knowledge_agent.py` + `backend/rag_store.py` |
 | 登录与会话 | `backend/auth.py` |
 | 测试 | `tests/`（69 passed，2026-11-03 回归） |
+| Docker 镜像 | `v300-app:latest`（`9d4514b067d7`，855 MB，含 LangGraph RAG 依赖；本地文献库需挂载） |
 | 远程部署 | `Dockerfile`、`docker-compose.yml`、`deploy/`、`docs/DEPLOYMENT.md` |
 | 文档 | `docs/`、`RELEASES.md`、`CHANGELOG.md` |
 

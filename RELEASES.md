@@ -15,6 +15,7 @@
 - 构建：Android APK `dist/BioForgeStudio-3.3.0.apk`，362,095 bytes，SHA-256 `c8b5fcc1bafa8785f02a370ff4b7e85be8ec874a1e60f2c6ef5c199d423d44cc`，versionCode 9 / versionName 3.3.0，v2/v3 签名通过；SW `bioforge-v330-rag-1`。
 - iOS：工程 3.3.0/build 9、Web 已同步；CI [run 41762199614](https://github.com/zerochans/Bioforge-Demo/actions/runs/41762199614) 成功，Release [ios-unsigned-3.3.0](https://github.com/zerochans/Bioforge-Demo/releases/tag/ios-unsigned-3.3.0) 已发布未签名 IPA：639,818 bytes，SHA-256 `61b17723935dbd30a99b9c26e77fc74759ae051c9529ebbd1edfb644ac198b10`。未做真机验收。
 - DeepAgent：主进程 Python 3.10 不启用；`rag_worker/deep_review.py` 需 Python ≥3.11，未配置时 API 明确 `available=false`。
+- Docker：`v300-app:latest` 重建为 `9d4514b067d7`（855 MB），独立 18010 容器 health 3.3.0、RAG 状态 LangGraph 已加载后停止；容器需挂载宿主文献库才能使用本地 10k 语料。
 
 **验证**
 

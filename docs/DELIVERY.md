@@ -13,6 +13,7 @@
 | 关键报告 | `docs/KNOWLEDGE_RAG.md`（Mermaid 全逻辑链、标签、评分、API、限制） |
 | 跨 WiFi | `docs/REMOTE_ACCESS.md`；Tailscale Serve / Cloudflare Tunnel + Access |
 | DeepAgent | 主进程未启用（Python 3.10）；可选 `rag_worker/deep_review.py`，需 Python ≥3.11 |
+| Docker | `v300-app:latest`（`9d4514b067d7`，855 MB）；隔离 18010 health 3.3.0 / RAG status 通过；容器需挂载宿主文献库 |
 | 测试 | 69 passed（含 RAG 5 项），2026-11-03 |
 | iOS | 工程 3.3.0/build 9，Web 已同步；CI [run 41762199614](https://github.com/zerochans/Bioforge-Demo/actions/runs/41762199614) 成功，未签名 IPA 639,818 bytes，SHA-256 `61b17723935dbd30a99b9c26e77fc74759ae051c9529ebbd1edfb644ac198b10`；未做真机验收 |
 

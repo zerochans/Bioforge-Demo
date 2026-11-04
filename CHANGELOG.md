@@ -22,6 +22,7 @@
 - `requirements.txt` 增加 `langgraph==0.2.76`、`langchain-core==0.3.76`、`langchain-ollama==0.2.3`；Docker 构建会安装 RAG 依赖。
 - GitHub Actions iOS workflow 改用 `APP_VERSION` 生成 artifact/tag/Release 名称；3.3.0 CI [run 41762199614](https://github.com/zerochans/Bioforge-Demo/actions/runs/41762199614) 成功，未签名 IPA 已发布到 [ios-unsigned-3.3.0](https://github.com/zerochans/Bioforge-Demo/releases/tag/ios-unsigned-3.3.0)（639,818 bytes，SHA-256 `61b17723935dbd30a99b9c26e77fc74759ae051c9529ebbd1edfb644ac198b10`）。
 - 旧的 `/api/v3/assistant/*` 保留兼容；指南页前端改用 `/api/v3/rag/ask`。
+- Docker `v300-app:latest` 重建为 `9d4514b067d7`（855 MB），包含 LangGraph/LangChain RAG 依赖；隔离 18010 smoke 验证 health 3.3.0 后停止。
 
 ### Tests
 
